@@ -1,0 +1,129 @@
+\documentclass[12pt]{exam}
+
+% opening
+\pagestyle{headandfoot}
+\runningheadrule
+\runningheader{Lucas Kerbs}
+{Trace Duality, Page \thepage\ of \numpages}
+{\today}
+\runningfooter{}{}{}
+
+% load packages
+\usepackage{amsmath,amsfonts,amssymb,amsthm, mathtools, mathrsfs, faktor, bbm}
+% \usepackage{pgfplots}
+\usepackage{wrapfig}
+\usepackage{array}
+% \usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{enumerate}
+\usepackage[margin=1.0in]{geometry}
+\newtheorem{theorem}{Theorem}
+
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\newcommand{\incfig}[1]{%
+  \def\svgwidth{0.5\columnwidth}
+  \import{./images/}{#1.pdf_tex}
+}
+
+% General shortcuts
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\Id}{\mathbbm{1}}
+\newcommand{\wms}{\textsc{wms} }
+\newcommand{\wma}{\textsc{wma} }
+\newcommand{\wwlog}{\textsc{wlog} }
+\newcommand{\sol}{\paragraph{Solution:}}
+\newcommand{\ssol}{\subparagraph{Solution:}}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\begin{document}
+
+\begin{center}
+  {\Large Trace Duality}
+\end{center}
+
+\emph{Claim:} If $f \in C ^{1} (I)$, and $X,H$ are self adjoint matrices, then
+there is a unique quantity $g(X)$ such that
+\[
+  \text{tr} Df(X)[H] = \text{tr} Hg(X).
+\]
+
+\bigskip
+
+We start with a construction from Bhatia's Matrix Analysis: Let
+$f \in C ^{1} (I)$ and define $f ^{[1]} $ on $I \times I$ by
+\[
+  f (\lambda,\mu) =
+  \begin{cases}
+    \frac{f(\lambda) - f(\mu)}{\lambda-\mu} & \lambda \neq \mu \\
+    f'(\lambda) & \lambda = \mu.
+  \end{cases}
+\]
+We call $f ^{[1]} (\lambda,\mu)$ the \emph{first divided difference} of $f$ at
+$(\lambda,\mu)$. If $\Lambda$ is a diagonal matrix with entries
+$\{ \lambda_{i}\} $, We may extend $f$ to accept $\Lambda$ by
+defining the $(i,j)$-entry of $f ^{[1]} (\Lambda)$ to be
+$f ^{[1]} (\lambda_i,\lambda_j)$. If $A$ is a self adjoint matrix with
+$A = U \Lambda U ^{*} $, then we define
+$f ^{[1]} (A) = U f ^{[1]} (\Lambda) U ^{*} $. Now we borrow a theorem from Bhatia:
+\begin{theorem}[Bhatia V.3.3]
+  Let $f \in C ^{1} (I)$ and let $A$ be a self adjoint matrix with all
+  eigenvalues in $I$. Then \[
+    Df(A)[H] = f ^{[1]} (A) \circ H,
+  \]
+  where $\circ$ denotes the Schur-product in a basis where $A$ is diagonal.
+\end{theorem}
+
+That is, if $A = U   \Lambda U ^{*} $, then
+\[
+  Df(A)[H] = U \left( f ^{[1]} (\Lambda) \circ (U ^{* } H U) \right)U ^{*}.
+\]
+%
+To prove our claim, we need to take the trace of both sides. Since trace is
+invariant under a change of basis, it is clear that
+\[
+  \text{tr}Df(A)[H] = \text{tr} \left( f ^{[1]} (\Lambda) \circ (U ^{* } H U) \right).
+\]
+If $U = u_{ij}$, $U ^{*} = \overline{u}_{ij}$ and $H = h_{ij}$, then the
+$(i,j)$-entry of $U ^{*}$ is
+\[
+  {(U ^{* } H U)}_{ij} = \overline{u}_{ik}h_{k\ell}u_{\ell j}
+\]
+Where we sum over the duplicate indices $k$ and $\ell$. While the structure of
+$f ^{[1]} (\Lambda)$ is a bit unruly, our diagonal entries are $f'(\lambda)$.
+This means that when we take the trace of the Schur product, we have
+\[
+  \sum_i f(\lambda_i)\overline{u}_{ik}h_{k\ell}u_{\ell i}
+\]
+Now consider the matrix product
+$U\, \text{diag} \{f'(\lambda_1), \dots ,f'(\lambda_n)\} \,U ^{*} H $. Since one of our terms
+is diagonal, the trace of this multiplication is simple:
+\[
+  \text{tr}\; U \,\text{diag} \{f'(\lambda_1), \dots ,f'(\lambda_n)\}\, U ^{*} H
+  = \sum_k u_{ik}f(\lambda_k) \overline{u}_{k \ell} h_{\ell i}
+\]
+Since our entries commute, we can relable our indices
+$i \mapsto \ell\; \ell \mapsto k \; k \mapsto i $ to get
+\[
+  \text{tr}\; U \,\text{diag} \{f'(\lambda_1), \dots ,f'(\lambda_n)\}\, U ^{*} H
+  = \sum_i f(\lambda_i) \overline{u}_{i k} h_{k \ell}u_{\ell i},
+\]
+See that the quantity a
+$U\, \text{diag} \{f'(\lambda_1), \dots ,f'(\lambda_n)\} \,U ^{*} H $ is
+independent of our choice of $H$, so is it the needed quantity $g(X)$. Further,
+since $X = U \Lambda U ^{*} $, $g(X) = f'(X)$. This recovers theorem 3.3 of
+\emph{LEARN TO DO CITATIONS} as we have
+\[
+  \text{tr} \; Df(X)[H] = \text{tr} H g(X)
+\]
+
+\end{document}
