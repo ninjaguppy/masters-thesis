@@ -1,6 +1,5 @@
 .DS_Store
 .idea
-*.log
 tmp/
 
 # The below is shamelessly copied from the internet:
@@ -42,9 +41,9 @@ tmp/
 ## Build tool auxiliary files:
 *.fdb_latexmk
 *.synctex
-*.synctex(busy)
+#*.synctex(busy)
 *.synctex.gz
-*.synctex.gz(busy)
+#*.synctex.gz(busy)
 *.pdfsync
 
 ## Build tool directories for auxiliary files
