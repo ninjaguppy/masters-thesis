@@ -1,0 +1,95 @@
+\documentclass[11pt]{exam}
+
+% opening
+\pagestyle{headandfoot}
+\runningheadrule
+\runningheader{Lucas Kerbs}
+{Lucas Kerbs Thesis Proposal, Page \thepage\ of \numpages}
+{\today}
+\runningfooter{}{}{}
+
+% load packages
+\usepackage{amsmath,amsfonts,amssymb,amsthm, mathtools, mathrsfs, faktor, bbm}
+% \usepackage{pgfplots}
+\usepackage{wrapfig}
+\usepackage{array}
+% \usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{enumerate}
+\usepackage[margin=1.250in]{geometry}
+
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\newcommand{\incfig}[1]{%
+  \def\svgwidth{0.5\columnwidth}
+  \import{./images/}{#1.pdf_tex}
+}
+
+% General shortcuts
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\Id}{\mathbbm{1}}
+\newcommand{\wms}{\textsc{wms} }
+\newcommand{\wma}{\textsc{wma} }
+\newcommand{\wwlog}{\textsc{wlog} }
+\newcommand{\sol}{\paragraph{Solution:}}
+\newcommand{\ssol}{\subparagraph{Solution:}}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\begin{document}
+\begin{center} {\LARGE Thesis Proposal \vspace{2mm}}\\ Lucas Kerbs \\ \today \end{center}
+
+Noncommutative function theory is a relatively new branch of mathematics which
+combines analysis, linear and abstract algebra, and topology. It
+seeks to understand functions (usually polynomials and rational functions) with
+noncommuting variables and treats them as both algebraic objects and transformations
+of matrices of arbitrary size. A recent paper by J.E. Pascoe explored the
+topology of the domains of these functions via universal monodromy and the
+construction of so-called a `tracial' fundamental group and co-homology.
+
+The theory of noncommutative functions grew out of the study of several complex
+variables. It is not a large leap of abstraction from considering functions of
+several complex variables---evaluated on \(\CC ^n\)---to studying functions
+which are instead evaluated on tuples of square matrices,
+\(\left(\CC ^{n\times n}\right)^g\). For these new functions, we notably lose the
+commutativity of the variables; in light of this, we often call them \emph{nc}
+functions or \emph{free} functions. The domains of theses functions can be
+notoriously tricky---we require that it is closed under direct sums of its
+elements as well as conjugation by unitary matrices. While this is not
+particularly restrictive in the case of an nc polynomial, it is much more
+complex if we consider nc rational functions or arbitrary free domains.
+
+In the study of complex variables, the universal monodromy theorem tells us that
+given a complex domain \(U\) and an analytic \(f: U \to \CC \), if \(f\) can be
+analytically continue along any path in \(W\supset U\), then we have an analytic
+\(g:W\to \CC \) such that \(\left. g\right|_{U}=f\). The beauty of Pascoe's
+recent paper leverages the fact that nc domains are complex manifolds and thus
+we can use universal monodromy in order to study the \emph{topological}
+structures of these sets. Monodromy allows for the construction of well-defined
+fundamental and co-homology groups (despite the convoluted structure of the
+domains). Notably, the fundamental group of these domains is always abelian.
+
+
+The goal of my thesis will be three-fold. First will be an expository exercise
+on Pascoe's paper; the goal will be to explicate the paper and fill in the gaps
+in some of his proofs. Secondly is the calculation of these groups for the
+domains of common nc rational functions. While the paper computes these
+structures for a small handful of domains (for example
+\(\pi_1^{tr}(GL)\simeq \QQ \), where \(GL\) is the set of complex valued
+matrices with nonzero determinant), there has been very little effort to perform
+actual calculations beyond the few done in the initial paper. Pascoe's paper ends
+with a series of open questions and conjectures---the final goal of my thesis is
+to explore these questions.  While being able to answer one of them fully is
+likely outside the scope of possibility, the larger goal is to unpack the
+questions and their meaning in the hopes of making meaningful progress in the
+direction of an answer.
+
+
+\end{document}
