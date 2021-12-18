@@ -126,4 +126,39 @@ since $X = U \Lambda U ^{*} $, $g(X) = f'(X)$. This recovers theorem 3.3 of
   \text{tr} \; Df(X)[H] = \text{tr} H g(X)
 \]
 
+\bigskip
+
+\bigskip
+
+\bigskip
+
+
+
+\noindent Now we turn our attention to the example in \emph{citation}. I verified that
+\begin{align*}
+  \text{tr} H \cdot \text{div} \left( 1+XY \right)
+    &= \text{tr} \left( H_1 Y+X H_2 \right)(1+XY) ^{-1}\\
+    &= \text{tr} H_1Y(1+XY) ^{-1} + H_2(1+XY) ^{-1} X \\
+    &= \text{tr} \left( H_1,H_2 \right) \cdot \left( Y(1+XY) ^{-1} , \left( 1+XY \right) ^{-1}X \right),
+\end{align*}
+but how can we be confident that this means we have
+$\text{div} \left( 1+XY \right) = ( Y(1+XY) ^{-1} ,$ $ \left( 1+XY \right) ^{-1}X)$?
+We consider the general case: Say that
+$\text{tr} H \cdot f = \text{tr} H \cdot g$. Since this holds for all $H$, we
+may choose our $H$ carefully to show the equality of $f$ and $g$. Say that $H,f,g$
+are $k$-tuples---we will first show that $f_1=g_1$ and we will do so entry by
+entry. Let $E_{ij}$ be the matrix will all zeroes and a 1 in the $(i,j)$-entry.
+Now let $H= (E_{ji},0, \dots ,0)$. So $\text{tr } E_{ji}f_1 = \text{tr
+} E_{ji}g_0$. In our products, the only elements on the diagonal are
+$(f_1)_{ij}$ and $(g_1)_{ij}$, so when we take the trace we have
+$(f_1)_{ij} =(g_1)_{ij}$. If we do this for every $(i,j)$, we see that
+$f_1=g_1$. Showing that the other components are equal is identical.
+
+\emph{\bf QQ:} Is this necessarily true? This is very nitpicky, but does the fact
+that $f$ and $g$ have the same components mean they have the same expression? I
+see how it would make the same function, but I see a potential issue with
+domain---if they have different domains then they could have different
+expressions but still have the same entries when the domains overlap.
+
+
 \end{document}
