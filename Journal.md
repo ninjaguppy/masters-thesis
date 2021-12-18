@@ -17,7 +17,7 @@ we can pull apart the trace. To my knowledge it works, but there is QQ in the
 document. Copied here:
 
 
-**QQ*:* Is this necessarily true? This is very nitpicky, but does the fact
+**QQ:** Is this necessarily true? This is very nitpicky, but does the fact
 that $f$ and $g$ have the same components mean they have the same expression? I
 see how it would make the same function, but I see a potential issue with
 domain---if they have different domains then they could have different
