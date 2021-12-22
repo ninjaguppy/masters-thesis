@@ -29,3 +29,15 @@ expressions but still have the same entries when the domains overlap.
 voice for the thesis? It seem inappropriate for it to read like a homework
 exercise---where my goal is to show the reader that _I_ know what is going on. 
 
+## Dec 19
+
+Argued through the rest of page 10---solved everything except for the
+divisibility question. Notes are all in my personal notebook with nothing typed
+out. 
+
+## Dec 20/21
+
+Not too many hours these days (travel). Mostly beat my head against divisibility
+and page 11 without much success. I did a surface level reading of the rest of
+the paper to get a sense of where this is going. 
+
