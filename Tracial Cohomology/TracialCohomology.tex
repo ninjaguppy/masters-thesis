@@ -1,0 +1,55 @@
+\documentclass[12pt]{exam}
+
+% opening
+\pagestyle{headandfoot}
+\runningheadrule
+\runningheader{Lucas Kerbs}
+{Trace Duality, Page \thepage\ of \numpages}
+{\today}
+\runningfooter{}{}{}
+
+% load packages
+\usepackage{amsmath,amsfonts,amssymb,amsthm, mathtools, mathrsfs, faktor, bbm}
+% \usepackage{pgfplots}
+\usepackage{wrapfig}
+\usepackage{array}
+% \usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{enumerate}
+\usepackage[margin=1.0in]{geometry}
+\newtheorem{theorem}{Theorem}
+
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+
+\newcommand{\incfig}[1]{%
+  \def\svgwidth{0.5\columnwidth}
+  \import{./images/}{#1.pdf_tex}
+}
+
+% General shortcuts
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\Id}{\mathbbm{1}}
+\newcommand{\wms}{\textsc{wms} }
+\newcommand{\wma}{\textsc{wma} }
+\newcommand{\wwlog}{\textsc{wlog} }
+\newcommand{\sol}{\paragraph{Solution:}}
+\newcommand{\ssol}{\subparagraph{Solution:}}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+\begin{document}
+
+\begin{center}
+  {\Large Tracial Cohomolgy}
+\end{center}
+
+
+\end{document}

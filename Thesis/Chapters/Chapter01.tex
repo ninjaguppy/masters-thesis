@@ -1,0 +1,50 @@
+%************************************************
+\chapter{Introduction}\label{ch:introduction}
+%************************************************
+
+\section{Functional Calculus}%
+\label{sec:functionalcalc}
+
+We will start our consideration with extending single input functions to spaces
+of Matrices. Since matrices form a ring, we can take any $f \in \CC [x]$ and
+compute $f(A)$ for some $A \in M_n(\CC)$. If we require that $A$ is
+self-adjoint---and hence diagonalizable as $A = U \Lambda U^*$---then it is a standard result that:
+\begin{align*}
+  f(A) &= a_nA^n + \cdots + a_1A + a_0 \\
+  &= a_n \left( U\Lambda U^* \right) ^n + \cdots + a_1 U\Lambda U^* + a_0 \\
+  &= a_n U\Lambda^n U^* + \cdots + a_1 U\Lambda U^* + a_0 \\
+  &= U \left( a_n\Lambda ^n + \cdots + a_1\Lambda + a_0 \right) U^* \\
+  &= U \left( f(\Lambda) \right) U^*
+\end{align*}
+Further, since \(\Lambda\) is diagonal and $f$ is a polynomial,
+\[
+  f \left( \begin{bmatrix} \lambda_1 &  &  \\  & \ddots &  \\  &  & \lambda_n \end{bmatrix}  \right)
+  = \begin{bmatrix} f(\lambda_1) &  &  \\  & \ddots &  \\  &  & f(\lambda_n) \end{bmatrix}
+\]
+Therefore, given a self-adjoint matrix \(A\) and a polynomial \(f \in \CC [x]\)
+\[
+  f(A) = Uf(\Lambda)U^* = U \;\text{diag}\{f(\lambda_{1}), \dots , f(\lambda_n)\} \; U^*
+\]
+With this in mind, we can extend a function \(g: [a,b] \to \CC \) to a function
+on self adjoint {\color{red} (normal?)} matrices with their spectrum in
+\([a,b]\). Let \(A\) be such a matrix (diagonalized by the unitary matrix
+\(U\)), and define
+\[
+  g(A) = U
+  \begin{bmatrix} g(\lambda_1) & &\\ &\ddots& \\ & & \lambda_n \end{bmatrix}
+  U^*
+\]
+Thus, for each \(n \in \NN \), \(g\) induces a function on the self-adjoint
+\(n \times n\) matrices with spectrum in \([a,b]\). We can extend many of the
+function theoretic properties (\eg convexity, monotonicity, derivatives, etc.)
+to these matrix values functions.
+
+The natural ordering {\color{red} {explain why natural?}} on self-adjoint
+matrices is called the \textbf{Loewner Order}:
+
+\begin{definition}[Loewner Ordering]
+  For like size self-adjoint matrices, we say that \(A \preceq B\) if \(B - A \)
+  is positive semidefinite and \(A \prec B\) is \(B-A\) is positive definite
+\end{definition}
+
+The work of Pascoe in
