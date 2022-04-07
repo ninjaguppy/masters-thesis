@@ -5,10 +5,12 @@
 \section{Functional Calculus}%
 \label{sec:functionalcalc}
 
-We will start our consideration with extending single input functions to spaces
-of Matrices. Since matrices form a ring, we can take any $f \in \CC [x]$ and
-compute $f(A)$ for some $A \in M_n(\CC)$. If we require that $A$ is
-self-adjoint---and hence diagonalizable as $A = U \Lambda U^*$---then it is a standard result that:
+Functional Calculus refers to the process of extending the domain of a function
+on \(\RR\) to include matrices (or in some cases operators). The most basic
+formulation uses the fact that the space \(n \times n\) matrices forms a ring
+and so there is a natural way to evaluate polynomials \(f \in \CC [x]\). If we
+require that $A \in M_n(\CC)$ is self-adjoint---and hence diagonalizable as
+$A = U \Lambda U^*$---then it is a standard result that:
 \begin{align*}
   f(A) &= a_nA^n + \cdots + a_1A + a_0 \\
   &= a_n \left( U\Lambda U^* \right) ^n + \cdots + a_1 U\Lambda U^* + a_0 \\
@@ -35,16 +37,78 @@ on self adjoint {\color{red} (normal?)} matrices with their spectrum in
   U^*
 \]
 Thus, for each \(n \in \NN \), \(g\) induces a function on the self-adjoint
-\(n \times n\) matrices with spectrum in \([a,b]\). We can extend many of the
-function theoretic properties (\eg convexity, monotonicity, derivatives, etc.)
-to these matrix values functions.
-
-The natural ordering {\color{red} {explain why natural?}} on self-adjoint
-matrices is called the \textbf{Loewner Order}:
+\(n \times n\) matrices with spectrum in \([a,b]\).  The natural ordering
+{\color{red} {explain why natural?}} on self-adjoint matrices is called the
+\textbf{Loewner Order}:
 
 \begin{definition}[Loewner Ordering]
   For like size self-adjoint matrices, we say that \(A \preceq B\) if \(B - A \)
-  is positive semidefinite and \(A \prec B\) is \(B-A\) is positive definite
+  is positive semidefinite and \(A \prec B\) is \(B-A\) is positive definite.
 \end{definition}
 
-The work of Pascoe in
+With this ordering in place, we can extend many of the familiar function
+theoretic properties (monotonicity, convexity) to these matrix-values functions.
+In fact, these properties are defined identically to their classical counterpart:
+We say that a function is \emph{matrix-monotone} if \(A \preceq B\) implies that
+\(f(A) \preceq f(B)\) and \emph{matrix-convex} (or \emph{nc-convex}) if
+\[
+  f \left( \frac{X+Y}{2} \right) \preceq \frac{f(X)+f(Y)}{2}
+\]
+for every pair of like-size matrice for which \(f\) is defined. These condition
+are rather restrictive (since the must hold for matrices of \emph{all} sizes) so
+many functions which are convex/monotone (in the traditional sense) fail to be
+matrix-convex/monotone. For example, \(f(x)=x^4\) fails to be nc-convex.
+{\color{red} Below is an example from FCAC (Helton). What is the best way to
+  refer to this?
+
+Indeed, if
+\[
+  X = \begin{bmatrix} 4 &2\\2&2 \end{bmatrix}  \qquad \text{ and } \qquad \begin{bmatrix} 2&0\\0&0 \end{bmatrix}
+\]
+Then
+\[
+  \frac{X^4+Y^4}{2} - \left( \frac{1}{2}X +\frac{1}{2}Y \right) ^4
+  = \begin{bmatrix} 164 &120\\120&84 \end{bmatrix}
+\]
+Which is not positive definite! Thus \(x^4\) fails to be convex on even
+\(2\times 2\) matrices.
+}
+
+{\color{blue} nc-positive if positive for all matrices}
+
+Further, a number of the standard constructions lift identically in this
+functional calculus.
+\begin{definition}[Directional Derivative]
+  The derivative of \(f\) in the direction \(H\) is
+  \[
+    Df(X)[H] = \lim_{t \to 0} \frac{f(X+tH) - f(X)}{t}
+  \]
+  where \(H\) and \(X\) are like-size self-adjoint matices.
+\end{definition}
+
+Often, the best way to compute these directional derivatives is via an
+equivalent formulation:
+\[
+    Df(X)[H] = \left.\frac{df(X+tH)}{dt}\right|_{t=0}
+\]
+This version allows us to more easily define higher order derivatives
+\[
+    D^{(k)}f(X)[H] = \left.\frac{d^{(k)}f(X+tH)}{d^{(k)}t}\right|_{t=0}
+\]
+
+Despite nc-convexity being so restrictive, Lemma 12 in \cite{heltonFree2013}
+shows that the standard characterization of convexity via the second
+derivativie: a function \(f\) is convex if and only if \(D^{2}f(X)[H]\) is
+nc-positive. Unlike the classical case, however, the only convex polynomials are
+of degree 2\footnote{See \cite{heltonFree2013} for details.}.
+
+\section{Extending Multi-Variable Functions}%
+\label{sec:ExtMuliVarFun}
+
+We can extend this same functional calculus to functions of several variables,
+although the details are a bit more subtle. Let \(x = (x_1 , \dots x_g)\) be a
+\(g-tuples\) of noncommuting formal variables and let \(\RR \langle x \rangle\)
+{\color{red} why does everyone use \(\RR \) and now \(\CC \)?}
+be the ring of nc-polynomials with coefficients in \(\RR \).
+
+{\color{red} Construct the basics and then move on}
