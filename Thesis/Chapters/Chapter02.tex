@@ -1,0 +1,209 @@
+\chapter{A Second Attempt}\label{ch:SecondAttempt}
+\section{Matrix Universes}%
+\label{sec:MatUniv}
+
+Beyond the functional calculus, it becomes useful to construct general functions
+on spaces of matrices---to do so, we must make this idea of ``spaces of
+matrices'' concrete. The largest such space is the so-called \textbf{Matrix
+  Universe}---consisting of \(g\)-tuples of matrices of all sizes:
+\[
+  \MM^g = \bigcup_{n=1}^\infty (M_n(\CC))^g
+\]
+By convention, when we consider some
+\(X = \left( X_1, \dots , X_g \right) \in \MM^g\), we require that the \(X_i\)
+are all the same size. Since \(\MM^g\) is such a large set, we often want to
+deal with subsets that still carry some of the implicit structure of \(\MM^g\).
+\begin{definition}[Free Set]
+  \label{def:FreeSet}
+  We say \(D \subset \MM^g\) is a \textbf{free set} if it is closed with respect
+  to direct sums and unitary conjugation. That it
+  \begin{enumerate}
+    \item \(X,Y \in D \) means \(X\oplus Y \in D\).
+    \item For \(X,U\) like-size matrices with \(U\) unitary and \(X \in D\),
+          then \(U X U^* = \left( UX_1U^*, \dots , UX_g U^*  \right) \in D \).
+  \end{enumerate}
+\end{definition}
+
+For the remainder of this text, \(D\) will denote some free set. Using the
+terminology of \cite{pascoeFreeNoncommutativePrincipal2020}, let
+\(D_n = D \cap M_n(\CC)^g\) be the level-wise slice of all \(n \times n\)
+matrices in \(D\). We say that \(D\) is \textbf{open}\footnote{The topology of \(\MM^g\)
+  is still in flux and there is not a canonical topology. See section NUMBER for
+  the details } (resp.\ \textbf{connected}, \textbf{simply connected}) if each \(D_n\) is open
+(resp.\ connected, simply connected). Finally, we say that \(D\) is
+\textbf{differentiable} if each \(D_n\) is an open \(C^1\) manifold where the
+complex tangent space of every \(X \in D_n\) is all of \(M_n(\CC)^g\).
+
+In the context of sections \ref{sec:functionalcalc} \ref{sec:ExtMuliVarFun} {\color{red} how to ref
+  multiple sections}, the domains in the functional calculus were
+\(\HH^g = \bigcup_{n=1}^{\infty} {\HH_n}^g\). \(\HH ^g\) is a differentiable a
+free set with two connected components.
+
+On \(\MM^{g} \), we define a product that resembles the inner product on
+\(\CC^n\). Given \(A,B \in \MM^{g} \) which are \(g\)-tuples of \(n \times n\)
+matrices:
+\begin{align*}
+	\cdot : \MM^{g} \times \MM^{g}  &\longrightarrow M_n(\CC) \\
+  \cdot (A,B) = A \cdot B &\longmapsto \sum_{i=1}^g A_i B_i
+\end{align*}
+
+{\color{red} James uses this product, but like what in the world is going on
+  with it???}
+
+\section{The Topology of Matrix Universes }%
+\label{sec:TopManUniv}
+
+{\color{blue} How much detail here? Just what we are doing or the basics of the
+  other topologies? This could also talk about the nc varieties/singular sets}
+
+
+
+\section{Tracial Functions and Uniqueness of the Gradient}%
+\label{sec:TracGrad}
+Now that we have \(\MM^d\), we can work with general functions on our matrix
+universe. As a whole, free analysis is concerned with so-called \emph{free
+  functions}, which respect the direct sums and unitary conjugation.
+{\color{red} Do they need to be graded?}
+\begin{definition}[Free Function]
+\label{def:FreeFun}
+  A function \(f: D\to \MM^{\color{red} \text{something}}\) is called \textbf{free} if
+  \begin{enumerate}
+    \item \(f(X\oplus Y)= f(X) \oplus f(Y)\)
+    \item \(f(U X U^*) = f(U)f(X)f(U^*)\) where \(X\) and \(U\) are like-size
+          and \(U\) is unitary.
+  \end{enumerate}
+\end{definition}
+
+The two other classes of functions we are concerned with are those that act like
+the trace and the determinant:
+\begin{definition}[Determinantal Free Function]
+  \label{def:DetFreeFun}
+  A function \(f: D \to \CC \) is a \textbf{determinantal free function} if
+  \begin{enumerate}
+    \item \(f(X\oplus Y) = f(X)f(Y)\)
+    \item \(f(U X U^*) = f(X)\) where \(X\) and \(U\) are like-size
+          and \(U\) is unitary.
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}[Tracial Free Function]
+  \label{def:TrFreeFun}
+  A function \(f: D \to \CC \) is a \textbf{tracial free function} if
+  \begin{enumerate}
+    \item \(f(X\oplus Y) = f(X)+f(Y)\)
+    \item \(f(U X U^*) = f(X)\) where \(X\) and \(U\) are like-size
+          and \(U\) is unitary.
+  \end{enumerate}
+\end{definition}
+
+Given a free function of any type, we can define the directional derivative
+(Definition \ref{def:DirDeriv}) identically. It is worth noting that, while they
+share the moniker of \emph{free}, determinantal and tracial functions are
+\emph{not} free functions.
+It is only these tracial functions which inherit the gradient mentioned above.
+Similarly to traditional multivariable calculus we define the gradient via its
+relationship to the directional derivative:
+\begin{definition}[Free Gradient]
+\label{def:FreeGrad}
+  Given a tracial free function \(f\), the free gradient, \(\nabla f\), is the
+  unique free function satisfying
+  \[
+    \tr \left( H \cdot \nabla f(X) \right) = \tr\, Df(X)[H]
+  \]
+\end{definition}
+
+It is not-at-all obvious that such a \(\nabla f \) should be unique---after all
+any linear combination of commutator is has trace zero. {\color{red} should I
+  explain this?} In the case that \(f\) is a single-variable function we can
+replace \(\nabla f\) with the traditional derivative, \(f'\), as seen in
+\cite[Thm 3.3]{pascoeTrace2020}.
+\begin{theorem}
+  Let \(f: (a,b)\to \RR \) be a \(C^1\) function. Then
+  \[
+    \tr \, Df(X)[H] = \tr \left( Hf'(X) \right)
+  \]
+\end{theorem}
+
+The proof in \cite{pascoeTrace2020} simply asserts the uniqueness of a function
+\(g(X)\) and then shows that \(g(x)=f'(x)\) for \(x \in (a,b)\). Instead, we can
+construct such a \(g\) and recover the theorem along the way:
+\begin{proof}
+
+We start with a construction from Bhatia's Matrix Analysis: Let
+$f \in C ^{1} (I)$ and define $f ^{[1]} $ on $I \times I$ by
+\[
+  f^{[1]} (\lambda,\mu) =
+  \begin{cases}
+    \frac{f(\lambda) - f(\mu)}{\lambda-\mu} & \lambda \neq \mu \\
+    f'(\lambda) & \lambda = \mu.
+  \end{cases}
+\]
+We call $f ^{[1]} (\lambda,\mu)$ the \emph{first divided difference} of $f$ at
+$(\lambda,\mu)$. If $\Lambda$ is a diagonal matrix with entries
+$\{ \lambda_{i}\} $, We may extend $f$ to accept $\Lambda$ by
+defining the $(i,j)$-entry of $f ^{[1]} (\Lambda)$ to be
+$f ^{[1]} (\lambda_i,\lambda_j)$. If $A$ is a self adjoint matrix with
+$A = U \Lambda U ^{*} $, then we define
+$f ^{[1]} (A) = U f ^{[1]} (\Lambda) U ^{*} $. Now we borrow a theorem from
+Bhatia \cite{bhatiaMatrixAnalysis1997}:
+\begin{theorem}[Bhatia V.3.3]
+
+{\color{red} Theorem numbering?}
+  Let $f \in C ^{1} (I)$ and let $A$ be a self adjoint matrix with all
+  eigenvalues in $I$. Then \[
+    Df(A)[H] = f ^{[1]} (A) \circ H,
+  \]
+  where $\circ$ denotes the Schur-product\footnote{Entrywise} in a basis where $A$ is diagonal.
+\end{theorem}
+
+That is, if $A = U   \Lambda U ^{*} $, then
+\[
+  Df(A)[H] = U \left( f ^{[1]} (\Lambda) \circ (U ^{* } H U) \right)U ^{*}.
+\]
+%
+To prove our claim, we need to take the trace of both sides. Since trace is
+invariant under a change of basis, it is clear that
+\[
+  \tr Df(A)[H] = \tr \left( f ^{[1]} (\Lambda) \circ (U ^{* } H U) \right).
+\]
+If $U = u_{ij}$, $U ^{*} = \overline{u}_{ij}$ and $H = h_{ij}$, then the
+$(i,j)$-entry of $U ^{*}HU$ is
+\[
+  {(U ^{* } H U)}_{ij} = \overline{u}_{ik}h_{k\ell}u_{\ell j}
+\]
+Where we sum over the duplicate indices $k$ and $\ell$. While the structure of
+$f ^{[1]} (\Lambda)$ is a bit unruly, our diagonal entries are $f'(\lambda)$.
+This means that when we take the trace of the Schur product, we have
+\[
+ \sum_k\sum_\ell \sum_i f'(\lambda_i)\overline{u}_{ik}h_{k\ell}u_{\ell i}
+\]
+Now consider the matrix product
+$U\, \text{diag} \{f'(\lambda_1), \dots ,f'(\lambda_n)\} \,U ^{*} H $. Since one of our terms
+is diagonal, the trace of this multiplication is simple:
+\[
+  \text{tr}\; U \,\text{diag} \{f'(\lambda_1), \dots ,f'(\lambda_n)\}\, U ^{*} H
+  = \sum_k\sum_\ell\sum_i  u_{ik}f'(\lambda_k) \overline{u}_{k \ell} h_{\ell i}
+\]
+Since \(u_{ik}, \overline{u}_{k\ell}, h_{\ell i} \in \CC \) they commute. We can
+then relabel our indices
+$i \mapsto \ell\; \ell \mapsto k \; k \mapsto i $ to get
+\[
+  \tr\; U \,\text{diag} \{f'(\lambda_1), \dots ,f'(\lambda_n)\}\, U ^{*} H
+  = \sum_k\sum_\ell \sum_i f'(\lambda_i) \overline{u}_{i k} h_{k \ell}u_{\ell i},
+\]
+So, for every direction \(H\), we have that
+$\tr \left( U\, \text{diag} \{f'(\lambda_1), \dots ,f'(\lambda_n)\} \,U ^{*} H\right) =
+   \tr \left( f ^{[1]} (\Lambda) \circ (U ^{* } H U) \right). $
+{\color{red} overfull hbox :eyeroll:}
+By picking the ``correct'' \(H\)\footnote{See example EXAMPLE NUMBER for
+  details}, we conclude that our unique quantity \(g(X)\) is
+\(U\, \text{diag} \{f'(\lambda_1), \dots ,f'(\lambda_n)\} \,U ^{*} \). But,
+recall that \(X=U\Lambda U\) so, in the functional calculus, $g(X) = f'(X)$.
+This recovers theorem 3.3 of \cite{pascoeTrace2020} as we have constructed a
+\(g\) such that
+\[
+  \tr \; Df(X)[H] = \tr H g(X)
+\]
+\end{proof}
+
+{\color{blue} Connect this to the gradient and this section is done}

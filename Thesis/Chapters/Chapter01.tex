@@ -1,5 +1,5 @@
 %************************************************
-\chapter{Introduction}\label{ch:introduction}
+\chapter{A First Attempt}\label{ch:FirstAttempt}
 %************************************************
 
 \section{Functional Calculus}%
@@ -44,6 +44,7 @@ Thus, for each \(n \in \NN \), \(g\) induces a function on the self-adjoint
 \textbf{Loewner Order}:
 
 \begin{definition}[Loewner Ordering]
+\label{def:LoewnerOrder}
   For like size self-adjoint matrices, we say that \(A \preceq B\) if \(B - A \)
   is positive semidefinite and \(A \prec B\) is \(B-A\) is positive definite.
 \end{definition}
@@ -81,6 +82,7 @@ Which is not positive definite! Thus \(x^4\) fails to be convex on even
 Further, a number of the standard constructions lift identically in this
 functional calculus.
 \begin{definition}[Directional Derivative]
+  \label{def:DirDeriv}
   The derivative of \(f\) in the direction \(H\) is
   \[
     Df(X)[H] = \lim_{t \to 0} \frac{f(X+tH) - f(X)}{t}
@@ -149,162 +151,3 @@ notion of the \textbf{gradient} of a function---but this will require a bit more
 
 {\color{blue} Short section on the involution. Could also put this in the
   algebra errata}
-
-\section{Matrix Universes}%
-\label{sec:MatUniv}
-
-{\color{blue} Be sure to include the ``dot product'' here}
-
-\section{The Topology of Matrix Universes }%
-\label{sec:TopManUniv}
-
-{\color{blue} How much detail here? Just what we are doing or the basics of the
-  other topologies? This could also talk about the nc varieties/singular sets}
-
-
-
-\section{Tracial Functions and Uniqueness of the Gradient}%
-\label{sec:TracGrad}
-Now that we have \(\MM^d\), we can work with general functions on our matrix
-universe. As a whole, free analysis is concerned with so-called \emph{free
-  functions}, which respect the direct sums and unitary conjugation.
-{\color{red} Do they need to be graded?}
-\begin{definition}[Free Function]
-\label{def:FreeFun}
-  A function \(f: D\to \MM^{\color{red} \text{something}}\) is called \textbf{free} if
-  \begin{enumerate}
-    \item \(f(X\oplus Y)= f(X) \oplus f(Y)\)
-    \item \(f(U X U^*) = f(U)f(X)f(U^*)\) where \(X\) and \(U\) are like-size
-          and \(U\) is unitary.
-  \end{enumerate}
-\end{definition}
-
-The two other classes of functions we are concerned with are those that act like
-the trace and the determinant:
-\begin{definition}[Determinantal Free Function]
-  \label{def:DetFreeFun}
-  A function \(f: D \to \CC \) is a \textbf{determinantal free function} if
-  \begin{enumerate}
-    \item \(f(X\oplus Y) = f(X)f(Y)\)
-    \item \(f(U X U^*) = f(X)\) where \(X\) and \(U\) are like-size
-          and \(U\) is unitary.
-  \end{enumerate}
-\end{definition}
-
-\begin{definition}[Tracial Free Function]
-  \label{def:TrFreeFun}
-  A function \(f: D \to \CC \) is a \textbf{tracial free function} if
-  \begin{enumerate}
-    \item \(f(X\oplus Y) = f(X)+f(Y)\)
-    \item \(f(U X U^*) = f(X)\) where \(X\) and \(U\) are like-size
-          and \(U\) is unitary.
-  \end{enumerate}
-\end{definition}
-
-It is only these tracial functions which inherit the gradient mentioned above.
-Similarly to traditional multivariable calculus we define the gradient via its
-relationship to the directional derivative:
-\begin{definition}[Free Gradient]
-\label{def:FreeGrad}
-  Given a tracial free function \(f\), the free gradient, \(\nabla f\), is the
-  unique free function satisfying
-  \[
-    \tr \left( H \cdot \nabla f(X) \right) = \tr\, Df(X)[H]
-  \]
-\end{definition}
-
-It is not-at-all obvious that such a \(\nabla f \) should be unique---after all
-any linear combination of commutator is has trace zero. {\color{red} should I
-  explain this?} In the case that \(f\) is a single-variable function we can
-replace \(\nabla f\) with the traditional derivative, \(f'\), as seen in
-\cite[Thm 3.3]{pascoeTrace2020}.
-\begin{theorem}
-  Let \(f: (a,b)\to \RR \) be a \(C^1\) function. Then
-  \[
-    \tr \, Df(X)[H] = \tr \left( Hf'(X) \right)
-  \]
-\end{theorem}
-
-The proof in \cite{pascoeTrace2020} simply asserts the uniqueness of a function
-\(g(X)\) and then shows that \(g(x)=f'(x)\) for \(x \in (a,b)\). Instead, we can
-construct such a \(g\) and recover the theorem along the way:
-\begin{proof}
-
-We start with a construction from Bhatia's Matrix Analysis: Let
-$f \in C ^{1} (I)$ and define $f ^{[1]} $ on $I \times I$ by
-\[
-  f^{[1]} (\lambda,\mu) =
-  \begin{cases}
-    \frac{f(\lambda) - f(\mu)}{\lambda-\mu} & \lambda \neq \mu \\
-    f'(\lambda) & \lambda = \mu.
-  \end{cases}
-\]
-We call $f ^{[1]} (\lambda,\mu)$ the \emph{first divided difference} of $f$ at
-$(\lambda,\mu)$. If $\Lambda$ is a diagonal matrix with entries
-$\{ \lambda_{i}\} $, We may extend $f$ to accept $\Lambda$ by
-defining the $(i,j)$-entry of $f ^{[1]} (\Lambda)$ to be
-$f ^{[1]} (\lambda_i,\lambda_j)$. If $A$ is a self adjoint matrix with
-$A = U \Lambda U ^{*} $, then we define
-$f ^{[1]} (A) = U f ^{[1]} (\Lambda) U ^{*} $. Now we borrow a theorem from
-Bhatia \cite{bhatiaMatrixAnalysis1997}:
-\begin{theorem}[Bhatia V.3.3]
-
-{\color{red} Theorem numbering?}
-  Let $f \in C ^{1} (I)$ and let $A$ be a self adjoint matrix with all
-  eigenvalues in $I$. Then \[
-    Df(A)[H] = f ^{[1]} (A) \circ H,
-  \]
-  where $\circ$ denotes the Schur-product\footnote{Entrywise} in a basis where $A$ is diagonal.
-\end{theorem}
-
-That is, if $A = U   \Lambda U ^{*} $, then
-\[
-  Df(A)[H] = U \left( f ^{[1]} (\Lambda) \circ (U ^{* } H U) \right)U ^{*}.
-\]
-%
-To prove our claim, we need to take the trace of both sides. Since trace is
-invariant under a change of basis, it is clear that
-\[
-  \tr Df(A)[H] = \tr \left( f ^{[1]} (\Lambda) \circ (U ^{* } H U) \right).
-\]
-If $U = u_{ij}$, $U ^{*} = \overline{u}_{ij}$ and $H = h_{ij}$, then the
-$(i,j)$-entry of $U ^{*}HU$ is
-\[
-  {(U ^{* } H U)}_{ij} = \overline{u}_{ik}h_{k\ell}u_{\ell j}
-\]
-Where we sum over the duplicate indices $k$ and $\ell$. While the structure of
-$f ^{[1]} (\Lambda)$ is a bit unruly, our diagonal entries are $f'(\lambda)$.
-This means that when we take the trace of the Schur product, we have
-\[
- \sum_k\sum_\ell \sum_i f'(\lambda_i)\overline{u}_{ik}h_{k\ell}u_{\ell i}
-\]
-Now consider the matrix product
-$U\, \text{diag} \{f'(\lambda_1), \dots ,f'(\lambda_n)\} \,U ^{*} H $. Since one of our terms
-is diagonal, the trace of this multiplication is simple:
-\[
-  \text{tr}\; U \,\text{diag} \{f'(\lambda_1), \dots ,f'(\lambda_n)\}\, U ^{*} H
-  = \sum_k\sum_\ell\sum_i  u_{ik}f'(\lambda_k) \overline{u}_{k \ell} h_{\ell i}
-\]
-Since \(u_{ik}, \overline{u}_{k\ell}, h_{\ell i} \in \CC \) they commute. We can
-then relabel our indices
-$i \mapsto \ell\; \ell \mapsto k \; k \mapsto i $ to get
-\[
-  \tr\; U \,\text{diag} \{f'(\lambda_1), \dots ,f'(\lambda_n)\}\, U ^{*} H
-  = \sum_k\sum_\ell \sum_i f'(\lambda_i) \overline{u}_{i k} h_{k \ell}u_{\ell i},
-\]
-So, for every direction \(H\), we have that
-$\tr \left( U\, \text{diag} \{f'(\lambda_1), \dots ,f'(\lambda_n)\} \,U ^{*} H\right) =
-   \tr \left( f ^{[1]} (\Lambda) \circ (U ^{* } H U) \right). $
-{\color{red} overfull hbox :eyeroll:}
-By picking the ``correct'' \(H\)\footnote{See example EXAMPLE NUMBER for
-  details}, we conclude that our unique quantity \(g(X)\) is
-\(U\, \text{diag} \{f'(\lambda_1), \dots ,f'(\lambda_n)\} \,U ^{*} \). But,
-recall that \(X=U\Lambda U\) so, in the functional calculus, $g(X) = f'(X)$.
-This recovers theorem 3.3 of \cite{pascoeTrace2020} as we have constructed a
-\(g\) such that
-\[
-  \tr \; Df(X)[H] = \tr H g(X)
-\]
-\end{proof}
-
-{\color{blue} Connect this to the gradient and this section is done}
