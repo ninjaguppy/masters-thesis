@@ -123,7 +123,7 @@ A \textbf{word} in \(x\) is a product of these
 variables (\eg \(x_1x_3x_1x_4^2\) or \(x_1^2x_5^3\)). An \textbf{nc-polynomial}
 in \(x\) is a formal finite linear combination of words in \(x\) with
 coefficients in your favorite field. We use \(\RR \langle x \rangle\) and
-\(\CC \langle x \rangle\) to denote the set of nc-polynomails in \(x\) over
+\(\CC \langle x \rangle\) to denote the set of nc-polynomials in \(x\) over
 \(\RR \) or \(\CC \) respectively.
 
 With \(\CC \langle x \rangle \) constructed, we can define the functional
@@ -131,7 +131,7 @@ calculus. Given a word \(w(x) = x_{i_1}^{p_1}\cdots x_{i_d}^{p_d}\) and a
 \(g\)-tuple of self-adjoint matrices, \(X\), we can evaluate \(w\) on \(X\) via
 \(w(X) = X_{i_1}^{p_1}\cdots X_{i_d}^{p_d}\). Since our nc-polynomials are
 linear combinations of these words, we can extend this evaluation to evaluation
-of entire polynomials. Algebriacly, we have a natural evaluation map:
+of entire polynomials. Algebraically, we have a natural evaluation map:
 Given some \(f \in \CC \langle x \rangle \) and
 \(X = \left( X_1, \dots ,X_n \right) \) a
 \(g\)-tuple of self-adjoint matrices, define
@@ -145,9 +145,49 @@ Directional Derivative still makes sense (although our direction \(H\) now
 becomes a tuple of directions). We also inherit (from multi-variable calculus) a
 notion of the \textbf{gradient} of a function---but this will require a bit more work.
 
+{\color{red} Maybe an example of an evaluation?}
 
 \section{The Natural Involution on nc-Polynomials}%
 \label{sec:NatInvo}
+
+Given our ring of nc polynomials, we may define an involution \(^*\) which we
+may view as an extension of the conjugate transpose. Let \(^*\) reverse the
+order of words (\ie \((x_1x_3x_2^2)^* = x_2^2x_3x_1\)) and extend linearly to
+all of \(\RR \langle x \rangle \). We consider the formal
+variables \(x_1, \dots , x_n\) \emph{symmetric} in the sense that
+\(x_i^* = x_i\). We say that a polynomial \(p \in \RR \langle x \rangle \) is
+symmetric if \(p^* = p\). For example, if
+\[
+  p(x) = 5x_1^2x_3x_2 + x_3x_2x_3 \qquad q(x) = 3x_2x_1x_2 + x_3^2 - x_1 ,
+\]
+then a cursory inspection tells that \(q\) is symmetric while \(p\) is not.
+
+Notice that the majority of the previous two sections breaks down if we try to
+extend functions to non-self-adjoint matrices. While the idea of ``plugging in''
+a tuple of matrices so some element of \(\RR \langle x \rangle \) via the same
+functional calculus described above, but we can actually \emph{add} structure to
+\(\RR \langle x \rangle \) and made evaluation more natural.
+
+Let \(x = (x_1, \dots, x_g)\) be formal variables and let
+\(x^* = (x_1^*, \dots, x_g^*)\) denote their formal adjoints. Once again, we let
+the ring \(\RR \langle x,x^* \rangle \) be the finite formal sums of words in
+\(x_1,x_1^*, \dots , x_g,x_g^*\) with coefficients in \(\RR \). Endow
+\(\RR \langle x,x^* \rangle \) with an involution \(\phantom^*\) which sends
+\(x_i \mapsto x_i^*\) and \(x_i^* \mapsto x_i\) and reverses the order of words
+extended linearly. Notice that this involution behaves identically to the
+adjoint with respect to products and sums of matrices. This new ring inherits a
+natural functional calculus just like that in section \ref{sec:ExtMuliVarFun}
+except it can accept \emph{any} matrix as an input instead of simply
+self-adjoint matrices.
+
+As discussed in baby linear algebra, we can view the self-adjoint matrices as
+somehow analogous to the to real numbers while non-self-adjoint mattrices are
+analogous to complex numbers with nonzero imaginary part {\color{red} how?}. In
+light of this, if we view \(\RR \langle x \rangle \) as a the nc analogue of
+polynomials with real variables while \(\RR \langle x,x^* \rangle \) is the nc
+analogue of polynomials in complex variables! {\color{red} Techically the
+  analogue is \emph{normal} matrices but honestly I don't wannt think about that
+  right now.}
 
 {\color{blue} Short section on the involution. Could also put this in the
   algebra errata}
