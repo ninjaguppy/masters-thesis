@@ -2,6 +2,12 @@
 \chapter{A First Attempt}\label{ch:FirstAttempt}
 %************************************************
 
+
+\section{Introduction}%
+\label{sec:Intro}
+
+Gotta do this at some point. Maybe here we define things like \(\mathcal{U}_n\).
+
 \section{Functional Calculus}%
 \label{sec:functionalcalc}
 
@@ -104,7 +110,7 @@ Despite nc-convexity being so restrictive, Lemma 12 in \cite{heltonFree2013}
 shows that the standard characterization of convexity via the second
 derivative: a function \(f\) is convex if and only if \(D^{2}f(X)[H]\) is
 nc-positive. Unlike the classical case, however, the only convex polynomials are
-of degree 2\footnote{See \cite{heltonFree2013} for details.}.
+of degree 2.\footnote{See \cite{heltonFree2013} for details.}
 
 \section{Extending Multi-Variable Functions}%
 \label{sec:ExtMuliVarFun}
@@ -147,8 +153,8 @@ notion of the \textbf{gradient} of a function---but this will require a bit more
 
 {\color{red} Maybe an example of an evaluation?}
 
-\section{The Natural Involution on nc-Polynomials}%
-\label{sec:NatInvo}
+\subsection{The Natural Involution on nc-Polynomials}%
+\label{ssec:NatInvo}
 
 Given our ring of nc polynomials, we may define an involution \(^*\) which we
 may view as an extension of the conjugate transpose. Let \(^*\) reverse the
@@ -172,7 +178,7 @@ Let \(x = (x_1, \dots, x_g)\) be formal variables and let
 \(x^* = (x_1^*, \dots, x_g^*)\) denote their formal adjoints. Once again, we let
 the ring \(\RR \langle x,x^* \rangle \) be the finite formal sums of words in
 \(x_1,x_1^*, \dots , x_g,x_g^*\) with coefficients in \(\RR \). Endow
-\(\RR \langle x,x^* \rangle \) with an involution \(\phantom^*\) which sends
+\(\RR \langle x,x^* \rangle \) with an involution \(^*\) which sends
 \(x_i \mapsto x_i^*\) and \(x_i^* \mapsto x_i\) and reverses the order of words
 extended linearly. Notice that this involution behaves identically to the
 adjoint with respect to products and sums of matrices. This new ring inherits a
@@ -180,14 +186,20 @@ natural functional calculus just like that in section \ref{sec:ExtMuliVarFun}
 except it can accept \emph{any} matrix as an input instead of simply
 self-adjoint matrices.
 
-As discussed in baby linear algebra, we can view the self-adjoint matrices as
-somehow analogous to the to real numbers while non-self-adjoint mattrices are
-analogous to complex numbers with nonzero imaginary part {\color{red} how?}. In
-light of this, if we view \(\RR \langle x \rangle \) as a the nc analogue of
-polynomials with real variables while \(\RR \langle x,x^* \rangle \) is the nc
-analogue of polynomials in complex variables! {\color{red} Techically the
-  analogue is \emph{normal} matrices but honestly I don't wannt think about that
-  right now.}
+{\color{blue} an example of a simple polynomial}
 
-{\color{blue} Short section on the involution. Could also put this in the
-  algebra errata}
+As discussed in baby linear algebra, we can view the self-adjoint matrices as
+analogous to the to real numbers. While this analogy is tenuous at best, it does
+give rise to a new analogy. If we view \(\RR \langle x \rangle \) as a the nc analogue of
+polynomials with real variables while \(\RR \langle x,x^* \rangle \) is the nc
+analogue of polynomials in complex variables! {\color{red} honestly why have
+  this paragraph}
+
+\subsection{Matrices of nc-Polynomials}
+
+Let \(\RR \langle x \rangle ^{k\times k}\) denote the set of \(k \times k\) matrices
+with entries in \(\RR \langle x \rangle \)---that is, \(k \times  k\) matrices
+where the entries are nc polynomials. Of course
+\(\RR \langle x \rangle ^{k\times k}\) inherits the involution
+
+{\color{blue} Still to treat: degree, matrix of polynomials, semi-algebraic sets}
