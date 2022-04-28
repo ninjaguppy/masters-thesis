@@ -38,9 +38,9 @@ matrices in \(D\). We say that \(D\) is \textbf{nc-open}\footnote{The topology o
 \textbf{differentiable} if each \(D_n\) is an open \(C^1\) manifold where the
 complex tangent space of every \(X \in D_n\) is all of \(M_n(\CC)^g\).
 
-In the context of sections \ref{sec:functionalcalc} \ref{sec:ExtMuliVarFun}
+In the context of \cref{sec:functionalcalc,sec:ExtMuliVarFun}
 %
-{\color{red} how to ref multiple sections}, the domains in the functional calculus were
+, the domains in the functional calculus were
 \(\HH^g = \bigcup_{n=1}^{\infty} {\HH_n}^g\). \(\HH ^g\) is a differentiable a
 free set with two connected components.
 
@@ -90,7 +90,7 @@ classic theory on \(\faktor{D}{\sim}\).
 {\color{blue} a note on convergence somewhere.}
 
 \subsection{Admissible Topologies}%
-\label{ssec:admtopo}
+\label{sec:admtopo}
 
 In light of the above discussion, we will present some of the candidate
 topologies which show some promise in understanding the topology on \(\MM^g\)
@@ -304,5 +304,34 @@ This recovers theorem 3.3 of \cite{pascoeTrace2020} as we have constructed a
 \]
 \end{proof}
 
-With our theorem proven, we turn our attention back to the \(\nabla f\). Notice
-that
+With our theorem proven, we turn our attention back to the \(\nabla f\). The
+single variable case motivates that \(\nabla f\) should correspond to the
+standard gradient from vector calculus. With some work, the above proof lifts
+the multi-variable case. It will be instructive, however, to consider a
+different proof.
+
+\begin{theorem}[Trace Duality]
+Let \(f,g\) be free functions \(\MM^{g} \to \MM^{\tilde{g}} \). If
+\(\tr H \cdot f = \tr H \cdot g\) for all tuples \(H\), then \(f=g\).
+\end{theorem}
+
+\begin{proof}
+  Since the trace relation holds for all $H$, we may choose our $H$ carefully to
+  show the equality of $f$ and $g$. Say that $H,f(X),g(X)$ are $g$-tuples of
+  matrices---we will first show that $f_1=g_1$ and we will do so entry by entry.
+  Let $E_{ij}$ be the matrix will all zeroes and a 1 in the $(i,j)$-entry.  Now
+  let $H= (E_{ji},0, \dots ,0)$. So $\tr E_{ji}f_1(X) = \tr E_{ji}g_1(X)$.
+  In our products, the only elements on the diagonal are $(f_1(X))_{ij}$ and
+  $(g_1(X))_{ij}$, so when we take the trace we have $(f_1(X))_{ij} =(g_1(X))_{ij}$. If we
+  do this for every $(i,j)$, we see that $f_1(X)=g_1(X)$. Similarly, we can choose
+  \(H = ( 0, E_{ji},0, \dots, 0)\) for each \(i,j\) to show that \(f_2(X)=g_2(X)\) and
+  so on. Since \(f(X)=g(X)\) for each \(X \in \MM^{g} \), it follows that \(f=g\).
+\end{proof}
+
+Admittedly, there is a slight complication that is overlooked in the above proof
+when it comes to the domains of \(f\) and \(g\). Where these domains overlap, we
+can consider them as the same function (and therefore \(\nabla f \) is unique)
+but if \(f\) is defined on \(D\) and \(g\) is defined on \(\tilde{D}\), then the
+above proof only holds on \(D \cap \tilde{D}\). Examples of such \(f\) and \(g\)
+abound when considering rational functions, which are explored in {\color{blue}
+  THAT SECTION}

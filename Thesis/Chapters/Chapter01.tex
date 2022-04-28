@@ -6,7 +6,7 @@
 \section{Introduction}%
 \label{sec:Intro}
 
-Gotta do this at some point. Maybe here we define things like \(\mathcal{U}_n\).
+{\color{blue} Gotta do this at some point. Maybe here we define things like \(\mathcal{U}_n\).}
 
 \section{Functional Calculus}%
 \label{sec:functionalcalc}
@@ -36,7 +36,7 @@ Therefore, given a self-adjoint matrix \(A\) and a polynomial \(f \in \CC [x]\)
 Since self-adjoint matrices play such a vital role in free analysis, we will let
 \(\HH_n \subset M_n(\CC)\) denote the set of \(n \times n\)-matrices over \(\CC \).
 With the polynomial case in mind, we can extend a function \(g: [a,b] \to \CC \)
-to a function on self adjoint {\color{red} (normal?)} matrices with their
+to a function on self adjoint matrices with their
 spectrum in \([a,b]\). Let \(A\) be such a matrix (diagonalized by the unitary
 matrix \(U\)), and define
 \[
@@ -46,7 +46,7 @@ matrix \(U\)), and define
 \]
 Thus, for each \(n \in \NN \), \(g\) induces a function on the self-adjoint
 \(n \times n\) matrices with spectrum in \([a,b]\).  The natural ordering
-{\color{red} {explain why natural?}} on self-adjoint matrices is called the
+ on self-adjoint matrices is called the
 \textbf{Loewner Order}:
 
 \begin{definition}[Loewner Ordering]
@@ -66,10 +66,11 @@ We say that a function is \emph{matrix-monotone} if \(A \preceq B\) implies that
 for every pair of like-size matrice for which \(f\) is defined. These condition
 are rather restrictive (since the must hold for matrices of \emph{all} sizes) so
 many functions which are convex/monotone (in the traditional sense) fail to be
-matrix-convex/monotone. For example, \(f(x)=x^4\) fails to be nc-convex.
-{\color{red} Below is an example from FCAC (Helton). What is the best way to
-  refer to this?
-
+matrix-convex/monotone. For a full treatment of nc-convexity, see
+\cite{heltonFree2013}. To illustrate the restrictiveness of nc-convexity,
+{\color{red} we will steal an example from Helton. (I don't like this phrasing. I don't
+  mind the word steal, its just awkward)}
+In contrast to the real (or even complex) case, \(f(x)=x^4\) fails to be nc-convex.
 Indeed, if
 \[
   X = \begin{bmatrix} 4 &2\\2&2 \end{bmatrix}  \qquad \text{ and } \qquad \begin{bmatrix} 2&0\\0&0 \end{bmatrix}
@@ -81,9 +82,6 @@ Then
 \]
 Which is not positive definite! Thus \(x^4\) fails to be convex on even
 \(2\times 2\) matrices.
-}
-
-{\color{blue} nc-positive if positive for all matrices}
 
 Further, a number of the standard constructions lift identically in this
 functional calculus.
@@ -106,6 +104,11 @@ This version allows us to more easily define higher order derivatives
     D^{(k)}f(X)[H] = \left.\frac{d^{(k)}f(X+tH)}{d^{(k)}t}\right|_{t=0}
 \]
 
+Just as in the classical case, the second derivative tells gives us information
+about the convexity of a function. A function \(f:M_n(\CC)\to M_n(\CC)\) is said
+to be \textbf{positive} if \(0\preceq A \implies 0\preceq f(A)\). In the
+functional calculus, we say that \(f\) is \textbf{nc positive} if it is positive
+as a map on \(M_n(\CC)\) for all \(n\).
 Despite nc-convexity being so restrictive, Lemma 12 in \cite{heltonFree2013}
 shows that the standard characterization of convexity via the second
 derivative: a function \(f\) is convex if and only if \(D^{2}f(X)[H]\) is
@@ -139,19 +142,22 @@ calculus. Given a word \(w(x) = x_{i_1}^{p_1}\cdots x_{i_d}^{p_d}\) and a
 linear combinations of these words, we can extend this evaluation to evaluation
 of entire polynomials. Algebraically, we have a natural evaluation map:
 Given some \(f \in \CC \langle x \rangle \) and
-\(X = \left( X_1, \dots ,X_n \right) \) a
+\(X = \left( X_1, \dots ,X_g \right) \) a
 \(g\)-tuple of self-adjoint matrices, define
 \begin{align*}
-  \varepsilon_f: {\HH_n}^g &\longrightarrow M_n(\CC) \\
+  \varepsilon_f: {\HH_\bullet}^g &\longrightarrow M_\bullet(\CC) \\
              X &\longmapsto f(X)
 .\end{align*}
+Notice that our functions are \textbf{graded} in the sense that if \(X\) is a
+tuple of \(n \times n\) matrices, then \(f(X)\) is also a tuple of
+\(n \times n\) matrices.
 
 In the context of these multivariate functions, our definition of the
 Directional Derivative still makes sense (although our direction \(H\) now
 becomes a tuple of directions). We also inherit (from multi-variable calculus) a
 notion of the \textbf{gradient} of a function---but this will require a bit more work.
 
-{\color{red} Maybe an example of an evaluation?}
+{\color{blue} Maybe an example of an evaluation?}
 
 \subsection{The Natural Involution on nc-Polynomials}%
 \label{ssec:NatInvo}
@@ -186,20 +192,26 @@ natural functional calculus just like that in section \ref{sec:ExtMuliVarFun}
 except it can accept \emph{any} matrix as an input instead of simply
 self-adjoint matrices.
 
-{\color{blue} an example of a simple polynomial}
-
-As discussed in baby linear algebra, we can view the self-adjoint matrices as
-analogous to the to real numbers. While this analogy is tenuous at best, it does
-give rise to a new analogy. If we view \(\RR \langle x \rangle \) as a the nc analogue of
-polynomials with real variables while \(\RR \langle x,x^* \rangle \) is the nc
-analogue of polynomials in complex variables! {\color{red} honestly why have
-  this paragraph}
-
 \subsection{Matrices of nc-Polynomials}
 
-Let \(\RR \langle x \rangle ^{k\times k}\) denote the set of \(k \times k\) matrices
-with entries in \(\RR \langle x \rangle \)---that is, \(k \times  k\) matrices
-where the entries are nc polynomials. Of course
-\(\RR \langle x \rangle ^{k\times k}\) inherits the involution
+It is occasionally useful in the larger theory of free analysis (\eg when
+construction the free topology in section \ref{sec:admtopo}) to consider
+matrices where the matrices are nc polynomials. Formally,
+let \(\RR \langle x \rangle ^{k\times k}\) denote the set of \(k \times k\) matrices
+with entries in \(\RR \langle x \rangle \).\footnote{Some sources additionally
+  consider non-square matrices but this is rare.}
+We can naturally extend the involution \(^*\) on \(\RR \langle x \rangle \) to
+our matrices by applying \(^*\) component wise and taking the transpose of the matrix.
 
-{\color{blue} Still to treat: degree, matrix of polynomials, semi-algebraic sets}
+{\color{blue} Another example here---some matrix and its ``adjoint''}
+
+Given some \(\delta \in \RR \langle x \rangle ^{k \times k}\) a matrix of nc
+polynomials, and \(X \in \HH_n^g\) there is a natural evaluation map.
+\begin{align*}
+  \varepsilon_\delta: {\HH_n}^g &\longrightarrow M_{nk}(\CC) \\
+             X &\longmapsto \delta(X)
+\end{align*}
+given by evaluating each polynomial in \(\delta\) at \(X\) and then viewing the
+result at a block \(k \times k\) where each block is an \(n \times n\) matrix.
+
+{\color{blue} Definitely an example here.}
