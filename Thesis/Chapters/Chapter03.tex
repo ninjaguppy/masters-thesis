@@ -1,0 +1,86 @@
+\chapter{Monodromy: Classical and Free}\label{ch:monodromy}
+\section{Classical Monodromy}%
+\label{sec:classmono}
+
+In the study of functions of a single complex variable, many of the central
+theorems surround the idea of analytic continuation. Given some analytic
+function \(f\) on a domain \(\Omega \subset\CC \) and a larger domain
+\(\overline{\Omega} \supset \Omega\), we can (with sufficient
+``niceness'' conditions) extend \(f\) to an analytic function \(g\) on
+\(\overline{\Omega}\). In particular, given some path \(\gamma\) which start in
+\(\Omega\) we wish to continue \(f\) \emph{along} \(\gamma\) by recomputing the
+power series on overlapping disks with their centers on \(\gamma\).
+\[
+  \text{{\color{blue} Put a little figure here of the tradition picture}}
+\]
+
+Our path \(\gamma\) must avoid any potential poles of \(f\) so that we may
+compute the power series, but the uniqueness of such an extension is not
+obvious. This is where the aforementioned niceness conditions come into play!
+For example, consider the follow setup:
+\[
+  \text{{\color{blue} Put a little figure here of two paths around the origin.}}
+\]
+If we let \(f(x)=\Log x\) be the principle branch of the complex logarithm the
+defined on the right half plane, and continue \(f\) along \(\gamma_1\) and
+\(\gamma_2\) we get two functions \(f_1\) and \(f_2\) which are analytic at
+\(\beta\), but they don't agree! In the case, \(f_1(\beta)\) and \(f_2(\beta)\)
+disagree by exactly \(2\pi i\). The monodromy theorem gives sufficient
+conditions for the continuation along two curves to agree:
+
+\begin{theorem}[Monodromy I]%
+\label{thm:mon1}
+  Let \(\gamma_1, \gamma_2\) be two paths from \(\alpha\) to \(\beta\) and
+  \(\Gamma_s\) be a fixed-endpoint homotopy between them. If \(f\) can be
+  continued along \(\Gamma_s\) for all \(s \in [0,1]\), then the continuations
+  along \(\gamma_1\) and \(\gamma_2\) agree at \(\beta\).
+\end{theorem}
+
+In the example above, any homotopy between the two paths must pass through the
+origin---where \(\Log x\) fails to be analytic---and hence the two continuations
+disagree at \(\beta\).
+An equivalent formulation of the monodromy theorem concerns extending a
+functions to a larger domain:
+
+\begin{theorem}[Monodromy II]%
+\label{thm:mon2}
+  Let \(U \subset \CC \) be a disk in \(\CC \) centered at \(z_0\) and
+  \(f: U \to \CC \) an analytic function. If \(W\) is
+  an open, simply connected set containing \(U\) and \(f\) continues along any
+  path \(\gamma \subset W\) starting at \(z_0\), then \(f\) has a unique
+  extension to all of \(W\).
+\end{theorem}
+
+This second formulation gives another perspective on \(\Log x\). In the example,
+\(U\) is a disk around \(\alpha\) that stays in the right half plane and \(W\)
+is \(\CC \setminus \{0\} \). While \(\Log x\) continues along any path in
+\(\CC  \setminus \{0\} \), the larger domain is \emph{not} simply connected, so
+monodromy fails.
+
+In practice, after the initial exposure in a first course in complex variables,
+no one computes continuations by hand. {\color{red} This could be a paragraph,
+  but is it necessary?}
+
+\section{Free Monodromy}%
+\label{sec:freemono}
+
+There is an analogous theorem to \cref{thm:mon1,thm:mon2} in the free settings
+initial proven by J.E.\ Pasocoe in \cite{pascoeNoncommutative2020}.
+In the classic case, the larger set \(W\) must be simply connected. In the free
+setting, however, the theorem is much more powerful.
+
+\begin{theorem}[Free Univeresal Monodromy]%
+  \label{thm:freemono}
+  If \(f\) is an analytic free function defined on some ball \(B \subset D\),
+  for \(D\) an open, connected free set.
+  Then \(f\) analytically continues along every path in \(D\) if and only if
+  \(f\) has a unique analytic continuation to all of \(D\).
+\end{theorem}
+
+\begin{proof}
+  [Proof (From \cite{pascoeNoncommutative2020})]
+  The fact that a unique extension to all of \(D\) implies that \(f\) has a
+  continuation along any \(\gamma\) is immediate.
+
+  {\color{red} honestly I don't quite get the proof yet, so this will come later.}
+\end{proof}

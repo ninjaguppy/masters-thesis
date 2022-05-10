@@ -58,103 +58,6 @@ matrices:
 {\color{red} \(tr (A \otimes Id)\) But its more complicated than that bc A is a
 ``row vector'' of sorts}
 
-\section{The Topology of Matrix Universes }%
-\label{sec:TopManUniv}
-
-At the time of writing, there is no ``canonical topology'' for \(\MM^g\). For a
-long time it seemed like the \emph{free} topology (to be defined below) was the
-obvious choice, but recent work (c.f.\ \cite{pascoeentire2019}) has shown that the free
-topology does not put enough structure on \(\MM^g\). See \cite{aglerAspects2016}
-for a full treatment of the common topologies on \(\MM^g\).
-
-A naive approach to a topology on \(\MM = \bigcup_n M_n(\CC)\) would be the
-disjoint union topology---which is then extended do a topology on \(\MM^g\) via
-the product topology. {\color{red} does disjoint union topology ``commute'' with
-the product topology?} Notice, however that this ignores a significant amount of
-the implicit structure of nc-sets as we get a disconnected space with countable
-many connected components. Topologically, this is means that means that
-\[
-  H_\bullet (D) = \bigoplus_{n \in \NN } H_\bullet(D_n).
-\]
-At first glance, this seems fine enough, but it ignores the fact that for
-\(X \in D\) we require \(X^{\oplus k} \in D\) for all \(k\) and \(U^*XU \in D\)
-for all unitary \(U\). {\color{blue} Should define the similarity envelope at
-  some point} In a sense, we think of the all the direct sums of \(X\) and its
-similarity envelope as ``the same.'' In light of this, if \(\sim\) is the
-equivalence relation that \(X\sim Y\) if \(Y = X^{\oplus k}\) or \(Y = U^*XU\)
-{\color{red} is this actually an equivalence relation? The second statement is
-  immediate but the first isn't an eq.\ rel.},
-then any useful topological theory on \(D \subset \MM^g\) should descend to
-classic theory on \(\faktor{D}{\sim}\).
-
-{\color{blue} a note on convergence somewhere.}
-
-\subsection{Admissible Topologies}%
-\label{sec:admtopo}
-
-In light of the above discussion, we will present some of the candidate
-topologies which show some promise in understanding the topology on \(\MM^g\)
-and its subsets.
-We say that a topology \(\tau\) is \textbf{admissible} if it has a basis of nc
-bounded open sets, \(D\) (recall that this means that \(D\) is closed under
-direct sums and unitary conjugation, and that each \(D_n\) is a bounded open set
-in \(M_n(\CC)^g\)). The finest admissible topology is the so-called \textbf{fine
-  topology},
-the basis of which consists of \emph{all} nc open sets.
-
-A slightly more restrictive topology (that seems to show some promise in the eyes
-of the author) is the \textbf{fat} topology. For \(n \in \NN \),
-\(r \in \RR ^+\), and \(X \in \MM^g_n\), we first define a matricial polydisc
-\[
-  D_n(X,r) := \{A \in \MM^g \mid \max_{1\leq i\leq g} \| X_i-A_i \| <r\}.
-\]
-Now we sweep \(D_n\) through all direct sum copies of \(X\):
-\[
-  D(X,r) := \bigcup_{k=1}^\infty D_{kn} (X^{\oplus k},r)
-\]
-Finally, we take the similarity envelope of \(D(X,r)\)
-\[
-  F(X,r) :=  \bigcup_{n=1}^\infty \bigcup_{U \in \mathcal{U}_n} U^* \left( D(X,r) \cap \MM^g_n \right) U
-\]
-Both the fine and the fat topologies admit implicit function theorems.
-
-The final candidate topology is the aforementioned \textbf{free} topology.
-Recall that \(\RR \langle x \rangle \) is the algebra of nc polynomials over the
-real number and that
-\(\RR \langle x \rangle ^{k\times k}\) is the set of \(k \times k\) matrices
-with entries in \(\RR \langle x \rangle \). Let
-\(\delta \in \RR \langle x \rangle ^{k\times k}\) and define
-\[
-  G_\delta = \{x \in \MM^{g} \mid \| \delta(x) \| <1\}
-\]
-The set of all \(G_\delta\) as \(k\) ranges over \(\ZZ ^+\) form the basis for
-the free topology. Indeed, any \(X \in \MM^{g} \) is trivially in one of the
-\(G_\delta\) (take \(\delta=X\)) and with some work one can show that
-\(G_{\delta_1} \cap G_{\delta_2}= G_{\delta_1\oplus \delta_2}\) ({\color{red}
-  prove this}) so we do,
-indeed, have a basis.
-
-In \cite{aglerGlobal2013}, Agler and McCarthy proved an free analogue of the
-Oka-Weil theorem: any holomorphic function on a compact set in the free topology
-can be uniformly approximated by polynomials. Unfortunately, it was later proven
-in \cite{pascoeentire2019} and \cite{augatCompact2017} that the only compact
-sets in the \(\MM^{g} \) are the envelope of finitely many points, trivializing
-the result of Agler and McCarthy.
-
-It is the opinion of the author that all of these topologies are definitely
-broken. As shown above, the free topology lacks a wealth of compact sets.
-Additionally, see that the fine topology (and therefore any admissible topology)
-fails to be \(T_1\), let alone Hausdorff---notice that any open set containing
-\(X\) must also contain \(X\oplus X\). Further, given any free function \(f\)
-on an nc-domain \(D\), if \(f\) is locally bounded on each \(D_n\) then \(f\)
-is analytic (admits a power series representation.) There are two ways so view
-this result: First, one can accept that analytic functions are a dime dozen on
-\(\MM^{g} \). Alternatively, one can be skeptical that the topological
-structures put on \(\MM^{g} \) are indeed the natural choice. The work of J.E.
-Pascoe in \cite{pascoeFreeNoncommutativePrincipal2020} covered in part
-\ref{pt:two} seeks to solve some of these issues by extendend the definitions of
-traditional algebraic topology.
-
 
 \section{Tracial Functions and Uniqueness of the Gradient}%
 \label{sec:TracGrad}
@@ -335,3 +238,113 @@ but if \(f\) is defined on \(D\) and \(g\) is defined on \(\tilde{D}\), then the
 above proof only holds on \(D \cap \tilde{D}\). Examples of such \(f\) and \(g\)
 abound when considering rational functions, which are explored in {\color{blue}
   THAT SECTION}
+\section{The Topology of Matrix Universes }%
+\label{sec:TopManUniv}
+
+At the time of writing, there is no ``canonical topology'' for \(\MM^g\). For a
+long time it seemed like the \emph{free} topology (to be defined below) was the
+obvious choice, but recent work (c.f.\ \cite{pascoeentire2019}) has shown that the free
+topology does not put enough structure on \(\MM^g\). See \cite{aglerAspects2016}
+for a full treatment of the common topologies on \(\MM^g\).
+
+A naive approach to a topology on \(\MM = \bigcup_n M_n(\CC)\) would be the
+disjoint union topology---which is then extended do a topology on \(\MM^g\) via
+the product topology. {\color{red} does disjoint union topology ``commute'' with
+the product topology?} Notice, however that this ignores a significant amount of
+the implicit structure of nc-sets as we get a disconnected space with countable
+many connected components. Topologically, this is means that means that
+\[
+  H_\bullet (D) = \bigoplus_{n \in \NN } H_\bullet(D_n).
+\]
+At first glance, this seems fine enough, but it ignores the fact that for
+\(X \in D\) we require \(X^{\oplus k} \in D\) for all \(k\) and \(U^*XU \in D\)
+for all unitary \(U\). {\color{blue} Should define the similarity envelope at
+  some point} In a sense, we think of the all the direct sums of \(X\) and its
+similarity envelope as ``the same.'' In light of this, if \(\sim\) is the
+equivalence relation that \(X\sim Y\) if \(Y = X^{\oplus k}\) or \(Y = U^*XU\)
+{\color{red} is this actually an equivalence relation? The second statement is
+  immediate but the first isn't an eq.\ rel.},
+then any useful topological theory on \(D \subset \MM^g\) should descend to
+classic theory on \(\faktor{D}{\sim}\).
+
+{\color{blue} a note on convergence somewhere.}
+
+\subsection{Admissible Topologies}%
+\label{sec:admtopo}
+
+In light of the above discussion, we will present some of the candidate
+topologies which show some promise in understanding the topology on \(\MM^g\)
+and its subsets.
+We say that a topology \(\tau\) is \textbf{admissible} if it has a basis of nc
+bounded open sets, \(D\) (recall that this means that \(D\) is closed under
+direct sums and unitary conjugation, and that each \(D_n\) is a bounded open set
+in \(M_n(\CC)^g\)). The finest admissible topology is the so-called \textbf{fine
+  topology},
+the basis of which consists of \emph{all} nc open sets.
+
+A slightly more restrictive topology (that seems to show some promise in the eyes
+of the author) is the \textbf{fat} topology. For \(n \in \NN \),
+\(r \in \RR ^+\), and \(X \in \MM^g_n\), we first define a matricial polydisc
+\[
+  D_n(X,r) := \{A \in \MM^g \mid \max_{1\leq i\leq g} \| X_i-A_i \| <r\}.
+\]
+Now we sweep \(D_n\) through all direct sum copies of \(X\):
+\[
+  D(X,r) := \bigcup_{k=1}^\infty D_{kn} (X^{\oplus k},r)
+\]
+Finally, we take the similarity envelope of \(D(X,r)\)
+\[
+  F(X,r) :=  \bigcup_{n=1}^\infty \bigcup_{U \in \mathcal{U}_n} U^* \left( D(X,r) \cap \MM^g_n \right) U
+\]
+Both the fine and the fat topologies admit implicit function theorems.
+
+The final candidate topology is the aforementioned \textbf{free} topology.
+Recall that \(\RR \langle x \rangle \) is the algebra of nc polynomials over the
+real number and that
+\(\RR \langle x \rangle ^{k\times k}\) is the set of \(k \times k\) matrices
+with entries in \(\RR \langle x \rangle \). Let
+\(\delta \in \RR \langle x \rangle ^{k\times k}\) and define
+\[
+  G_\delta = \{x \in \MM^{g} \mid \| \delta(x) \| <1\}
+\]
+The set of all \(G_\delta\) as \(k\) ranges over \(\ZZ ^+\) form the basis for
+the free topology. Indeed, any \(X \in \MM^{g} \) is trivially in one of the
+\(G_\delta\) (take \(\delta=X\)) and with some work one can show that
+\(G_{\delta_1} \cap G_{\delta_2}= G_{\delta_1\oplus \delta_2}\) ({\color{red}
+  prove this}) so we do,
+indeed, have a basis.
+
+In \cite{aglerGlobal2013}, Agler and McCarthy proved an free analogue of the
+Oka-Weil theorem: any holomorphic function on a compact set in the free topology
+can be uniformly approximated by polynomials. Unfortunately, it was later proven
+in \cite{pascoeentire2019} and \cite{augatCompact2017} that the only compact
+sets in the \(\MM^{g} \) are the envelope of finitely many points, trivializing
+the result of Agler and McCarthy.
+
+It is the opinion of the author that all of these topologies are definitively
+broken. As shown above, the free topology lacks a wealth of compact sets.
+The fine topology (and therefore any admissible topology)
+fails to be \(T_1\), let alone Hausdorff---notice that any open set containing
+\(X\) must also contain \(X\oplus X\). Further, given any free function \(f\)
+on an nc-domain \(D\), if \(f\) is locally bounded on each \(D_n\) then \(f\)
+is analytic (admits a power series representation.) There are two ways so view
+this result: First, one can accept that analytic functions are a dime dozen on
+\(\MM^{g} \). Alternatively, one can be skeptical that the topological
+structures put on \(\MM^{g} \) are indeed the natural choice. The work of J.E.
+Pascoe in \cite{pascoeFreeNoncommutativePrincipal2020} covered in part
+\ref{pt:two} seeks to solve some of these issues by extending some of the
+concepts of traditional algebraic topology.
+
+For the rest of this thesis, we will be using the conventions mentioned in
+\cref{sec:MatUniv}: \( D \subset\MM^{g} \) open if each \(D_n\) is open---these
+are precisely the basic open sets in the fine topology.
+{\color{red} this is the fine topology, right? or is it just the basic sets? Is
+  the topology generated by these just themselves?}
+
+
+\section{nc Rational Functions}%
+\label{sec:ncrational}
+
+{\color{blue} Short review about defining rational functions via equivalence
+  classes. We need this bc rational functions give the nc picard group and
+  divisors and all that }
