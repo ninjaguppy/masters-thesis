@@ -10,17 +10,27 @@ function \(f\) on a domain \(\Omega \subset\CC \) and a larger domain
 \(\overline{\Omega}\). In particular, given some path \(\gamma\) which start in
 \(\Omega\) we wish to continue \(f\) \emph{along} \(\gamma\) by recomputing the
 power series on overlapping disks with their centers on \(\gamma\).
-\[
-  \text{{\color{blue} Put a little figure here of the tradition picture}}
-\]
+\begin{figure}[h!]
+\centering
+  \def\svgwidth{0.8\columnwidth}
+  \import{./Chapters/img/part 2/}{monodromycurve.pdf_tex}
+\caption{Analytic continuation along a curve}
+\label{fig:monocurve}
+\end{figure}
 
 Our path \(\gamma\) must avoid any potential poles of \(f\) so that we may
 compute the power series, but the uniqueness of such an extension is not
 obvious. This is where the aforementioned niceness conditions come into play!
 For example, consider the follow setup:
-\[
-  \text{{\color{blue} Put a little figure here of two paths around the origin.}}
-\]
+
+\begin{figure}[h!]
+\centering
+  \def\svgwidth{0.52\columnwidth}
+  \import{./Chapters/img/part 2/}{monodromylog.pdf_tex}
+\caption{Two paths in \(\CC \)}
+\label{fig:monolog}
+\end{figure}
+
 If we let \(f(x)=\Log x\) be the principle branch of the complex logarithm the
 defined on the right half plane, and continue \(f\) along \(\gamma_1\) and
 \(\gamma_2\) we get two functions \(f_1\) and \(f_2\) which are analytic at
