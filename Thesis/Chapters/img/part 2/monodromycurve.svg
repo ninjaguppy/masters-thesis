@@ -115,24 +115,24 @@
     <text
        xml:space="preserve"
        style="font-size:6.35px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
-       x="112.78202"
-       y="62.44693"
+       x="111.60861"
+       y="61.454044"
        id="text2844"><tspan
          sodipodi:role="line"
          id="tspan2842"
-         x="112.78202"
-         y="62.44693"
+         x="111.60861"
+         y="61.454044"
          style="font-size:6.35px;stroke-width:0.264583">$\gamma$</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:6.35px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
-       x="39.327839"
-       y="77.166061"
+       x="46.0975"
+       y="76.263443"
        id="text2848"><tspan
          sodipodi:role="line"
          id="tspan2846"
-         x="39.327839"
-         y="77.166061"
+         x="46.0975"
+         y="76.263443"
          style="font-size:6.35px;stroke-width:0.264583">$\alpha$</tspan></text>
     <text
        xml:space="preserve"
@@ -193,16 +193,5 @@
        cx="139.51883"
        cy="21.023003"
        r="1.5982527" />
-    <text
-       xml:space="preserve"
-       style="font-size:12.3472px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
-       x="132.46822"
-       y="92.387756"
-       id="text2938"><tspan
-         sodipodi:role="line"
-         id="tspan2936"
-         x="132.46822"
-         y="92.387756"
-         style="stroke-width:0.264583">test</tspan></text>
   </g>
 </svg>
