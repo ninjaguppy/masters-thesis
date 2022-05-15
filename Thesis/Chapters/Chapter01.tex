@@ -22,10 +22,10 @@ and so there is a natural way to evaluate polynomials \(f \in \CC [x]\). If we
 require that $A \in M_n(\CC)$ is self-adjoint---and hence diagonalizable as
 $A = U \Lambda U^*$---then it is a standard result that:
 \begin{align*}
-  f(A) &= a_nA^n + \cdots + a_1A + a_0 \\
-  &= a_n \left( U\Lambda U^* \right) ^n + \cdots + a_1 U\Lambda U^* + a_0 \\
-  &= a_n U\Lambda^n U^* + \cdots + a_1 U\Lambda U^* + a_0 \\
-  &= U \left( a_n\Lambda ^n + \cdots + a_1\Lambda + a_0 \right) U^* \\
+  f(A) &= a_nA^n + \cdots + a_1A + a_0 I_n \\
+  &= a_n \left( U\Lambda U^* \right) ^n + \cdots + a_1 U\Lambda U^* + a_0 I_n \\
+  &= a_n U\Lambda^n U^* + \cdots + a_1 U\Lambda U^* + a_0 I_n \\
+  &= U \left( a_n\Lambda ^n + \cdots + a_1\Lambda + a_0 I_n \right) U^* \\
   &= U \left( f(\Lambda) \right) U^*
 \end{align*}
 Further, since \(\Lambda\) is diagonal and $f$ is a polynomial,
@@ -37,6 +37,11 @@ Therefore, given a self-adjoint matrix \(A\) and a polynomial \(f \in \CC [x]\)
 \[
   f(A) = Uf(\Lambda)U^* = U \;\text{diag}\{f(\lambda_{1}), \dots , f(\lambda_n)\} \; U^*
 \]
+Notice that can simply substitute \(A\) in for \(x\) without any trouble as long
+as we transform the constant term \(a_0 \mapsto a_0I_n\) when evaluation on
+\(n\times n\) matrices.\footnote{Technically we have
+  \(a_0 \mapsto a_0 \otimes I_n\) but they are identical in this case. It is common in free
+  analysis to tensor by \(I_n\) to {\color{red} make matrices the same size}.}
 Since self-adjoint matrices play such a vital role in free analysis, we will let
 \(\HH_n \subset M_n(\CC)\) denote the set of \(n \times n\)-matrices over \(\CC \).
 With the polynomial case in mind, we can extend a function \(g: [a,b] \to \CC \)
@@ -74,18 +79,21 @@ matrix-convex/monotone. For a full treatment of nc-convexity, see
 \cite{heltonFree2013}. To illustrate the restrictiveness of nc-convexity,
 {\color{red} we will steal an example from Helton. (I don't like this phrasing. I don't
   mind the word steal, its just awkward)}
-In contrast to the real (or even complex) case, \(f(x)=x^4\) fails to be nc-convex.
-Indeed, if
-\[
-  X = \begin{bmatrix} 4 &2\\2&2 \end{bmatrix}  \qquad \text{ and } \qquad \begin{bmatrix} 2&0\\0&0 \end{bmatrix}
-\]
-Then
-\[
-  \frac{X^4+Y^4}{2} - \left( \frac{1}{2}X +\frac{1}{2}Y \right) ^4
-  = \begin{bmatrix} 164 &120\\120&84 \end{bmatrix}
-\]
-Which is not positive definite! Thus \(x^4\) fails to be convex on even
-\(2\times 2\) matrices.
+\begin{example}%
+\label{ex:helton1}
+  In contrast to the real (or even complex) case, \(f(x)=x^4\) fails to be nc-convex.
+  Indeed, if
+  \[
+    X = \begin{bmatrix} 4 &2\\2&2 \end{bmatrix}  \qquad \text{ and } \qquad Y =\begin{bmatrix} 2&0\\0&0 \end{bmatrix}
+  \]
+  Then
+  \[
+    \frac{X^4+Y^4}{2} - \left( \frac{1}{2}X +\frac{1}{2}Y \right) ^4
+    = \begin{bmatrix} 164 &120\\120&84 \end{bmatrix}
+  \]
+  Which is not positive definite! Thus \(x^4\) fails to be convex on even
+  \(2\times 2\) matrices.
+\end{example}
 
 Further, a number of the standard constructions lift identically in this
 functional calculus.
@@ -107,6 +115,35 @@ This version allows us to more easily define higher order derivatives
 \[
     D^{(k)}f(X)[H] = \left.\frac{d^{(k)}f(X+tH)}{d^{(k)}t}\right|_{t=0}
 \]
+
+\begin{example}
+  Just as in the classical case, the directional derivative is linear, so we
+  will only show a calculation of a monomial. Let \(f(x)=x^3\). Since \(X\) and
+  \(H\) do not commute,
+  \begin{align*}
+    f(X+tH) &= X^3+ tX^2H +tXHX + t^2XH^2\\
+    & \hphantom{= X^3}+ tHX^2 + t^2HXH + t^2H^2X +t^3H^3.
+  \end{align*}
+  From here, we can calculate:
+  \begin{align*}
+    \frac{d}{dt} f(X+tH) &= X^2H + XHX + 2tXH^2 +HX^2\\
+                  &\hphantom{=X^2H} +2tHXH +2tH^2X + 3t^2H^3 \\
+     \\
+    \frac{d^2}{dt^2} f(X+tH) &= 2XH^2+2HXH +2H^2X + 6tH^3 \\
+     \\
+    \frac{d^3}{dt^3} f(X+tH) &= 6H^3.
+  \end{align*}
+  And so the first 3 directional derivatives are:
+  \begin{align*}
+    Df(X)[H] &= X^2H + XHX +HX^2\\
+    \\
+    D^{(2)}f(X)[H] &= 2XH^2+2HXH +2H^2X \\
+    \\
+    D^{(3)}f(X)[H] &= 6H^3
+  \end{align*}
+  In general, the \(k\)-th derivative of a polynomial is degree \(k\) as a
+  polynomial in \(H\).
+\end{example}
 
 Just as in the classical case, the second derivative tells gives us information
 about the convexity of a function. A function \(f:M_n(\CC)\to M_n(\CC)\) is said
@@ -156,12 +193,35 @@ Notice that our functions are \textbf{graded} in the sense that if \(X\) is a
 tuple of \(n \times n\) matrices, then \(f(X)\) is also a tuple of
 \(n \times n\) matrices.
 
+\begin{example}%
+\label{ex:multivareval}
+  Let \(f(x,y) = x^2-xyx +1 \in \RR \langle x,y \rangle  \). If we define
+  \[
+    X = \begin{bmatrix} 4 &2\\2&2 \end{bmatrix}  \qquad \text{ and } \qquad Y =\begin{bmatrix} 2&0\\0&0 \end{bmatrix}
+  \]
+  as before, then
+  \begin{align*}
+    f(X,Y) &= X^2 - XYX + I_2 \\
+           &= \begin{bmatrix} 4 &2\\2&2 \end{bmatrix}^2
+             -\begin{bmatrix} 4 &2\\2&2 \end{bmatrix}\begin{bmatrix} 2&0\\0&0 \end{bmatrix}\begin{bmatrix} 4 &2\\2&2 \end{bmatrix}
+             +\begin{bmatrix} 1&0\\0&1 \end{bmatrix} \\
+           &= \begin{bmatrix} -11&-4\\-4&1 \end{bmatrix}.
+  \end{align*}
+  Additionally,
+  \begin{align*}
+    f(X\oplus X,Y\oplus Y) &= \begin{bmatrix} -11&-4&0&0\\-4&1&0&0 \\ 0&0&-11&-4 \\ 0&0&-4&1 \end{bmatrix} \\
+    &= f(X,Y) \oplus f(X,Y).
+  \end{align*}
+  It is no accident that polynomials handle direct sums of matrices well. As in
+  the classical case, they are the ``well behaved'' example which we would like
+  general objects to emulate. In the next chapter, we will define
+  free functions---which behave like nc polynomials.
+\end{example}
+
 In the context of these multivariate functions, our definition of the
 Directional Derivative still makes sense (although our direction \(H\) now
 becomes a tuple of directions). We also inherit (from multi-variable calculus) a
 notion of the \textbf{gradient} of a function---but this will require a bit more work.
-
-{\color{blue} Maybe an example of an evaluation?}
 
 \subsection{The Natural Involution on nc-Polynomials}%
 \label{ssec:NatInvo}
@@ -179,10 +239,10 @@ symmetric if \(p^* = p\). For example, if
 then a cursory inspection tells that \(q\) is symmetric while \(p\) is not.
 
 Notice that the majority of the previous two sections breaks down if we try to
-extend functions to non-self-adjoint matrices. While the idea of ``plugging in''
-a tuple of matrices so some element of \(\RR \langle x \rangle \) via the same
-functional calculus described above, but we can actually \emph{add} structure to
-\(\RR \langle x \rangle \) and made evaluation more natural.
+extend functions to non-self-adjoint matrices. The act of ``plugging in''
+a tuple of arbitry matrices to some element of \(\RR \langle x \rangle \) via the same
+functional calculus described above still works, but \(\RR \langle x \rangle \)
+is no longer the natural algebra for these evaluations.
 
 Let \(x = (x_1, \dots, x_g)\) be formal variables and let
 \(x^* = (x_1^*, \dots, x_g^*)\) denote their formal adjoints. Once again, we let
@@ -196,18 +256,26 @@ natural functional calculus just like that in section \ref{sec:ExtMuliVarFun}
 except it can accept \emph{any} matrix as an input instead of simply
 self-adjoint matrices.
 
+\begin{example}
+  Let \(f(x,y) = x^*y - x y^* x +2\). Then
+  \[
+    f^*(x,y) = y^*x - x^*yx^* + 2.
+  \]
+  Evaluating \(f\) on a pair of non self-adjoint matrices is left to the reader.
+\end{example}
+
 \subsection{Matrices of nc-Polynomials}
 
-It is occasionally useful in the larger theory of free analysis (\eg when
+It is occasionally useful in the larger theory of free analysis (\eg{} when
 construction the free topology in section \ref{sec:admtopo}) to consider
 matrices where the matrices are nc polynomials. Formally,
 let \(\RR \langle x \rangle ^{k\times k}\) denote the set of \(k \times k\) matrices
 with entries in \(\RR \langle x \rangle \).\footnote{Some sources additionally
   consider non-square matrices but this is rare.}
 We can naturally extend the involution \(^*\) on \(\RR \langle x \rangle \) to
-our matrices by applying \(^*\) component wise and taking the transpose of the matrix.
-
-{\color{blue} Another example here---some matrix and its ``adjoint''}
+our matrices by applying \(^*\) component wise and taking the transpose of the
+matrix.\footnote{We could likewise define
+  \(\RR \langle x,x^* \rangle\) and extend the corresponding involution.}
 
 Given some \(\delta \in \RR \langle x \rangle ^{k \times k}\) a matrix of nc
 polynomials, and \(X \in \HH_n^g\) there is a natural evaluation map.
@@ -218,4 +286,41 @@ polynomials, and \(X \in \HH_n^g\) there is a natural evaluation map.
 given by evaluating each polynomial in \(\delta\) at \(X\) and then viewing the
 result at a block \(k \times k\) where each block is an \(n \times n\) matrix.
 
-{\color{blue} Definitely an example here.}
+\begin{example}
+  Define \(\delta \in \RR \langle x,y \rangle ^{2\times 2}\) as
+  \[
+    \delta(x,y) = \begin{bmatrix}
+               x^2-xyx+1 & xy-yx \\
+               x^4 & y^3-5xy+3
+        \end{bmatrix}
+  \]
+  Then
+  \[
+    \delta^*(x,y) = \begin{bmatrix}
+               x^2-xyx+1 & yx-xy \\
+               x^4 & y^3-5yx+3
+        \end{bmatrix}
+  \]
+  For an evaluation, we will once again let
+  \[
+    X = \begin{bmatrix} 4 &2\\2&2 \end{bmatrix}  \qquad \text{ and } \qquad Y =\begin{bmatrix} 2&0\\0&0 \end{bmatrix}.
+  \]
+  We already know what the evaluations of the first column from examples
+  \ref{ex:helton1} and \ref{ex:multivareval}, so we need only complute the
+  second column.
+  \begin{align*}
+    XY-YX &= \begin{bmatrix} 0&-4\\4&0 \end{bmatrix}  \\
+    \\
+    Y^3-5XY+3 &= \begin{bmatrix} -29&0\\-20&3 \end{bmatrix}
+  \end{align*}
+  And thus
+  \[
+    \delta(X,Y) =
+    \begin{bmatrix}
+      -11&-4&0&-2 \\
+      -4&1&4&0 \\
+      164&120&-29&0\\
+      120&84&-20&3
+    \end{bmatrix}.
+  \]
+\end{example}
