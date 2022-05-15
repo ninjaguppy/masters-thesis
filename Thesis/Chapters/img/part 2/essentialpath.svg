@@ -16,6 +16,17 @@
    sodipodi:docname="essentialpath.svg">
   <defs
      id="defs2">
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect1246"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
     <marker
        style="overflow:visible"
        id="Arrow1Mstart"
@@ -82,9 +93,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.1400571"
-     inkscape:cx="488.02156"
-     inkscape:cy="153.6624"
+     inkscape:zoom="2.1298276"
+     inkscape:cx="372.16348"
+     inkscape:cy="159.18867"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -169,13 +180,13 @@
     <text
        xml:space="preserve"
        style="font-size:6.35px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
-       x="95.307907"
-       y="47.80048"
+       x="189.3932"
+       y="39.146114"
        id="text855"><tspan
          sodipodi:role="line"
          id="tspan853"
-         x="95.307907"
-         y="47.80048"
+         x="189.3932"
+         y="39.146114"
          style="font-size:6.35px;stroke-width:0.264583">$mk \times mk / n\ell\times n\ell$</tspan></text>
     <circle
        style="opacity:1;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.706756;stroke-dashoffset:28.1159;stroke-opacity:0"
@@ -204,13 +215,13 @@
     <text
        xml:space="preserve"
        style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
-       x="159.73483"
-       y="87.779976"
+       x="146.87692"
+       y="89.387215"
        id="text906"><tspan
          sodipodi:role="line"
          id="tspan904"
-         x="159.73483"
-         y="87.779976"
+         x="146.87692"
+         y="89.387215"
          style="font-size:4.23333px;stroke-width:0.264583">$X$</tspan></text>
     <text
        xml:space="preserve"
@@ -226,24 +237,24 @@
     <text
        xml:space="preserve"
        style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
-       x="41.788216"
-       y="30.908443"
+       x="40.67551"
+       y="30.784811"
        id="text914"><tspan
          sodipodi:role="line"
          id="tspan912"
-         x="41.788216"
-         y="30.908443"
+         x="40.67551"
+         y="30.784811"
          style="font-size:4.23333px;stroke-width:0.264583">$Y^{\oplus k}$</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:4.23333px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
-       x="159.48756"
-       y="29.919374"
+       x="159.36394"
+       y="31.279346"
        id="text918"><tspan
          sodipodi:role="line"
          id="tspan916"
-         x="159.48756"
-         y="29.919374"
+         x="159.36394"
+         y="31.279346"
          style="font-size:4.23333px;stroke-width:0.264583">$X^{\oplus\ell}$</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;marker-mid:url(#Arrow1Mstart)"
