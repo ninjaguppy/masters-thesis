@@ -45,12 +45,17 @@ For example, consider the follow setup:
 \label{fig:monolog}
 \end{figure}
 
+\begin{example}%
+\label{ex:logmono}
 If we let \(f(x)=\Log x\) be the principle branch of the complex logarithm the
 defined on the right half plane, and continue \(f\) along \(\gamma_1\) and
 \(\gamma_2\) we get two functions \(f_1\) and \(f_2\) which are analytic at
 \(\beta\), but they don't agree! In this case, \(f_1(\beta)\) and \(f_2(\beta)\)
-disagree by exactly \(2\pi i\). The monodromy theorem gives sufficient
-conditions for the continuation along two curves to agree:
+disagree by exactly \(2\pi i\).
+\end{example}
+
+The monodromy theorem gives sufficient conditions for the continuation along
+two curves to agree:
 
 \begin{theorem}[Monodromy I]%
 \label{thm:mon1}
@@ -109,10 +114,141 @@ setting, however, the theorem is much more powerful.
   {\color{red} honestly I don't quite get the proof yet, so this will come later.}
 \end{proof}
 
-In the free case, the ``larger'' set need not be simply connected.
+In the free case, the ``larger'' set need not be simply connected. Analytic
+continuations of free functions, then, cannot be used to detect holes in matrix
+domains. It will turn out, however, that the tracial and determinental functions
+introduced in \cref{sec:TracGrad} can detect holes and produce an analogue of
+the fundamental group!
 
-{\color{blue} lay the groundwork for the fact that \(\pi_1^{free}\)} is trivial.
+\section{The Germ of Function}%
+\label{sec:germs}
 
+{\color{blue} eww the title. I always like Aluffi's chapter called ``a bit of
+  algebraic geometry''---could do ``a bit of sheaf theory'' but I don't want to
+  scare the reader.}
+
+As studied in complex analytic and measure theoretic settings, if our space is
+structured enough functions are defined by their local behavior. This idea can
+be generalized to arbitrary topological spaces by stealing from sheaf theory
+{\color{red} fix that wording}.
+
+Let \(X\) be a topological space. For any open set \(U\) we can have \(C(U)\),
+the ring of continuous functions \(f: U \to \RR \) (where addition and
+multiplication are defined point-wise)
+{\color{red} Tracial functions fail to be
+  a ring but they *are* a group---should I just change this to a group?}.
+Given any \(V \subset U\), notice that a continuous function \(f\) on \(U\), we
+can restrict \(f\) to \(V\) and maintain continuity. This gives two maps:
+
+\begin{equation*}
+\begin{split}
+	V &\lhook\joinrel\longrightarrow U \\
+  v &\longmapsto v
+\end{split} \qquad \qquad \qquad
+\begin{split}
+	C(U) &\lhook\joinrel\longrightarrow C(V) \\
+  f &\longmapsto f \mid _V
+\end{split}
+\end{equation*}
+
+Notice that the induced function goes the ``other way.'' This construction is an
+example of a sheaf of rings\footnote{To be completely rigorous, a sheaf needs
+  additional axioms, but the sheaf of continuous functions is one of the
+  prototypical examples so the full defition is not needed in this
+  context.}---since \(C(U)\) has a ring structure. We can similarly define sheaves
+of abelian groups or sets: to each open set in \(X\) we assign a group (or set)
+such that there are analogous restriction maps. For our purposes, these will
+always be groups/sets of functions and the restriction maps are the natural ones.
+
+We are interested in the general behavior of continuous functions at some
+\(x \in X\). Define \(\mathfrak{C}_x\) to be the set of all functions defined on a
+neighborhood of \(x\):
+\[
+  \mathfrak{C}_x = \{f \in C(U) \mid x \in U \subset X \text{ is open}\}.
+\]
+By convention, we refer to elements of \(\mathfrak{C}_x\) as a pair, \((f,U)\) of
+a continuous function and the open set on which it is defined.
+In light of the inclusion maps given above, it obvious that \(\mathfrak{C}_x\)
+will have ``duplicate'' elements. Therefore, we define an equivalence relation
+on \(\mathfrak{C}_x\) by \((f,U) \sim (g,V) \Leftrightarrow\) there exists
+\(W \subset U \cap V\) where \(f \mid _W = g\mid _W\). In a sheaf-theoretic
+context, \(\faktor{\mathfrak{C}_x}{\sim} \) is called the \textbf{stalk} at \(x\)
+and elements of the stalk are \textbf{germs} at \(x\). If we are dealing with
+sheaves of groups or sets, this construction remains unchanged! We can still
+define the stalk at given point. While it will not come into play, it is worth
+noting that the stalk inherits the algebraic structure of the original
+sheaf---\eg for a sheaf of rings (or group), the stalk has a natural ring
+(group) structure.
+
+Sheafs of rings/groups/sets of functions arise naturally in many areas of
+mathematics. For example, if \(X\) happens to be a smooth manifold, we may
+replace \(C(U)\) with \(C^\infty(U)\), the ring of smooth functions into
+\(\RR \) and then obtain germs of smooth functions.  Similarly, if \(X\) is a
+complex manifold we can construct germs of holomorphic functions.
+
+\begin{example}
+{\color{red} Should I use the same number?}
+
+Consider, again, example \ref{ex:logmono}. Our function \(f(x)= \Log x\) has
+a germ in \(\Omega\). In particular, both \(f_1\) and \(f_2\) belong to the
+equivalence class \([(f,\Omega)]\) as all three functions agree on \(\Omega\).
+From this, we {\color{red} see the genesis of the name} germ: germs capture the
+\emph{local} behavior of function. Colloquially, this is the ``heart'' of a
+function similar to the germ of seed.\footnote{Sheaf theory abounds with
+  agrarian nomenclature. {\color{red} This is my first footnote. Should the
+    thesis have fun math facts like this in the footnotes or should I do away
+    with them?}}
+\end{example}
+
+{\color{red} Link to monodromy again?}
+
+As usual, lifting this construction to the free context requires some nuance.
+For \(U \subset D\) open, the set of tracial functions on \(U\) (denoted
+\(C_{\text{tr}}(U)\)) does not for a ring---it is closed under addition but not
+multiplication. Given two tracial functions, \(f,g \in C_{\text{tr}}(U)\), we see
+that
+\begin{align*}
+  (f+g)(X \oplus Y) &= f(X \oplus Y) + g(X \oplus Y) \\
+                    &= f(X) + f(Y)+g(X) + g(Y) \\
+                    &= (f+g) (X) + (f+g)(Y)
+\end{align*}
+but,
+\begin{align*}
+  (fg)(X \oplus Y) &= f(X \oplus Y)g(X \oplus Y) \\
+                   &= (f(X) + f(Y))(g(X) + g(Y)) \\
+                   &= (fg) (X) + (fg)(Y) + f(X)g(Y)+f(Y)g(X).
+\end{align*}
+
+Thankfully, however, the construction remains unchanged if we substitute a ring
+of functions for an abelian group of functions (with the identity being
+\(f \equiv 0\) and inverses given by simply negating the output). In the case of
+determinental and free functions (which play a lesser role in the theory to be
+developed) there is not a natural algebraic structure for the corresponding
+sheaves, so they are simply sheaves of sets.
+
+\section{The Tracial Fundamental Group}%
+\label{sec:trpi1}
+
+While Free Monodromy means that free functions cannot detect the topology of
+free sets, the same is not true for a general tracial
+function! To do so, however, we will need some definitions. {\color{red} Is this
+  too conversational?}
+
+\begin{definition}[Anchored]%
+  \label{def:anchored}
+Let \(D \subset \MM^{g} \) be a connected, open, free set. If there exists a
+nonempty, simply-connected, open, free \(B \subset D\), then we say that \(D\)
+is \textbf{anchored}.
+\end{definition}
+
+\begin{definition}[Global Germ]
+  \label{def:globgerm}
+  For \(D\) an open set, and \(B \subset D\) its anchor, we call a tracial
+  function \(f:B\to \CC \) a \textbf{global germ} if it analytically continues
+  along every path in \(D\) which starts in \(B\).
+\end{definition}
+
+\clearpage
 
 
 \begin{figure}[h!]

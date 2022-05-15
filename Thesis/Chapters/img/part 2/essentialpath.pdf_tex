@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{542.36106572bp}%
+    \setlength{\unitlength}{565.03823108bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,19 +50,19 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.39552316)%
+  \begin{picture}(1,0.37964929)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{essentialpath.pdf}}%
-    \put(0.85537917,0.0189527){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$n \times n$\end{tabular}}}}%
-    \put(0.84365234,0.15732901){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$m \times m$\end{tabular}}}}%
-    \put(0.9117875,0.2810827){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$mk \times mk / n\ell\times n\ell$\end{tabular}}}}%
+    \put(0.87750114,0.01906054){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$n \times n$\end{tabular}}}}%
+    \put(0.89577345,0.15188326){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$m \times m$\end{tabular}}}}%
+    \put(0.92166823,0.29325092){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$n\ell\times n\ell / mk \times mk $\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{essentialpath.pdf}}%
-    \put(0.6895765,0.01849801){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$X$\end{tabular}}}}%
-    \put(0.13903889,0.18197921){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$Y$\end{tabular}}}}%
-    \put(0.13451569,0.32478299){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$Y^{\oplus k}$\end{tabular}}}}%
-    \put(0.75483978,0.3221983){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$X^{\oplus\ell}$\end{tabular}}}}%
+    \put(0.1986032,0.03165141){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$X$\end{tabular}}}}%
+    \put(0.79541239,0.17207022){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$Y$\end{tabular}}}}%
+    \put(0.79341177,0.31348516){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$Y^{\oplus k}$\end{tabular}}}}%
+    \put(0.15558875,0.31708362){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$X^{\oplus\ell}$\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=3]{essentialpath.pdf}}%
-    \put(0.45038116,0.31152094){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\gamma$\end{tabular}}}}%
+    \put(0.35994434,0.2990184){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\gamma$\end{tabular}}}}%
   \end{picture}%
 \endgroup%
