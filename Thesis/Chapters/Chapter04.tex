@@ -3,14 +3,12 @@
 \section{Temp}%
 \label{sec:temp2}
 
-{\color{red} This section needs a better title.}
-
-{\color{blue} Monodromy \(\to \) Global Germs (maybe with sheaf theoretic
-  language) \(\to \) alg. Topology.}
+{\color{red} This chapter needs a better title.}
 
 {\color{blue} A good thing to end on is the fact that \(\pi_1^{tr}(GL)=\QQ \)
 and \(\pi_1(G_\Lambda)= \QQ ^{|\Lambda|}\).}
 
+{\color{blue} TODO: Write a little intro}
 
 
 \section{Classical Monodromy}%
@@ -195,9 +193,7 @@ equivalence class \([(f,\Omega)]\) as all three functions agree on \(\Omega\).
 From this, we {\color{red} see the genesis of the name} germ: germs capture the
 \emph{local} behavior of function. Colloquially, this is the ``heart'' of a
 function similar to the germ of seed.\footnote{Sheaf theory abounds with
-  agrarian nomenclature. {\color{red} This is my first footnote. Should the
-    thesis have fun math facts like this in the footnotes or should I do away
-    with them?}}
+  agrarian nomenclature.}
 \end{example}
 
 {\color{red} Link to monodromy again?}
@@ -231,8 +227,8 @@ sheaves, so they are simply sheaves of sets.
 
 While Free Monodromy means that free functions cannot detect the topology of
 free sets, the same is not true for a general tracial
-function! To do so, however, we will need some definitions. {\color{red} Is this
-  too conversational?}
+function! Following \cite{pascoeFreeNoncommutativePrincipal2020}, we will need
+some definitions.
 
 \begin{definition}[Anchored]%
   \label{def:anchored}
@@ -248,16 +244,149 @@ is \textbf{anchored}.
   along every path in \(D\) which starts in \(B\).
 \end{definition}
 
-Paths in
+In order to define the fundamental group, we need a notion of a path in \(D\).
+Traditionally, a path taking \(X\) to \(Y\) is a continuous function
+\(\gamma: [0,1]\to D\) such that \(\gamma(0)=X\) and \(\gamma(1)=Y\).
+Unfortunately, this disregards the fiber of \(X\) and \(Y\). An mentioned in
+section \ref{sec:TopManUniv}, a proper topological theory should account for
+identification of the fibers.
 
-
-\clearpage
-
+\begin{definition}[Essential Path]
+  \label{def:esspath}
+  A continuous function \(\gamma:[0,1]\to D\) \textbf{essentially takes} \(X\) to \(Y\) if
+  \begin{align*}
+    \gamma(0) = X^{\oplus \ell},& \;\text{ for some \(\ell \in \NN \)}\\
+    \gamma(1) = Y^{\oplus k},& \;\text{ for some \(k \in \NN \)}.
+  \end{align*}
+\end{definition}
 
 \begin{figure}[h!]
 \centering
   \def\svgwidth{0.9\columnwidth}
   \import{./Chapters/img/part 2/}{essentialpath.pdf_tex}
-\caption{A path essentiall taking \(X\) to \(Y\)}
+\caption{A path essentially taking \(X\) to \(Y\)}
 \label{fig:esspath}
 \end{figure}
+A path essentially taking \(X\) to \(Y\) is a path from some element of the
+fiber of \(X\) to some element of the fiber of \(Y\). Just as in the classical
+case, essential paths have product. First, we need a way to take the direct sum
+of paths.
+
+\begin{definition}[Direct Sum of Paths]%\label{def:sumpath}
+  Given \(\gamma\) essentially taking \(X\) to \(Y\) and \(\beta\) taking \(Z\)
+  to \(W\), define
+  \[
+    \gamma\oplus\beta(t) = \begin{bmatrix} \gamma(t)&0\\0&\beta(t) \end{bmatrix}.
+  \]
+\end{definition}
+
+It is not, in general, true that \(\gamma\oplus\beta\) essentially takes
+\(X\oplus Z\) to \(Y \oplus W\). However, if \(\gamma\) essentially takes \(X\)
+to \(Y\), then so does \(\gamma\oplus\gamma\). As with matrices we define
+\[
+  \gamma^{\oplus k} := \underbrace{\gamma\oplus \cdots \oplus\gamma}_{k \text{ times}}
+\]
+
+With these preliminaries, we can now define a concatenation product for
+essential paths:
+\begin{definition}[Concatenation Product]%
+\label{def:concatprod}
+  Let \(\gamma\) and \(\beta\) be paths taking \(X\) to \(Y\) and \(Y\) to \(Z\)
+  respectively. We define their product to be the path essentially taking \(X\)
+  to \(Z\) given by
+  \[
+    \beta\gamma(t) :=
+    \begin{cases}
+      \gamma^{\oplus k}(2t) & t \in [0,0.5) \\
+      \beta^{\oplus\ell} (2t-1)& t \in (0.5,1]
+    \end{cases}
+  \]
+  where \(k\) and \(\ell\) are positive integers chosen to maintain continuity.
+\end{definition}
+
+With essential paths and their product we can build the first analogue of the
+fundamental group. Let \(D\) be an anchored space with \(B\) its anchor. For
+\(X \in B\), we define \(\pi_1(D,X)\) to be the set of path essentially taking
+\(X\) to \(X\) up to traditional homotopy equivalence and the relation
+\(\gamma=\gamma^{\oplus k}\). Section 6 of
+\cite{pascoeFreeNoncommutativePrincipal2020} explores this construction in
+detail, including proving its commutativity.
+
+Given a path essentially taking \(X\) to \(Y\) we can view the path as coupled
+with its endpoint. For \(B\) and anchor and \(f\) a global germ, we can
+reasonably define \(f(\gamma)\): analytically continue \(f\) along \(\gamma\) and define
+\[
+  f(\gamma) := \frac{1}{k} f(Y^{\oplus k}).
+\]
+Since we can evaluate paths with global germs, we can use global germs to
+{\color{green} something} paths.
+
+\begin{definition}[Trace Equivalent]
+\label{def:label}
+  Let \(B \subset D\) be an anchor and fix \(X \in D\). If \(\gamma\) and
+  \(\beta\) both essentially take \(X\) to \(Y\), we say they are
+  \textbf{trace equivalent} if, for every global germ \(f\) and every path
+  \(\delta\) taking \(Y\) to \(Z\), \(f(\delta\gamma)=f(\delta\beta)\).
+
+  That it, trace equivalent paths are those which cannot be told apart via
+  analytic continuation of global germ.
+\end{definition}
+
+Under trace equivalence, the normalization given above means
+\(\gamma = \gamma^{\oplus k}\) since both essentially take \(X\) to \(Y\).
+Further, since homotopic paths have the same analytic continuation, homotopic
+paths are trace equivalent. This allows us to define a second fundamental group
+which will be our central object of study.
+\begin{definition}[Tracial Fundamental Group]%
+\label{def:trpi1}
+ Let \(D\) be an anchored space with \(B\) its anchor. For \(X \in B\) define
+ \(\pi_1^{\textrm{tr}}(D,X)\) to be the group of trace equivalent paths
+ essentially taking \(X\) to \(X\).
+\end{definition}
+If \(D\) is connected, then \(\pi_1^{\textrm{tr}}\) is independent of our
+choice of base point---in fact, the isomorphism from the classical case
+{\color{green} works here as well}. The identity is given by \(\gamma^X\), the
+constant path at \(X\) and inverses given by
+\[
+  \gamma ^{-1}(t) = \gamma (1-t).
+\]
+Note that, since fixed endpoint homotopic paths are trace equivalent,
+\(\pi_1^{\textrm{tr}}\) is a quotient of \(\pi_1\). We can construct a covering
+space for \(D\) with respect to \(\pi_1^{\textrm{tr}}\) similar to the
+construction of the universal cover in \cite{hatcherAlgebraic2002}.
+
+\begin{definition}[Tracial Covering Space]%
+\label{def:trcover}
+  For \(X \in B \subset D\), the \textbf{tracial covering space} of \(D\) is the
+  set of paths (up to tracial equivalence
+  \footnote{From here on, unless otherwise specified, we will only refer to
+    paths up to trace equivalence. {\color{red} is it appropriate to put this in
+    a footnote? Do people other than me read footnotes?} }
+  ) in \(D\) starting at \(X\):
+  \[
+    C^{\textrm{tr}}(D) = \{[\gamma] \mid \gamma \text{ a path essentially taking
+    \(X\) to \(Y\)}\}
+  \]
+\end{definition}
+
+Since we identify paths with their terminal endpoint, we have the natural
+covering space map \(\rho: C^{\textrm{tr}}(D) \to D, [\gamma]\mapsto Y\). In order
+for this map to be continuous (and obey the rest of the axioms of a covering
+space), we need to endow \(C^{\textrm{tr}}(D)\) with a topology. A metric for
+\(C^{\textrm{tr}}(D)\) is given in
+\cite{pascoeFreeNoncommutativePrincipal2020}, but the details are not
+particularly enlightening. With the topology induced by the metric, one can
+easily verify that we do, indeed, have a covering space. {\color{red} do we? I
+  don't think its obvious but to prove it would distract from the point.}
+
+Because \(B\) is simply connected, for any \(Y \in B\) there is exactly one path
+essentially taking \(X\) to \(Y\). In light of this, there is a natural
+inclusion \(B \hookrightarrow C^{\textrm{tr}}(D)\). Given a global germ, \(f\),
+we induce a function on the covering space (given by \(f(\gamma)\)), which the
+norm on \(C^{\textrm{tr}}(D)\) forces to be analytic.
+
+\section{A Bit of Cohomology}%
+\label{sec:cohomo}
+
+{\color{blue} Quick definition of cohomology, then the definition of tracial
+  cohomology. End the section with the isomorphism into \(\CC \).}
