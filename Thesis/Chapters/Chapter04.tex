@@ -1,15 +1,25 @@
 \chapter{Monodromy, Global Germs, Algebraic Topology}\label{ch:monodromy}
 
-\section{Temp}%
-\label{sec:temp2}
+The results of the last three chapters seem hopeful---free analysis seems to be
+able to generalize many classical results, as listed in \cref{sec:freeanal}. As
+previously mentioned, there are the free topology admits an Oka-Weil-type theorem.
+While this is promising, the only compact sets in the free topology are the
+envelopes of a finite collection of points.
 
-{\color{red} This chapter needs a better title.}
-
-{\color{blue} A good thing to end on is the fact that \(\pi_1^{tr}(GL)=\QQ \)
-and \(\pi_1(G_\Lambda)= \QQ ^{|\Lambda|}\).}
-
-{\color{blue} TODO: Write a little intro}
-
+It is the opinion of the author that all of these topologies (fine, fat, free,
+etc.) are definitively
+broken. As shown above, the free topology lacks a wealth of compact sets.
+The fine topology (and therefore any admissible topology)
+fails to be \(T_1\), let alone Hausdorff---notice that any open set containing
+\(X\) must also contain \(X\oplus X\). Further, given any free function \(f\)
+on an nc-domain \(D\), if \(f\) is locally bounded on each \(D_n\) then \(f\)
+is analytic (admits a power series representation.) There are two ways so view
+this result: First, one can accept that analytic functions are a dime a dozen on
+\(\MM^{g} \). Alternatively, one can be skeptical that the topological
+structures put on \(\MM^{g} \) are indeed the natural choice. The work of J.E.
+Pascoe in \cite{pascoeFreeNoncommutativePrincipal2020} seeks to solve some of
+these issues by extending some of the concepts of traditional algebraic
+topology.
 
 \section{Classical Monodromy}%
 \label{sec:classmono}
@@ -388,5 +398,195 @@ norm on \(C^{\textrm{tr}}(D)\) forces to be analytic.
 \section{A Bit of Cohomology}%
 \label{sec:cohomo}
 
-{\color{blue} Quick definition of cohomology, then the definition of tracial
-  cohomology. End the section with the isomorphism into \(\CC \).}
+For a treatment of Cohomology, see Allan Hatcher's famous
+\emph{Algebraic Topology} \cite{hatcherAlgebraic2002}. As a quick review, given
+some chain complex
+\[
+  \cdots
+  \xleftarrow{\partial_{n-1}}
+  C_{n-1}
+  \xleftarrow{\partial_{n}}
+  C_{n}
+  \xleftarrow{\partial_{n+1}}
+  C_{n+1}
+  \xleftarrow{\partial_{n+2}}
+  \cdots
+\]
+we can form the for the \textbf{cochain complex} as follows: First, fix some
+abelian group \(G\). The object in out cochain complex are
+\(C^\bullet = \Hom (C_\bullet, G)\) the group of morphisms \(C_\bullet \to G\).
+The maps are induced ones
+\[
+  d = \partial^* : \Hom(C_n,G) \to \Hom(C_{n+1},G).
+\]
+Put together, this gives us a complex with the arrows reversed
+\[
+  \cdots
+  \xrightarrow{d_{n-2}}
+  C^{n-1}
+  \xrightarrow{d_{n-1}}
+  C^{n}
+  \xrightarrow{d_{n}}
+  C^{n+1}
+  \xrightarrow{d_{n+1}}
+  \cdots
+\]
+Computing the homology of this dual complex gives the \emph{cohomology}
+groups, \(H^\bullet (C; G)= \textrm{Ker}\;  d / \textrm{Im}\; d\)---which only
+depend on the homology of the original complex and the choice of \(G\). Of
+particular interest is \textbf{De Rham Cohomology}, where \(C^k = \Omega^k\), the
+set of \(k\)-forms on a manifold, and \(G=\RR \). In this case, the boundary map
+is given by the exterior derivative. For a full construction of De Rham
+Cohomology, see \cite{leeIntroduction2013}. In the classical case we say that a
+\(k\)-form is \textbf{closed} if \(\text{d} f =0\) and \textbf{exact} if there
+exists a \(k\)--1-form, \(g\), such that \(\text{d} g=f\). The \(k\)th De Rham
+cohomology group, then, is the vector space of closed forms moduluo the exact
+forms.
+
+A full cohomology theory has yet to be developed in the free setting. Lifting
+De Rham cohomology appears promising given that considering \(\MM^{g} \) carries
+a natural (if complex) manifold structure. While there is not a full
+generalization of the exterior derivative, recall that for any global germ \(f\),
+we have that \(\nabla f\) is a free function. If \(\mathcal{G}\) is the set of
+global germs and \(\mathcal{F}\) is the set of free functions, we have the
+beginning of a cochain complex
+\[
+  0 \rightarrow \mathcal{G} \xrightarrow{\nabla} \mathcal{F} \rightarrow \cdots.
+\]
+While we cannot define ``closed'' and ``exact'' for general functions on
+\(\MM^{g} \) (in part because we don't know what the general cochain groups are)
+we can define them on \(\mathcal{F}\).
+\begin{definition}[Exact]%
+\label{def:exact}
+  A free function \(f\) is \textbf{exact} if there exists a global germ \(g\)
+  such that \(\nabla g = f\).
+\end{definition}
+\begin{definition}[Closed]%
+\label{def:closed}
+  A free function \(f\) is \textbf{closed} if
+  \[
+    \tr \left( K \cdot Df(X)[H] \right) = \tr \left( H \cdot Df(X)[K] \right)
+  \]
+  for all directions \(H,K\).
+\end{definition}
+
+While exactness is a direct lift of the classical condition, our definition of
+closed is decidedly unenlightening. {\color{red} I am still unenlightened. I
+  will add more when I know what is going on.} With our definitions, we can
+define the first tracial cohomology group.
+
+\begin{definition}[First Tracial Cohomology Group]%
+\label{def:firsttrcohomo}
+  The \textbf{first tracial cohomology group} is the vector space of closed free
+  functions moduluo the exact free function. We write \(H^1_{\textrm{tr}}(D) \).
+\end{definition}
+
+At first glance, \(H^1_{\tr}\) seems rather convoluted, arbitrary, and not
+particularly useful.
+\footnote{In all fairness, this is most people's reaction when the encounter
+  cohomology for the first time. {\color{red} Is this allowed? I think it's a
+    fair comment, but I have a bad habit of putting jokes in footnotes}}
+Thankfully, we can put the tracial cohomology group to immediate use in
+understanding the structure of \(\pi_1^{\tr}\). Recall that, by definition, a
+global germ \(f:B\to \CC \) analytically continues along every path. It follows,
+then, that \(\nabla f\) must analytically continue along every path as
+well---simply analytically continue \(f\) along the path and then take its
+gradient. Since \(\nabla f \) is a free function, univeral monodromy
+(\cref{thm:freemono}) tells us that \(\nabla f\) has a unique continuation to
+all of \(D\). Because of this, we know that for any \(\gamma \in \pi_{\tr}^1\)
+and \(\gamma'\) a path starting our anchor point \(X\)
+\[
+  f(\gamma'\gamma)-f(\gamma')
+\]
+is locally constant. Since \(\gamma'\gamma\) and \(\gamma\) have the same
+terminal end point and \(\nabla\) is linear, we know that
+\(\nabla f(\gamma'\gamma)=\nabla(f)\), which tells us that our expression must
+be locally constant.
+
+{\color{blue} Before the homomorphism, talk about the action of traical pi 1 on
+  global germs.}
+
+Given \(f\) a global germ and \(X \in B_n\) the anchor point of
+\[
+  c^f(\gamma) := \frac{f(\gamma)-f(\gamma^X)}{n}.
+\]
+\(c^f\) maps into \(\CC \) and some routine work with \(\nabla\) shows that
+only that if \(c^f=c^{f'}\) then, \(\nabla f,\nabla f'\) are in the same tracial
+cohomology class---\ie, \(c^f\) only depends on the class of \(\nabla f \) in
+\(H^1_{\tr}\). If we define
+\(\phi_g: \pi_1^{\tr}\to \CC , \gamma \mapsto c^f(\gamma)\)---where \(\nabla f\)
+is in the tracial cohomology class of \(g\)---we get a
+\emph{homomorphism} into \(\CC \), as
+\begin{align*}
+  c^f(\gamma_1\gamma_2) &= \frac{f(\gamma_1\gamma_2) - f(\gamma_X)}{n} \\
+             &= \frac{f(\gamma_1\gamma_2) - f(\gamma_1) + f(\gamma_1) -f(\gamma_X)}{n} \\
+             &= {\color{red} \text{then some black magic}} \\
+             &= c^f(\gamma_2) + c^f(\gamma_1).
+\end{align*}
+The fact that \(\phi_g\) is a homomorphism is the first step to characterizing
+\(\pi_1^{\tr}\).
+\begin{lemma}
+  The map
+  \begin{align*}
+	  \Phi: \prod_{g \in H^1_{\tr}} \pi_1^{\tr}(D) &\longrightarrow \prod_{g \in H^1_{\tr}}\CC  \\
+    \prod_{g \in H^1_{\tr}} \gamma &\longmapsto \prod_{g \in H^1_{\tr}} \phi_g(\gamma)
+  \end{align*}
+  is an injective homomophism.
+\end{lemma}
+
+\begin{proof}
+  The fact that \(\Phi\) is a homomorphism is immediate, as each of the
+  \(\phi_g\) are. For injectivity,
+  let \(\alpha,\beta \in \pi_1^{\tr}(D)\) such that \(\prod\phi_g(\alpha)=\prod\phi_g(\beta)\). Seeking to show that
+  \(\alpha\) and \(\beta\) are trace equivalent, let \(f\) be a global germ and
+  \(\gamma\) essentially take \(X\) to \(Z\). Then,
+  \begin{align*}
+    f(\gamma\alpha)-f(\gamma\beta) &= f(\gamma\alpha) - f(\gamma) - \left( f(\gamma\beta)-f(\gamma) \right) \\
+                &= c^f(\alpha) - c^f(\beta)\\
+                & {\color{red} \text{This requires the trick from showings its a
+                  homom}}
+  \end{align*}
+  But since \(\prod\phi_g(\alpha)=\prod\phi_g(\beta)\),
+  \(c^f(\alpha) = c^f(\beta)\). Thus, \(\alpha\) and \(\beta\) are trace
+  equivalent and we have shown injectivity.
+\end{proof}
+
+Note that lemma also tells us that \(\pi_1^{\tr}(D)\) is both commutative and
+torsion free as is injects into a commutative, torsion free group (namely a
+product of \(\CC \)'s). With this, we can also show that \(\pi_1^{\tr}(D)\)
+needs to be divisible as well. First, note that for any path \(\gamma\),
+\[
+  \gamma\oplus\gamma_X = \gamma_X\oplus\gamma,
+\]
+since
+\[
+  H(t,\theta)  = \begin{bmatrix} \cos \theta & \sin \theta \\ -\sin \theta& \cos \theta \end{bmatrix}
+  \left( \gamma \oplus \gamma_X \right)
+ \begin{bmatrix} \cos \theta & \sin \theta \\ -\sin \theta& \cos \theta \end{bmatrix}^*
+\]
+is a homotopy between the paths. Then we see that
+\begin{align*}
+  \gamma &= \underbrace{\begin{bmatrix} \gamma &&&\\ &\gamma&\\&&\ddots\\&&&\gamma\end{bmatrix}}_{k+1\textrm{-times}}\\
+    &=\begin{bmatrix} \gamma &&&\\ &\gamma_X&\\&&\ddots\\&&&\gamma_X\end{bmatrix}
+      \begin{bmatrix} \gamma_X &&&\\ &\gamma&\\&&\ddots\\&&&\gamma\end{bmatrix}\cdots
+      \begin{bmatrix} \gamma &&&\\ &\gamma&\\&&\ddots\\&&&\gamma_X\end{bmatrix}\\
+    &=\begin{bmatrix} \gamma &&&\\ &\gamma_X&\\&&\ddots\\&&&\gamma_X\end{bmatrix}
+      \begin{bmatrix} \gamma &&&\\ &\gamma_X&\\&&\ddots\\&&&\gamma_X\end{bmatrix}\cdots
+      \begin{bmatrix} \gamma &&&\\ &\gamma_X&\\&&\ddots\\&&&\gamma_X\end{bmatrix}\\
+    &=\begin{bmatrix} \gamma &&&\\ &\gamma_X&\\&&\ddots\\&&&\gamma_X\end{bmatrix}^k,
+\end{align*}
+and so \(\pi_1^{\tr}(D)\) is divisible. As there is only one way (up to
+isomorphism, of course) to be a divisible, torsion free subgroup of \(\CC\), we
+have completely characterized \(\pi_1^{\tr}(D)\)! {\color{red} Why is this true?
+  Certianly \(\RR \) satisfies this as well?} {\color{blue} After some googling,
+this is true if you have \emph{enough} copies of \(Q\) (particularly
+\(2^\aleph\)). Should I mention this?}
+
+\begin{theorem}
+  For \(D\) an anchored free set,
+  \[
+    \pi_1^{\tr}(D) \simeq \bigoplus_{i \in I} \QQ = \QQ ^I
+  \]
+  for some index set \(I\).
+\end{theorem}
+
