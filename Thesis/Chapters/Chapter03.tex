@@ -2,8 +2,134 @@
 \chapter{Zero Sets and Principle Divisors}\label{ch:ZeroDiv}
 %************************************************
 
-\section{Temp}%
-\label{sec:temp1}
+\section{Varieties, Classical and Free}%
+\label{sec:varieties}
 
-This needs a name. The goal of this chapter is to develop the whole thing with
-zero sets, singular sets, and divisors
+In the classical case, varieties are fairly easily to classify. Given some
+(commutative) polynomial, \(f \in \CC [x_1, \dots, x_g]\) we define the zero set
+\[
+  V(f) = \{a \in \mathbb{A}^n \mid  f(a) =0\},
+\]
+where \(\mathbb{A}^n\) is complex affine \(n\)-space.  Varieties (both affine and
+projective) are well studied in algebraic geometry
+(Hartshorne's \emph{Alegbraic Geometry} \cite{hartshorneAlgebraic2008} is a
+standard introduction). Of particular interest is a geometric invariant of a
+variety called a \emph{divisor}. While divisors require robust machinery to
+construct formally\footnote{Schemes, in particular.} one can think of them
+(loosely) as formal sums of codimension one subvarieties. The concept of a
+divisor lift naturally to the noncommutative setting, although varieties are
+a touch more complex.
+
+Let \(f\) be a matrix of polynomials on \(\MM^{g} \).
+Unlike the classical case, it is not immediate what should be meant by
+\(f(X)=0\)---is it enough for \(f(X)\) to be singular, or should \(f(X)\) be the
+zero matrix? In light of this ambiguity, we make three definitions.
+\begin{definition}[Singular Set]%
+\label{def:singularset}
+  Let \(f\) be a matrix of polynomials function. The \textbf{n-Singular Set} of \(f\) is
+  \[
+    \mathscr{Z}_n(f) = \{X \in M_n (\CC) \mid \det f(X) =0\}.
+  \]
+  The \textbf{Singular Set} of \(f\) is
+  \[
+    \mathscr{Z}(f) = \bigcup_{n \in \NN } \mathscr{Z}_n(f).
+  \]
+  Associated with the singular set is the \textbf{Directional Singular Set}:
+  \[
+    \mathscr{Z}_{\textrm{dir}}(f) = \{(X,v) \mid f(X)v = 0\}.
+  \]
+\end{definition}
+
+\begin{definition}[Zero Set]%
+\label{def:zeroset}
+  Let \(f\) be a matrix of polynomials function. The \textbf{n-Zero Set} of \(f\) is
+  \[
+    \mathscr{V}_n(f) = \{X \in M_n (\CC) \mid f(X) =0\}.
+  \]
+  The \textbf{Zero Set} of \(f\) is
+  \[
+    \mathscr{V}(f) = \bigcup_{n \in \NN } \mathscr{V}_n(f).
+  \]
+\end{definition}
+
+While the singular set encodes the matrices for which \(f(X)\) has a nontrivial
+kernel, the directional singular set bundles this information together with the
+kernel itself. Section 6 of Helton's \emph{Free Convex Algebraic Geometry}
+\cite{heltonFree2013} shows how this can is analogous to the tangent plane of a
+classical variety.  While it may seem counter intuitive to use a script ``Z''
+for the singular set instead of the zero set, the singular set of a free
+function is (in many cases) a more natural generalization of varieties.
+
+{\color{fgreen} Lots of work has been done in the past decade} generating Null- and
+Positivstellensatz for these three sets. In particular,
+\cite{heltonFactorization2019} treats singular and zero sets while
+\cite{heltonStrong2007} treats the directional zero set.
+
+\section{Principal Divisors}%
+\label{sec:prindiv}
+
+Recall that given a differentiable traical free function \(f\), the free
+gradient, \(\nabla f\) is the unique free functions satisfying
+\[
+  \tr (H \cdot \nabla f) = Df(X)[H]
+\]
+for all directions \(H\). On the other hand, for every square
+\footnote{Meaning the output of \(g\) is a square matrix.}
+\emph{free} function, \(g\), we can associate a determinantal function
+\(\det g\)---which is defined in the obvious way. If \(f\) is a nontrivial
+\emph{determinantal} function, then there is an induced tracial function,
+\(\log f\) wherever \(f\) is nonzero.
+
+% I forgot that determintal functions just spit out complex numbers so this
+% doesn't matter...
+%
+%The presence of the logarithm may seem as we are outside the functional
+%calculus of \cref{sec:ExtMuliVarFun}, which required self-adjoint matrices. For
+%the values for which \(f(X)\) is diagonlizable, we can evaluate \(\log f(X)\)
+%with the usual functional calculus. For an \(f(X)\) which is nonsingular
+%and nondiagonalizable, recall that \(\HH^g\) is dense in \(\MM^{g} \) in the
+%fine topology (and therefore any admissable topology). Since
+%\(\log f(X): D \setminus \{X \mid f(X) \neq 0\} \)
+
+\begin{definition}[Principal Divisors]%
+\label{def:princdiv}
+Let \(f\) be a nonzero \emph{determinantal} free function. Then the
+\textbf{principal divisor} of \(f\) is
+\[
+  \divv f = \nabla \log f.
+\]
+Alternatively, if \(g\) is square \emph{free} function, then the principal divisor of
+\(g\) is
+\[
+  \divv g = \nabla \log \det g
+\]
+\end{definition}
+
+Before exploring the properties of \(\divv f\), it is worth acknowledging that
+the notation is overloaded. Unfortunately, the principal divisors of both free
+and determinantal functions have significant utility. One has to be careful
+whether theorems concern the divisors of free functions or determinantal ones.
+In light of this, the author has elected to italicize ``free'' and
+``determinantal'' for the remainder of this section whenever there could be
+ambiguity should one not read too carefully.
+
+While it is trivial to verify, (simply use the properties of \(\log \) and the
+linearity of \(\nabla\)) {\color{fgreen}} observe that
+\[
+  \divv fg = \divv f + \divv g.
+\]
+
+\begin{lemma}%
+\label{lem:ob21}
+  Let \(f,g\) be \(C^1\) nonzero \emph{determinantal} free functions. Then,
+  \begin{enumerate}
+    \item There exists an inverible locally constant determinantal functions
+          \(c\) such that \(f=cg\) if and only if \(\divv f = \divv g\).
+    \item \(\frac{f}{g} \)  has a \(C^1\) extension to the whole domain if and
+          only if there is a \(C^1\) determinantal function \(h\) on the whole
+          domain such that \(\divv f - \divv g = \divv h\).
+    \item \(\frac{f}{g}\) and \(\frac{g}{f}\) have a \(C^1\) extension to the
+          whole domain if and only if \(\divv f - \divv g\) has a continuous
+          extension to the whole domain.
+  \end{enumerate}
+\end{lemma}

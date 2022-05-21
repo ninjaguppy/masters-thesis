@@ -104,8 +104,26 @@ no one computes continuations by hand. {\color{red} This could be a paragraph,
 There is an analogous theorem to \cref{thm:mon1,thm:mon2} in the free settings
 initial proven by J.E.\ Pasocoe in \cite{pascoeNoncommutative2020}.
 In the classic case, the larger set \(W\) must be simply connected. In the free
-setting, however, the theorem is much more powerful.
-
+setting, however, the theorem is much more powerful. Before we state and prove
+the theorem, recall that free functions respect direct sums---so if
+\(f: D\to \MM^{\tilde{g}} \) is a free function,
+\[
+  f(X \oplus Y ) = f(X) \oplus f(Y).
+\]
+Given two paths \(\gamma_1, \gamma_2 \in D_n\), we can take their direct sum in
+the obvious way
+\[
+  (\gamma_1\oplus\gamma_2 )(t) = \gamma(t) := \begin{bmatrix} \gamma_1(t) & \\& \gamma_2(t) \end{bmatrix}
+\]
+to obtain a path in \(D_{2n}\). If \(f\) is a free function defined on
+\(B \subset D\), and then we can analytically continue \(f\) along \(\gamma\)
+(presuming that \(\gamma\) originates in \(B\)). If \(F\) is the resulting
+function defined at \(\gamma(1)\), and \(F_1,F_2\) are the continuations at
+\(\gamma_1(1), \gamma_2(1)\) respectively, then a routine computation shows that
+\[
+  F(\gamma(1)) = \begin{bmatrix} F_1(\gamma_1(1)) & \\& F_2(\gamma_2(1))\end{bmatrix} .
+\]
+With this preliminary result, we can introduce Universal Monodromy.
 \begin{theorem}[Free Univeresal Monodromy]%
   \label{thm:freemono}
   If \(f\) is an analytic free function defined on some ball \(B \subset D\),
@@ -115,11 +133,48 @@ setting, however, the theorem is much more powerful.
 \end{theorem}
 
 \begin{proof}
-  [Proof (From \cite{pascoeNoncommutative2020})]
+  [Proof (Should I cite that talk?)]
   The fact that a unique extension to all of \(D\) implies that \(f\) has a
   continuation along any \(\gamma\) is immediate.
 
-  {\color{red} honestly I don't quite get the proof yet, so this will come later.}
+  Now suppose that \(f\), a free function, analytically continues along every
+  path in \(D\). Fix \(X \in B_n\) and pick some and let \(\gamma_1,\gamma_2\)
+  be two paths taking \(X\) to some \(Y \in D_n\). Let \(F_1,F_2\) be the
+  analytic continuation of \(f\) along \(\gamma_1,\gamma_2\) respectively. If
+  \(F_1=F_2\), then we are done! Define \(\hat{\gamma}, \gamma\) be path in
+  \(D_{2n}\) defined by
+  \[
+    \hat{\gamma} = \begin{bmatrix} \gamma_1&\\&\gamma_2 \end{bmatrix} \qquad
+    \gamma = \begin{bmatrix} \gamma_2&\\&\gamma_1 \end{bmatrix}.
+  \]
+  But we have a homotopy between \(\hat{\gamma}\) and \(\gamma\) given by
+  \[
+    \Gamma(t,s) =
+    \begin{bmatrix} \cos (s\frac{\pi}{2}) & \sin (s\frac{\pi}{2})\\-\sin (s\frac{\pi}{2}) & \cos (s\frac{\pi}{2}) \end{bmatrix}
+    \begin{bmatrix} \gamma_1&\\&\gamma_2 \end{bmatrix}
+    \begin{bmatrix} \cos (s\frac{\pi}{2}) & -\sin (s\frac{\pi}{2})\\\sin (s\frac{\pi}{2}) & \cos (s\frac{\pi}{2}) \end{bmatrix}.
+  \]
+  Indeed, one easily checks that
+  \[
+    \Gamma(t,0) = \hat{\gamma}\qquad
+    \Gamma(t,1) = \gamma \qquad \qquad
+    \Gamma(0,s) = X\oplus X\qquad
+    \Gamma(1,s) = Y \oplus Y
+  \]
+  But since \(\hat{\gamma}\) and \(\gamma\) are homotopic we can apply the
+  classical (albiet multivariable) monodromy theorem---so we know that the
+  analytic continuations of \(f\) along \(\hat{\gamma},\gamma\) must agree near
+  \(Y \oplus Y\). Since free functions respect direct sums, if we let
+  \(\hat{F}\) and \(F\) denote the continuations of \(f\) along
+  \(\hat{\gamma},\gamma\) respectively, we obtain the
+  following chain of equalities:
+  \[
+    \begin{bmatrix} F_1(\gamma_1) &\\&F_2(\gamma_2) \end{bmatrix}  =
+    \hat{F}(\gamma_1 \oplus \gamma_2) = F (\gamma_2 \oplus \gamma_1) =
+    \begin{bmatrix} F_2(\gamma_2)& \\ & F_1(\gamma_1) \end{bmatrix}
+  \]
+  In particular, we see that \(F_1(\gamma_1)=F_2(\gamma_2)\)---so \(F_1\) and
+  \(F_2\) agree!
 \end{proof}
 
 In the free case, the ``larger'' set need not be simply connected. Analytic
@@ -130,10 +185,6 @@ the fundamental group!
 
 \section{The Germ of Function}%
 \label{sec:germs}
-
-{\color{blue} eww the title. I always like Aluffi's chapter called ``a bit of
-  algebraic geometry''---could do ``a bit of sheaf theory'' but I don't want to
-  scare the reader.}
 
 As studied in complex analytic and measure theoretic settings, if our space is
 structured enough functions are defined by their local behavior. This idea can
@@ -547,7 +598,7 @@ The fact that \(\phi_g\) is a homomorphism is the first step to characterizing
                   homom}}
   \end{align*}
   But since \(\prod\phi_g(\alpha)=\prod\phi_g(\beta)\),
-  \(c^f(\alpha) = c^f(\beta)\). Thus, \(\alpha\) and \(\beta\) are trace
+  \(c^f(\alpha) = c^f(\beta)\). {\color{red} put a sentence as to why}. Thus, \(\alpha\) and \(\beta\) are trace
   equivalent and we have shown injectivity.
 \end{proof}
 
@@ -587,6 +638,156 @@ this is true if you have \emph{enough} copies of \(Q\) (particularly
   \[
     \pi_1^{\tr}(D) \simeq \bigoplus_{i \in I} \QQ = \QQ ^I
   \]
-  for some index set \(I\).
+  for some set \(I\).
 \end{theorem}
 
+\section{Computing the Tracial Fundamental Group}%
+\label{sec:interplay}
+
+While this structure theorem is useful, it gets us no closer to actually
+\emph{computing} \(\pi_1^{\tr}(D)\) or \(H^1_{\tr}(D)\). Unfortunately, there
+is nothing analogous to Van Kampen's theorem or the Mayer Vietoris sequence. For
+simple domains, we have some basic tools. Recall the following definion relating
+to abelian groups
+
+\begin{definition}[Rank]%
+\label{def:rank}
+  For an abelian group, \(G\), the \textbf{rank} of \(G\) is the maximal size of
+  a linearly independent subset. That is, it the maximal size of a set
+  \(\{g_1, g_2, \dots ,g_k\} \subset G\) such that
+  \[
+    \sum_{i=0}^k n_ig_i =0 \implies n_i=0 \textrm{ for all }i.
+  \]
+\end{definition}
+
+\begin{theorem}
+  Let \(D\) be a free anchored set. Then,
+
+\begin{enumerate}
+  \item \(\dim H_{\tr}^1(D)\neq 0\) if and only if \(\rk \pi_1^{\tr}(D)\neq 0\)
+  \item \(\dim H_{\tr}^1(D) \leq \rk \pi_1^{\tr}(D)\) whenever both
+      quantities are at most countably infinite
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+  \phantom{hello!}
+\begin{enumerate}
+    \item Suppose that \(\rk \pi_1^{\tr}(D) \neq 0\), so for distinct paths
+        \(\gamma_1,\gamma_2\), there are corresponding global germs \(f_1,f_2\)
+        and a path \(\beta\) essentially taking \(X\) to \(Z\) such that
+        \(f_1(\beta\gamma_1)\neq f_2(\beta\gamma_2)\). {\color{blue} something
+        about monodromy.}
+
+    \item We can restrict ourselves to the case where \(\rk \pi_1^{\tr}(D)\) is
+        finite. Let \(\gamma_1, \dots ,\gamma_k\) be a maximally linearly
+        independent set of paths, and suppose that
+        \(g_1, \dots , g_{k+1} \in H^1_{\tr}(D)\) is linearly independent. Now
+        consider the matrix \([\phi_{g_j}(\gamma_i)]_{ij}\), which is clearly
+        singular. If \((\alpha_1, \alpha_2, \dots, \alpha_{k+1})\) is a
+        nontrivial vector in its
+        kernel, then we can define \(g = \sum_{j=0}^{k+1} \alpha_j g_j\). By
+        construction, \(g(\gamma_i)=0\) for all \(i\). Since \(\{\gamma_j\} \)
+        is maximal, it follows that \(g\) is the zero function, contradicting
+        our assumption that \(\{g_i\} \) is linearly independent.
+\end{enumerate}
+\end{proof}
+
+This bound on the dimension of \(H^1_{\tr}(D)\) is useful, but only if we have some
+way to reliably compute \(\pi_1^{\tr}(D)\). Under certain circumstances---which
+are not particularly difficult to satisfy---we can compute \(\pi_1^{\tr}(D)\) as
+a direct limit by looking at the levelwise homology groups. Classically, the
+Hurewicz theorem
+first homology group of a path connected manifold is isomorphic to the
+abelization of the fundamental group. Since we require the domain \(D\) to be
+path connected, we can leverage this fact to compute \(\pi_1^{\tr}(D)\).
+
+Let \(D\) be an anchored, free, path connected set such that each \(D_n\) is
+nonempty. Choose an anchor \(B \subset D\) such that each \(B_n\) is also
+nonempty. If \(X \in B_1\) is our base point, then we have a natural gradation
+on \(\pi_1^{\tr}(D)\). Let \(\pi_1^{\tr}(D)_n\) denote the subgroup of paths
+contained in \(D_n\). For any \(m \in \NN \), there is a natural inclusion map
+\(\pi_1^{\tr}(D)_n \hookrightarrow \pi_1^{\tr}(D)_{mn}\) given by
+\(\gamma\mapsto \gamma^{\oplus m}\). Since our base point is in on the
+``scalar'' level, we get a sequence of maps
+\[
+  \pi_1^{\tr}(D)_1 \hookrightarrow
+  \pi_1^{\tr}(D)_2 \hookrightarrow
+  \pi_1^{\tr}(D)_6 \hookrightarrow \cdots \hookrightarrow
+  \pi_1^{\tr}(D)_{n!} \hookrightarrow \cdots
+\]
+As long as one isn't too fearful of universal properties, it is not difficult to
+show that the direct limit of this sequence is isomorphic to \(\pi_1^{\tr}(D)\).
+Using this result for computation requires understanding the structure of
+\(\pi_1^{\tr}(D)_n\). Since \(\pi_1^{\tr}(D)_n\) only contains paths in \(D_n\),
+it is isomorphic to a quotient of some subgroup of \(\pi_1(D_n)\)! Moreover,
+since we are restricting ourselves to a fixed level, we can leverage the
+Hurewicz theorem. Since \(\pi_1^{\tr}(D)_n\) is abelian is actually a quotient
+of \(H_1(D_n)\)! Thus, we can realize \(\pi_1^{\tr}(D)\) as a direct limit of
+quotients of \(H_1(D_{n!})\).
+
+\section{Some Examples}%
+\label{sec:examples}
+
+The tracial fundamental group is a very new idea, so examples of computation
+don't abound. Pascoe's paper provides two examples as exercises. We present a
+``topological'' proofs and invite the reader to fill in the details.
+
+\begin{example}
+  Let \(D = GL(\CC) = \bigcup_\NN GL_n(\CC)\). Consider the case where \(n =1\).
+  If we view complex numbers as \(1\times 1\) matrices, then
+  \(\{\det z = z \neq 0\} = \CC \setminus \{0\} \). Then
+  \(\pi_1^{\tr}(GL)_1\) is a quotient of \(H_1(GL_1(\CC))\simeq \ZZ \).
+  Since there are no torsion free subgroups of \(\ZZ \), it must be the case
+  that \(\pi_1^{\tr}(GL)_1\simeq\ZZ \) as well.
+
+  Additionally, we know that there is a natural inclusion
+  \(\pi_1^{\tr}(GL)_1 \hookrightarrow \pi_1^{\tr}(GL)_2\), and so
+  \(\pi_1^{\tr}(GL)_2\) contains a copy of \(\ZZ \). Moreover, given some
+  \(\gamma \in \pi_1^{\tr}(GL)_1\), we have that
+  \[
+    \begin{bmatrix} \gamma&\\&\gamma_X \end{bmatrix} \in \pi_1^{\tr}(GL)_2.
+  \]
+  Recall that if we square this element, then we get \(\gamma\)---so
+  \(\pi_1^{\tr}(GL)_2\) is isomorphic to the group
+  \[
+    \ZZ \left[\frac{1}{2}\right]
+  \]
+  Our next inclusion
+  \(\pi_1^{\tr}(GL)_2\hookrightarrow \pi_1^{\tr}(GL)_6\) picks up cube roots for
+  the same reason---since
+  \[
+    \begin{bmatrix} \gamma\\&\gamma_X\\&& \gamma_X  \end{bmatrix} =
+    \begin{bmatrix} \gamma\\&\gamma\\&&\gamma_X\\&&&\gamma_X\\&&&&\gamma_X\\&&&&&\gamma_X  \end{bmatrix}.
+  \]
+  Taking the square and cube roots simultaneously, we also obtain 6th roots.
+  \[
+    \pi_1^{\tr}(GL)_6 \simeq \ZZ \left[\frac{1}{2}, \frac{1}{3}\right]
+  \]
+  In the \(n\)-th inclusion, then, we pick a \(\frac{1}{n}\ZZ \) and any other
+  factors needed for closure.
+  The direct limit is, therefore,
+  \[
+    \pi_1^{\tr}(GL) \simeq \ZZ \left[\frac{1}{2},\frac{1}{3},\frac{1}{4}, \dots\right]\simeq \QQ
+  \]
+\end{example}
+
+\begin{example}
+  Let \(\Lambda \subset \CC \) be finite and define
+  \[
+    G_\Lambda = \{ X \in \MM \mid det X - \lambda \neq 0 \textrm{ for all
+    } \lambda \in \Lambda\}.
+  \]
+  We compute \(\pi_1^{\tr}(G_\Lambda)\) similarly to above. First, see that
+  \( \left( G_\Lambda \right) _1 = \CC \setminus \Lambda\), and so
+  \(\pi_1^{\tr}(G_\Lambda)_1\simeq H_1((G_\Lambda)_1)\simeq \ZZ^{|\Lambda|}\).
+  Inclusion into \(\pi_1^{\tr}(G_\Lambda)_2\) picks up square roots, so
+  \[
+    \pi_1^{\tr}(G_\Lambda)_2 \simeq \ZZ^{|\Lambda|}\left[ \frac{1}{2} \right]
+  \]
+  Inclusion into \(\pi_1^{\tr}(G_\Lambda)_6\) picks up cube and 6th roots, and
+  on. Therefore, in the direct limit, we see
+  \[
+    \pi_1^{\tr}(G_\Lambda) \simeq \QQ ^{|\Lambda|}.
+  \]
+\end{example}
