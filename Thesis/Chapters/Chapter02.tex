@@ -118,7 +118,7 @@ universe. As a whole, free analysis is concerned with so-called \emph{free
 {\color{red} Do they need to be graded?}
 \begin{definition}[Free Function]
 \label{def:FreeFun}
-  A function \(f: D\to \MM^{\color{red} \text{something}}\) is called \textbf{free} if
+  A function \(f: D\to \MM^{\hat{d}}\) is called \textbf{free} if
   \begin{enumerate}
     \item \(f(X\oplus Y)= f(X) \oplus f(Y)\)
     \item \(f(U X U^*) = f(U)f(X)f(U^*)\) where \(X\) and \(U\) are like-size
@@ -404,3 +404,17 @@ fiber) \textbf{essentially Hausdorff}.
 {\color{blue} Short review about defining rational functions via equivalence
   classes. We need this bc rational functions give the nc picard group and
   divisors and all that }
+
+
+
+Free polynomial rings are covered in detail (as algebraic objects) in
+\cite{cohnFree2006}. Among
+their results is a characterization of rational functions:
+
+\begin{theorem}
+\label{thm:ratchar}
+  For any nondegenerate
+  rational expression, \(r\), there is a linear square matrix of polynomials, \(L\), and
+  rectangular constants \(b,c\) such that \(r=b^*L ^{-1}c\)---where \(L ^{-1}\) is
+  defined wherever \(r\) is defined.
+\end{theorem}

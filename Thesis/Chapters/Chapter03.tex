@@ -56,9 +56,12 @@ While the singular set encodes the matrices for which \(f(X)\) has a nontrivial
 kernel, the directional singular set bundles this information together with the
 kernel itself. Section 6 of Helton's \emph{Free Convex Algebraic Geometry}
 \cite{heltonFree2013} shows how this can is analogous to the tangent plane of a
-classical variety.  While it may seem counter intuitive to use a script ``Z''
+classical variety. While it may seem counter intuitive to use a script ``Z''
 for the singular set instead of the zero set, the singular set of a free
 function is (in many cases) a more natural generalization of varieties.
+One needs to be careful when interfacing with the literature as these
+definitions (including which of these three sets it the ``zero set'') are not
+universal and each author seems to make their own choices.
 
 {\color{fgreen} Lots of work has been done in the past decade} generating Null- and
 Positivstellensatz for these three sets. In particular,
@@ -80,16 +83,6 @@ for all directions \(H\). On the other hand, for every square
 \emph{determinantal} function, then there is an induced tracial function,
 \(\log f\) wherever \(f\) is nonzero.
 
-% I forgot that determintal functions just spit out complex numbers so this
-% doesn't matter...
-%
-%The presence of the logarithm may seem as we are outside the functional
-%calculus of \cref{sec:ExtMuliVarFun}, which required self-adjoint matrices. For
-%the values for which \(f(X)\) is diagonlizable, we can evaluate \(\log f(X)\)
-%with the usual functional calculus. For an \(f(X)\) which is nonsingular
-%and nondiagonalizable, recall that \(\HH^g\) is dense in \(\MM^{g} \) in the
-%fine topology (and therefore any admissable topology). Since
-%\(\log f(X): D \setminus \{X \mid f(X) \neq 0\} \)
 
 \begin{definition}[Principal Divisors]%
 \label{def:princdiv}
@@ -114,10 +107,11 @@ In light of this, the author has elected to italicize ``free'' and
 ambiguity should one not read too carefully.
 
 While it is trivial to verify, (simply use the properties of \(\log \) and the
-linearity of \(\nabla\)) {\color{fgreen}} observe that
+linearity of \(\nabla\)), {\color{fgreen} observe that}
 \[
   \divv fg = \divv f + \divv g.
 \]
+We will use this fact {\color{fgreen} to give some characterzations of divisors}
 
 \begin{lemma}%
 \label{lem:ob21}
@@ -133,3 +127,246 @@ linearity of \(\nabla\)) {\color{fgreen}} observe that
           extension to the whole domain.
   \end{enumerate}
 \end{lemma}
+
+\begin{proof} \phantom{hello world}
+\begin{enumerate}
+  \item Suppose such a \(c\) existed. Then
+        \[
+          \divv f = \divv cg = \divv c + \divv g.
+        \]
+        But because \(c\) is locally constant, the presence of \(\nabla\) makes
+        \(\divv c =0\), so \(\divv f = \divv g\).
+
+        Conversely, suppose \(\divv f = \divv g\). But then
+        \begin{align*}
+          0 &= \divv f - \divv g\\
+            &= \nabla \left( \log f - \log g \right) \\
+          &= \nabla\log \frac{f}{g}.
+        \end{align*}
+        And so \(\log  \frac{f}{g}\) is locally constant! It follows that
+        \(\frac{f}{g} \) is locally constant and hence we can write \(g=cf\) for
+        some locally constant functions \(c\).
+
+  \item Suppose there is a function \(h\) on the whole domain such that
+        \(\divv h = \divv f - \divv g\)---then by part 1, \(h\) differs from
+        \(\frac{f}{g}\) by a constant but is definied on the entire domain. It
+        is immediate, then, that \(\frac{f}{g}\) extends to the whole domain.
+
+        Conversely, suppose \(h\) is the continuous extension to the entire
+        domain. But then
+        \begin{align*}
+          \frac{f}{g} &= h \\
+               & \Downarrow \\
+          \log f - \log g &= \log h \\
+               & \Downarrow \\
+          \divv f - \divv g &= \divv h.
+        \end{align*}
+  \item Part 3 follows immediately from part 2.
+\end{enumerate}
+\end{proof}
+
+\begin{example}
+  Consider the \emph{free} functions \(f(X,Y)=e^Xe^Y, g(X,Y)=e^{X+Y}\). In
+  significant contrast to the classical case, \(X\) and \(Y\) do not commute,
+  so \(f\neq g\). Before we look at the divisors of \(f\) and \(g\) it is
+  pertinant to consider how \(f,g\) are actually defined---\(f\) and \(g\) are
+  free functions defined on all of \(\MM^2\), so we are we are outside the functional
+  calculus of \cref{sec:ExtMuliVarFun}, which required self-adjoint matrices.
+  For the values for which \(X, Y\) are diagonlizable, we can evaluate \(f(X,Y)\)
+  with the usual functional calculus. For an \(X\) or \(Y\) which is
+  and nondiagonalizable, recall that \(\HH_n^2\) is dense in \(M_n(\CC)^2\) so
+  we have level-wise continuous extension of \(f\) (and of course \(g\)) to all
+  of \(\MM^2\).
+
+  Now we consider the divisors of \(f\) and \(g\). Since they are free
+  functions, recall that \(\divv\) is actually \(\divv \det\). But then,
+  \begin{equation*}
+  \begin{split}
+    \divv e^Xe^Y &= \nabla \log \det \left( e^Xe^Y \right) \\
+    &= \nabla \log \left( e^{\tr X} e^{\tr Y} \right) \\
+    &= \nabla \left( \log e^{\tr X} + \log e^{\tr Y} \right) \\
+    &= \nabla \tr X + \nabla\tr Y
+  \end{split}
+  \begin{split}
+    \divv e^{X+Y} &= \nabla \log \det \left( e^{X+Y} \right) \\
+    &= \nabla \log \left( e^{\tr (X+Y)}  \right) \\
+    &= \nabla \tr (X+Y) \\
+    &= \nabla \tr X + \nabla\tr Y
+  \end{split}
+  \end{equation*}
+  And so we see that \(\divv e^Xe^Y = \divv e^{X+Y}\).
+\end{example}
+
+This example relies on the fact that \(\log \) plays nicely with \(e^{\tr X}\)
+and one might wonder if there is an easier way to compute principal divisors.
+
+\begin{theorem}
+  Let \(f: D \to \MM^{\hat{d} \times \hat{d}}\) be a \(C^1\) free
+  function\footnote{Since the codomain is \(\MM^{\hat{d}\times \hat{d}}\), one
+    can view \(f\) as a \(\hat{d} \times \hat{d}\) matrix of free functions.}
+  such that \(\det f \not\equiv 0\). Then
+  \[
+    \tr \left( H \cdot \divv f \right) = \tr \left(Df(X)[H] f(X)^{-1}\right)
+  \]
+\end{theorem}
+
+\begin{proof}
+  We begin by recalling Jacobi's formula, which gives us a way to understand the
+  directional derivative of the determant in terms of the adjugate\footnote{The
+    transpose of the cofactor matrix.}
+  of a matrix. For a matrix \(X\),
+  \[
+    D \det X [H] = \tr \left( H \adj A \right).
+  \]
+  It will be imperative later in the proof to recall the following property of
+  the adjugate. For an inevitable matrix \(X\),
+  \[
+    \adj (X) = \det(X) X ^{-1}.
+  \]
+  With these preliminaries sorted, we continue with the proof.
+  Unraveling the definitions given above, the principal divisor of \(f\) (a
+  \emph{free function}) is the unique free function on its nonsigular set satisfying
+  \[
+    D \log \det f (X)[H] = \tr (H \cdot \divv f).
+  \]
+  We compute
+  \begin{align*}
+    D \log \det f(X)[H] &=\left. \frac{d}{dt} \left[\log \det f(X+tH) \right]\right|_{t=0} \\
+                        &= \frac{1}{\det f(X)} \left(\left. \frac{d}{dt} \left[ \det f(X+tH)\right]\right|_{t=0}\right)\\
+                        &= \frac{1}{\det f(X)} \tr\left(\left. \frac{d}{dt} \left[ f(X+tH)\right] \adj f(X+tH)\right|_{t=0}\right)\\
+                        &= \frac{1}{\det f(X)} \tr\left(Df(X)[H] \adj f(X)\right)\\
+                        &= \tr \left( Df(X)[H] \frac{\adj f(X)}{\det f(X)}\right) \\
+                        &= \tr \left( Df(X)[H] f ^{-1}(X) \right)
+  \end{align*}
+\end{proof}
+
+The next section will treat divisors of polynomial and rational functions in
+detail. Before continuing, we give one more example.
+
+\begin{example}
+  Let \(f(X,Y) = 1+XY\) and \(g(X,Y) =1+YX\). Using the previous theorem, we
+  have that
+  \begin{align*}
+    \tr \left( (H_1,H_2) \cdot \divv f \right)
+      &= \tr \left(Df(X,Y)[H_1,H_2] f(X,Y) ^{-1}\right)\\
+      &= \tr \left( (H_1Y + X H_2) (1+XY) ^{-1}\right) \\
+      &= \tr \left( H_1Y(1+XY)^{-1} + H_2(1+XY)^{-1}X \right)
+  \end{align*}
+  Appealing to trace duality (\cref{thm:trdual}), we see that
+  \[
+    \divv f = \left( Y(1+XY)^{-1},(1+XY)^{-1}X \right).
+  \]
+  With a nearly identical computation, we recover the principal divisor of \(g\)
+  as well:
+  \[
+    \divv g  = \left( (1+YX)^{-1}Y,X(1+YX)^{-1} \right).
+  \]
+  Since \(Y(1+XY)=(1+XY)Y\), it follows that
+  \(Y(1+XY)^{-1}= (1+XY) ^{-1}Y\), and so \(\divv f = \divv g\)!
+\end{example}
+
+\section{The Group of Divisors}%
+\label{sec:divpoly}
+
+For the remainder of this chapter, we will concern ourselves with the divisors
+of square matrices of nc polynomials and nc rational functions. These are all
+\(f\) free functions, so \(\divv\) will denote \(\divv \det\). We begin with a
+theorem.
+
+\begin{theorem}
+  Let \(f,g\) be square matrices of nc polynomials such that
+  \(\det f, \det g \not\equiv 0\). If \(\frac{\det f}{\det g}\) and
+  \(\frac{\det g}{\det f}\) are entire, then \(\divv f = \divv g\).
+\end{theorem}
+
+\begin{proof}
+  Consider \(\frac{\det f}{\det g}\) and \(\frac{\det g}{\det f}\) as functions
+  \(M_n(\CC)\to \CC \). Since both of these are entire, \(\det f, \det g\) are
+  both never 0---hence any zeroes or poles that they possess must be at
+  infinity. Suppose that \(\frac{\det f}{\det g}\) is unbounded. Depending on how
+  the degrees of \(\det f\) and \(\det g\) compare, there is either a zero or a
+  pole at infinity. But this means that \(\frac{\det g}{\det f}\) has either a
+  zero or a pole at \(0\). Either way we have a contradiction, and so
+  \(\frac{\det f}{\det g}\) is bounded (and entire)---hence constant.
+
+  We now appeal to lemma \ref{lem:ob21}, part 3. Since \(\frac{\det f}{\det g}\)
+  and its reciprocal both have \(C^1\) extension (namely themselves), we have a
+  levelwise constant function \(h\) such that \(\divv f - \divv g = \divv h\).
+  But clearly \(\divv h\) is 0, so \(\divv f = \divv g\)!
+\end{proof}
+
+One of the major themes of the development of principal divisor of free
+functions (like in \cite{pascoeFreeNoncommutativePrincipal2020}) is that much of
+the structure of divisors is an immediate corollary of the structure of
+\(\det f\). For example, the following theorem is proven almost entirely by its
+lemma.
+
+\begin{theorem}
+  Let \(r\) be a nondenerate square matrix of nc rational expressions, such that
+  \(\det X \not\equiv 0 \). Then there exists square matrices of nc polynomials
+  such that
+  \[
+    \divv r = \divv p - \divv q
+  \]
+\end{theorem}
+
+\begin{proof} We begin with a lemma.
+  \begin{lemma}
+    Let \(r\) be a nondenerate square matrix of nc rational expressions, such that
+    \(\det X \not\equiv 0 \). Then there exists square matrices of nc polynomials
+    such that
+    \[
+      \det r = \frac{\det p}{\det q} = \det (pq ^{-1})
+    \]
+  \end{lemma}
+
+  \begin{proof}
+    Recalling \cref{thm:ratchar}, let \(r = b^* L ^{-1} c\). We claim that
+    \[
+      p = \begin{bmatrix} L&c\\-b&0 \end{bmatrix}  \qquad \textrm{ and } \qquad q = L.
+    \]
+    We see that
+    \begin{align*}
+      \left.\det \begin{bmatrix} L&c\\-b&0 \end{bmatrix}  \right / \det L
+        &=\det \begin{bmatrix} L&c\\-b&0 \end{bmatrix} \det \begin{bmatrix} L ^{-1}&0\\0&1 \end{bmatrix} \\
+        &= \det \begin{bmatrix} 1&c\\-bL ^{-1}&0 \end{bmatrix} .
+    \end{align*}
+    Now we recall the formula for the determinant of a block matrix:
+    \[
+      \det \begin{bmatrix} A&B\\C&D \end{bmatrix}  = \det A\det D - CA^{-1}B.
+    \]
+    With this in hand, we see that
+    \(\det \left[ \begin{smallmatrix}1&c\\-bL^{-1}&0\end{smallmatrix} \right] = \det b^*L ^{-1}c\),
+    and we are done.
+  \end{proof}
+  Now take the \(\divv\) of both sides of the lemma to get the required result.
+\end{proof}
+
+Just as in the classical case, these is a deep link between factorization of
+polynomials, subvarieties, and principal divisors. Before we can explore this
+link in the noncommutative setting, we need a definition.
+
+\begin{definition}[Atomic]
+% \label{def:label}
+  A square matrix of polynomials \(p\) is \textbf{atomic} if
+  \(\det p \not\equiv 0\) and if \(p_1p_2=p\), then either \(\det p_1\) or
+  \(\det p_2\) is locally constant.
+\end{definition}
+
+Atomic square matrices of polynomials function like irrecudible factors of
+tradition (commutative) polynomials. While we cannot have truly ``unique''
+factorization, we do have factorization into atoms. In
+\cite{heltonFactorization2019}, Helton et al.\ prove the following theorem:
+
+\begin{theorem}
+  Let \(f\) is a square matrix of nc polynomials and \(p\) an atom. If we
+  \(f = p_1 \cdots p_k\) is the factorzation of \(f\) into atoms, then
+  \[
+    \mathscr{Z}(p) \subset \mathscr{Z}(f)
+  \]
+  if and only if \(\det p = \det (c p_i)\) for one of the atoms of \(f\) and
+  \(c\) a nonzero constant.
+\end{theorem}
+
+With the help of lemma \ref{lem:ob21} (part 1) this says that factorization is
+unique up to equivalence of principal divisors.
