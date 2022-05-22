@@ -31,8 +31,9 @@ function \(f\) on a domain \(\Omega \subset\CC \) and a larger domain
 ``niceness'' conditions) extend \(f\) to an analytic function \(g\) on
 \(\overline{\Omega}\). In particular, given some path \(\gamma\) which start in
 \(\Omega\) we wish to continue \(f\) \emph{along} \(\gamma\) by recomputing the
-power series on overlapping disks with their centers on \(\gamma\).
-\begin{figure}[h!]
+power series on overlapping disks with their centers on \(\gamma\). The
+standard picture of this process is \cref{fig:monocurve}.
+\begin{figure}[h!]%
 \centering
   \def\svgwidth{0.8\columnwidth}
   \import{./Chapters/img/part 2/}{monodromycurve.pdf_tex}
@@ -43,9 +44,9 @@ power series on overlapping disks with their centers on \(\gamma\).
 Our path \(\gamma\) must avoid any potential poles of \(f\) so that we may
 compute the power series, but the uniqueness of such an extension is not
 obvious. This is where the aforementioned niceness conditions come into play!
-For example, consider the follow setup:
+For example, consider the setup of \cref{fig:monolog}:
 
-\begin{figure}[h!]
+\begin{figure}[h!]%
 \centering
   \def\svgwidth{0.52\columnwidth}
   \import{./Chapters/img/part 2/}{monodromylog.pdf_tex}
@@ -94,9 +95,6 @@ is \(\CC \setminus \{0\} \). While \(\Log x\) continues along any path in
 \(\CC  \setminus \{0\} \), the larger domain is \emph{not} simply connected, so
 monodromy fails.
 
-In practice, after the initial exposure in a first course in complex variables,
-no one computes continuations by hand. {\color{red} This could be a paragraph,
-  but is it necessary?}
 
 \section{Free Monodromy}%
 \label{sec:freemono}
@@ -188,14 +186,11 @@ the fundamental group!
 
 As studied in complex analytic and measure theoretic settings, if our space is
 structured enough functions are defined by their local behavior. This idea can
-be generalized to arbitrary topological spaces by stealing from sheaf theory
-{\color{red} fix that wording}.
+be generalized to arbitrary topological spaces {\color{fgreen}by stealing from sheaf theory}.
 
 Let \(X\) be a topological space. For any open set \(U\) we can have \(C(U)\),
 the ring of continuous functions \(f: U \to \RR \) (where addition and
-multiplication are defined point-wise)
-{\color{red} Tracial functions fail to be
-  a ring but they *are* a group---should I just change this to a group?}.
+multiplication are defined point-wise).
 Given any \(V \subset U\), notice that a continuous function \(f\) on \(U\), we
 can restrict \(f\) to \(V\) and maintain continuity. This gives two maps:
 
@@ -246,18 +241,15 @@ replace \(C(U)\) with \(C^\infty(U)\), the ring of smooth functions into
 complex manifold we can construct germs of holomorphic functions.
 
 \begin{example}
-{\color{red} Should I use the same number?}
-
 Consider, again, example \ref{ex:logmono}. Our function \(f(x)= \Log x\) has
 a germ in \(\Omega\). In particular, both \(f_1\) and \(f_2\) belong to the
 equivalence class \([(f,\Omega)]\) as all three functions agree on \(\Omega\).
-From this, we {\color{red} see the genesis of the name} germ: germs capture the
+From this, we {\color{fgreen} see the genesis of the name} germ: germs capture the
 \emph{local} behavior of function. Colloquially, this is the ``heart'' of a
 function similar to the germ of seed.\footnote{Sheaf theory abounds with
   agrarian nomenclature.}
 \end{example}
 
-{\color{red} Link to monodromy again?}
 
 As usual, lifting this construction to the free context requires some nuance.
 For \(U \subset D\) open, the set of tracial functions on \(U\) (denoted
@@ -419,11 +411,9 @@ construction of the universal cover in \cite{hatcherAlgebraic2002}.
 \begin{definition}[Tracial Covering Space]%
 \label{def:trcover}
   For \(X \in B \subset D\), the \textbf{tracial covering space} of \(D\) is the
-  set of paths (up to tracial equivalence
-  \footnote{From here on, unless otherwise specified, we will only refer to
-    paths up to trace equivalence. {\color{red} is it appropriate to put this in
-    a footnote? Do people other than me read footnotes?} }
-  ) in \(D\) starting at \(X\):
+  set of paths {(up to tracial equivalence\footnote{From here on, unless otherwise specified, we will only refer to
+    paths up to trace equivalence.})}
+  in \(D\) starting at \(X\):
   \[
     C^{\textrm{tr}}(D) = \{[\gamma] \mid \gamma \text{ a path essentially taking
     \(X\) to \(Y\)}\}
@@ -437,8 +427,7 @@ space), we need to endow \(C^{\textrm{tr}}(D)\) with a topology. A metric for
 \(C^{\textrm{tr}}(D)\) is given in
 \cite{pascoeFreeNoncommutativePrincipal2020}, but the details are not
 particularly enlightening. With the topology induced by the metric, one can
-easily verify that we do, indeed, have a covering space. {\color{red} do we? I
-  don't think its obvious but to prove it would distract from the point.}
+easily verify that we do, indeed, have a covering space.
 
 Because \(B\) is simply connected, for any \(Y \in B\) there is exactly one path
 essentially taking \(X\) to \(Y\). In light of this, there is a natural
@@ -535,8 +524,7 @@ define the first tracial cohomology group.
 At first glance, \(H^1_{\tr}\) seems rather convoluted, arbitrary, and not
 particularly useful.
 \footnote{In all fairness, this is most people's reaction when the encounter
-  cohomology for the first time. {\color{red} Is this allowed? I think it's a
-    fair comment, but I have a bad habit of putting jokes in footnotes}}
+  cohomology for the first time.}
 Thankfully, we can put the tracial cohomology group to immediate use in
 understanding the structure of \(\pi_1^{\tr}\). Recall that, by definition, a
 global germ \(f:B\to \CC \) analytically continues along every path. It follows,
@@ -553,9 +541,6 @@ is locally constant. Since \(\gamma'\gamma\) and \(\gamma\) have the same
 terminal end point and \(\nabla\) is linear, we know that
 \(\nabla f(\gamma'\gamma)=\nabla(f)\), which tells us that our expression must
 be locally constant.
-
-{\color{blue} Before the homomorphism, talk about the action of traical pi 1 on
-  global germs.}
 
 Given \(f\) a global germ and \(X \in B_n\) the anchor point of
 \[
@@ -597,8 +582,9 @@ The fact that \(\phi_g\) is a homomorphism is the first step to characterizing
                 & {\color{red} \text{This requires the trick from showings its a
                   homom}}
   \end{align*}
-  But since \(\prod\phi_g(\alpha)=\prod\phi_g(\beta)\),
-  \(c^f(\alpha) = c^f(\beta)\). {\color{red} put a sentence as to why}. Thus, \(\alpha\) and \(\beta\) are trace
+  But since \(\prod\phi_g(\alpha)=\prod\phi_g(\beta)\), and \(c^f\) only depends
+  on the class of \(\nabla f\),
+  \(c^f(\alpha) = c^f(\beta)\). Thus, \(\alpha\) and \(\beta\) are trace
   equivalent and we have shown injectivity.
 \end{proof}
 
@@ -628,10 +614,7 @@ is a homotopy between the paths. Then we see that
 \end{align*}
 and so \(\pi_1^{\tr}(D)\) is divisible. As there is only one way (up to
 isomorphism, of course) to be a divisible, torsion free subgroup of \(\CC\), we
-have completely characterized \(\pi_1^{\tr}(D)\)! {\color{red} Why is this true?
-  Certianly \(\RR \) satisfies this as well?} {\color{blue} After some googling,
-this is true if you have \emph{enough} copies of \(Q\) (particularly
-\(2^\aleph\)). Should I mention this?}
+have completely characterized \(\pi_1^{\tr}(D)\)!
 
 \begin{theorem}
   For \(D\) an anchored free set,

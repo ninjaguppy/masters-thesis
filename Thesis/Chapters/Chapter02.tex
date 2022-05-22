@@ -96,26 +96,23 @@ In the context of \cref{sec:functionalcalc,sec:ExtMuliVarFun}
 free.
 
 On \(\MM^{g} \), we define a product that resembles the inner product on
-\(\CC^n\). Given \(A,B \in \MM^{g} \) which are \(g\)-tuples of \(n \times n\)
+\(\CC^n\) which will be extensively throughout \cref{ch:ZeroDiv,ch:monodromy}. Given \(A,B \in \MM^{g} \) which are \(g\)-tuples of \(n \times n\)
 matrices:
 \begin{align*}
 	\cdot : \MM^{g} \times \MM^{g}  &\longrightarrow M_n(\CC) \\
   \cdot (A,B) = A \cdot B &\longmapsto \sum_{i=1}^g A_i B_i
 \end{align*}
 
-{\color{red} James uses this product, but like what in the world is going on
-  with it???}
-
-{\color{red} \(tr (A \otimes Id)\) But its more complicated than that bc A is a
-``row vector'' of sorts}
 
 
 \section{Tracial Functions and Uniqueness of the Gradient}%
 \label{sec:TracGrad}
 Now that we have \(\MM^d\), we can work with general functions on our matrix
 universe. As a whole, free analysis is concerned with so-called \emph{free
-  functions}, which respect the direct sums and unitary conjugation.
-{\color{red} Do they need to be graded?}
+  functions}, which are graded,
+\footnote{In the sense that they send \(n\times n\) matrices to \(n\times n\) matrices}
+respect the direct sums and unitary conjugation.
+
 \begin{definition}[Free Function]
 \label{def:FreeFun}
   A function \(f: D\to \MM^{\hat{d}}\) is called \textbf{free} if
@@ -165,9 +162,9 @@ relationship to the directional derivative:
 \end{definition}
 
 It is not-at-all obvious that such a \(\nabla f \) should be unique---after all
-any linear combination of commutator is has trace zero. {\color{red} should I
-  explain this?} In the case that \(f\) is a single-variable function we can
-replace \(\nabla f\) with the traditional derivative, \(f'\), as seen in
+any linear combination of commutator is has trace zero.  In the case that \(f\)
+is a single-variable function we can replace \(\nabla f\) with the traditional
+derivative, \(f'\), as seen in
 \cite[Thm 3.3]{pascoeTrace2020}.
 \begin{theorem}
   Let \(f: (a,b)\to \RR \) be a \(C^1\) function. Then
@@ -199,8 +196,6 @@ $A = U \Lambda U ^{*} $, then we define
 $f ^{[1]} (A) = U f ^{[1]} (\Lambda) U ^{*} $. Now we borrow a theorem from
 Bhatia \cite{bhatiaMatrixAnalysis1997}:
 \begin{theorem}[Bhatia V.3.3]
-
-{\color{red} Theorem numbering?}
   Let $f \in C ^{1} (I)$ and let $A$ be a self adjoint matrix with all
   eigenvalues in $I$. Then \[
     Df(A)[H] = f ^{[1]} (A) \circ H,
@@ -244,9 +239,10 @@ $i \mapsto \ell\; \ell \mapsto k \; k \mapsto i $ to get
   = \sum_k\sum_\ell \sum_i f'(\lambda_i) \overline{u}_{i k} h_{k \ell}u_{\ell i},
 \]
 So, for every direction \(H\), we have that
-$\tr \left( U\, \text{diag} \{f'(\lambda_1), \dots ,f'(\lambda_n)\} \,U ^{*} H\right) =
-   \tr \left( f ^{[1]} (\Lambda) \circ (U ^{* } H U) \right). $
-{\color{red} overfull hbox :eyeroll:}
+\[
+  \tr \left( U\, \text{diag} \{f'(\lambda_1), \dots ,f'(\lambda_n)\} \,U ^{*} H\right) =
+  \tr \left( f ^{[1]} (\Lambda) \circ (U ^{* } H U) \right).
+\]
 By picking the ``correct'' \(H\),
 \footnote{See the proof of \ref{thm:trdual} for the details of how to pick the
   \(H\)'s}
@@ -315,8 +311,7 @@ At first glance, this seems fine enough, but it ignores the fact that for
 for all unitary \(U\). In a sense, we think of the all the direct sums of \(X\)
 and its similarity envelope as ``the same.'' In light of this, if \(\sim\) is
 the equivalence relation that \(X\sim Y\) if \(Y = X^{\oplus k}\) or
-\(Y = U^*XU\) {\color{red} is this actually an equivalence relation? The second
-statement is immediate but the first isn't an eq.\ rel.},
+\(Y = U^*XU\) ,
 then any useful topological theory on \(D \subset \MM^g\) should descend to
 classic theory on \(\faktor{D}{\sim}\). One needs only look at \(H_0(D)\) to see
 that the naive approach fails to give useful information. It should be the case
@@ -327,7 +322,6 @@ to see
 \]
 which does not behave as we would expect.
 
-{\color{blue} a note on convergence somewhere.}
 
 \subsection{Admissible Topologies}%
 \label{sec:admtopo}
@@ -369,22 +363,63 @@ with entries in \(\RR \langle x \rangle \). Let
 \[
   G_\delta = \{x \in \MM^{g} \mid \| \delta(x) \| <1\}
 \]
+For \(x \in M_n(\CC)\), \(\|\cdot \|\) is the operator norm in
+\(\mathcal{B}(\CC^k\otimes\CC^n)\). This may seem strange
+\footnote{The author would like to note that it is, in fact, strange.}
+but the level-wise definition allows the norm to ``play nice'' with direct sums.
 The set of all \(G_\delta\) as \(k\) ranges over \(\ZZ ^+\) form the basis for
 the free topology. Indeed, any \(X \in \MM^{g} \) is trivially in one of the
 \(G_\delta\) (take \(\delta=X\)) and with some work one can show that
-\(G_{\delta_1} \cap G_{\delta_2}= G_{\delta_1\oplus \delta_2}\) ({\color{red}
-  prove this}) so we do,
-indeed, have a basis.
+\(G_{\delta_1} \cap G_{\delta_2}= G_{\delta_1\oplus \delta_2}\) so we do,
+indeed, have a basis. All that is needed to satisfy the axioms for a base is that
+\(G_{\delta_1} \cap G_{\delta_2} \supset G_{\delta_1\oplus \delta_2}\). In
+fact if one chose a more ``standard'' norm for \(\delta(X)\) above (\eg the
+Frobenius norm) one gets the needed inclusion. The benefit of the strange norm,
+however, is that we get equality here instead of inclusion.
 
 \section{Free Analogues of Classical Results}%
 \label{sec:freeanal}
 
+In general, efforts to reprove classical results from single and several varible
+complex analysis have been successful. A full treatise of the results proven
+before 2020 can be found in \cite{aglerOperator2019}---but we will include a
+handful here.
 
+Among the many astounding result is the following characterization of
+holomorphic functions in admissible topologies:
+\begin{theorem}[Locally Bounded Implies Analytic]
+  Let \(D\) be an nc domain and \(f\) a free function on \(D\). If \(f\) is
+  locally bounded on each \(D_n\), then \(f\) is an analytic function of the
+  entries of the matrices at each level \(n\).
+\end{theorem}
+A proof for this (rather suprising) result is given in \cite{heltonProper2011}.
+With different topologies come different analytic functions. In light of this,
+if the topology is not understood functions are usually referred to as
+\{fine/fat/free\} holomorphic.
+As mentioned above, both the fine and fat topologies have implicit function
+theorems. The fat implicit function theorem requires a significant amount more
+work to state, but it can be found in \cite{aglerOperator2019}.
+\begin{theorem}[Fine Implicit Function Theorem]
+  Let \(D \subset \MM^g\) be an nc domain. Let \(\Phi\) be a fine holomorphic
+  map \(D\to \MM^{g} \). The following equivalent:
+  \begin{enumerate}
+    \item \(\Phi\) is injective on \(D\)
+    \item \(D\Phi(x)\) is nonsingular for every \(x \in D\)
+    \item the function \(\Phi ^{-1}\) exists and is a fine holomorphic
+          map.
+  \end{enumerate}
+\end{theorem}
+
+Various Null- and Positivstellensatz
+\footnote{And even a QuadratischePositivstellensatz!} exist throughout the
+literature---many of which utilize the idea of so-called ``atomic'' matrices of
+nc polynomials (defined in \cref{def:atomic}). See
+\cite{heltonFactorization2019} for the specifics.
 
 In \cite{aglerGlobal2013}, Agler and McCarthy proved an free analogue of the
 Oka-Weil theorem: any holomorphic function on a compact set in the free topology
 can be uniformly approximated by polynomials. Unfortunately, it was later proven
-in \cite{pascoeentire2019} and \cite{augatCompact2017} that the only compact
+in \cite{pascoeInvariant2021} and \cite{augatCompact2017} that the only compact
 sets in the \(\MM^{g} \) are the envelope of finitely many points, trivializing
 the result of Agler and McCarthy.
 
@@ -398,18 +433,65 @@ them! Motivated by definitions in section \ref{sec:trpi1} we call a topology
 satisfying this condition (Hausdorff outside of the similarity envelope and
 fiber) \textbf{essentially Hausdorff}.
 
+
 \section{nc Rational Functions}%
 \label{sec:ncrational}
 
-{\color{blue} Short review about defining rational functions via equivalence
-  classes. We need this bc rational functions give the nc picard group and
-  divisors and all that }
+While polynomials were fairly simply to lift to the noncommutative setting,
+dealing with rational functions is a bit more complex. In depth discussion of nc
+rational functions descends quickly into abstract nonsense, so we will only
+cover the basics and will not go beyond what is needed for the work done in the
+rest of this thesis.
 
+\begin{definition}[nc Rational Expression]%
+\label{def:ratexp}
+  An \textbf{nc rational expression} (alternativey a free rational expression)
+  in noncommuting indeterminants, \(x_1, \dots ,x_g\) is a syntactically valid
+  expression of those indeterminants involving addition, multiplicatoin, inverses,
+  and scalar multiplication.
+\end{definition}
 
+For example, the following are examples of free rational expressions in two
+variables:
+\begin{equation*}
+\begin{split}
+  x_1x_2+x_2x_1(x_1-x_2)^{-1} &,\; (2x_2^2x_1^{-1} +(x_1x_2-x_2x_1)^{-1}) ,\\
+ (x_2(1-x_1x_2)&-(1-x_2x_1)x_2)^{-1}.
+\end{split}
+\end{equation*}
 
-Free polynomial rings are covered in detail (as algebraic objects) in
-\cite{cohnFree2006}. Among
-their results is a characterization of rational functions:
+The careful reader will notice, however, that one of these expressions is not
+like the other. If we were to evaluate these expression on tuples of matrices
+there is no pair for which \((x_2(1-x_1x_2)-(1-x_2x_1)x_2)^{-1}\) is defined.
+This is an example of a \textbf{degenerate} rational expression. Formally, an nc
+rational expression is \textbf{nondegenerate} if there is at least one
+\(X \in \MM^{g} \) such that \(r(X)\) is defined.
+
+When seeking to make rational \emph{functions} out a nondegenerate rational
+expression, one encounters significant difficulties. For example,
+\[
+  x_1-x_1+x_2 ^{-1} x_2-1 \quad \textrm{ and } \quad 0
+\]
+are distinct nc rational expressions---and further rational expressions that will
+always give the same output---but they have wildly different domains. With the
+likes of the Identity Theorem from complex analysis one would like to say that
+these are the same function. In light of this, nc rational functions are defined
+via equivalence classes. We say two rational expressions, \(r_1,r_2\), are
+equivalent if \(r_1(X) = r_2(X)\) whenever both expressions are defined.
+
+Unforunately, this introduces a new wrinkle. There is, of course, the issue of
+what the domain of the equivalence class is---usually one simply works with the
+domain of the representative chosen. Moreover, given two representatives of the
+same equivalence class of rational functions, there is no guarantee of an
+algebraic manipulation to transform one into the other.
+
+Just like the polynomial case, we often consider \emph{matrices} of nc rational
+functions. Chapter \ref{ch:ZeroDiv} explores the algebraic geometry of nc
+polynomials and rational functions. Thankfully, however, we do not
+need any of the in depth theory of rational functions. \cite{heltonFree2013}
+contains a slightly broader introduction from an analytical lens while \cite{cohnFree2006}
+provides a (more complete) algebraic treatment. The only theorem we will need
+comes from the latter:
 
 \begin{theorem}
 \label{thm:ratchar}
