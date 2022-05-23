@@ -2,7 +2,7 @@
 
 The results of the last three chapters seem hopeful---free analysis seems to be
 able to generalize many classical results, as listed in \cref{sec:freeanal}. As
-previously mentioned, there are the free topology admits an Oka-Weil-type theorem.
+previously mentioned, the free topology admits an Oka-Weil-type theorem.
 While this is promising, the only compact sets in the free topology are the
 envelopes of a finite collection of points.
 
@@ -13,7 +13,7 @@ The fine topology (and therefore any admissible topology)
 fails to be \(T_1\), let alone Hausdorff---notice that any open set containing
 \(X\) must also contain \(X\oplus X\). Further, given any free function \(f\)
 on an nc-domain \(D\), if \(f\) is locally bounded on each \(D_n\) then \(f\)
-is analytic (admits a power series representation.) There are two ways so view
+is analytic (admits a power series representation). There are two ways so view
 this result: First, one can accept that analytic functions are a dime a dozen on
 \(\MM^{g} \). Alternatively, one can be skeptical that the topological
 structures put on \(\MM^{g} \) are indeed the natural choice. The work of J.E.
@@ -24,13 +24,16 @@ topology.
 \section{Classical Monodromy}%
 \label{sec:classmono}
 
-In the study of functions of a single complex variable, many of the central
+In the study of functions of a complex variable(s),\footnote{There are nearly
+  identical ``monodromy'' theorems for functions of one and several complex
+  variables, but we will only treat functions of a single variable in this section.}
+many of the central
 theorems surround the idea of analytic continuation. Given some analytic
 function \(f\) on a domain \(\Omega \subset\CC \) and a larger domain
 \(\overline{\Omega} \supset \Omega\), we can (with sufficient
 ``niceness'' conditions) extend \(f\) to an analytic function \(g\) on
 \(\overline{\Omega}\). In particular, given some path \(\gamma\) which start in
-\(\Omega\) we wish to continue \(f\) \emph{along} \(\gamma\) by recomputing the
+\(\Omega\) we can analytically continue \(f\) \emph{along} \(\gamma\) by recomputing the
 power series on overlapping disks with their centers on \(\gamma\). The
 standard picture of this process is \cref{fig:monocurve}.
 \begin{figure}[h!]%
@@ -138,26 +141,28 @@ With this preliminary result, we can introduce Universal Monodromy.
   Now suppose that \(f\), a free function, analytically continues along every
   path in \(D\). Fix \(X \in B_n\) and pick some and let \(\gamma_1,\gamma_2\)
   be two paths taking \(X\) to some \(Y \in D_n\). Let \(F_1,F_2\) be the
-  analytic continuation of \(f\) along \(\gamma_1,\gamma_2\) respectively. If
-  \(F_1=F_2\), then we are done! Define \(\hat{\gamma}, \gamma\) be path in
+  analytic continuation of \(f\) along \(\gamma_1,\gamma_2\) respectively. We
+  seek to show that
+  \(F_1\) and \(F_2\) agree in some neighborhood of \(\gamma_1(1)\)! Let \(\hat{\gamma}, \gamma\) be paths in
   \(D_{2n}\) defined by
   \[
     \hat{\gamma} = \begin{bmatrix} \gamma_1&\\&\gamma_2 \end{bmatrix} \qquad
     \gamma = \begin{bmatrix} \gamma_2&\\&\gamma_1 \end{bmatrix}.
   \]
-  But we have a homotopy between \(\hat{\gamma}\) and \(\gamma\) given by
+  We have a homotopy between \(\hat{\gamma}\) and \(\gamma\) given by
   \[
     \Gamma(t,s) =
     \begin{bmatrix} \cos (s\frac{\pi}{2}) & \sin (s\frac{\pi}{2})\\-\sin (s\frac{\pi}{2}) & \cos (s\frac{\pi}{2}) \end{bmatrix}
-    \begin{bmatrix} \gamma_1&\\&\gamma_2 \end{bmatrix}
+    \begin{bmatrix} \gamma_1(t)&\\&\gamma_2(t) \end{bmatrix}
     \begin{bmatrix} \cos (s\frac{\pi}{2}) & -\sin (s\frac{\pi}{2})\\\sin (s\frac{\pi}{2}) & \cos (s\frac{\pi}{2}) \end{bmatrix}.
   \]
   Indeed, one easily checks that
   \[
     \Gamma(t,0) = \hat{\gamma}\qquad
-    \Gamma(t,1) = \gamma \qquad \qquad
+    \Gamma(t,1) = \gamma \quad \quad
+    {\color{red}
     \Gamma(0,s) = X\oplus X\qquad
-    \Gamma(1,s) = Y \oplus Y
+    \Gamma(1,s) = Y \oplus Y}
   \]
   But since \(\hat{\gamma}\) and \(\gamma\) are homotopic we can apply the
   classical (albiet multivariable) monodromy theorem---so we know that the
@@ -186,9 +191,10 @@ the fundamental group!
 
 As studied in complex analytic and measure theoretic settings, if our space is
 structured enough functions are defined by their local behavior. This idea can
-be generalized to arbitrary topological spaces {\color{fgreen}by stealing from sheaf theory}.
+be generalized to arbitrary topological spaces with a construction from
+algebraic geometry.
 
-Let \(X\) be a topological space. For any open set \(U\) we can have \(C(U)\),
+Let \(X\) be a topological space. To any open set \(U\) we associate \(C(U)\),
 the ring of continuous functions \(f: U \to \RR \) (where addition and
 multiplication are defined point-wise).
 Given any \(V \subset U\), notice that a continuous function \(f\) on \(U\), we
@@ -228,11 +234,11 @@ on \(\mathfrak{C}_x\) by \((f,U) \sim (g,V) \Leftrightarrow\) there exists
 \(W \subset U \cap V\) where \(f \mid _W = g\mid _W\). In a sheaf-theoretic
 context, \(\faktor{\mathfrak{C}_x}{\sim} \) is called the \textbf{stalk} at \(x\)
 and elements of the stalk are \textbf{germs} at \(x\). If we are dealing with
-sheaves of groups or sets, this construction remains unchanged! We can still
+sheaves of groups or sets, this construction remains unchanged---\ie{} can still
 define the stalk at given point. While it will not come into play, it is worth
 noting that the stalk inherits the algebraic structure of the original
-sheaf---\eg for a sheaf of rings (or group), the stalk has a natural ring
-(group) structure.
+sheaf---\eg{} for a sheaf of rings, the stalk has a natural ring
+structure.
 
 Sheafs of rings/groups/sets of functions arise naturally in many areas of
 mathematics. For example, if \(X\) happens to be a smooth manifold, we may
@@ -245,7 +251,7 @@ Consider, again, example \ref{ex:logmono}. Our function \(f(x)= \Log x\) has
 a germ in \(\Omega\). In particular, both \(f_1\) and \(f_2\) belong to the
 equivalence class \([(f,\Omega)]\) as all three functions agree on \(\Omega\).
 From this, we {\color{fgreen} see the genesis of the name} germ: germs capture the
-\emph{local} behavior of function. Colloquially, this is the ``heart'' of a
+local behavior of function. Colloquially, this is the ``heart'' of a
 function similar to the germ of seed.\footnote{Sheaf theory abounds with
   agrarian nomenclature.}
 \end{example}
@@ -253,7 +259,7 @@ function similar to the germ of seed.\footnote{Sheaf theory abounds with
 
 As usual, lifting this construction to the free context requires some nuance.
 For \(U \subset D\) open, the set of tracial functions on \(U\) (denoted
-\(C_{\text{tr}}(U)\)) does not for a ring---it is closed under addition but not
+\(C_{\text{tr}}(U)\)) does not form a ring---it is closed under addition but not
 multiplication. Given two tracial functions, \(f,g \in C_{\text{tr}}(U)\), we see
 that
 \begin{align*}
@@ -278,7 +284,7 @@ sheaves, so they are simply sheaves of sets.
 \section{The Tracial Fundamental Group}%
 \label{sec:trpi1}
 
-While Free Monodromy means that free functions cannot detect the topology of
+While free monodromy means that free functions cannot detect the topology of
 free sets, the same is not true for a general tracial
 function! Following \cite{pascoeFreeNoncommutativePrincipal2020}, we will need
 some definitions.
@@ -292,7 +298,7 @@ is \textbf{anchored}.
 
 \begin{definition}[Global Germ]
   \label{def:globgerm}
-  For \(D\) an open set, and \(B \subset D\) its anchor, we call a tracial
+  For \(D\) an anchored set, and \(B \subset D\) its anchor, we call a tracial
   function \(f:B\to \CC \) a \textbf{global germ} if it analytically continues
   along every path in \(D\) which starts in \(B\).
 \end{definition}
@@ -329,7 +335,7 @@ of paths.
   Given \(\gamma\) essentially taking \(X\) to \(Y\) and \(\beta\) taking \(Z\)
   to \(W\), define
   \[
-    \gamma\oplus\beta(t) = \begin{bmatrix} \gamma(t)&0\\0&\beta(t) \end{bmatrix}.
+    \gamma\oplus\beta(t) := \begin{bmatrix} \gamma(t)&0\\0&\beta(t) \end{bmatrix}.
   \]
 \end{definition}
 
@@ -351,10 +357,11 @@ essential paths:
     \beta\gamma(t) :=
     \begin{cases}
       \gamma^{\oplus k}(2t) & t \in [0,0.5) \\
-      \beta^{\oplus\ell} (2t-1)& t \in (0.5,1]
+      \beta^{\oplus\ell} (2t-1)& t \in [0.5,1]
     \end{cases}
   \]
-  where \(k\) and \(\ell\) are positive integers chosen to maintain continuity.
+  where \(k\) and \(\ell\) are positive integers chosen to make
+  \(\gamma^{\oplus k}\) and \(\beta^{\oplus \ell}\) like size matrices for each \(t\).
 \end{definition}
 
 With essential paths and their product we can build the first analogue of the
@@ -364,6 +371,9 @@ fundamental group. Let \(D\) be an anchored space with \(B\) its anchor. For
 \(\gamma=\gamma^{\oplus k}\). Section 6 of
 \cite{pascoeFreeNoncommutativePrincipal2020} explores this construction in
 detail, including proving its commutativity.
+At the moment, not much can be said about the full fundamental group. Instead,
+we restrict ourselves to a different (abliet related) group of paths which are
+determined by the analytic continuation of tracial functions.
 
 Given a path essentially taking \(X\) to \(Y\) we can view the path as coupled
 with its endpoint. For \(B\) and anchor and \(f\) a global germ, we can
@@ -372,7 +382,7 @@ reasonably define \(f(\gamma)\): analytically continue \(f\) along \(\gamma\) an
   f(\gamma) := \frac{1}{k} f(Y^{\oplus k}).
 \]
 Since we can evaluate paths with global germs, we can use global germs to
-{\color{green} something} paths.
+distinguish between certain paths.
 
 \begin{definition}[Trace Equivalent]
 \label{def:label}
@@ -381,11 +391,11 @@ Since we can evaluate paths with global germs, we can use global germs to
   \textbf{trace equivalent} if, for every global germ \(f\) and every path
   \(\delta\) taking \(Y\) to \(Z\), \(f(\delta\gamma)=f(\delta\beta)\).
 
-  That it, trace equivalent paths are those which cannot be told apart via
+  That is, trace equivalent paths are those which cannot be told apart via
   analytic continuation of global germ.
 \end{definition}
 
-Under trace equivalence, the normalization given above means
+Under trace equivalence, the normalization given above implies
 \(\gamma = \gamma^{\oplus k}\) since both essentially take \(X\) to \(Y\).
 Further, since homotopic paths have the same analytic continuation, homotopic
 paths are trace equivalent. This allows us to define a second fundamental group
@@ -396,16 +406,16 @@ which will be our central object of study.
  \(\pi_1^{\textrm{tr}}(D,X)\) to be the group of trace equivalent paths
  essentially taking \(X\) to \(X\).
 \end{definition}
-If \(D\) is connected, then \(\pi_1^{\textrm{tr}}\) is independent of our
+If \(D\) is connected, then \(\pi_1^{\textrm{tr}}(D)\) is independent of our
 choice of base point---in fact, the isomorphism from the classical case
-{\color{green} works here as well}. The identity is given by \(\gamma^X\), the
+works here as well. The identity is given by \(\gamma^X\), the
 constant path at \(X\) and inverses given by
 \[
   \gamma ^{-1}(t) = \gamma (1-t).
 \]
 Note that, since fixed endpoint homotopic paths are trace equivalent,
-\(\pi_1^{\textrm{tr}}\) is a quotient of \(\pi_1\). We can construct a covering
-space for \(D\) with respect to \(\pi_1^{\textrm{tr}}\) similar to the
+\(\pi_1^{\textrm{tr}}(D)\) is a quotient of \(\pi_1(D)\). We can construct a covering
+space for \(D\) with respect to \(\pi_1^{\textrm{tr}}(D)\) similar to the
 construction of the universal cover in \cite{hatcherAlgebraic2002}.
 
 \begin{definition}[Tracial Covering Space]%
@@ -423,10 +433,20 @@ construction of the universal cover in \cite{hatcherAlgebraic2002}.
 Since we identify paths with their terminal endpoint, we have the natural
 covering space map \(\rho: C^{\textrm{tr}}(D) \to D, [\gamma]\mapsto Y\). In order
 for this map to be continuous (and obey the rest of the axioms of a covering
-space), we need to endow \(C^{\textrm{tr}}(D)\) with a topology. A metric for
-\(C^{\textrm{tr}}(D)\) is given in
-\cite{pascoeFreeNoncommutativePrincipal2020}, but the details are not
-particularly enlightening. With the topology induced by the metric, one can
+space), we need to endow \(C^{\textrm{tr}}(D)\) with a topology. We do so be
+defining a metric
+\(d: C^{\textrm{tr}}(D) \times  C^{\textrm{tr}}(D) \to \RR \cup \{\infty\} \).
+Let \(\gamma_1\) be a path essentially taking \(X\) to \(Y\) and \(\gamma_2\) a
+path essentially taking \(X\) to \(Z\). If \(Y\) and \(Z\) are different sizes,
+set \(d(\gamma_1,\gamma_2)=\infty\). On the other hand, say that both \(Y\) and
+\(Z\) are \(n \times n \) matrices and let \(\Gamma_{Y,Z}\) be the set of path
+in \(D_n\) taking \(Y\) to \(Z\). If \(\| \gamma \| \) denotes the length of
+\(\gamma\) in \(\CC ^{n^2}\), then we set
+\[
+  d(\gamma_1,\gamma_2) := \inf \{\| \gamma \| \mid \gamma \in \Gamma_{Y,Z} \textrm{
+  such that } \gamma\gamma_1=\gamma_2\}.
+\]
+With the topology induced by the metric, one can
 easily verify that we do, indeed, have a covering space.
 
 Because \(B\) is simply connected, for any \(Y \in B\) there is exactly one path
@@ -438,7 +458,7 @@ norm on \(C^{\textrm{tr}}(D)\) forces to be analytic.
 \section{A Bit of Cohomology}%
 \label{sec:cohomo}
 
-For a treatment of Cohomology, see Allan Hatcher's famous
+For a complete treatment of Cohomology, see Allan Hatcher's famous
 \emph{Algebraic Topology} \cite{hatcherAlgebraic2002}. As a quick review, given
 some chain complex
 \[
@@ -453,7 +473,7 @@ some chain complex
   \cdots
 \]
 we can form the for the \textbf{cochain complex} as follows: First, fix some
-abelian group \(G\). The object in out cochain complex are
+abelian group \(G\). The objects in out cochain complex are
 \(C^\bullet = \Hom (C_\bullet, G)\) the group of morphisms \(C_\bullet \to G\).
 The maps are induced ones
 \[
@@ -487,32 +507,34 @@ A full cohomology theory has yet to be developed in the free setting. Lifting
 De Rham cohomology appears promising given that considering \(\MM^{g} \) carries
 a natural (if complex) manifold structure. While there is not a full
 generalization of the exterior derivative, recall that for any global germ \(f\),
-we have that \(\nabla f\) is a free function. If \(\mathcal{G}\) is the set of
-global germs and \(\mathcal{F}\) is the set of free functions, we have the
+we have that \(\nabla f\) is a free function. If \(\mathcal{T}\) is the set of
+tracial functions and \(\mathcal{F}\) is the set of free functions, we have the
 beginning of a cochain complex
 \[
-  0 \rightarrow \mathcal{G} \xrightarrow{\nabla} \mathcal{F} \rightarrow \cdots.
+  0 \rightarrow \mathcal{T} \xrightarrow{\nabla} \mathcal{F} \rightarrow \cdots.
 \]
 While we cannot define ``closed'' and ``exact'' for general functions on
 \(\MM^{g} \) (in part because we don't know what the general cochain groups are)
 we can define them on \(\mathcal{F}\).
 \begin{definition}[Exact]%
 \label{def:exact}
-  A free function \(f\) is \textbf{exact} if there exists a global germ \(g\)
-  such that \(\nabla g = f\).
+  A free function \(g: D \to \MM^{g} \) is \textbf{exact} if there exists a
+  tracial function \(f: D \to \CC \)
+  such that \(\nabla f = g\).
 \end{definition}
 \begin{definition}[Closed]%
 \label{def:closed}
-  A free function \(f\) is \textbf{closed} if
+  A free function \(g: D \to \MM^{g} \) is \textbf{closed} if
   \[
-    \tr \left( K \cdot Df(X)[H] \right) = \tr \left( H \cdot Df(X)[K] \right)
+    \tr \left( K \cdot Dg(X)[H] \right) = \tr \left( H \cdot Dg(X)[K] \right)
   \]
   for all directions \(H,K\).
 \end{definition}
 
 While exactness is a direct lift of the classical condition, our definition of
 closed is decidedly unenlightening. {\color{red} I am still unenlightened. I
-  will add more when I know what is going on.} With our definitions, we can
+  will add more when I know what is going on.}
+With our definitions, we can
 define the first tracial cohomology group.
 
 \begin{definition}[First Tracial Cohomology Group]%
@@ -526,41 +548,88 @@ particularly useful.
 \footnote{In all fairness, this is most people's reaction when the encounter
   cohomology for the first time.}
 Thankfully, we can put the tracial cohomology group to immediate use in
-understanding the structure of \(\pi_1^{\tr}\). Recall that, by definition, a
+understanding the structure of \(\pi_1^{\tr}(D)\). Recall that, by definition, a
 global germ \(f:B\to \CC \) analytically continues along every path. It follows,
 then, that \(\nabla f\) must analytically continue along every path as
 well---simply analytically continue \(f\) along the path and then take its
 gradient. Since \(\nabla f \) is a free function, univeral monodromy
 (\cref{thm:freemono}) tells us that \(\nabla f\) has a unique continuation to
-all of \(D\). Because of this, we know that for any \(\gamma \in \pi_{\tr}^1\)
-and \(\gamma'\) a path starting our anchor point \(X\)
-\[
-  f(\gamma'\gamma)-f(\gamma')
-\]
-is locally constant. Since \(\gamma'\gamma\) and \(\gamma\) have the same
-terminal end point and \(\nabla\) is linear, we know that
-\(\nabla f(\gamma'\gamma)=\nabla(f)\), which tells us that our expression must
-be locally constant.
+all of \(D\).
 
-Given \(f\) a global germ and \(X \in B_n\) the anchor point of
+At first glance it would seem that \(\nabla f\) (for \(f\) a
+global germ) is trivial in \(H_{\tr}^1(D)\). This, however, is not the case. A
+free function \(g\), is exact if there is a \emph{tracial function}, \(\hat{f}\)
+defined on \emph{all of } \(D\) such that \(g= \nabla \hat{f}\). Given a
+\emph{global germ} \(f: B \to \CC \), it is not always the case that \(f\) has a
+unique extension to all of \(D\)---hence \(\nabla f \) is not necessarily exact!
+
+
+
+Because monodromy holds for the gradient of a global germ we know that for any
+\(\gamma \in \pi_{\tr}^1(D)\), \(f:B\to \CC \) a global germ, and \(\gamma'\) a
+path starting our anchor point \(X\), the function
+\[
+  \Phi_\gamma^f (\gamma')= f(\gamma'\gamma)-f(\gamma')
+\]
+is locally constant as a function on \(C^{\tr}(D)\). Because of the metric we
+put on \(C^{\tr}(D)\), showing that this function
+is locally constant is rather finicky. This result has a direct analogue in
+classical complex analysis, and the proof similar so it will be omitted.
+We remark that \(\Phi_\gamma^f\) measure the action of \(\gamma\) on a global
+germ \(f\) when continuing along a path \(\gamma'\). We can use to prove the
+following technical lemma.
+
+
+\begin{lemma}%
+\label{lm:technical}
+  Let \(D\) be an nc domain. For any \(\alpha,\beta \in \pi_1^{\tr}(D)\) and
+  global germ \(f\),
+  \[
+    f(\alpha\beta) - f(\alpha) = f(\beta) - f(\gamma_X).
+  \]
+\end{lemma}
+
+\begin{proof}
+  First, see that \(f(\beta)=f(\gamma_X\beta)\), so we need to show that
+  \(\Phi_\beta^f(\alpha) = \Phi_\beta^f(\gamma_X)\). Let \(\Gamma\) be a path in
+  \(C^{\tr}(D)\) defined by
+  \[
+    \Gamma(t) = \alpha\Big|_{[0,t]}.
+  \]
+  That is, \(\Gamma\) is the path (in the space of path) where, at each time
+  step \(\Gamma\) is the path given by going \(t\) through \(\alpha\).
+  Continuity of \(\Gamma\) is immediate from our metric---since the distance
+  between \(\Gamma(t)\) and \(\Gamma(t+\varepsilon)\) can be made arbitrarily
+  small.
+
+  Since we have path between \(\gamma_X\) and \(\alpha\), they are in the same
+  path component of \(C^{\tr}(D)\). Therefore, since \(\Phi_\beta^f\) is locally
+  constant, it must be the case that \(\Phi_\beta^f(\alpha) = \Phi_\beta^f(\gamma_X)\).
+\end{proof}
+
+Given \(f\) a global germ and \(X \in B_n\) the anchor point and
+\(\gamma \in \pi_1^{\tr}\), define
 \[
   c^f(\gamma) := \frac{f(\gamma)-f(\gamma^X)}{n}.
 \]
-\(c^f\) maps into \(\CC \) and some routine work with \(\nabla\) shows that
-only that if \(c^f=c^{f'}\) then, \(\nabla f,\nabla f'\) are in the same tracial
+We remark that, while it is a notation nightmare,
+\(c^f(\gamma) = \Phi^f_{\gamma_X}(\gamma)\). \(c^f\) maps into \(\CC \) and some
+routine work with \(\nabla\) shows that only that if \(c^f=c^{f'}\) then,
+\(\nabla f\) and \(\nabla f'\) are in the same tracial
 cohomology class---\ie, \(c^f\) only depends on the class of \(\nabla f \) in
-\(H^1_{\tr}\). If we define
+\(H^1_{\tr}(D)\). If we define
 \(\phi_g: \pi_1^{\tr}\to \CC , \gamma \mapsto c^f(\gamma)\)---where \(\nabla f\)
 is in the tracial cohomology class of \(g\)---we get a
 \emph{homomorphism} into \(\CC \), as
 \begin{align*}
   c^f(\gamma_1\gamma_2) &= \frac{f(\gamma_1\gamma_2) - f(\gamma_X)}{n} \\
              &= \frac{f(\gamma_1\gamma_2) - f(\gamma_1) + f(\gamma_1) -f(\gamma_X)}{n} \\
-             &= {\color{red} \text{then some black magic}} \\
+             &= \frac{f(\gamma_X\gamma_2) - f(\gamma_X) + f(\gamma_1) -f(\gamma_X)}{n} \\
              &= c^f(\gamma_2) + c^f(\gamma_1).
 \end{align*}
+Where the penultimate equality uses lemma \ref{lm:technical}.
 The fact that \(\phi_g\) is a homomorphism is the first step to characterizing
-\(\pi_1^{\tr}\).
+\(\pi_1^{\tr}(D)\).
 \begin{lemma}
   The map
   \begin{align*}
@@ -575,12 +644,10 @@ The fact that \(\phi_g\) is a homomorphism is the first step to characterizing
   \(\phi_g\) are. For injectivity,
   let \(\alpha,\beta \in \pi_1^{\tr}(D)\) such that \(\prod\phi_g(\alpha)=\prod\phi_g(\beta)\). Seeking to show that
   \(\alpha\) and \(\beta\) are trace equivalent, let \(f\) be a global germ and
-  \(\gamma\) essentially take \(X\) to \(Z\). Then,
+  \(\gamma\) essentially take \(X\) to \(Z\). Then, once again using lemma \ref{lm:technical},
   \begin{align*}
     f(\gamma\alpha)-f(\gamma\beta) &= f(\gamma\alpha) - f(\gamma) - \left( f(\gamma\beta)-f(\gamma) \right) \\
-                &= c^f(\alpha) - c^f(\beta)\\
-                & {\color{red} \text{This requires the trick from showings its a
-                  homom}}
+                &= c^f(\alpha) - c^f(\beta)
   \end{align*}
   But since \(\prod\phi_g(\alpha)=\prod\phi_g(\beta)\), and \(c^f\) only depends
   on the class of \(\nabla f\),
@@ -631,7 +698,7 @@ While this structure theorem is useful, it gets us no closer to actually
 \emph{computing} \(\pi_1^{\tr}(D)\) or \(H^1_{\tr}(D)\). Unfortunately, there
 is nothing analogous to Van Kampen's theorem or the Mayer Vietoris sequence. For
 simple domains, we have some basic tools. Recall the following definion relating
-to abelian groups
+to abelian groups:
 
 \begin{definition}[Rank]%
 \label{def:rank}
@@ -679,8 +746,8 @@ to abelian groups
 This bound on the dimension of \(H^1_{\tr}(D)\) is useful, but only if we have some
 way to reliably compute \(\pi_1^{\tr}(D)\). Under certain circumstances---which
 are not particularly difficult to satisfy---we can compute \(\pi_1^{\tr}(D)\) as
-a direct limit by looking at the levelwise homology groups. Classically, the
-Hurewicz theorem
+a direct limit of groups by looking at the levelwise homology groups. Classically, the
+Hurewicz theorem says that
 first homology group of a path connected manifold is isomorphic to the
 abelization of the fundamental group. Since we require the domain \(D\) to be
 path connected, we can leverage this fact to compute \(\pi_1^{\tr}(D)\).
@@ -706,8 +773,8 @@ Using this result for computation requires understanding the structure of
 it is isomorphic to a quotient of some subgroup of \(\pi_1(D_n)\)! Moreover,
 since we are restricting ourselves to a fixed level, we can leverage the
 Hurewicz theorem. Since \(\pi_1^{\tr}(D)_n\) is abelian is actually a quotient
-of \(H_1(D_n)\)! Thus, we can realize \(\pi_1^{\tr}(D)\) as a direct limit of
-quotients of \(H_1(D_{n!})\).
+of \(H_1(D_n)\). Thus, we can realize \(\pi_1^{\tr}(D)\) as a direct limit of
+quotients of \(H_1(D_{n!})\)!
 
 \section{Some Examples}%
 \label{sec:examples}
@@ -717,11 +784,11 @@ don't abound. Pascoe's paper provides two examples as exercises. We present a
 ``topological'' proofs and invite the reader to fill in the details.
 
 \begin{example}
-  Let \(D = GL(\CC) = \bigcup_\NN GL_n(\CC)\). Consider the case where \(n =1\).
+  Let \(D = GL(\CC) = \bigcup_{n \in \NN} GL_n(\CC)\). Consider the case where \(n =1\).
   If we view complex numbers as \(1\times 1\) matrices, then
-  \(\{\det z = z \neq 0\} = \CC \setminus \{0\} \). Then
+  \(\{\det z = z \neq 0\} = \CC \\{\} minus \{0\} \). Then
   \(\pi_1^{\tr}(GL)_1\) is a quotient of \(H_1(GL_1(\CC))\simeq \ZZ \).
-  Since there are no torsion free subgroups of \(\ZZ \), it must be the case
+  Since there are no nontrivial torsion free quotients of \(\ZZ \), it must be the case
   that \(\pi_1^{\tr}(GL)_1\simeq\ZZ \) as well.
 
   Additionally, we know that there is a natural inclusion
@@ -734,7 +801,7 @@ don't abound. Pascoe's paper provides two examples as exercises. We present a
   Recall that if we square this element, then we get \(\gamma\)---so
   \(\pi_1^{\tr}(GL)_2\) is isomorphic to the group
   \[
-    \ZZ \left[\frac{1}{2}\right]
+    \ZZ \left[\frac{1}{2}\right].
   \]
   Our next inclusion
   \(\pi_1^{\tr}(GL)_2\hookrightarrow \pi_1^{\tr}(GL)_6\) picks up cube roots for
@@ -747,8 +814,9 @@ don't abound. Pascoe's paper provides two examples as exercises. We present a
   \[
     \pi_1^{\tr}(GL)_6 \simeq \ZZ \left[\frac{1}{2}, \frac{1}{3}\right]
   \]
-  In the \(n\)-th inclusion, then, we pick a \(\frac{1}{n}\ZZ \) and any other
-  factors needed for closure.
+  In the \(n\)-th inclusion, then, we pick up \(n\)-th roots and any other
+  factors needed for closure---and so we adjoin \(\frac{1}{n}\) to the
+  preceeding group.
   The direct limit is, therefore,
   \[
     \pi_1^{\tr}(GL) \simeq \ZZ \left[\frac{1}{2},\frac{1}{3},\frac{1}{4}, \dots\right]\simeq \QQ
@@ -761,14 +829,14 @@ don't abound. Pascoe's paper provides two examples as exercises. We present a
     G_\Lambda = \{ X \in \MM \mid det X - \lambda \neq 0 \textrm{ for all
     } \lambda \in \Lambda\}.
   \]
-  We compute \(\pi_1^{\tr}(G_\Lambda)\) similarly to above. First, see that
+  We compute \(\pi_1^{\tr}(G_\Lambda)\) just as above. First, see that
   \( \left( G_\Lambda \right) _1 = \CC \setminus \Lambda\), and so
   \(\pi_1^{\tr}(G_\Lambda)_1\simeq H_1((G_\Lambda)_1)\simeq \ZZ^{|\Lambda|}\).
   Inclusion into \(\pi_1^{\tr}(G_\Lambda)_2\) picks up square roots, so
   \[
     \pi_1^{\tr}(G_\Lambda)_2 \simeq \ZZ^{|\Lambda|}\left[ \frac{1}{2} \right]
   \]
-  Inclusion into \(\pi_1^{\tr}(G_\Lambda)_6\) picks up cube and 6th roots, and
+  Inclusion into \(\pi_1^{\tr}(G_\Lambda)_6\) picks up cube and 6th roots, and so
   on. Therefore, in the direct limit, we see
   \[
     \pi_1^{\tr}(G_\Lambda) \simeq \QQ ^{|\Lambda|}.

@@ -16,7 +16,7 @@ denote wording I don't like but want to come back to
 \section{Functional Calculus}%
 \label{sec:functionalcalc}
 
-Functional Calculus refers to the process of extending the domain of a function
+Functional Calculus is the process of extending the domain of a function
 on \(\RR\) to include matrices (or in some cases operators). The most basic
 formulation uses the fact that the space \(n \times n\) matrices forms a ring
 and so there is a natural way to evaluate polynomials \(f \in \CC [x]\). If we
@@ -39,24 +39,26 @@ Therefore, given a self-adjoint matrix \(A\) and a polynomial \(f \in \CC [x]\)
   f(A) = Uf(\Lambda)U^* = U \;\text{diag}\{f(\lambda_{1}), \dots , f(\lambda_n)\} \; U^*
 \]
 Notice that can simply substitute \(A\) in for \(x\) without any trouble as long
-as we transform the constant term \(a_0 \mapsto a_0I_n\) when evaluation on
+as we transform the constant term \(a_0 \mapsto a_0I_n\) when evaluating on
 \(n\times n\) matrices.\footnote{Technically we have
   \(a_0 \mapsto a_0 \otimes I_n\) but they are identical in this case. It is common in free
-  analysis to tensor by \(I_n\) to {\color{red} make matrices the same size}.}
+  analysis to tensor by \(I_n\) to make the matrices compatible.}
 Since self-adjoint matrices play such a vital role in free analysis, we will let
-\(\HH_n \subset M_n(\CC)\) denote the set of \(n \times n\)-matrices over \(\CC \).
+\(\HH_n \subset M_n(\CC)\) denote the set of \(n \times n\) self adjoint matrices over \(\CC \).
 With the polynomial case in mind, we can extend a function \(g: [a,b] \to \CC \)
 to a function on self adjoint matrices with their
 spectrum in \([a,b]\). Let \(A\) be such a matrix (diagonalized by the unitary
 matrix \(U\)), and define
 \[
-  g(A) = U
+  g(A) := U
   \begin{bmatrix} g(\lambda_1) & &\\ &\ddots& \\ & & \lambda_n \end{bmatrix}
   U^*
 \]
 Thus, for each \(n \in \NN \), \(g\) induces a function on the self-adjoint
-\(n \times n\) matrices with spectrum in \([a,b]\).  The natural ordering
- on self-adjoint matrices is called the
+\(n \times n\) matrices with spectrum in \([a,b]\). Many properties of functions
+of a single real variable utilize the fact that \(\RR \) it totally ordered.
+While there is not a total ordering on \(\HH \), there is a partial ordering.
+The natural ordering on self-adjoint matrices is called the
 \textbf{Loewner Order}:
 
 \begin{definition}[Loewner Ordering]
@@ -71,15 +73,13 @@ In fact, these properties are defined identically to their classical counterpart
 We say that a function is \emph{matrix-monotone} if \(A \preceq B\) implies that
 \(f(A) \preceq f(B)\) and \emph{matrix-convex} (or \emph{nc-convex}) if
 \[
-  f \left( \frac{X+Y}{2} \right) \preceq \frac{f(X)+f(Y)}{2}
+  f \left( \frac{A+B}{2} \right) \preceq \frac{f(A)+f(B)}{2}
 \]
-for every pair of like-size matrice for which \(f\) is defined. These condition
+for every pair of like-size matrices, \(A\) and \(B\), for which \(f\) is defined. These condition
 are rather restrictive (since the must hold for matrices of \emph{all} sizes) so
 many functions which are convex/monotone (in the traditional sense) fail to be
 matrix-convex/monotone. For a full treatment of nc-convexity, see
 \cite{heltonFree2013}. To illustrate the restrictiveness of nc-convexity,
-{\color{red} we will steal an example from Helton. (I don't like this phrasing. I don't
-  mind the word steal, its just awkward)}
 \begin{example}%
 \label{ex:helton1}
   In contrast to the real (or even complex) case, \(f(x)=x^4\) fails to be nc-convex.
@@ -102,7 +102,7 @@ functional calculus.
   \label{def:DirDeriv}
   The derivative of \(f\) in the direction \(H\) is
   \[
-    Df(X)[H] = \lim_{t \to 0} \frac{f(X+tH) - f(X)}{t}
+    Df(X)[H] := \lim_{t \to 0} \frac{f(X+tH) - f(X)}{t}
   \]
   where \(H\) and \(X\) are like-size self-adjoint matices.
 \end{definition}
@@ -115,6 +115,13 @@ equivalent formulation:
 This version allows us to more easily define higher order derivatives
 \[
     D^{(k)}f(X)[H] = \left.\frac{d^{(k)}f(X+tH)}{d^{(k)}t}\right|_{t=0}
+\]
+Notice that this formulations requires each derivative to be in the same
+direction. Higher order derivatives in different directions clearly exist
+(simply nest the limits), but their complexity grows quickly. For example, the
+second derivative in two directions, first \(H\) and then \(K\) is given by
+\[
+  D^2f(X)[H][K] = \lim_{t \to 0} \frac{Df(X+tK)[H] - Df(X)[H]}{t}.
 \]
 
 \begin{example}
@@ -146,7 +153,7 @@ This version allows us to more easily define higher order derivatives
   polynomial in \(H\).
 \end{example}
 
-Just as in the classical case, the second derivative tells gives us information
+Just as in the classical case, the second derivative gives us information
 about the convexity of a function. A function \(f:M_n(\CC)\to M_n(\CC)\) is said
 to be \textbf{positive} if \(0\preceq A \implies 0\preceq f(A)\). In the
 functional calculus, we say that \(f\) is \textbf{nc positive} if it is positive
@@ -163,15 +170,30 @@ of degree 2.\footnote{See \cite{heltonFree2013} for details.}
 We can extend this same functional calculus to functions of several variables,
 although the details are a bit more subtle. We could simply ``plug in'' at tuple
 of matrices to a standard multivariable polynomial ring over \(\RR \) or
-\(\CC \), but this ignores the noncommutativity of \(M_n(\CC)\). In light of this,
+\(\CC \), but this ignores the noncommutativity of \(M_n(\CC)\).
+
+For example, consider \(p \in \CC [x,y]\) defined by
+\[
+  p(x,y) = xy = yx.
+\]
+If we were to evaluate \(p\) on \(X,Y \in \HH^2\), should it be
+\[
+  p(X,Y) = XY, \quad P(X,Y)=YX, \textrm{ or } p(X,Y) = \frac{XY+YX}{2}?
+\]
+
+It is evident, then, that \(C[x_1, \dots,x_n]\) is not the algebra of
+polynomials that we should use.
+In light of this,
 let \(x = (x_1 , \dots x_g)\) be a
 \(g\)-tuples of noncommuting formal variables. The formal variables
 \(x_1, \dots , x_n\) are \emph{free} in the sense that there are no nontrivial
 relations between them.\footnote{This becomes important in the eventual
-  functional calculus---matrices \emph{do} have nontrivial relations. See
-  section [ALGEBRAIC CONSTRUCTION] for the details.}
+  functional calculus---matrices \emph{do} have nontrivial relations. We solve
+  this by creating so-called ``generic matrix'' rings. \cite{klepPositive2018}
+  and \cite{klepTracepositive2011}
+  contain the construction as well as a list of further sources.}
 A \textbf{word} in \(x\) is a product of these
-variables (\eg \(x_1x_3x_1x_4^2\) or \(x_1^2x_5^3\)). An \textbf{nc-polynomial}
+variables (\eg \(x_1x_3x_1x_4^2\) or \(x_1^2x_5^3\)). An \textbf{nc polynomial}
 in \(x\) is a formal finite linear combination of words in \(x\) with
 coefficients in your favorite field. We use \(\RR \langle x \rangle\) and
 \(\CC \langle x \rangle\) to denote the set of nc-polynomials in \(x\) over
@@ -224,7 +246,7 @@ Directional Derivative still makes sense (although our direction \(H\) now
 becomes a tuple of directions). We also inherit (from multi-variable calculus) a
 notion of the \textbf{gradient} of a function---but this will require a bit more work.
 
-\subsection{The Natural Involution on nc-Polynomials}%
+\subsection{The Natural Involution on nc Polynomials}%
 \label{ssec:NatInvo}
 
 Given our ring of nc polynomials, we may define an involution \(^*\) which we
@@ -265,10 +287,11 @@ self-adjoint matrices.
   Evaluating \(f\) on a pair of non self-adjoint matrices is left to the reader.
 \end{example}
 
-\subsection{Matrices of nc-Polynomials}
+\subsection{Matrices of nc Polynomials}
 
 It is occasionally useful in the larger theory of free analysis (\eg{} when
-construction the free topology in section \ref{sec:admtopo}) to consider
+construction the free topology in section \ref{sec:admtopo} and when
+characterizing the zero sets of nc polynomials in \ref{ch:ZeroDiv}) to consider
 matrices where the matrices are nc polynomials. Formally,
 let \(\RR \langle x \rangle ^{k\times k}\) denote the set of \(k \times k\) matrices
 with entries in \(\RR \langle x \rangle \).\footnote{Some sources additionally
@@ -318,7 +341,7 @@ result at a block \(k \times k\) where each block is an \(n \times n\) matrix.
   \[
     \delta(X,Y) =
     \begin{bmatrix}
-      -11&-4&0&-2 \\
+      -11&-4&0&-4 \\
       -4&1&4&0 \\
       164&120&-29&0\\
       120&84&-20&3

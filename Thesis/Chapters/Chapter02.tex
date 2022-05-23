@@ -8,7 +8,7 @@ In seeking a more general theory, the functional calculus defined last chapter
 is insufficient---it would be useful to be able to define \emph{new} functions
 instead of simply lifting polynomials to matrix domains. In a move that will
 feel familiar to any good student of mathematics, we will trade treat the
-set of self-adjoint matrices and polynomial and rational functions on them
+set of self-adjoint matrices and nc polynomials
 as prototypical examples of a more general mathematical
 object, the so-called \emph{Matrix Universe}.
 After defining this new space and the natural maps in
@@ -26,7 +26,7 @@ on spaces of matrices---to do so, we must make this idea of ``spaces of
 matrices'' concrete. The largest such space is the so-called \textbf{Matrix
   Universe}---consisting of \(g\)-tuples of matrices of all sizes:
 \[
-  \MM^g = \bigcup_{n=1}^\infty (M_n(\CC))^g
+  \MM^g := \bigcup_{n=1}^\infty (M_n(\CC))^g
 \]
 By convention, when we consider some
 \(X = \left( X_1, \dots , X_g \right) \in \MM^g\), we require that the \(X_i\)
@@ -35,7 +35,7 @@ deal with subsets that still carry some of the implicit structure of \(\MM^g\).
 \begin{definition}[Free Set]
   \label{def:FreeSet}
   We say \(D \subset \MM^g\) is a \textbf{free set} (also called an nc set) if it is closed with respect
-  to direct sums and unitary conjugation. That it
+  to direct sums and unitary conjugation. That is
   \begin{enumerate}
     \item \(X,Y \in D \) means \(X\oplus Y \in D\).
     \item For \(X,U\) like-size matrices with \(U\) unitary and \(X \in D\),
@@ -55,8 +55,8 @@ complex tangent space of every \(X \in D_n\) is all of \(M_n(\CC)^g\).
 Given some \(X \in \MM^{g} \), there are three associated sets which capture the
 structure of free sets.
 
-\begin{definition}[Similarity Envelope]
-  \label{def:semenv}
+\begin{definition}[Similarity Envelope]%
+\label{def:semenv}
   Given \(X \in \MM^{g} \), a tuple of \(n \times n\) matrices, the
   \textbf{similarity envelope} of \(X\) is the set
   \[
@@ -64,18 +64,17 @@ structure of free sets.
   \]
 \end{definition}
 
-\begin{definition}[Fiber]
-  \label{def:fiber}
+\begin{definition}[Fiber]%
+\label{def:fiber}
   Given \(X \in \MM^{g} \), a tuple of \(n \times n\) matrices, the
   \textbf{fiber} of \(X\) is the set
   \[
     \{X^{\oplus k} \mid  k \in \NN \}.
   \]
-  {\color{red} This is my definition. Is this okay? Can I just define things?}
 \end{definition}
 
-\begin{definition}[Envelope]
-  \label{def:env}
+\begin{definition}[Envelope]%
+\label{def:env}
   Given \(X \in \MM^{g} \), a tuple of \(n \times n\) matrices, the
   \textbf{envelope} of \(X\) is the set
   \[
@@ -83,7 +82,7 @@ structure of free sets.
   \]
 \end{definition}
 Notice that if \(X \in D\), then the entire envelope of \(X\) is automatically
-in \(D\) as well! Notice that (as shown in example \ref{ex:multivareval})
+in \(D\) as well! Further, as shown in example \ref{ex:multivareval},
 polynomials respect the envelope of a matrix in a particularly well-behaved way.
 Colloquially, we think of all points in the envelope of \(X\) as ``the
 same''---this notion is explored in section \ref{sec:TopManUniv} and throughout
@@ -92,12 +91,12 @@ chapter \ref{ch:monodromy}.
 In the context of \cref{sec:functionalcalc,sec:ExtMuliVarFun}
 %
 , the domains in the functional calculus were
-\(\HH^g = \bigcup_{n=1}^{\infty} {\HH_n}^g\). \(\HH ^g\) is a differentiable a
-free.
+\(\HH^g = \bigcup_{n=1}^{\infty} {\HH_n}^g\). \(\HH ^g\) is a differentiable, connected
+free set.
 
 On \(\MM^{g} \), we define a product that resembles the inner product on
-\(\CC^n\) which will be extensively throughout \cref{ch:ZeroDiv,ch:monodromy}. Given \(A,B \in \MM^{g} \) which are \(g\)-tuples of \(n \times n\)
-matrices:
+\(\CC^n\) which will be extensively throughout \cref{ch:ZeroDiv,ch:monodromy}.
+Given \(A,B \in \MM^{g} \) which are \(g\)-tuples of \(n \times n\) matrices:
 \begin{align*}
 	\cdot : \MM^{g} \times \MM^{g}  &\longrightarrow M_n(\CC) \\
   \cdot (A,B) = A \cdot B &\longmapsto \sum_{i=1}^g A_i B_i
@@ -109,9 +108,8 @@ matrices:
 \label{sec:TracGrad}
 Now that we have \(\MM^d\), we can work with general functions on our matrix
 universe. As a whole, free analysis is concerned with so-called \emph{free
-  functions}, which are graded,
-\footnote{In the sense that they send \(n\times n\) matrices to \(n\times n\) matrices}
-respect the direct sums and unitary conjugation.
+  functions}, which are graded and
+respect direct sums and unitary conjugation.
 
 \begin{definition}[Free Function]
 \label{def:FreeFun}
@@ -125,8 +123,8 @@ respect the direct sums and unitary conjugation.
 
 The two other classes of functions we are concerned with are those that act like
 the trace and the determinant:
-\begin{definition}[Determinantal Free Function]
-  \label{def:DetFreeFun}
+\begin{definition}[Determinantal Free Function]%
+\label{def:DetFreeFun}
   A function \(f: D \to \CC \) is a \textbf{determinantal free function} if
   \begin{enumerate}
     \item \(f(X\oplus Y) = f(X)f(Y)\)
@@ -135,8 +133,8 @@ the trace and the determinant:
   \end{enumerate}
 \end{definition}
 
-\begin{definition}[Tracial Free Function]
-  \label{def:TrFreeFun}
+\begin{definition}[Tracial Free Function]%
+\label{def:TrFreeFun}
   A function \(f: D \to \CC \) is a \textbf{tracial free function} if
   \begin{enumerate}
     \item \(f(X\oplus Y) = f(X)+f(Y)\)
@@ -145,14 +143,15 @@ the trace and the determinant:
   \end{enumerate}
 \end{definition}
 
-Given a free function of any type, we can define the directional derivative
-(Definition \ref{def:DirDeriv}) identically. It is worth noting that, while they
-share the moniker of \emph{free}, determinantal and tracial functions are
-\emph{not} free functions.
-It is only these tracial functions which inherit the gradient mentioned above.
-Similarly to traditional multivariable calculus we define the gradient via its
-relationship to the directional derivative:
-\begin{definition}[Free Gradient]
+It is worth noting that, while they share the moniker of \emph{free},
+determinantal and tracial functions are \emph{not} free functions.
+Since these three classes of functions all contain the word ``free,'' we will
+often drop this qualifier and only refer to determinantal, tracial, and free
+function.  Given a free function of any type, we can define the directional
+derivative (Definition \ref{def:DirDeriv}) identically. It is only these tracial functions which inherit
+the gradient mentioned \cref{sec:functionalcalc}.  Similarly to traditional multivariable calculus
+we define the gradient via its relationship to the directional derivative:
+\begin{definition}[Free Gradient]%
 \label{def:FreeGrad}
   Given a tracial free function \(f\), the free gradient, \(\nabla f\), is the
   unique free function satisfying
@@ -162,7 +161,8 @@ relationship to the directional derivative:
 \end{definition}
 
 It is not-at-all obvious that such a \(\nabla f \) should be unique---after all
-any linear combination of commutator is has trace zero.  In the case that \(f\)
+any linear combination of commutator has trace zero. To show the uniqueness of
+\(\nabla f\), we will first restrict ourselves to single variable functions. In the case that \(f\)
 is a single-variable function we can replace \(\nabla f\) with the traditional
 derivative, \(f'\), as seen in
 \cite[Thm 3.3]{pascoeTrace2020}.
@@ -174,11 +174,12 @@ derivative, \(f'\), as seen in
 \end{theorem}
 
 The proof in \cite{pascoeTrace2020} simply asserts the uniqueness of a function
-\(g(X)\) and then shows that \(g(x)=f'(x)\) for \(x \in (a,b)\). Instead, we can
-construct such a \(g\) and recover the theorem along the way:
+\(g(X)\) satisfying \(\tr Df(X)[H] = \tr(Hg(X))\) and then shows that
+\(g(x)=f'(x)\) for \(x \in (a,b)\). Instead, we can construct such a \(g\) and
+recover the theorem along the way:
 \begin{proof}
 
-We start with a construction from Bhatia's Matrix Analysis: Let
+We start with a construction from Bhatia's Matrix Analysis \cite{bhatiaMatrixAnalysis1997}: Let
 $f \in C ^{1} (I)$ and define $f ^{[1]} $ on $I \times I$ by
 \[
   f^{[1]} (\lambda,\mu) =
@@ -194,7 +195,7 @@ defining the $(i,j)$-entry of $f ^{[1]} (\Lambda)$ to be
 $f ^{[1]} (\lambda_i,\lambda_j)$. If $A$ is a self adjoint matrix with
 $A = U \Lambda U ^{*} $, then we define
 $f ^{[1]} (A) = U f ^{[1]} (\Lambda) U ^{*} $. Now we borrow a theorem from
-Bhatia \cite{bhatiaMatrixAnalysis1997}:
+Bhatia:
 \begin{theorem}[Bhatia V.3.3]
   Let $f \in C ^{1} (I)$ and let $A$ be a self adjoint matrix with all
   eigenvalues in $I$. Then \[
@@ -216,7 +217,7 @@ invariant under a change of basis, it is clear that
 If $U = u_{ij}$, $U ^{*} = \overline{u}_{ij}$ and $H = h_{ij}$, then the
 $(i,j)$-entry of $U ^{*}HU$ is
 \[
-  {(U ^{* } H U)}_{ij} = \overline{u}_{ik}h_{k\ell}u_{\ell j}
+  {(U ^{* } H U)}_{ij} = \sum_k\sum_\ell \overline{u}_{ik}h_{k\ell}u_{\ell j}
 \]
 Where we sum over the duplicate indices $k$ and $\ell$. While the structure of
 $f ^{[1]} (\Lambda)$ is a bit unruly, our diagonal entries are $f'(\lambda)$.
@@ -246,13 +247,16 @@ So, for every direction \(H\), we have that
 By picking the ``correct'' \(H\),
 \footnote{See the proof of \ref{thm:trdual} for the details of how to pick the
   \(H\)'s}
-we conclude that our unique quantity \(g(X)\) is
-\(U\, \text{diag} \{f'(\lambda_1), \dots ,f'(\lambda_n)\} \,U ^{*} \). But,
-recall that \(X=U\Lambda U\) so, in the functional calculus, $g(X) = f'(X)$.
-This recovers theorem 3.3 of \cite{pascoeTrace2020} as we have constructed a
-\(g\) such that
+we conclude that there is a unique quantity \(g(X)\) satisfying
 \[
-  \tr \; Df(X)[H] = \tr H g(X)
+  \tr \;Df(X)[H] = \tr(Hg(X)).
+\]
+In particular,
+\( g(X) = U\, \text{diag} \{f'(\lambda_1), \dots ,f'(\lambda_n)\} \,U ^{*} \). But,
+recall that \(X=U\Lambda U\) so, in the functional calculus, $g(X) = f'(X)$.
+Making this substitution, we have the required result:
+\[
+  \tr \; Df(X)[H] = \tr (H f'(X))
 \]
 \end{proof}
 
@@ -272,7 +276,7 @@ Let \(f,g\) be free functions \(\MM^{g} \to \MM^{\tilde{g}} \). If
   Since the trace relation holds for all $H$, we may choose our $H$ carefully to
   show the equality of $f$ and $g$. Say that $H,f(X),g(X)$ are $g$-tuples of
   matrices---we will first show that $f_1=g_1$ and we will do so entry by entry.
-  Let $E_{ij}$ be the matrix will all zeroes and a 1 in the $(i,j)$-entry.  Now
+  Let $E_{ij}$ be the matrix will all zeroes and a \(1\) in the $(i,j)$-entry.  Now
   let $H= (E_{ji},0, \dots ,0)$. So $\tr E_{ji}f_1(X) = \tr E_{ji}g_1(X)$.
   In our products, the only elements on the diagonal are $(f_1(X))_{ij}$ and
   $(g_1(X))_{ij}$, so when we take the trace we have $(f_1(X))_{ij} =(g_1(X))_{ij}$. If we
@@ -285,23 +289,26 @@ Admittedly, there is a slight complication that is overlooked in the above proof
 when it comes to the domains of \(f\) and \(g\). Where these domains overlap, we
 can consider them as the same function (and therefore \(\nabla f \) is unique)
 but if \(f\) is defined on \(D\) and \(g\) is defined on \(\tilde{D}\), then the
-above proof only holds on \(D \cap \tilde{D}\). Examples of such \(f\) and \(g\)
-abound when considering rational functions, which are explored in
-\cref{sec:ncrational}.
+above proof only holds on \(D \cap \tilde{D}\). This complication  occurs
+semi-frequently in free analysis, but in generally swept under the rug---if two
+free functions agree the intersection of their domains, it is convention to
+consider them equivalent. Examples
+of such \(f\) and \(g\) abound when considering rational functions, which are
+explored in \cref{sec:ncrational}.
 
 \section{The Topology of Matrix Universes }%
 \label{sec:TopManUniv}
 
 At the time of writing, there is no ``canonical topology'' for \(\MM^g\). For a
 long time it seemed like the \emph{free} topology (to be defined below) was the
-obvious choice, but recent work (c.f.\ \cite{pascoeentire2019}) has shown that the free
+obvious choice, but recent work (c.f.\ \cite{pascoeentire2019}) has implied that the free
 topology does not put enough structure on \(\MM^g\). See \cite{aglerAspects2016}
 for a full treatment of the common topologies on \(\MM^g\).
 
 A naive approach to a topology on \(\MM = \bigcup_n M_n(\CC)\) would be the
 disjoint union topology---which is then extended do a topology on \(\MM^g\) via
 the product topology. Notice, however that this ignores a significant amount of
-the implicit structure of nc-sets as we get a disconnected space with countable
+the implicit structure of nc sets as we get a disconnected space with countable
 many connected components. Topologically, this is means that means that
 \[
   H_\bullet (D) = \bigoplus_{n \in \NN } H_\bullet(D_n).
@@ -326,17 +333,24 @@ which does not behave as we would expect.
 \subsection{Admissible Topologies}%
 \label{sec:admtopo}
 
-{\color{blue} a cool example is showing that \(\HH \) is dense in \(\MM\)}
+{\color{blue} a cool example is showing that \(\HH \) is dense in \(\MM\)? It
+  would be good to see the level-wise-ness of the fine topology but it is not
+  difficult.}
 
 In light of the above discussion, we will present some of the candidate
 topologies which show some promise in understanding the topology on \(\MM^g\)
 and its subsets.
-We say that a topology \(\tau\) is \textbf{admissible} if it has a basis of nc
-bounded open sets, \(D\) (recall that this means that \(D\) is closed under
+Let \(D \subset \MM^{g} \) be a nc bounded open set (recall that this means that \(D\) is closed under
 direct sums and unitary conjugation, and that each \(D_n\) is a bounded open set
-in \(M_n(\CC)^g\)). The finest admissible topology is the so-called \textbf{fine
-  topology},
-the basis of which consists of \emph{all} nc open sets.
+in \(M_n(\CC)^g\)) and let
+\[
+  \mathcal{B} = \{D \mid  D \textrm{ is an nc bounded open set}\} .
+\]
+It is not difficult to se that \(\mathcal{B}\) is the basis for a topology on
+\(\MM^{g}\), called the \textbf{fine} topology. Currently, there is not a
+``standard'' topology for \(\MM^{g}\). Any topology on, \(\tau\), \(\MM^{g}\) is
+considered \textbf{admissable} if it basis is a subset of \(\mathcal{B}\)---\ie
+it has a basis of nc bounded open sets.
 
 A slightly more restrictive topology (that seems to show some promise in the eyes
 of the author) is the \textbf{fat} topology. For \(n \in \NN \),
@@ -352,16 +366,17 @@ Finally, we take the similarity envelope of \(D(X,r)\)
 \[
   F(X,r) :=  \bigcup_{n=1}^\infty \bigcup_{U \in \mathcal{U}_n} U^* \left( D(X,r) \cap \MM^g_n \right) U
 \]
-Both the fine and the fat topologies admit implicit function theorems.
+Both the fine and the fat topologies admit implicit function theorems---which
+are discussed (in brief) in \cref{sec:freeanal}.
 
 The final candidate topology is the aforementioned \textbf{free} topology.
 Recall that \(\RR \langle x \rangle \) is the algebra of nc polynomials over the
-real number and that
+real numbers and that
 \(\RR \langle x \rangle ^{k\times k}\) is the set of \(k \times k\) matrices
 with entries in \(\RR \langle x \rangle \). Let
 \(\delta \in \RR \langle x \rangle ^{k\times k}\) and define
 \[
-  G_\delta = \{x \in \MM^{g} \mid \| \delta(x) \| <1\}
+  G_\delta = \{x \in \MM^{g} \mid \| \delta(x) \| <1\}.
 \]
 For \(x \in M_n(\CC)\), \(\|\cdot \|\) is the operator norm in
 \(\mathcal{B}(\CC^k\otimes\CC^n)\). This may seem strange
@@ -385,7 +400,7 @@ complex analysis have been successful. A full treatise of the results proven
 before 2020 can be found in \cite{aglerOperator2019}---but we will include a
 handful here.
 
-Among the many astounding result is the following characterization of
+Among the many astounding results is the following characterization of
 holomorphic functions in admissible topologies:
 \begin{theorem}[Locally Bounded Implies Analytic]
   Let \(D\) be an nc domain and \(f\) a free function on \(D\). If \(f\) is
@@ -404,7 +419,8 @@ work to state, but it can be found in \cite{aglerOperator2019}.
   map \(D\to \MM^{g} \). The following equivalent:
   \begin{enumerate}
     \item \(\Phi\) is injective on \(D\)
-    \item \(D\Phi(x)\) is nonsingular for every \(x \in D\)
+    \item \(D\Phi(X)[H]\) is nonsingular for every \(X \in D\) and like-size
+          \(H \in \MM^{g}\).
     \item the function \(\Phi ^{-1}\) exists and is a fine holomorphic
           map.
   \end{enumerate}
@@ -412,17 +428,21 @@ work to state, but it can be found in \cite{aglerOperator2019}.
 
 Various Null- and Positivstellensatz
 \footnote{And even a QuadratischePositivstellensatz!} exist throughout the
-literature---many of which utilize the idea of so-called ``atomic'' matrices of
-nc polynomials (defined in \cref{def:atomic}). See
-\cite{heltonFactorization2019} for the specifics.
+literature extending Hilbert's famous Nullstellensatz in algebraic
+geometry---many of which utilize the idea of so-called ``atomic'' matrices of nc
+polynomials (defined in \cref{def:atomic}). See \cite{heltonFactorization2019}
+for the specifics.
 
-In \cite{aglerGlobal2013}, Agler and McCarthy proved an free analogue of the
-Oka-Weil theorem: any holomorphic function on a compact set in the free topology
+In \cite{aglerGlobal2013}, Agler and McCarthy prove a free analogue of the
+Oka-Weil theorem: any free holomorphic function on a compact set
 can be uniformly approximated by polynomials. Unfortunately, it was later proven
 in \cite{pascoeInvariant2021} and \cite{augatCompact2017} that the only compact
 sets in the \(\MM^{g} \) are the envelope of finitely many points, trivializing
 the result of Agler and McCarthy.
 
+
+{\color{fgreen} This section feels very out of place but I'm not sure where it
+  should go}
 For the rest of this thesis, we will be using the conventions mentioned in
 \cref{sec:MatUniv}: \( D \subset\MM^{g} \) open if each \(D_n\) is open---these
 are precisely the basic open sets in the fine topology.
@@ -461,23 +481,24 @@ variables:
 \end{equation*}
 
 The careful reader will notice, however, that one of these expressions is not
-like the other. If we were to evaluate these expression on tuples of matrices
+like the other. If we were to evaluate these expression on tuples of matrices,
 there is no pair for which \((x_2(1-x_1x_2)-(1-x_2x_1)x_2)^{-1}\) is defined.
 This is an example of a \textbf{degenerate} rational expression. Formally, an nc
 rational expression is \textbf{nondegenerate} if there is at least one
 \(X \in \MM^{g} \) such that \(r(X)\) is defined.
 
-When seeking to make rational \emph{functions} out a nondegenerate rational
+When seeking to make rational \emph{functions} out of a nondegenerate rational
 expression, one encounters significant difficulties. For example,
 \[
   x_1-x_1+x_2 ^{-1} x_2-1 \quad \textrm{ and } \quad 0
 \]
-are distinct nc rational expressions---and further rational expressions that will
-always give the same output---but they have wildly different domains. With the
-likes of the Identity Theorem from complex analysis one would like to say that
-these are the same function. In light of this, nc rational functions are defined
-via equivalence classes. We say two rational expressions, \(r_1,r_2\), are
-equivalent if \(r_1(X) = r_2(X)\) whenever both expressions are defined.
+are syntactically distinct nc rational expressions, have wildly different
+domains, yet whenever their domains of evaluation align, they will give the
+same evaluation.  With the likes of the Identity Theorem from complex analysis
+one would like to say that these are the same function. In light of this, nc
+rational functions are defined via equivalence classes. We say two rational
+expressions, \(r_1,r_2\), are equivalent if \(r_1(X) = r_2(X)\) whenever both
+expressions are defined.
 
 Unforunately, this introduces a new wrinkle. There is, of course, the issue of
 what the domain of the equivalence class is---usually one simply works with the
