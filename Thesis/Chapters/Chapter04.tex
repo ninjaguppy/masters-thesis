@@ -160,9 +160,8 @@ With this preliminary result, we can introduce Universal Monodromy.
   \[
     \Gamma(t,0) = \hat{\gamma}\qquad
     \Gamma(t,1) = \gamma \quad \quad
-    {\color{red}
     \Gamma(0,s) = X\oplus X\qquad
-    \Gamma(1,s) = Y \oplus Y}
+    \Gamma(1,s) = Y \oplus Y
   \]
   But since \(\hat{\gamma}\) and \(\gamma\) are homotopic we can apply the
   classical (albiet multivariable) monodromy theorem---so we know that the
@@ -250,7 +249,7 @@ complex manifold we can construct germs of holomorphic functions.
 Consider, again, example \ref{ex:logmono}. Our function \(f(x)= \Log x\) has
 a germ in \(\Omega\). In particular, both \(f_1\) and \(f_2\) belong to the
 equivalence class \([(f,\Omega)]\) as all three functions agree on \(\Omega\).
-From this, we {\color{fgreen} see the genesis of the name} germ: germs capture the
+From this, we see the aptness of the name germ: germs capture the
 local behavior of function. Colloquially, this is the ``heart'' of a
 function similar to the germ of seed.\footnote{Sheaf theory abounds with
   agrarian nomenclature.}
@@ -714,21 +713,15 @@ to abelian groups:
   Let \(D\) be a free anchored set. Then,
 
 \begin{enumerate}
-  \item \(\dim H_{\tr}^1(D)\neq 0\) if and only if \(\rk \pi_1^{\tr}(D)\neq 0\)
   \item \(\dim H_{\tr}^1(D) \leq \rk \pi_1^{\tr}(D)\) whenever both
       quantities are at most countably infinite
+  \item \(\dim H_{\tr}^1(D)\neq 0\) if and only if \(\rk \pi_1^{\tr}(D)\neq 0\)
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
   \phantom{hello!}
 \begin{enumerate}
-    \item Suppose that \(\rk \pi_1^{\tr}(D) \neq 0\), so for distinct paths
-        \(\gamma_1,\gamma_2\), there are corresponding global germs \(f_1,f_2\)
-        and a path \(\beta\) essentially taking \(X\) to \(Z\) such that
-        \(f_1(\beta\gamma_1)\neq f_2(\beta\gamma_2)\). {\color{blue} something
-        about monodromy.}
-
     \item We can restrict ourselves to the case where \(\rk \pi_1^{\tr}(D)\) is
         finite. Let \(\gamma_1, \dots ,\gamma_k\) be a maximally linearly
         independent set of paths, and suppose that
@@ -740,6 +733,16 @@ to abelian groups:
         construction, \(g(\gamma_i)=0\) for all \(i\). Since \(\{\gamma_j\} \)
         is maximal, it follows that \(g\) is the zero function, contradicting
         our assumption that \(\{g_i\} \) is linearly independent.
+
+    \item Suppose that \(\rk \pi_1^{\tr}(D) \neq 0\)---hence there is at least
+        one \(\gamma\), a global germ, \(f\), and a path \(\beta\) essentially
+        taking \(X\) to \(Z\) such that \(f(\beta) \neq f(\beta\gamma)\). It
+        follows that \(f\) does not have a global extension to all of
+        \(D\)---hence \(\nabla f\) is nontrivial in \(H^1_{\tr}(D)\).
+
+        Conversely, suppose that \(\rk \pi_1^{\tr}(D)=0\). By part 1 of this
+        same theorem,
+        \(\dim H^1_{\tr}(D)=0\) as well.
 \end{enumerate}
 \end{proof}
 

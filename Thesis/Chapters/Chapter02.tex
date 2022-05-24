@@ -156,7 +156,7 @@ we define the gradient via its relationship to the directional derivative:
   Given a tracial free function \(f\), the free gradient, \(\nabla f\), is the
   unique free function satisfying
   \[
-    \tr \left( H \cdot \nabla f(X) \right) = \tr\, Df(X)[H]
+    \tr \left( H \cdot \nabla f(X) \right) = Df(X)[H]
   \]
 \end{definition}
 
@@ -333,10 +333,6 @@ which does not behave as we would expect.
 \subsection{Admissible Topologies}%
 \label{sec:admtopo}
 
-{\color{blue} a cool example is showing that \(\HH \) is dense in \(\MM\)? It
-  would be good to see the level-wise-ness of the fine topology but it is not
-  difficult.}
-
 In light of the above discussion, we will present some of the candidate
 topologies which show some promise in understanding the topology on \(\MM^g\)
 and its subsets.
@@ -351,6 +347,30 @@ It is not difficult to se that \(\mathcal{B}\) is the basis for a topology on
 ``standard'' topology for \(\MM^{g}\). Any topology on, \(\tau\), \(\MM^{g}\) is
 considered \textbf{admissable} if it basis is a subset of \(\mathcal{B}\)---\ie
 it has a basis of nc bounded open sets.
+
+\begin{example}%
+\label{ex:context}
+  The fine topology is often very convenient as we can leverage the level-wise
+  open-ness of the basis. Let \(\mathbb{D} \subset \MM \) denote the set of
+  diagonalizable matrices. We seek to show that \(\mathbb{D}\) is dense in
+  \(\MM\). Let \(D \in \mathcal{B}\) be nonempty. Since \(D\) is open in
+  \(\MM\), we know that \(D_n\) is open in \(M_n(\CC)\). But \(\mathbb{D}_n\) is
+  dense in \(M_n(\CC)\), so \(D_n \cap \mathbb{D} \neq \emptyset\). It follows
+  that \(D \cap \mathbb{D} \neq \emptyset\), and so \(\mathbb{D}\) is dense in
+  \(\MM\).
+
+  Of course, a similar argument works in \(\MM^{g} \). This gives an powerful
+  boost to the functional calculi discussed in \cref{ch:FirstAttempt}. While we
+  worked over the self adjoint matrices, one can develop a nearly identical
+  functional calculus for diagonalizable matrices. Since the diagonalizable
+  matrices are dense in \(\MM^{g} \), however, we obtain a function on the
+  entire domain by via a continuous extension off of the diagonalizable
+  matrices! This gives us a way to make sense of the free functions
+  \[
+    f(X,Y)=e^Xe^Y, \qquad g(X,Y)=e^{X+Y}
+  \]
+  both of which map \(\MM^{2} \to \MM\).
+\end{example}
 
 A slightly more restrictive topology (that seems to show some promise in the eyes
 of the author) is the \textbf{fat} topology. For \(n \in \NN \),
@@ -441,18 +461,6 @@ sets in the \(\MM^{g} \) are the envelope of finitely many points, trivializing
 the result of Agler and McCarthy.
 
 
-{\color{fgreen} This section feels very out of place but I'm not sure where it
-  should go}
-For the rest of this thesis, we will be using the conventions mentioned in
-\cref{sec:MatUniv}: \( D \subset\MM^{g} \) open if each \(D_n\) is open---these
-are precisely the basic open sets in the fine topology.
-Given \(X,Y \in D\), it is not generally true that we can separate \(X\) and
-\(Y\) with open sets. However if \(Y\) is not in the similarity envelope of
-\(X\) and \(X\) and \(Y\) have disjoint fibers, then we \emph{can} separate
-them! Motivated by definitions in section \ref{sec:trpi1} we call a topology
-satisfying this condition (Hausdorff outside of the similarity envelope and
-fiber) \textbf{essentially Hausdorff}.
-
 
 \section{nc Rational Functions}%
 \label{sec:ncrational}
@@ -500,7 +508,7 @@ rational functions are defined via equivalence classes. We say two rational
 expressions, \(r_1,r_2\), are equivalent if \(r_1(X) = r_2(X)\) whenever both
 expressions are defined.
 
-Unforunately, this introduces a new wrinkle. There is, of course, the issue of
+Unfortunately, this introduces a new wrinkle. There is, of course, the issue of
 what the domain of the equivalence class is---usually one simply works with the
 domain of the representative chosen. Moreover, given two representatives of the
 same equivalence class of rational functions, there is no guarantee of an
