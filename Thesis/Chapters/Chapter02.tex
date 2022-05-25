@@ -13,7 +13,8 @@ as prototypical examples of a more general mathematical
 object, the so-called \emph{Matrix Universe}.
 After defining this new space and the natural maps in
 \cref{sec:MatUniv,sec:TracGrad}, we turn our attention to various topologies
-places on matrix universes in \cref{sec:TopManUniv}. While the genesis of free
+places on matrix universes in \cref{sec:TopManUniv}. While the beginnings of
+modern free
 analysis followed \cref{ch:FirstAttempt} (albeit with the usual bumps in the
 road that accompany research) modern free analysis looks much more like this
 chapter.
@@ -90,12 +91,12 @@ chapter \ref{ch:monodromy}.
 
 In the context of \cref{sec:functionalcalc,sec:ExtMuliVarFun}
 %
-, the domains in the functional calculus were
+, the domains in the functional calculus was the self adjoint matrix universe:
 \(\HH^g = \bigcup_{n=1}^{\infty} {\HH_n}^g\). \(\HH ^g\) is a differentiable, connected
 free set.
 
 On \(\MM^{g} \), we define a product that resembles the inner product on
-\(\CC^n\) which will be extensively throughout \cref{ch:ZeroDiv,ch:monodromy}.
+\(\CC^n\) which will be used extensively throughout \cref{ch:ZeroDiv,ch:monodromy}.
 Given \(A,B \in \MM^{g} \) which are \(g\)-tuples of \(n \times n\) matrices:
 \begin{align*}
 	\cdot : \MM^{g} \times \MM^{g}  &\longrightarrow M_n(\CC) \\
@@ -125,6 +126,10 @@ respect direct sums and unitary conjugation.
   \end{enumerate}
 \end{definition}
 
+Before moving on to the other classes of functions on \(\MM^{g}\), it is worth
+noting that free functions are defined in this way \emph{precisely because}
+polynomials have this same behavior. Free functions, then, are those which
+behave like polynomials with respect to the implicit structure of free sets.
 The two other classes of functions we are concerned with are those that act like
 the trace and the determinant:
 \begin{definition}[Determinantal Free Function]%
@@ -152,7 +157,7 @@ determinantal and tracial functions are \emph{not} free functions.
 Since these three classes of functions all contain the word ``free,'' we will
 often drop this qualifier and only refer to determinantal, tracial, and free
 function.  Given a free function of any type, we can define the directional
-derivative (Definition \ref{def:DirDeriv}) identically. It is only these tracial functions which inherit
+derivative (Definition \ref{def:DirDeriv}) identically. It is only tracial functions which inherit
 the gradient mentioned \cref{sec:functionalcalc}.  Similarly to traditional multivariable calculus
 we define the gradient via its relationship to the directional derivative:
 \begin{definition}[Free Gradient]%
@@ -160,12 +165,12 @@ we define the gradient via its relationship to the directional derivative:
   Given a tracial free function \(f\), the free gradient, \(\nabla f\), is the
   unique free function satisfying
   \[
-    \tr \left( H \cdot \nabla f(X) \right) = Df(X)[H]
+    \tr \left( H \cdot \nabla f(X) \right) = Df(X)[H].
   \]
 \end{definition}
 
 It is not-at-all obvious that such a \(\nabla f \) should be unique---after all
-any linear combination of commutator has trace zero. To show the uniqueness of
+any linear combination of commutators has trace zero. To show the uniqueness of
 \(\nabla f\), we will first restrict ourselves to single variable functions. In the case that \(f\)
 is a single-variable function we can replace \(\nabla f\) with the traditional
 derivative, \(f'\), as seen in
@@ -194,7 +199,7 @@ $f \in C ^{1} (I)$ and define $f ^{[1]} $ on $I \times I$ by
 \]
 We call $f ^{[1]} (\lambda,\mu)$ the \emph{first divided difference} of $f$ at
 $(\lambda,\mu)$. If $\Lambda$ is a diagonal matrix with entries
-$\{ \lambda_{i}\} $, We may extend $f$ to accept $\Lambda$ by
+$\{ \lambda_{i}\} $, we may extend $f$ to accept $\Lambda$ by
 defining the $(i,j)$-entry of $f ^{[1]} (\Lambda)$ to be
 $f ^{[1]} (\lambda_i,\lambda_j)$. If $A$ is a self adjoint matrix with
 $A = U \Lambda U ^{*} $, then we define
@@ -221,13 +226,13 @@ invariant under a change of basis, it is clear that
 If $U = u_{ij}$, $U ^{*} = \overline{u}_{ij}$ and $H = h_{ij}$, then the
 $(i,j)$-entry of $U ^{*}HU$ is
 \[
-  {(U ^{* } H U)}_{ij} = \sum_k\sum_\ell \overline{u}_{ik}h_{k\ell}u_{\ell j}
+  {(U ^{* } H U)}_{ij} = \sum_k\sum_\ell \overline{u}_{ik}h_{k\ell}u_{\ell j}.
 \]
-Where we sum over the duplicate indices $k$ and $\ell$. While the structure of
+While the structure of
 $f ^{[1]} (\Lambda)$ is a bit unruly, our diagonal entries are $f'(\lambda)$.
 This means that when we take the trace of the Schur product, we have
 \[
- \sum_k\sum_\ell \sum_i f'(\lambda_i)\overline{u}_{ik}h_{k\ell}u_{\ell i}
+ \sum_k\sum_\ell \sum_i f'(\lambda_i)\overline{u}_{ik}h_{k\ell}u_{\ell i}.
 \]
 Now consider the matrix product
 $U\, \text{diag} \{f'(\lambda_1), \dots ,f'(\lambda_n)\} \,U ^{*} H $. Since one of our terms
@@ -260,7 +265,7 @@ In particular,
 recall that \(X=U\Lambda U\) so, in the functional calculus, $g(X) = f'(X)$.
 Making this substitution, we have the required result:
 \[
-  \tr \; Df(X)[H] = \tr (H f'(X))
+  \tr \; Df(X)[H] = \tr (H f'(X)).
 \]
 \end{proof}
 
@@ -294,7 +299,7 @@ when it comes to the domains of \(f\) and \(g\). Where these domains overlap, we
 can consider them as the same function (and therefore \(\nabla f \) is unique)
 but if \(f\) is defined on \(D\) and \(g\) is defined on \(\tilde{D}\), then the
 above proof only holds on \(D \cap \tilde{D}\). This complication  occurs
-semi-frequently in free analysis, but in generally swept under the rug---if two
+semi-frequently in free analysis, but in general is swept under the rug---if two
 free functions agree the intersection of their domains, it is convention to
 consider them equivalent. Examples
 of such \(f\) and \(g\) abound when considering rational functions, which are
@@ -461,8 +466,9 @@ In \cite{aglerGlobal2013}, Agler and McCarthy prove a free analogue of the
 Oka-Weil theorem: any free holomorphic function on a compact set
 can be uniformly approximated by polynomials. Unfortunately, it was later proven
 in \cite{pascoeInvariant2021} and \cite{augatCompact2017} that the only compact
-sets in the \(\MM^{g} \) are the envelope of finitely many points, trivializing
-the result of Agler and McCarthy.
+sets in the \(\MM^{g} \) are the envelope of finitely many points, which
+substantially lessens the strength of
+Agler and McCarthy's result.
 
 
 
@@ -512,11 +518,10 @@ rational functions are defined via equivalence classes. We say two rational
 expressions, \(r_1,r_2\), are equivalent if \(r_1(X) = r_2(X)\) whenever both
 expressions are defined.
 
-Unfortunately, this introduces a new wrinkle. There is, of course, the issue of
-what the domain of the equivalence class is---usually one simply works with the
-domain of the representative chosen. Moreover, given two representatives of the
-same equivalence class of rational functions, there is no guarantee of an
-algebraic manipulation to transform one into the other.
+Unfortunately, this introduces a new wrinkle: what is the domain of the
+equivalence class? Usually one simply works with the
+domain of the representative chosen. With sufficiently well behaved nc rational
+functions, we have a realization theorem (given below) that gives us a ``nice'' representative.
 
 Just like the polynomial case, we often consider \emph{matrices} of nc rational
 functions. Chapter \ref{ch:ZeroDiv} explores the algebraic geometry of nc

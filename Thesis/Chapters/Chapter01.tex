@@ -73,8 +73,8 @@ The natural ordering on self-adjoint matrices is called the
 \end{definition}
 
 With this ordering in place, we can extend many of the familiar function
-theoretic properties (monotonicity, convexity) to these matrix-values functions.
-In fact, these properties are defined identically to their classical counterpart:
+theoretic properties (monotonicity, convexity) to these matrix-valued functions.
+In fact, these properties are defined identically to their classical counterpart.
 We say that a function is \emph{matrix-monotone} if \(A \preceq B\) implies that
 \(f(A) \preceq f(B)\) and \emph{matrix-convex} (or \emph{nc-convex}) if
 \[
@@ -95,9 +95,9 @@ matrix-convex/monotone. For a full treatment of nc-convexity, see
   Then
   \[
     \frac{X^4+Y^4}{2} - \left( \frac{1}{2}X +\frac{1}{2}Y \right) ^4
-    = \begin{bmatrix} 164 &120\\120&84 \end{bmatrix}
+    = \begin{bmatrix} 164 &120\\120&84 \end{bmatrix},
   \]
-  Which is not positive definite! Thus \(x^4\) fails to be convex on even
+  which is not positive definite! Thus \(x^4\) fails to be convex on even
   \(2\times 2\) matrices.
 \end{example}
 
@@ -173,7 +173,7 @@ of degree 2.\footnote{See \cite{heltonFree2013} for details.}
 \label{sec:ExtMuliVarFun}
 
 We can extend this same functional calculus to functions of several variables,
-although the details are a bit more subtle. We could simply ``plug in'' at tuple
+although the details are a bit more subtle. We could simply ``plug in'' a tuple
 of matrices to a standard multivariable polynomial ring over \(\RR \) or
 \(\CC \), but this ignores the noncommutativity of \(M_n(\CC)\).
 
@@ -240,11 +240,11 @@ tuple of \(n \times n\) matrices, then \(f(X)\) is also a tuple of
     f(X\oplus X,Y\oplus Y) &= \begin{bmatrix} -11&-4&0&0\\-4&1&0&0 \\ 0&0&-11&-4 \\ 0&0&-4&1 \end{bmatrix} \\
     &= f(X,Y) \oplus f(X,Y).
   \end{align*}
+\end{example}
   It is no accident that polynomials handle direct sums of matrices well. As in
   the classical case, they are the ``well behaved'' example which we would like
   general objects to emulate. In the next chapter, we will define
   free functions---which behave like nc polynomials.
-\end{example}
 
 In the context of these multivariate functions, our definition of the
 Directional Derivative still makes sense (although our direction \(H\) now
@@ -254,7 +254,10 @@ notion of the \textbf{gradient} of a function---but this will require a bit more
 \subsection{The Natural Involution on nc Polynomials}%
 \label{ssec:NatInvo}
 
-Given our ring of nc polynomials, we may define an involution \(^*\) which we
+Given our ring of nc polynomials,\footnote{For the remainder of this chapter,
+  we will work with \(\RR \langle x \rangle \), but an identical construction
+  holds for \(\CC \langle x \rangle \).}
+we may define an involution \(^*\) which we
 may view as an extension of the conjugate transpose. Let \(^*\) reverse the
 order of words (\ie \((x_1x_3x_2^2)^* = x_2^2x_3x_1\)) and extend linearly to
 all of \(\RR \langle x \rangle \). We consider the formal
