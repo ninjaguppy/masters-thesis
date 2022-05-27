@@ -52,9 +52,13 @@ zero matrix? In light of this ambiguity, we make three definitions.
 
 \begin{definition}[Directional Singular Set]%\label{def:label}
   Let \(f\) be a matrix of nc polynomials. Associated with the singular set is
-  the \textbf{Directional Singular Set}:
+  the \textbf{n-Directional Singular Set}:
   \[
-    \mathscr{Z}_{\textrm{dir}}(f) = \{(X,v) \mid f(X)v = 0\}.
+    \mathscr{Z}^{\textrm{dir}}_n(f) = \{(X,v) \in M_n(\CC) \times \CC ^n \mid f(X)v = 0\}.
+  \]
+  The \textbf{Directional Singular Set} of \(f\) is
+  \[
+    \mathscr{Z}^{\textrm{dir}}(f) = \bigcup_{n \in \NN } \mathscr{Z}^{\textrm{dir}}_n(f).
   \]
 \end{definition}
 
@@ -78,7 +82,7 @@ classical variety. While it may seem counter intuitive to use a script ``Z''
 for the singular set instead of the zero set, the singular set of a free
 function is (in many cases) a more natural generalization of varieties.
 One needs to be careful when interfacing with the literature as these
-definitions (including which of these three sets it the ``zero set'') are not
+definitions (including which of these three sets is the ``zero set'') are not
 universal and each author seems to make their own choices.
 
 Over the past decade, many author have generated Null- and
@@ -240,7 +244,7 @@ and one might wonder if there is an easier way to compute principal divisors.
   \[
     D \det X [H] = \tr \left( H \adj X \right).
   \]
-  It will be imperative later in the proof to recall the following property of
+  It will be imperative later in the proof to additionally recall the following property of
   the adjugate: for an invertable matrix \(X\),
   \[
     \adj (X) = \det(X) X ^{-1}.
@@ -284,8 +288,8 @@ detail. Before continuing, we give one more example.
   \[
     \divv g  = \left( (1+YX)^{-1}Y,X(1+YX)^{-1} \right).
   \]
-  Since \(Y(1+XY)=(1+XY)Y\), it follows that
-  \(Y(1+XY)^{-1}= (1+XY) ^{-1}Y\), and so \(\divv f = \divv g\)!
+  Since \(Y(1+XY)=(1+YX)Y\), it follows that
+  \(Y(1+XY)^{-1}= (1+YX) ^{-1}Y\), and so \(\divv f = \divv g\)!
 \end{example}
 
 \section{The Group of Divisors}%
@@ -293,7 +297,7 @@ detail. Before continuing, we give one more example.
 
 For the remainder of this chapter, we will concern ourselves with the divisors
 of square matrices of nc polynomials and nc rational functions. These are all
-\(f\) free functions, so \(\divv\) will denote \(\divv \det\). We begin with a
+free functions, so \(\divv\) will denote \(\divv \det\). We begin with a
 theorem.
 
 \begin{theorem}
@@ -374,7 +378,7 @@ link in the noncommutative setting, we need a definition.
 
 \begin{definition}[Atomic]%
 \label{def:atomic}
-  A square matrix of polynomials \(p\) is \textbf{atomic} if
+  A square matrix of nc polynomials \(p\) is \textbf{atomic} if
   \(\det p \not\equiv 0\) and if \(p_1p_2=p\), then either \(\det p_1\) or
   \(\det p_2\) is locally constant.
 \end{definition}
@@ -385,7 +389,7 @@ factorization, we do have factorization into atoms. In
 \cite{heltonFactorization2019}, Helton et al.\ prove the following theorem:
 
 \begin{theorem}
-  Let \(f\) is a square matrix of nc polynomials and \(p\) an atom. If we let
+  Let \(f\) be a square matrix of nc polynomials and \(p\) an atom. If we let
   \(f = p_1 \cdots p_k\) be the factorzation of \(f\) into atoms, then
   \[
     \mathscr{Z}(p) \subset \mathscr{Z}(f)
@@ -394,7 +398,7 @@ factorization, we do have factorization into atoms. In
   \(c\) a nonzero constant.
 \end{theorem}
 
-With the help of lemma \ref{lem:ob21} (part 1) this says that factorization is
+With the help of lemma \ref{lem:ob21} (part 1), this says that factorization is
 unique up to equivalence of principal divisors. Given any square matrix of nc
 rational expressions, theorem \ref{thm:divop} allows us to express \(\divv r\) as a
 linear combination of divisors of matrices of nc polynomials. Better yet, if we consider

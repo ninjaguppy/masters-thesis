@@ -7,16 +7,16 @@
 In seeking a more general theory, the functional calculus defined last chapter
 is insufficient---it would be useful to be able to define \emph{new} functions
 instead of simply lifting polynomials to matrix domains. In a move that will
-feel familiar to any good student of mathematics, we will trade treat the
+feel familiar to any good student of mathematics, we will treat the
 set of self-adjoint matrices and nc polynomials
 as prototypical examples of a more general mathematical
 object, the so-called \emph{Matrix Universe}.
 After defining this new space and the natural maps in
 \cref{sec:MatUniv,sec:TracGrad}, we turn our attention to various topologies
-places on matrix universes in \cref{sec:TopManUniv}. While the beginnings of
+placed on matrix universes in \cref{sec:TopManUniv}. While the beginnings of
 modern free
 analysis followed \cref{ch:FirstAttempt} (albeit with the usual bumps in the
-road that accompany research) modern free analysis looks much more like this
+road that accompany research), contemporary free analysis looks much more like this
 chapter.
 
 \section{Matrix Universes}%
@@ -47,10 +47,11 @@ deal with subsets that still carry some of the implicit structure of \(\MM^g\).
 For the remainder of this text, \(D\) will denote some free set. Using the
 terminology of \cite{pascoeFreeNoncommutativePrincipal2020}, let
 \(D_n = D \cap M_n(\CC)^g\) be the level-wise slice of all \(n \times n\)
-matrices in \(D\). We say that \(D\) is \textbf{nc-open}\footnote{The topology of \(\MM^g\)
+matrices in \(D\). We say that \(D\) is \textbf{nc open}\footnote{The topology of \(\MM^g\)
   is still in flux and there is not a canonical topology. See section \ref{sec:TopManUniv} for
   the details } (resp.\ \textbf{connected}, \textbf{simply connected}, \textbf{bounded}) if each \(D_n\) is open
-(resp.\ connected, simply connected, bounded). Finally, we say that \(D\) is
+(resp.\ connected, simply connected, bounded). An \textbf{nc domain} is an open,
+connected free set. Finally, we say that \(D\) is
 \textbf{differentiable} if each \(D_n\) is an open \(C^1\) manifold where the
 complex tangent space of every \(X \in D_n\) is all of \(M_n(\CC)^g\).
 Given some \(X \in \MM^{g} \), there are three associated sets which capture the
@@ -105,7 +106,7 @@ Given \(A,B \in \MM^{g} \) which are \(g\)-tuples of \(n \times n\) matrices:
 
 If we combine this product with the trace, we get a bilinear form on
 \(\MM^{g} \) which functions like an inner product given by \(\tr(A \cdot B)\).
-It will be particularly useful in \cref{ch:monodromy} as well for defining the
+It will be particularly useful in \cref{ch:monodromy} as well as for defining the
 gradient of a function.
 
 
@@ -130,7 +131,7 @@ Before moving on to the other classes of functions on \(\MM^{g}\), it is worth
 noting that free functions are defined in this way \emph{precisely because}
 polynomials have this same behavior. Free functions, then, are those which
 behave like polynomials with respect to the implicit structure of free sets.
-The two other classes of functions we are concerned with are those that act like
+The two other classes of functions we are concerned with are those which act like
 the trace and the determinant:
 \begin{definition}[Determinantal Free Function]%
 \label{def:DetFreeFun}
@@ -156,9 +157,9 @@ It is worth noting that, while they share the moniker of \emph{free},
 determinantal and tracial functions are \emph{not} free functions.
 Since these three classes of functions all contain the word ``free,'' we will
 often drop this qualifier and only refer to determinantal, tracial, and free
-function.  Given a free function of any type, we can define the directional
-derivative (Definition \ref{def:DirDeriv}) identically. It is only tracial functions which inherit
-the gradient mentioned \cref{sec:functionalcalc}.  Similarly to traditional multivariable calculus
+functions.  For any of theses functions, we can define the directional
+derivative (Definition \ref{def:DirDeriv}) identically, however, it is only tracial functions which inherit
+the gradient mentioned \cref{sec:functionalcalc}. Similarly to traditional multivariable calculus
 we define the gradient via its relationship to the directional derivative:
 \begin{definition}[Free Gradient]%
 \label{def:FreeGrad}
@@ -272,13 +273,13 @@ Making this substitution, we have the required result:
 With our theorem proven, we turn our attention back to the \(\nabla f\). The
 single variable case motivates that \(\nabla f\) should correspond to the
 standard gradient from vector calculus. With some work, the above proof lifts
-the multi-variable case. It will be instructive, however, to consider a
-different proof.
+the multi-variable case. {\color{red}  It will be instructive, however, to consider a
+different proof.}
 
 \begin{theorem}[Trace Duality]%
 \label{thm:trdual}
 Let \(f,g\) be free functions \(\MM^{g} \to \MM^{\tilde{g}} \). If
-\(\tr H \cdot f = \tr H \cdot g\) for all tuples \(H\), then \(f=g\).
+\(\tr (H \cdot f) = \tr (H \cdot g)\) for all tuples \(H\), then \(f=g\).
 \end{theorem}
 
 \begin{proof}
@@ -331,7 +332,7 @@ the equivalence relation that \(X\sim Y\) if \(Y = X^{\oplus k}\) or
 then any useful topological theory on \(D \subset \MM^g\) should descend to
 classic theory on \(\faktor{D}{\sim}\). One needs only look at \(H_0(D)\) to see
 that the naive approach fails to give useful information. It should be the case
-that \(H_0(\MM^{g} )\) is trivial but in the disjoint union topology it is easy
+that \(H_0(\MM^{g} )\) is \(\ZZ \) but in the disjoint union topology it is easy
 to see
 \[
   H_0(\MM^{g} ) = \bigoplus_{n \in \NN } \ZZ ,
@@ -352,9 +353,9 @@ in \(M_n(\CC)^g\)) and let
   \mathcal{B} = \{D \mid  D \textrm{ is an nc bounded open set}\} .
 \]
 It is not difficult to se that \(\mathcal{B}\) is the basis for a topology on
-\(\MM^{g}\), called the \textbf{fine} topology. Currently, there is not a
-``standard'' topology for \(\MM^{g}\). Any topology on, \(\tau\), \(\MM^{g}\) is
-considered \textbf{admissable} if it basis is a subset of \(\mathcal{B}\)---\ie
+\(\MM^{g}\), called the \textbf{fine topology}. Currently, there is not a
+``standard'' topology for \(\MM^{g}\). Any topology, \(\tau\), on \(\MM^{g}\) is
+considered \textbf{admissable} if it basis is a subset of \(\mathcal{B}\)---\ie{}
 it has a basis of nc bounded open sets.
 
 \begin{example}%
@@ -382,7 +383,7 @@ it has a basis of nc bounded open sets.
 \end{example}
 
 A slightly more restrictive topology (that seems to show some promise in the eyes
-of the author) is the \textbf{fat} topology. For \(n \in \NN \),
+of the author) is the \textbf{fat topology}. For \(n \in \NN \),
 \(r \in \RR ^+\), and \(X \in \MM^g_n\), we first define a matricial polydisc
 \[
   D_n(X,r) := \{A \in \MM^g \mid \max_{1\leq i\leq g} \| X_i-A_i \| <r\}.
@@ -398,7 +399,7 @@ Finally, we take the similarity envelope of \(D(X,r)\)
 Both the fine and the fat topologies admit implicit function theorems---which
 are discussed (in brief) in \cref{sec:freeanal}.
 
-The final candidate topology is the aforementioned \textbf{free} topology.
+The final candidate topology is the aforementioned \textbf{free topology}.
 Recall that \(\RR \langle x \rangle \) is the algebra of nc polynomials over the
 real numbers and that
 \(\RR \langle x \rangle ^{k\times k}\) is the set of \(k \times k\) matrices
@@ -424,7 +425,7 @@ however, is that we get equality here instead of inclusion.
 \section{Free Analogues of Classical Results}%
 \label{sec:freeanal}
 
-In general, efforts to reprove classical results from single and several varible
+In general, efforts to reprove classical results from single and several variable
 complex analysis have been successful. A full treatise of the results proven
 before 2020 can be found in \cite{aglerOperator2019}---but we will include a
 handful here.
@@ -436,7 +437,7 @@ holomorphic functions in admissible topologies:
   locally bounded on each \(D_n\), then \(f\) is an analytic function of the
   entries of the matrices at each level \(n\).
 \end{theorem}
-A proof for this (rather suprising) result is given in \cite{heltonProper2011}.
+A proof for this (rather suprising) result is given in \cite{aglerAspects2016}.
 With different topologies come different analytic functions. In light of this,
 if the topology is not understood functions are usually referred to as
 \{fine/fat/free\} holomorphic.
@@ -459,7 +460,7 @@ Various Null- and Positivstellensatz
 \footnote{And even a QuadratischePositivstellensatz!} exist throughout the
 literature extending Hilbert's famous Nullstellensatz in algebraic
 geometry---many of which utilize the idea of so-called ``atomic'' matrices of nc
-polynomials (defined in \cref{def:atomic}). See \cite{heltonFactorization2019}
+polynomials ({\color{red} defined in }\ref{def:atomic}). See \cite{heltonFactorization2019}
 for the specifics.
 
 In \cite{aglerGlobal2013}, Agler and McCarthy prove a free analogue of the

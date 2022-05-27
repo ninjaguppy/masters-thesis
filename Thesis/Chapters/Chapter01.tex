@@ -6,14 +6,15 @@ The fields of free analysis and noncommutative function theory are in their
 (comparative) infancy. Seeking to understand functions of noncommuting
 indeterminants, so-called ``free functions'' have a natural evaluation on
 tulpes of matrices. In this thesis, we introduce the basic objects and maps that
-underly free analysis---\cref{ch:FirstAttempt} first does this through the
-generalization of polynomials and \cref{ch:SecondAttempt} generalizes the work
-of chapter 1 to include more exotic functions. Then in \cref{pt:two} we explore
+underly free analysis---\cref{ch:FirstAttempt} first does this through
+considering
+polynomials and \cref{ch:SecondAttempt} generalizes the work
+of chapter 1 to include more exotic functions. Then in, \cref{pt:two}, we explore
 some of the major results in generalizing algebraic geometry and topology.
 
 
-Before we get into the meat, a few preliminary pieces of notation.
-\(\mathcal{U}_n\) will denote the set of \(n\times n\) unitary matrices. Unless
+Before we get into the meat, a few preliminary pieces of notation:
+ \(\mathcal{U}_n\) will denote the set of \(n\times n\) unitary matrices. Unless
 otherwise stated, all maps are morphisms in their respective categories.
 \footnote{Those fearful of category theory need not despair, this thesis only
   invokes a universal property once.}
@@ -56,14 +57,14 @@ spectrum in \([a,b]\). Let \(A\) be such a matrix (diagonalized by the unitary
 matrix \(U\)), and define
 \[
   g(A) := U
-  \begin{bmatrix} g(\lambda_1) & &\\ &\ddots& \\ & & \lambda_n \end{bmatrix}
+  \begin{bmatrix} g(\lambda_1) & &\\ &\ddots& \\ & & g(\lambda_n) \end{bmatrix}
   U^*
 \]
 Thus, for each \(n \in \NN \), \(g\) induces a function on the self-adjoint
 \(n \times n\) matrices with spectrum in \([a,b]\). Many properties of functions
-of a single real variable utilize the fact that \(\RR \) it totally ordered.
-While there is not a total ordering on \(\HH \), there is a partial ordering.
-The natural ordering on self-adjoint matrices is called the
+of a single real variable utilize the fact that \(\RR \) is totally ordered.
+While there is not a total ordering on \(\HH \), there is a partial ordering;
+the natural ordering on self-adjoint matrices is called the
 \textbf{Loewner Order}:
 
 \begin{definition}[Loewner Ordering]
@@ -85,6 +86,7 @@ are rather restrictive (since the must hold for matrices of \emph{all} sizes) so
 many functions which are convex/monotone (in the traditional sense) fail to be
 matrix-convex/monotone. For a full treatment of nc-convexity, see
 \cite{heltonFree2013}. To illustrate the restrictiveness of nc-convexity,
+consider the following example.
 \begin{example}%
 \label{ex:helton1}
   In contrast to the real (or even complex) case, \(f(x)=x^4\) fails to be nc-convex.
@@ -183,7 +185,7 @@ For example, consider \(p \in \CC [x,y]\) defined by
 \]
 If we were to evaluate \(p\) on \(X,Y \in \HH^2\), should it be
 \[
-  p(X,Y) = XY, \quad P(X,Y)=YX, \textrm{ or } p(X,Y) = \frac{XY+YX}{2}?
+  p(X,Y) = XY, \;\; P(X,Y)=YX, \textrm{ or } p(X,Y) = \frac{XY+YX}{2}?
 \]
 
 It is evident, then, that \(C[x_1, \dots,x_n]\) is not the algebra of
@@ -218,7 +220,7 @@ Given some \(f \in \CC \langle x \rangle \) and
              X &\longmapsto f(X)
 .\end{align*}
 Notice that our functions are \textbf{graded} in the sense that if \(X\) is a
-tuple of \(n \times n\) matrices, then \(f(X)\) is also a tuple of
+tuple of \(n \times n\) matrices, then \(f(X)\) is an
 \(n \times n\) matrices.
 
 \begin{example}%
@@ -269,11 +271,13 @@ symmetric if \(p^* = p\). For example, if
 \]
 then a cursory inspection tells that \(q\) is symmetric while \(p\) is not.
 
-Notice that the majority of the previous two sections breaks down if we try to
-extend functions to non-self-adjoint matrices. The act of ``plugging in''
-a tuple of arbitry matrices to some element of \(\RR \langle x \rangle \) via the same
-functional calculus described above still works, but \(\RR \langle x \rangle \)
-is no longer the natural algebra for these evaluations.
+Consider the case of plugging in non-self-adjoint matrices. We can
+still evaluate polynomials on arbitrary matrices, but the involution described
+above is no longer appropriate. Since the involution is analogous to taking the
+conjugate transpose after evaluation, if we are evaluating on arbitrary
+matrices, our variables should distinguish between \(x_i\) and \(x_i^*\). Thus,
+if we want to allow evaluation on arbitrary matrices,
+\(\RR \langle x \rangle \) is no longer the natural algebra we should work with.
 
 Let \(x = (x_1, \dots, x_g)\) be formal variables and let
 \(x^* = (x_1^*, \dots, x_g^*)\) denote their formal adjoints. Once again, we let
@@ -299,8 +303,8 @@ self-adjoint matrices.
 
 It is occasionally useful in the larger theory of free analysis (\eg{} when
 construction the free topology in section \ref{sec:admtopo} and when
-characterizing the zero sets of nc polynomials in \ref{ch:ZeroDiv}) to consider
-matrices where the matrices are nc polynomials. Formally,
+characterizing the zero sets of nc polynomials in \cref{ch:ZeroDiv}) to consider
+matrices where the entries are nc polynomials. Formally,
 let \(\RR \langle x \rangle ^{k\times k}\) denote the set of \(k \times k\) matrices
 with entries in \(\RR \langle x \rangle \).\footnote{Some sources additionally
   consider non-square matrices but this is rare.}
@@ -324,14 +328,14 @@ result at a block \(k \times k\) where each block is an \(n \times n\) matrix.
     \delta(x,y) = \begin{bmatrix}
                x^2-xyx+1 & xy-yx \\
                x^4 & y^3-5xy+3
-        \end{bmatrix}
+        \end{bmatrix}.
   \]
   Then
   \[
     \delta^*(x,y) = \begin{bmatrix}
                x^2-xyx+1 & yx-xy \\
                x^4 & y^3-5yx+3
-        \end{bmatrix}
+        \end{bmatrix}.
   \]
   For an evaluation, we will once again let
   \[
@@ -343,9 +347,9 @@ result at a block \(k \times k\) where each block is an \(n \times n\) matrix.
   \begin{align*}
     XY-YX &= \begin{bmatrix} 0&-4\\4&0 \end{bmatrix}  \\
     \\
-    Y^3-5XY+3 &= \begin{bmatrix} -29&0\\-20&3 \end{bmatrix}
+    Y^3-5XY+3 &= \begin{bmatrix} -29&0\\-20&3 \end{bmatrix}.
   \end{align*}
-  And thus
+  And thus,
   \[
     \delta(X,Y) =
     \begin{bmatrix}
