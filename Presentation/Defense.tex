@@ -1,0 +1,598 @@
+\documentclass[xcolor=dvipsnames]{beamer}
+
+%%%%%%%%%%%%%%%%%%%
+% Packages/Macros %
+%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath,amsfonts,amssymb,amsthm, mathtools, mathrsfs, faktor, bbm}
+\usepackage{wrapfig}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usepackage{enumerate}
+
+\usepackage{import}
+\usepackage{xifthen}
+\usepackage{pdfpages}
+\usepackage{transparent}
+\newcommand{\incfig}[1]{%
+  \def\svgwidth{0.5\columnwidth}
+  \import{./images/}{#1.pdf_tex}
+}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+
+\newcommand{\im}{\mathrm{Im}}
+\newcommand{\re}{\mathrm{Re}}
+\newcommand{\res}{\mathrm{Res}}
+\newcommand{\pv}{\mathrm{p.v.}}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Log}{Log}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\divv}{div}
+
+% General shortcuts
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\MM}{\mathcal{M}}
+\newcommand{\Id}{\mathbbm{1}}
+\newcommand{\wms}{\textsc{wms} }
+\newcommand{\wma}{\textsc{wma} }
+\newcommand{\wwlog}{\textsc{wlog} }
+\newcommand{\Arg}{\text{Arg}}
+\renewcommand\qedsymbol{$\blacksquare$}
+
+
+%\usepackage[utf8]{inputenc}
+\usepackage{pgfpages}
+
+\usepackage{amssymb,latexsym,amsmath,relsize,multicol, amsthm, tikz,tikz-cd, wrapfig, setspace,framed,xcolor,array , array, faktor, listings, mathrsfs , blkarray,booktabs,bigstrut}
+
+\usepackage{soul}
+\renewcommand<>{\hl}[1]{\only#2{\beameroriginal{\hl}}{#1}}
+
+% https://tex.stackexchange.com/questions/41683/why-is-it-that-coloring-in-soul-in-beamer-is-not-visible
+\makeatletter
+\newcommand\SoulColor{%
+  \let\set@color\beamerorig@set@color
+  \let\reset@color\beamerorig@reset@color}
+\makeatother
+\SoulColor
+
+\usetikzlibrary{arrows}
+
+\usepackage[framemethod=TikZ]{mdframed}
+\mdfsetup{nobreak=true}
+
+\usepackage{stackengine}
+\newcommand\xrowht[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+
+\usepackage{hhline}
+
+% \usepackage{tikzlings}
+
+%%%%%%%%%%%%%%%%%%
+% Beamer Options %
+%%%%%%%%%%%%%%%%%%
+
+%\usetheme{Frankfurt}
+\usetheme{Antibes}
+
+% Color definitions:
+\definecolor{mypurple}{RGB}{179,120,211}
+\definecolor{darkpurple}{RGB}{130,98,168}
+\definecolor{mygrey}{RGB}{164,167,172}
+\definecolor{mygrey2}{RGB}{217,219,220}
+\definecolor{fgreen}{RGB}{34,169,75}
+\definecolor{gpurple}{RGB}{152,68,158}
+
+%\useoutertheme{infolines} % Alternatively: miniframes, infolines, split
+\useinnertheme{circles}
+\definecolor{goodgood}{RGB}{127, 23, 52} % UBC Blue (primary)
+\definecolor{goodgood1}{RGB}{46, 82, 102} % UBC Blue (primary)
+\definecolor{goodgood2}{RGB}{203, 133, 137}
+\usecolortheme[named=goodgood]{structure}
+%\usecolortheme[named=Mahogany]{structure} % Sample dvipsnames color
+
+%\setbeamercolor{structure}{fg=gpurple} % Title box and slide title box color
+%\setbeamercolor{frametitle}{fg=white} % slide title text color
+%\setbeamercolor{section in head/foot}{bg=gpurple} % frame background color
+%\setbeamercolor{section in head/foot}{fg=white} % frame text color
+
+\setbeamertemplate{navigation symbols}{} % disable navigation icons
+\setbeamertemplate{items}[circle]
+
+% Beamer theme font
+\usefonttheme{serif}
+
+% % --- page number ---
+% \setbeamertemplate{footline}{%
+% 	\raisebox{10pt}{\makebox[\paperwidth]{\hfill\makebox[7em]{\normalsize\texttt{\insertframenumber/\inserttotalframenumber}}}}%
+% }
+
+% Presenter's note
+%\setbeameroption{show notes on second screen}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Theorem/Proof Environments %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewenvironment{definition}[1][]{\par\medskip\noindent \textbf{Definition:} \textit{#1} \rmfamily \\}{\vspace{4pt}}
+
+\renewenvironment{example}[1][]{\par\medskip\noindent \textbf{Example.} \rmfamily}{\medskip}
+
+\newenvironment{proposition}[1][]{\par\medskip\noindent \textbf{Proposition:} \rmfamily \\}{ \vspace{4pt}}
+
+\newenvironment{mtheorem}[1][]{\begin{mdframed}[roundcorner=10pt] \refstepcounter{theorem}\par\medskip\noindent \textbf{Theorem~\thetheorem.} [#1] \rmfamily \\}{ \vspace{4pt}\end{mdframed}\vspace{-5pt}}
+\numberwithin{theorem}{section}
+
+\newenvironment{iproposition}[1][]{\begin{mdframed}[roundcorner=10pt] \refstepcounter{theorem}\par\medskip\noindent \textbf{Proposition~\thetheorem.} [#1] \rmfamily \\}{ \vspace{4pt}\end{mdframed}\vspace{-5pt}}
+\numberwithin{theorem}{section}
+
+\newenvironment{conjecture}[1][]{\begin{mdframed}[roundcorner=10pt] \refstepcounter{theorem}\par\medskip\noindent \textbf{Conjecture~\thetheorem.} \rmfamily \\}{ \vspace{4pt}\end{mdframed}\vspace{-5pt}}
+\numberwithin{theorem}{section}
+
+\newenvironment{nconjecture}[1][]{\begin{mdframed}[roundcorner=10pt] \refstepcounter{theorem}\par\medskip\noindent \textbf{Conjecture~\thetheorem.(#1)} \rmfamily \\}{ \vspace{4pt}\end{mdframed}\vspace{-5pt}}
+\numberwithin{theorem}{section}
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+
+%%%%%%%%%%%%%%%%%%%
+% Custom Commands %
+%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\paren}[1]{\left( #1 \right)}
+\newcommand{\bracket}[1]{\left[ #1 \right]}
+\newcommand{\cparen}[1]{\left\{ #1 \right\}}
+\newcommand{\eval}[3]{\left. #1 \right|_{#2}^{#3}}
+\newcommand{\abs}[1]{\left| #1 \right|}
+
+
+%%%%%%%%%%%%
+% Document %
+%%%%%%%%%%%%
+
+\title{Searching for Holes in the Matrix Universe}
+\author{Lucas Kerbs}
+\date{Spring 2022}
+
+\begin{document}
+\begin{frame}[plain]
+  \maketitle
+  \note[item]{ Eventual goal: lift the tools of algebraic topology to spaces of
+    matrices}
+  \note[item]{ If we have a fixed size, use classical results but this
+    doesn't work for multiple sizes.}
+  \note[item]{ For multiple (which hopefully I can convince you is interesting)
+    we need to develop some hefty tools}
+  \note[item]{ To do so, we need to go back to our mathematical roots}
+\end{frame}
+
+\section{Part I: Objects and Maps}
+
+\begin{frame}
+  \begin{center}
+    \textcolor{goodgood}{\huge{Objects and Maps}} \\
+    \textcolor{goodgood2}{\large{A Naive Attempt}} \\
+  \end{center}
+  \note[item]{ That's right---objects and maps.}
+  \note[item]{Our Naive attempt involves that looking at lifting functions on
+    \(\RR \) or \(\CC \) to accept matrices as their input.}
+\end{frame}
+
+\subsection{Functional Calculus}
+
+\begin{frame}{Functional Calculus}
+  \onslide<1->{Let \(f \in \RR [x]\) and \(A \in M_n(\CC)\) be self adjoint.}\\
+  \onslide<2->{\(A\) is diagonalizable as \(A = U \Lambda U^{*}\)}
+  \begin{align*}
+    \onslide<3->{f(A) &= a_nA^n + \cdots + a_1A + a_0 I_n  \\}
+    \onslide<4->{&= a_n \left( U\Lambda U^* \right) ^n + \cdots + a_1 U\Lambda U^* + a_0 I_n  \\}
+    \onslide<5->{&= a_n U\Lambda^n U^* + \cdots + a_1 U\Lambda U^* + a_0 I_n  \\}
+    \onslide<6->{&= U \left( a_n\Lambda ^n + \cdots + a_1\Lambda + a_0 I_n \right) U^*  \\}
+    \onslide<7->{&= U \left( f(\Lambda) \right) U^*}
+  \end{align*}
+  \[
+   \onslide<8->{f \left( \begin{bmatrix} \lambda_1 &  &  \\  & \ddots &  \\  &  & \lambda_n \end{bmatrix}  \right)}
+   \onslide<9->{ =\begin{bmatrix} f(\lambda_1) &  &  \\  & \ddots &  \\  &  & f(\lambda_n) \end{bmatrix}}
+  \]
+\end{frame}
+
+    \begin{frame}{Introduction and Overview}
+    \begin{itemize}
+        \item[$\blacksquare$] Throughout let \(k\) be an infinite field and let \(R=k[x_1,\dots,x_n]\) be the polynomial ring in \(n\) variables. \onslide<2->
+        \item[$\blacksquare$]A homogeneous ideal \(I\) in \(R\) is said to be of type \((n;d_1,\dots,d_r)\) if \(I\) is generated by generic forms \(f_i\) of degree \(d_i\) for \(i=1,\dots,r\).\onslide<3->
+        \item[$\blacksquare$] In other words we can write \(I=(f_1,\dots,f_r)\) where each \(f_i\) is in some sense ``random.''
+    \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Zariski Open Sets}
+    \begin{itemize}
+        \item[$\blacksquare$]An ideal generated by a sequence of \(f_i\)'s of degrees \(d_i\) are chosen ``at random.'' Meaning that we can view \(\prod_{i=1}^rR_{d_i}\) as an affine space for which the coordinates are the coefficients of the polynomials in the sequence.\onslide<2->\vfill
+        \item[$\blacksquare$]The set of coefficients where our \(d_i\)-forms are generic is open in the Zariski topology. A concern is that the empty set is open in the topology. But if we were to find at least one such ideal, then there are infinitely many. \onslide<3->\vfill
+        %\item[$\blacksquare$]%%% Say this: Such a property holds ``most of the time,'' since open Zariski sets are known to be dense. The property ought to hold for a randomly chosen sequence.\onslide<4->
+        \item[$\blacksquare$]We will not become preoccupied with the Zariski topology happening in the background, but will move forward thinking of our choices as ``random''.
+    \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Absolute Value of a Generating Function}
+        Given degrees \(d_i\) for \(i=1,\dots,r\) we can produce a generating function for the forms. Let \(\abs{\sum_{i=0}^\infty a_it^i}\) be the series \(\sum_{i=0}^\infty b_it^i\) where
+    \[b_i=\begin{cases}
+        a_i, & \text{if $a_i>0$ for all \(0\leq j \leq i\)}\\
+        0, & \text{otherwise}
+    \end{cases}\] %Check in on this def make sure it is correct
+So in the absolute value of a series, one a term becomes nonpositive, it and every term after it is set equal to 0.
+    \end{frame}
+
+    \begin{frame}{Fröberg's Conjecture}
+        In 1985, Fröberg conjectured that ideals generated by generic forms exhibit minimal Hilbert behavior. Recall that the Hilbert Function is another invariant that measures``size'' of an ideal. Fröberg's conjecture states that
+    \begin{nconjecture}[Fröberg's Conjecture]
+        If \(k\) is an infinite field and \(I\) is generated by a generic sequence of polynomials of degrees \(d_1,\dots,d_r\), then
+        \[H_{R/I}(t)=\abs{\frac{\prod_{i=1}^r\paren{1-t^{d_i}}}{\paren{1-t}^n}}\]
+    \end{nconjecture}
+    \vspace{7pt}
+    where \(H\) is the Hilbert function.
+    \end{frame}
+
+    \begin{frame}{Producing \(I\)}
+        \textbf{Goal:} To produce such an ideal \(I\):\onslide<2->
+        \vspace{7pt}
+        \begin{itemize}
+            \item[$\blacksquare$]To generate such an ideal, we consider indeterminate \(d_i\)-forms---i.e.\ \(d\)-forms with indeterminate coefficients- then attempt to choose field elements for each coefficient so that the resulting ideal has the desired Hilbert function. \onslide<3->\vfill
+            \item[$\blacksquare$] The desired Hilbert function will place constraints on our choices. In particular, there is a homogeneous system of linear equations in our choices for coefficients whose solution set must be avoided.
+        \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Producing \(I\)}
+    \begin{itemize}
+        \item[$\blacksquare$]Our Hilbert functions lead to an underlying vector space algebra that we want to understand. We need a vector space basis to be a certain size. We set the coefficients to indeterminates and solve the underlying system to determine potential forms. \onslide<2->\vfill
+        \item[$\blacksquare$] In our later examples, we will see how our underlying linear algebra affects the corresponding free resolutions and Betti tables. These connections are the main theme explored in this thesis.
+    \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Equivalent Conjecture}
+        Fröberg's conjecture is equivalent to the following conjecture:
+\begin{conjecture}
+    If \(k\) is an infinite field and \(R=k[x_1,\dots,x_n]\), and \(d_1,\dots,d_r\) are non-negative integers, then a generic sequence of polynomials of polynomials of degrees \(d_1,\dots,d_r\) is semi-regular.
+    \end{conjecture}
+    \vfill
+
+    The reason for this shift in conjecture is that semi-regular polynomials are more intuitive to work with. We are able to learn about the structure of our solution in terms of the generators themselves.
+    \end{frame}
+
+    \begin{frame}{Small Cases}
+    \begin{itemize}
+        \item[$\blacksquare$]For a particular small set of \(\{d_1,\dots,d_r\}\), the problem devolves into a simple case; it is enough to show there exists a semi-regular homogeneous ideal for which the Hilbert series agrees because then our Zariski set is non-empty. \onslide<2->
+        \item[$\blacksquare$]To solve for such an ideal can be checked by asking a computer to try all monomials with ``random'' coefficients of \(d_i\).\onslide<3->
+        \item[$\blacksquare$]Specify any \(n\) for the number of variables and a list of forms with degrees \(d_i\). For every specific case tried an ideal can be produced given enough time, but to prove Fröberg's conjecture in general has proven quite difficult.
+    \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Known cases}
+    In the list below \(n\) is the number of variables in the polynomial ring and \(r\) is the number of forms. Fröberg's conjecture is known to be true for
+    \begin{itemize}
+        \item \(r\leq n\)
+        \item \(n=2\)
+        \item \(n=3\)
+        \item \(r=n+1\) with \(\text{char }k=0\)
+        \item \(d_1,\dots=d_r=3\) and \(n\leq 8\)
+    \end{itemize}
+
+    This conjecture is interesting because it is wide open even though any particular case of small integers is immediately knowable.
+    \end{frame}
+
+    \section{Preliminaries}
+
+    \begin{frame}
+    \begin{center}
+        \textcolor{gpurple}{\huge{Preliminaries}}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}{Basic Definitions}
+    Throughout this paper \(R=k[x_1,\dots,x_n]\), with the natural grading by degree, \(k\) denotes the base field of \(R\). The number \(r\) always denotes the number of forms in a sequence of interest in \(R\).
+    \end{frame}
+
+    \begin{frame}{Monomial Definition}
+        \begin{itemize}
+            \item Let \(R=k[x_1,\dots,x_n]\). We say an element \(p\in R\) is a \textbf{monomial} of degree \(d\) if \(p=\prod_{i=1}^n x_i^{d_i}\) for \(d_i\in \NN \cup \{0\}\) where \(\sum_{i=1}^n d_i=d\). We say 1  is a monomial of degree 0 and the zero polynomial has degree \(-1\)\onslide<2->
+        \end{itemize}
+
+    An example of a set of monomials of degree \(2\) in \(R=\RR[x,y,z]\) is
+    \[\{x^2 , xy , xz , y^2 , yz , z^2\}\]\onslide<3->
+
+    The number of monomials of \(n\) variables in degree \(d\) is \(\binom{d+n-1}{n-1}\). \onslide<4->
+    \vspace{7pt}
+
+    A \textbf{polynomial} in \(R\) are sums of monomials with coefficients in \(k\).
+    \end{frame}
+
+    \begin{frame}{Homogeneous polynomial Definition}
+        \begin{itemize}
+            \item We say an element of degree \(d\) of \(R\) is \textbf{homogeneous} if it can be uniquely written by a sum of monomials of degree \(d\) with coefficients in \(k\) where not all of the coefficients are 0. We say nonzero constant polynomials \(c\) have degree 0 and the  zero monomial has degree \(-1\) \onslide<2->
+        \end{itemize}
+
+    For example, if \(R=\RR[x,y,z]\) then a homogeneous element \(p\) of degree \(2\) would be
+    \[p=a_1 x^2 + a_2 xy + a_3 xz +a_4 y^2 +a_5 yz + a_6z^2\]
+    where \(a_1,\dots,a_6 \in \RR\) and at least one \(a_i\neq 0\).
+    \end{frame}
+
+    \begin{frame}{Homeogeneous Ideal Definition}
+        \begin{itemize}
+            \item A \textbf{homogeneous ideal} \(I\leq R\) is an ideal generated by homogeneous polynomials. If \(I=(f_1,\dots,f_r)\) where each \(f_i\) is a homogeneous polynomial in \(R\). We can always reduce \(I\) into some minimum generators.
+    \onslide<2->
+        \end{itemize}
+
+    Since \(R=k[x_1,\dots,x_n]\) is know to be Noetherian, then every ideal of \(R\) can be finitely generated. For any homogeneous ideal \(I\) there exists \(f_1,\dots,f_r\) such that \(F=(f_1,\dots,f_r)\). For our purposes, if we state \(I=(f_1,\dots,f_r)\) we shall assume that \(I\) has already been reduced to a set of minimum generators.
+    \end{frame}
+
+    \section{Graded Free Resolutions}
+
+    \begin{frame}
+    \begin{center}
+        \textcolor{gpurple}{\huge{Graded Free Resolutions}}
+    \end{center}
+    \end{frame}
+
+\begin{frame}{Definitions}
+    \begin{itemize}
+        \item Let \(M\) be an \(R\)-Module. Then \(\mathbf{M_i}\) is the \(k\)-vector space generated by the \(i^{\text{th}}\) degree parts of \(M\). \onslide<2->
+    \end{itemize}
+    \vspace{7pt}
+    In other words, for the polynomial ring \(\displaystyle R=k[x_{1},\dots ,x_{n}]\), \(R_i\) is the \(k\)-vector space of the homogeneous polynomials of degree \(i\). So we can express \(R\) by
+\[R = \bigoplus_{i=1}^\infty R_i\]
+The \(\dim_k R_i\) is the dimension of the \(i^{\text{th}}\) graded piece of \(R\) as a \(k\)-vector space.
+\end{frame}
+
+\begin{frame}{Definitions}
+    \begin{itemize}
+        \item If \(A,B\), and \(C\)  are \(R\)-Modules, and \(\alpha:A\to B,\beta:B\to C\) are homomorphisms, then a pair of homomorphisms
+    \[\begin{tikzcd}[ampersand replacement=\&]
+	A \& B \& C
+	\arrow["\alpha", from=1-1, to=1-2]
+	\arrow["\beta", from=1-2, to=1-3]
+    \end{tikzcd}\]
+    is \textbf{exact} if the image of \(\alpha\) is equal to \(\ker \beta\). In general, a sequence of maps between modules of the form
+    \[\begin{tikzcd}[ampersand replacement=\&]
+	A \& B \& C \& D \& E
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-4, to=1-5]
+    \end{tikzcd}\]
+    is exact if each pair of consecutive maps is exact.\onslide<2->
+    \item A \textbf{short exact sequence} is an exact sequence of the form
+    \[\begin{tikzcd}[ampersand replacement=\&]
+	0 \& A \& B \& C \& 0
+	\arrow["\alpha", from=1-2, to=1-3]
+	\arrow["\beta", from=1-3, to=1-4]
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-4, to=1-5]
+    \end{tikzcd}\]
+    where \(\alpha\) is an injection, \(\beta\) is a surjection, and the image of \(\alpha\) is the kernel of \(\beta\).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Definitions}
+    \begin{itemize}
+        \item A \textbf{complex of \(R\)-Modules} is a sequence of modules \(F_i\) and maps \(F_i\to F_{i-1}\) such that the compositions \(F_{i+1}\to F_i \to F_{i-1}\) are all zero. The homology of this complex at \(F_i\) is the module
+    \[\faktor{\ker(F_i\to F_{i-1})}{\text{im}(F_{i+1}\to F_i)}\] \onslide<2->
+    \item A \textbf{free resolution} of an \(R\)-Module \(M\) is a complex
+\[\small \mathscr{F}:\begin{tikzcd}[ampersand replacement=\&]
+            \dots \& {F_n} \& \dots \& {F_1} \& {F_0} \&{M} \& {0}
+            \arrow[from=1-1, to=1-2]
+            \arrow["{\phi_n}", from=1-2, to=1-3]
+            \arrow[from=1-3, to=1-4]
+            \arrow["{\phi_1}",from=1-4, to=1-5]
+            \arrow[from=1-5, to=1-6]
+            \arrow[from=1-6, to=1-7]
+        \end{tikzcd}\]
+    of free \(R\) modules such that \(\mathscr{F}\) is exact.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Definitions}
+    \begin{itemize}
+        \item If \(R=R_0\oplus R_1 \oplus \dots \) is a graded ring then a \textbf{graded module} over \(R\) is a module \(M\) with decomposition
+    \[M=\bigoplus_{-\infty}^\infty M_i\]
+    as abelian groups such that \(R_iM_j \subseteq M_{i+j}\) for all \(i,j\).\onslide<2->
+    \end{itemize}
+    \vfill
+    A graded module allows us to keep track of elements degree-wise. \onslide<3->
+    \vfill
+    \begin{itemize}
+        \item A resolution \(\mathscr{F}\) is a \textbf{graded free resolution} if \(R\) is a graded ring, the \(F_i\) are graded free modules, and the maps are homogeneous maps of degree 0.
+    \end{itemize}
+\end{frame}
+
+    \begin{frame}{Example of a Graded Free Resolution}
+        Let \(R=k[x,y]\) and let \(I=(x,y)\). Then if we have the following mapping
+    \[\begin{tikzcd}[ampersand replacement=\&]
+	{R^2} \&\& R \&\& {R/I}
+	\arrow["{\begin{bmatrix} x\\ y \end{bmatrix}}"', from=1-1, to=1-3]
+	\arrow[from=1-3, to=1-5]
+\end{tikzcd}\]\onslide<2->
+
+Then we are mapping degree 0 elements in \(R\) to degree 1 elements. Notice this sequence is exact, but it is not homogeneous because a degree 0 element gets mapped to a degree 1 element. We will need to fix this to give us a homogeneous sequence as well.
+    \end{frame}
+
+    \begin{frame}{Example of a Graded Free Resolution}
+        \begin{itemize}
+            \item Define \(M(d)\) to b the altered graded module \(M\) shifted in its grading \(d\) steps. Then \(M(d)\simeq M\) as a module and having grading defined by \(M(d)_e=M_{d+e}\). Note that \(M(d)\) is sometimes called the \textbf{dth Twist of M}.\onslide<2->
+        \end{itemize}
+
+        So in order to preserve our degrees, we need to grade our left module by 1. So our free resolution becomes
+\[\begin{tikzcd}[ampersand replacement=\&]
+	{R^2(-1)} \&\& R \&\& {R/I}
+	\arrow["{\begin{bmatrix} x\\ y \end{bmatrix}}"', from=1-1, to=1-3]
+	\arrow[from=1-3, to=1-5]
+\end{tikzcd}\]\onslide<3->
+This grading takes the degree of our map and brings it down by 1. Thus \(1\mapsto x,1\mapsto y\) maps a degree 0 element to a degree 0 element as desired.
+    \end{frame}
+
+    \section{Hilbert Series}
+
+    \begin{frame}
+    \begin{center}
+        \textcolor{gpurple}{\huge{Hilbert Series}}
+    \end{center}
+    \end{frame}
+
+    \begin{frame}{Defintions}
+    \begin{itemize}
+        \item Let \(M\) be a finitely generated graded module over \(k[x_1,\dots,x_r]\) with grading generated in positive degrees. The numerical function
+        \[H_M(s):=\dim_k M_s\]
+         is called the \textbf{Hilbert Function of M}.\onslide<2->
+        \item The Hilbert series of \(R/I\) is
+        \[H_{R/I}(t) = \sum _{i=0}^\infty \dim_k (R/I)_i t^i\] \onslide<3->
+        \item Given a series \(\sum_{i=0}^\infty a_it^i\), \(a_i\in Z\) for all \(i\), let \(\abs{\sum_{i=0}^\infty a_it^i}\) be the series \(\sum_{i=0}^\infty b_it^i\) where
+    \[b_i=\begin{cases}
+        a_i, & \text{if $a_j>0$ for all \(0\leq j \leq i\)}\\
+        0, & \text{otherwise}
+    \end{cases}\]
+    \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Definitions}
+    \begin{itemize}
+        \item  A sequence of elements \(f_1,\dots,f_r\) in a ring \(R\) is a \textbf{regular sequence} on \(R\) if the ideal \((f_1,\dots,f_r)\) is proper and for each \(i\), the image of \(f_{i+i}\) is a non-zero divisor in \(R/(f_1,\dots,f_i)\).\onslide<2->
+        \item Let \(R=k[x_1,\dots,x_n]\) and let \(I\) be a homogeneous ideal. A nonzero form \(f\in R_d\) is called \textbf{semi-regular} on \(R/I\) if the multiplication maps \(\begin{tikzcd}[ampersand replacement=\&]
+        {\paren{R/I}_{a-d}} \arrow["f",r] \& {\paren{R/I}_{a}}
+        \end{tikzcd}\) are linear maps of maximal rank for all \(a\). \onslide<3->
+
+        \item A sequence of forms \(f_1,\dots,f_r\) in \(R\) with degrees \(d_1,\dots,d_r\) is called a \textbf{semi-regular sequence} if \(f_i\) is semi-regular on \(R/(f_1,\dots,f_{i-1})\) for all \(i=1,\dots,r\).
+    \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Semi-Regular}
+        An ideal being semi-regular leads to a nice generating function for its Hilbert series. A main take away of why this property is so attractive, is that if we have a semi-regular sequence for our ideal \(I\) then we can systematically compute the Hilbert series for \(R/I\).\onslide<2->
+        \vfill
+        The Hilbert series of \(R/I\) where \(I\) is generated by a semi-regular sequence of forms of degrees \(d_1,\dots,d_r\) is
+    \[H_{R/I}(t)=\abs{\frac{\prod_{i=1}^r\paren{1-t^{d_{i}}}}{(1-t)^n}}\]
+    \end{frame}
+
+    \section{Betti Tables and Their Uses}
+    \begin{frame}{Frame Title}
+    \begin{center}
+        \textcolor{gpurple}{\huge{Betti Tables and Their Uses}}
+    \end{center}
+        \end{frame}
+
+
+    \begin{frame}{Definitions}
+        \begin{itemize}
+            \item If \(I\) is an ideal in \(R\), then \(R/I\) has a minimal graded free resolution
+        \[\cdots \to F_1 \to F_0 \to R/I\]
+        where the \(F_i\) are free \(R\)-modules. The \textbf{\(\mathbf{i,j}\)th graded Betti number} of \(R/I\) is \(\beta_{i,j}(R/I) \) which is equal to the dimension, as a \(k\)-vector space, of the \(j\)th graded piece of \(F_i\). \onslide<2->
+        \end{itemize}
+        \vfill
+        So we have \(\beta_{i,j}(R/I)\) equals the number of degree j generates in any minimally generated set of the \(R\)-module \(F_i\). Moreover, \(i\) represents the place in our free resolution while \(j\) represents the grading on each copy of our ring that is present at the \(i\)th place in our resolution.
+    \end{frame}
+
+    \begin{frame}{Hilbert's Syzygy Theorem}
+        \begin{theorem}[Hilbert Syzygy Theorem]
+    If \(R=k[x_1,\dots,x_n]\), then every finitely generated graded \(R\)-module has a finite graded free resolution of length \(\leq n\), by finitely generated free modules. \onslide<2->
+\end{theorem}
+\vfill
+    It follows from Hilbert's Syzygy theorem, \(\beta_{i,j}(R/I) =0\) for \(i>n\). Note that \(F_0=R\) and so \(\beta_{0,0}(R/I)=1\) since \(R\) is generated by \(1\in R\) as an \(R\)-module. Therefore \(\beta_{0,j}(R/I)=0\) for all \(j\neq 0\). Since our free resolution has minimal grading, it follows that \(B_{i,j}(R/I)=0\) whenever \(i>j\).
+    \end{frame}
+
+
+    \begin{frame}{Definitions}
+
+    \begin{itemize}
+        \item The \textbf{Castelnuovo-Mumford regularity} \(\rho(R/I)\), or simply \(\rho\) when context is clear, is the maximum value of \(j\) such that \(\beta_{i,i+j}(S/I)\neq0\) for some \(i\). \onslide<2->\vfill
+        \item The \textbf{Poincar\'e series} \(P_{R/I}(s,t) = \sum_{i=0}^n \sum_{j=0}^\infty \beta_{i,j}s^it^j\) is the generating series of the graded Betti numbers.\onslide<3->\vfill
+        \item The\textbf{ Betti Table} of \(R/I\) is a table with \(\rho+1\) rows and \(n+1\) columns where the \(i,j\)th entry, counting from zero, is \(\beta_{i,i+j}(R/I)\).
+    \end{itemize}
+    \end{frame}
+
+    \begin{frame}{Betti Table Example}
+    \begin{columns}
+        \column{.5\textwidth}
+        \[\small \begin{tabular}{rcccc}
+        \text{total}:&1&3&3&1\\
+        \hline
+        0:&1&.&.&.\\
+        1:&.&1&.&.\\
+        2:&.&1&.&.\\
+        3:&.&.&1&.\\
+        4:&.&1&.&.\\
+        5:&.&.&1&.\\
+        6:&.&.&1&.\\
+        7:&.&.&.&1\\
+        \end{tabular}\]\onslide<2->
+        \column{.5\textwidth}
+        The third row second column the entry \(\beta_{2,3}=\beta_{2,2+1}= 1\) corresponds to a 3rd degree basis element. \onslide<3->
+        \vfill
+        There is a \(R(-3)\) graded copy of our ring at the second step of our free resolution. %Each column represents a step of our resolution.
+        \onslide<4->
+    \end{columns}
+       \[\small \begin{tikzcd}[ampersand replacement=\&]
+	{R(-10)} \& {R(-5)} \& {R(-2)} \& R \& {R/I} \& 0 \\
+	\& {R(-7)} \& {R(-3)} \\
+	\& {R(-8)} \& {R(-5)}
+	\arrow[from=1-1, to=1-2]
+	\arrow[from=1-2, to=1-3]
+	\arrow[from=1-3, to=1-4]
+	\arrow[from=1-4, to=1-5]
+	\arrow[from=1-5, to=1-6]
+	\arrow["\bigoplus"{description}, draw=none, from=1-2, to=2-2]
+	\arrow["\bigoplus"{description}, draw=none, from=2-2, to=3-2]
+	\arrow["\bigoplus"{description}, draw=none, from=1-3, to=2-3]
+	\arrow["\bigoplus"{description}, draw=none, from=2-3, to=3-3]
+\end{tikzcd}\]
+
+    \end{frame}
+
+    \begin{frame}{Poincar\'e Series}
+        The Hilbert series and the Poincar\'e series are related by
+    \[\paren{1-t}^n H_{R/I}(t) = P_{R/I}(-1,t)\]\onslide<2->
+    \vspace{15pt}
+    So
+    \[P_{R/I}(-1,t)=(1-t)^n\abs{\frac{\prod_{i=1}^r\paren{1-t^{d_{i}}}}{(1-t)^n}}=\abs{\prod_{i=1}^r\paren{1-t^{d_{i}}}}\]
+    \end{frame}
+
+    \section{Koszul Complexes and Special Cases}
+
+    \begin{frame}
+    \begin{center}
+        \textcolor{gpurple}{\huge{Koszul Complexes and Special Cases}}
+    \end{center}
+        \end{frame}
+
+    \begin{frame}{Defining \(K_i\)}
+    \begin{itemize}
+        \item Let \(f_1,\dots,f_r\) be a sequence of homogeneous polynomials of degrees \(d_1,\dots,d_r\). \onslide<2->
+        \item For each integer \(i\geq 0\), let \(K_i\) be the free \(R\)-module with basis \(\kappa_\sigma\) indexed by the order \(i\) subsets \(\sigma \in \{1,\dots,r\}\). \onslide<3->
+        \item Let the degree of \(\sigma\) be \(\sum_{h\in\sigma}d_h\).\onslide<4->
+    \end{itemize}
+     \vfill
+
+    For example, let \(f_1,\dots,f_5\) be a sequence of homogeneous polynomials
+    of degrees \(d_1=2, d_2=3, d_3=3, d_4=3, d_5=4\) if \( i=3\) and
+    \(\sigma=\{1,4,5\}\).
+    Then  \[\deg \sigma =\sum_{h\in\sigma}d_h=d_1+d_4+d_5= 2+3+4=9.\]
+    \end{frame}
+
+    \begin{frame}{Definition}
+        \begin{itemize}
+            \item The \textbf{Koszul complex} is defined by
+    \[\cdots \to K_2\to K_1\to K_0\]
+    where if \(\sigma=\{\sigma_1<\sigma_2< \dots <\sigma_i\}\) has order \(i>0\) then the image of \(\kappa_\sigma\) in \(K_{i-1}\) is \(\sum_{h=1}^i (-1)^{i+h}f_{\sigma_h}\kappa_{\sigma-\sigma_h}\).
+        \end{itemize}
+    \end{frame}
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-engine: xetex
+%%% End:

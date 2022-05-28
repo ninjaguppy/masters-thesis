@@ -177,9 +177,10 @@ is a single-variable function we can replace \(\nabla f\) with the traditional
 derivative, \(f'\), as seen in
 \cite[Thm 3.3]{pascoeTrace2020}.
 \begin{theorem}
-  Let \(f: (a,b)\to \RR \) be a \(C^1\) function. Then
+  Let \(f: (a,b)\to \RR \) be a \(C^1\) function. Then (in the functional
+  calculus of \cref{sec:functionalcalc})
   \[
-    \tr \, Df(X)[H] = \tr \left( Hf'(X) \right)
+    \tr \, Df(X)[H] = \tr \left( Hf'(X) \right).
   \]
 \end{theorem}
 
@@ -273,8 +274,22 @@ Making this substitution, we have the required result:
 With our theorem proven, we turn our attention back to the \(\nabla f\). The
 single variable case motivates that \(\nabla f\) should correspond to the
 standard gradient from vector calculus. With some work, the above proof lifts
-the multi-variable case. {\color{red}  It will be instructive, however, to consider a
-different proof.}
+the multi-variable case.
+
+The careful reader will note that the above theorem (even if lifted to the
+multivariable case) does not immediately give us the uniqueness of
+\(\nabla f\)---after all, the theorem requires free functions and that there
+is a trace on both sides. Thankfully, both of these are fairly easy to deal
+with. For the former objection is handed easily; since \(Df(X)[H]\) is a scalar
+function, so adding a trace doesn't affect the equation. For the latter, we
+present the following proof of ``trace duality.'' While the theorem still refers
+to free functions, the technique of picking coordinate matrices is
+standard\footnote{The technique is rarely \emph{used} in the literature. Instead
+it is assumed that the reader can use the trick to verify statements which are
+left unproven.}
+and can be easily reused to show the uniqueness of \(\nabla f\).\footnote{If the
+reader is still unconvinced, see the discussion of \(\tr (\;\;\cdot\;\;)\) as an
+``inner product'' on \(\MM^{g} \) in \cref{sec:cohomo}.}
 
 \begin{theorem}[Trace Duality]%
 \label{thm:trdual}
@@ -444,6 +459,7 @@ if the topology is not understood functions are usually referred to as
 As mentioned above, both the fine and fat topologies have implicit function
 theorems. The fat implicit function theorem requires a significant amount more
 work to state, but it can be found in \cite{aglerOperator2019}.
+\clearpage
 \begin{theorem}[Fine Implicit Function Theorem]
   Let \(D \subset \MM^g\) be an nc domain. Let \(\Phi\) be a fine holomorphic
   map \(D\to \MM^{g} \). The following equivalent:
@@ -460,7 +476,7 @@ Various Null- and Positivstellensatz
 \footnote{And even a QuadratischePositivstellensatz!} exist throughout the
 literature extending Hilbert's famous Nullstellensatz in algebraic
 geometry---many of which utilize the idea of so-called ``atomic'' matrices of nc
-polynomials ({\color{red} defined in }\ref{def:atomic}). See \cite{heltonFactorization2019}
+polynomials (defined in \ref{def:atomic}). See \cite{heltonFactorization2019}
 for the specifics.
 
 In \cite{aglerGlobal2013}, Agler and McCarthy prove a free analogue of the
