@@ -1,0 +1,52 @@
+#+title: Defense Working
+
+* Part I: Objects and Maps
+Single Variable Functional Calculus
+
+topology
+
+types of functions
+    explicitly talk about how we can view tracial functions as a functional calculus?
+
+* Part II: Free Monodromy
+Cover analytic continuation hard
+ - show the example of continuing log. From 1 ~ -1 both ways and then what
+   happens when you ago all the way around
+
+Monodromy theorem
+ - no need to prove it but you can give the basic idea
+ - detail how the implication is that germs can determine the fundamental group
+
+Jump to the nc case
+ - do the full disk bounding proof
+
+Sit on the idea that nc functions can't detect holes -- point out the contrast
+to the commutative case
+ - This means that we are stuck! From an analytical sense we are hosed!
+
+* Part III: ???
+Define essential paths
+
+(depending on times, talk about germs---if neede we can say that it is just a
+function defined on a anchor that continues along every path)
+
+Trace equivalence, \(\pi_1^{tr}\), and \(C^{tr}(D)\)
+
+How to compute? Transition to cohomology
+
+Tracial cohomology
+- should I do the injection into \(\mathbb{C}\)?
+
+Once you have commututivity, you can get that cool computation method
+
+Then the example!
+
+
+
+
+* Other thoughts (i guess)
+how much to cover topology?
+ - need to define the topology we are using for sure
+ - do I mention the other topologies? I don't think so
+
+ Probably cover trace duality
