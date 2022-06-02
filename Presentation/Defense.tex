@@ -167,13 +167,20 @@
 \begin{document}
 \begin{frame}[plain]
   \maketitle
-  \note[item]{ Eventual goal: lift the tools of algebraic topology to spaces of
-    matrices}
-  \note[item]{ If we have a fixed size, use classical results but this
-    doesn't work for multiple sizes.}
-  \note[item]{ For multiple (which hopefully I can convince you is interesting)
-    we need to develop some hefty tools}
-  \note[item]{ To do so, we need to go back to our mathematical roots}
+  \note{
+    \begin{itemize}
+      \item  Eventual goal: lift the tools of algebraic topology to spaces of
+            matrices
+      \item If we only consider \(2 \times 2\) matrices we can use classical
+            theory
+      \item The moment we want more than one size, things the classical theory
+            breaks down
+      \item Today we will develop some \emph{fairly heftly} tools to do just that
+      \item Along the way, hopefully I can convince you that this is an
+            interesting question.
+      \item  To do so, we need to go back to our mathematical roots
+    \end{itemize}
+  }
 \end{frame}
 
 \section{Part I: Objects and Maps}
@@ -183,9 +190,14 @@
     \textcolor{goodgood}{\huge{Part I: Objects and Maps}} \\
     \textcolor{goodgood2}{\large{A Naive Attempt}} \\
   \end{center}
-  \note[item]{ That's right---objects and maps.}
-  \note[item]{Our Naive attempt involves that looking at lifting functions on
-    \(\RR \) or \(\CC \) to accept matrices as their input.}
+  \note{
+    \begin{itemize}
+      \item  That's right---objects and maps.
+      \item Our Naive attempt involves that looking at lifting functions on
+    \(\RR \) or \(\CC \) to accept matrices as their input.
+      \item An operator theorist would call this a ``functional calculus''
+    \end{itemize}
+  }
 \end{frame}
 
 \subsection{Functional Calculus}
@@ -206,11 +218,15 @@
   \]
   \note{
     \begin{itemize}
-    \item The naive attempt is modeled after the behavior of polynomials. We could
-    plug in an arbitrary matrix into a polynomial without too much trouble, but
-    requiring SA gives us some special behavior.
-    \item Since we are SA, we can diagonalize
-    \item Watch what happens when we plug this into our polynomial
+    \item<+-> Polynomials are the most well behaved functions we have, so lets
+            start with a polynomial and a self adjoint (\(A=A^*\)) matrix.
+    \item<1-> You might say that SA is unnecessary bc we can already evaluate a
+            polynomial on a matrix
+    \item<+-> Since we are SA, we can diagonalize with unitary matrices.
+    \item<+-> Watch what happens when we plug this into our polynomial --- need to be
+            careful with the constant term.
+    \item<9-> This application along the diagonal is precisely the behavior we
+            want to emulate in the functional calculus.
     \end{itemize}
   }
 \end{frame}
@@ -233,14 +249,20 @@
                     U^*
     .\end{align*}}
   \end{definition}
+  \onslide<+->{
+  \noindent\textbf{Important:} In this functional calculus, \[g(X\oplus Y) = g(X) \oplus g(Y)\]}
   \note{
     \begin{itemize}
       \item With the polynomial case in mind, we can extend a general function.
-            First, a piece of notation
+         First, a piece of notation
       \item Lets grab a function on the real line and the self adjoint
             matrices with their spectrum in that domain
       \item Then we can lift \(g\) by emulating the behavior of polynomials.
-      \item The natural question now is ``what can we do with these functions''
+      \item unwrap a self adjoint matrix, apply \(g\) to the diagonal, then wrap
+            it back up
+      \item Something to notice about this functional calculus---it treats
+            direct sums \emph{very} well
+      \item This is all well and good, but can we do anything with these new functions?
     \end{itemize}
   }
 \end{frame}
@@ -311,6 +333,14 @@
     \onslide<+->{D^{(3)}f(X)[H] &= 6H^3}
 	  \vspace{\stretch{2}}
   \end{align*}
+  \note{
+    \begin{itemize}
+      \item Now all we have to do is set \(t=0\) in the previous expressions and
+            we get the first three directional derivatives
+      \item Note that they are all in the same direction---mixes derivatives are
+            possible but we won't need them.
+    \end{itemize}
+  }
 \end{frame}
 
 % \subsection{Multivarible Functions} %
@@ -378,8 +408,14 @@
     \textcolor{goodgood}{\huge{Part I.5: Objects and Maps}} \\
     \textcolor{goodgood2}{\large{A Second Attempt}} \\
   \end{center}
-  \note[item]{Second attempt takes polynomials as an example object instead of
-    as a thing to lift}
+  \note{
+    \begin{itemize}
+      \item In seeking a more general theory we need to leave the world of this
+            ``SA functional calculus'' behind.
+      \item Rather than lifting functions to be matrix valued, we will define
+            \emph{new} objects that behave like those we just looked at.
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}{Some Definitions}
@@ -391,6 +427,14 @@
     \]
   \end{Definition}}
   \onslide<+->{By convention, \(X \in \MM^{g}\) is a tuple of like-size matrices}
+
+  \note{
+    \begin{itemize}
+      \item Definition of the matrix universe --- \(g\) tuples of matrices of
+            all sizes
+      \item By convetion, tuples are likes size
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}
@@ -408,8 +452,14 @@
   \end{Definition}
   \note{
     \begin{itemize}
-      \item {\color{blue} should I write the defn for fiber and envelope or just
-            say it verbally}
+      \item In math we often think about substructures that
+            capture the implicit structure our space (subgroup, subspace, etc)
+      \item In the nc setting, this is a \emph{free set}, also called nc set
+      \item direct sums and unitary conjugation are component wise
+      \item If you see a \(D\), you can assume that it is a free set.
+      \item A subscript denotes a level-wise slice
+      \item Note that this requires a lot of structure on free sets---we want to
+            put a name to these structure.
     \end{itemize}
   }
 \end{frame}
@@ -431,9 +481,19 @@
       \{ U^* X^{\oplus k} U \mid k \in \NN, U \text{ Unitary} \}.
     \]
   \end{Definition}}
+  \note{
+    \begin{itemize}
+      \item The fiber is all the points ``above'' a given point. Conceptually,
+            we imagine identification along the fiber---this will become
+            important when we start doing topology
+      \item The envelope (which will be less important to us) is the unitary
+            smearing of the fiber at each level.
+    \end{itemize}
+  }
 \end{frame}
 
-\begin{frame}
+\begin{frame}{A bit of topology}
+  \onslide<+->{}
   \onslide<+->{What does it mean for \(D \subset \MM^{g} \) to be open?}
   \begin{itemize}
     \item<+-> There is not a canonical topology
@@ -442,12 +502,20 @@
   \end{itemize}
   \note{
     \begin{itemize}
-      \item remark that these are the basic sets?
+      \item If we are going to look for holes and build up the algebraic
+            topology, we need a point set topology first---so there is a natural
+            question.
+      \item Bad news: there isn't a natural choice
+      \item There are a handful of candidates (fine, fat, free, nc Zariski). I
+            wish we had time to go into detail.
+      \item For us, free sets are open if their level-wise restriction is open
+      \item Other point-set characterizations are similar.
     \end{itemize}
   }
 \end{frame}
 
 \begin{frame}{What the natural functions on \(\MM^{g} \)?}
+  \onslide<+->{}
   \onslide<+->{
   \begin{Definition}
   A function \(f: D\to \MM^{\hat{g}}\) is called \textbf{free} if
@@ -466,13 +534,23 @@
           and \(U\) is unitary.
   \end{enumerate}
   \end{Definition}}
+  \note{
+    \begin{itemize}
+      \item We have our objects, but what are the maps?
+      \item Free functions are defined to be anything that behaves like a
+            polynomial
+      \item tracial functions look like traces
+      \item For both of these maps, the directional derivative is defined
+            identically as before---but tracial functions get something extra.
+    \end{itemize}
+  }
 \end{frame}
 
 \subsection{Uniqueness of the Gradient}
 
 \begin{frame}
   \begin{Definition}[Free Gradient]
-    Given a tracial free function \(f\), the free gradient, \(\nabla f\), is the
+    Given a tracial function \(f\), the free gradient, \(\nabla f\), is the
     unique free function satisfying
     \[
       \tr \left( H \cdot \nabla f(X) \right) = Df(X)[H],
@@ -480,6 +558,17 @@
     where, if \(A= (A_1, \dots, A_g)\) and \(B=(B_1, \dots, B_g)\) are tuples of
     like-size matrices then \(A \cdot B = \sum_{i=1}^g A_i B_i \).
   \end{Definition}
+  \note{
+    \begin{itemize}
+      \item The \(\nabla\) of a free function is the unique free function
+            satisfy this equation---where the * is just like the dot product
+      \item Whenever you see tr(*) I want you to think of the inner product---it
+            is slightly distinct but it will make a lot of things make more
+            sense
+      \item Some of you may be hesitant at the fact that I claim \(\nabla\) is
+            unique. Why should this be true?
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}{Why should \(\nabla f\) be unique?}
@@ -490,8 +579,12 @@
   \end{theorem}}
   \note{
     \begin{itemize}
-      \item {\color{blue} probably just give the idea of this proof---use the
-            fact that tr( * ) is like an inner product and choose cooridinate matrices}
+      \item \(f=g\) whenever the domains overlap
+      \item In the vector space setting---with an inner product---this is a
+            fairly immediate result. You would show it by picking vectors of all
+            0's and a single 1.
+      \item You prove this identically---but with coordinate matrices instead of
+            coordinate vectors.
     \end{itemize}
   }
 \end{frame}
@@ -517,7 +610,11 @@
 \subsection{Analytic Continuation}
 
 \begin{frame}{Analytic Continuation}
-  The pictures!
+  Figures of generic analytic continuation
+\end{frame}
+
+\begin{frame}
+  figures of the example of continuing log(x) through UHP and LHP
 \end{frame}
 
 \subsection{Monodromy}
@@ -530,6 +627,11 @@
     continued along \(\Gamma_s\) for all \(s \in [0,1]\), then the continuations
     along \(\gamma_1\) and \(\gamma_2\) agree at \(\beta\).
   \end{theorem}}
+\onslide<+->{
+  figure of the homotopy}
+\end{frame}
+
+\begin{frame}{When are two analytic continuations equal?}
   \onslide<+->{
   \begin{theorem}[Monodromy II]%
     Let \(U \subset \CC \) be a disk in \(\CC \) centered at \(z_0\) and
@@ -538,13 +640,32 @@
     path \(\gamma \subset W\) starting at \(z_0\), then \(f\) has a unique
     extension to all of \(W\).
   \end{theorem}}
+
+  \onslide<+->{figure of the simply connected larger set}
 \end{frame}
 
 \subsection{Free Monodromy}
 
-\begin{frame}
-  Go through the needed constructions -- direct sums of paths, analytic
-  continuation of free functions, etc
+\begin{frame}{What about the nc case?}
+  \onslide<+->{
+  Before we look at a free analogue of the monodromy theorem, we need to ask an
+  important question: What does it mean for a free function to be analytic?}
+
+  \vspace{\stretch{1}}
+  \onslide<+->{\textbf{A}: \(f:D\to \MM^{\hat{g}}\) is analytic if it is
+    analytic as a function of each \(D_n\).}
+
+  \vspace{\stretch{1}}
+  \onslide<+->{
+  \begin{theorem}[Agler, McCarthy (2016)]
+    Let \(f:D\to \MM^{\hat{g}}\) be a free function. If \(f\) is locally bounded
+    on each \(D_n\), then \(f\) is an analytic free function.
+  \end{theorem}}
+  \note{
+    \begin{itemize}
+      \item be sure to comment on the theorem---it is powerful!
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}
@@ -752,7 +873,7 @@
   tracial functions on \(D\) by \(\mathcal{T}(D)\) and the set of free functions by
   \(\mathcal{F}(D)\).}
   \onslide<+->{
-  For \( f \in \mathcal{F}(D)\), \(\nabla f \in \mathcal{T}(D)\)---so we have the
+  For \( f \in \mathcal{T}(D)\), \(\nabla f \in \mathcal{F}(D)\)---so we have the
   beginnings of a chain complex!
   \[
     0 \rightarrow \mathcal{T}(D) \xrightarrow{\nabla} \mathcal{F}(D) \rightarrow \cdots.
@@ -788,9 +909,20 @@
   }
   \note{
     \begin{itemize}
-      \item remark about global germs.
+      \item test text
     \end{itemize}
   }
+\end{frame}
+
+\begin{frame}{What out global germs?}
+  \begin{itemize}
+    \item<+-> For \(f: B \to \CC \) a global germ, since \(f\) analytically
+          continues along every path, so does \(\nabla f\).
+    \item<+-> Free Monodromy means that \(\nabla f\) has a global extension.
+    \item<+-> \textbf{Important:} If \(f\) is a global germ, then \(\nabla f\)
+          is not necessarily exact since \(\mathcal{T}(D)\) is the set of
+          tracial functions defined on \emph{all of} \(D\).
+  \end{itemize}
 \end{frame}
 
 \subsection{Injecting into \(\CC \)}
@@ -821,8 +953,7 @@
     c^f(\gamma) = f(\gamma)-f(\tau)
   \]}
 
-  \onslide<+->{\textbf{Remark:} \(c^f\) only depends on the class of
-    \(\nabla f\) in \(H^1_{\tr}(D)\)}
+  \onslide<+->{\(c^f\) gives us a homomorphism into \(\CC \)!}
   \begin{align*}
     \onslide<+->{c^f(\gamma_1\gamma_2) &= f(\gamma_1\gamma_2) - f(\tau) \\}
                \onslide<+->{&= f(\gamma_1\gamma_2) - f(\gamma_1) + f(\gamma_1) -f(\tau) \\}
@@ -911,6 +1042,8 @@
   }
 \end{frame}
 
+\subsection{The Direct Limit Approach}
+
 \begin{frame}
   \onslide<+->{
   Let \(D\) be an anchored, free, path connected set such that each \(D_n\) is
@@ -957,11 +1090,12 @@
   \onslide<+->{Let \(GL = \bigcup_{n \in \NN }GL_n(\CC)\).}
 
   \vspace{\stretch{1}}
-  \onslide<+->{ \(GL_1(\CC) = \CC \setminus \{0\} \), so
-    \(\pi_1^{\tr}(D)_1 \simeq \ZZ \)}
+  \onslide<+->{ \(GL_1(\CC) = \CC \setminus \{0\} \). Since
+    \(\pi_1(GL_1) \simeq \ZZ \),
+    \(\pi_1^{\tr}(GL)_1 \simeq \ZZ \)} as well.
 
   \vspace{\stretch{1}}
-  \onslide<+->{Inclusion into \(\pi_1^{\tr}(D)_2\) picks up square roots. If
+  \onslide<+->{Inclusion into \(\pi_1^{\tr}(GL)_2\) picks up square roots. If
   \(\gamma \in \pi_1^{\tr}(GL)_1\), then
   \[
     \begin{bmatrix} \gamma&\\&\tau \end{bmatrix} \in \pi_1^{\tr}(GL)_2.
@@ -974,7 +1108,7 @@
 
 \begin{frame}
   \vspace{\stretch{1}}
-  \onslide<+->{Similarly, inclusion into \(\pi_1^{\tr}(D)_3\) picks up cube
+  \onslide<+->{Similarly, inclusion into \(\pi_1^{\tr}(GL)_{3!}\) picks up cube
     roots:
   \[
     \pi_1^{\tr}(GL)_6 \simeq \ZZ \left[\frac{1}{2}, \frac{1}{3}\right]
@@ -989,14 +1123,14 @@
     \onslide<+->{\simeq \QQ.}
   \]
 
-
-
-
-
   \vspace{\stretch{1}}
 \end{frame}
 
-
+\begin{frame}
+  \begin{center}
+    \textcolor{goodgood}{\huge{Thank You!}} \\
+  \end{center}
+\end{frame}
 
 
 
