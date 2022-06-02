@@ -84,6 +84,7 @@
 
 %\usetheme{Frankfurt}
 \usetheme{Antibes}
+%\usetheme{AnnArbor}
 
 % Color definitions:
 \definecolor{mypurple}{RGB}{179,120,211}
@@ -179,7 +180,7 @@
 
 \begin{frame}
   \begin{center}
-    \textcolor{goodgood}{\huge{Objects and Maps}} \\
+    \textcolor{goodgood}{\huge{Part I: Objects and Maps}} \\
     \textcolor{goodgood2}{\large{A Naive Attempt}} \\
   \end{center}
   \note[item]{ That's right---objects and maps.}
@@ -312,69 +313,69 @@
   \end{align*}
 \end{frame}
 
-\subsection{Multivarible Functions}
+% \subsection{Multivarible Functions} %
 
-\begin{frame}{How should we treat multivariable functions?}
-  \onslide<+->{What about \(f(x,y) = xy \in \CC [x,y]\)? For
-    \(X,Y \in M_n(\CC)\), what is \(f(X,Y)\)?}
-  \[
-    \onslide<+->{XY} \qquad
-    \onslide<+->{YX} \qquad
-    \onslide<+->{\frac{1}{2}(XY+YX)} \qquad
-  \]
-  \onslide<+->{Clearly \(\CC [x,y]\) is the wrong space!}
-\end{frame}
+% \begin{frame}{How should we treat multivariable functions?}
+%   \onslide<+->{What about \(f(x,y) = xy \in \CC [x,y]\)? For
+%     \(X,Y \in M_n(\CC)\), what is \(f(X,Y)\)?}
+%   \[
+%     \onslide<+->{XY} \qquad
+%     \onslide<+->{YX} \qquad
+%     \onslide<+->{\frac{1}{2}(XY+YX)} \qquad
+%   \]
+%   \onslide<+->{Clearly \(\CC [x,y]\) is the wrong space!}
+% \end{frame}
 
-\begin{frame}{nc Polynomials}
-  \onslide<+->{We must construct a newspace!}
-  \begin{itemize}
-    \item<+-> Let \(x=(x_1, \dots, x_d)\) be a tuple of formal variables.
-    \item<+-> A \textbf{word} in \(x\) is a product of these variables.
-    \begin{itemize}
-       \item<+-> e.g.\ \(x_1x_3x_1x_4^2\qquad x_2^4x_5^3\)
-    \end{itemize}
-    \item<+-> An \textbf{nc polynomial} is a linear combination of words in
-          \(x\) over your favorite field.
-  \end{itemize}
-  \onslide<+->{Let \(\RR \langle x \rangle \) and \(\CC \langle x \rangle \)
-    denote the set of nc polynomials over \(\RR \) and \(\CC \).}
-\end{frame}
+% \begin{frame}{nc Polynomials}
+%   \onslide<+->{We must construct a newspace!}
+%   \begin{itemize}
+%     \item<+-> Let \(x=(x_1, \dots, x_d)\) be a tuple of formal variables.
+%     \item<+-> A \textbf{word} in \(x\) is a product of these variables.
+%     \begin{itemize}
+%        \item<+-> e.g.\ \(x_1x_3x_1x_4^2\qquad x_2^4x_5^3\)
+%     \end{itemize}
+%     \item<+-> An \textbf{nc polynomial} is a linear combination of words in
+%           \(x\) over your favorite field.
+%   \end{itemize}
+%   \onslide<+->{Let \(\RR \langle x \rangle \) and \(\CC \langle x \rangle \)
+%     denote the set of nc polynomials over \(\RR \) and \(\CC \).}
+% \end{frame}
 
-\begin{frame}{Example: \(f(x,y) = x^2-xyx-1 \in \RR \langle x,y \rangle \)}
-  \[
-  \onslide<+->{  X = \begin{bmatrix} 4 &2\\2&2 \end{bmatrix}  \qquad \text{ and } \qquad Y =\begin{bmatrix} 2&0\\0&0 \end{bmatrix}}
-  \]
-  \begin{align*}
-  \onslide<+->{  f(X,Y) &= X^2 - XYX + I_2 \\}
-  \onslide<+->{         &= \begin{bmatrix} 4 &2\\2&2 \end{bmatrix}^2
-             -\begin{bmatrix} 4 &2\\2&2 \end{bmatrix}\begin{bmatrix} 2&0\\0&0 \end{bmatrix}\begin{bmatrix} 4 &2\\2&2 \end{bmatrix}
-             +\begin{bmatrix} 1&0\\0&1 \end{bmatrix} \\}
-  \onslide<+->{         &= \begin{bmatrix} -11&-4\\-4&1 \end{bmatrix}.}
-  \end{align*}
-\end{frame}
+% \begin{frame}{Example: \(f(x,y) = x^2-xyx-1 \in \RR \langle x,y \rangle \)}
+%   \[
+%   \onslide<+->{  X = \begin{bmatrix} 4 &2\\2&2 \end{bmatrix}  \qquad \text{ and } \qquad Y =\begin{bmatrix} 2&0\\0&0 \end{bmatrix}}
+%   \]
+%   \begin{align*}
+%   \onslide<+->{  f(X,Y) &= X^2 - XYX + I_2 \\}
+%   \onslide<+->{         &= \begin{bmatrix} 4 &2\\2&2 \end{bmatrix}^2
+%              -\begin{bmatrix} 4 &2\\2&2 \end{bmatrix}\begin{bmatrix} 2&0\\0&0 \end{bmatrix}\begin{bmatrix} 4 &2\\2&2 \end{bmatrix}
+%              +\begin{bmatrix} 1&0\\0&1 \end{bmatrix} \\}
+%   \onslide<+->{         &= \begin{bmatrix} -11&-4\\-4&1 \end{bmatrix}.}
+%   \end{align*}
+% \end{frame}
 
-\begin{frame}{Example: \(f(x,y) = x^2-xyx-1 \in \RR \langle x,y \rangle \)}
-  \[
-  \onslide<+->{  X = \begin{bmatrix} 4 &2\\2&2 \end{bmatrix}  \qquad \text{ and } \qquad Y =\begin{bmatrix} 2&0\\0&0 \end{bmatrix}}
-  \]
-  \begin{align*}
-    \onslide<+->{  f(X\oplus X,Y\oplus Y) &=}
-    \onslide<+->{\begin{bmatrix} -11&-4&0&0\\-4&1&0&0 \\ 0&0&-11&-4 \\ 0&0&-4&1 \end{bmatrix} \\}
-    \onslide<+->{&= f(X,Y) \oplus f(X,Y).}
-  \end{align*}
-  \note{
-    \begin{itemize}
-      \item Mention that directional derivatives still work
-      \item nc polynomials also do the unitary thing --- that is worth mentioning
-    \end{itemize}
-  }
-\end{frame}
+% \begin{frame}{Example: \(f(x,y) = x^2-xyx-1 \in \RR \langle x,y \rangle \)}
+%   \[
+%   \onslide<+->{  X = \begin{bmatrix} 4 &2\\2&2 \end{bmatrix}  \qquad \text{ and } \qquad Y =\begin{bmatrix} 2&0\\0&0 \end{bmatrix}}
+%   \]
+%   \begin{align*}
+%     \onslide<+->{  f(X\oplus X,Y\oplus Y) &=}
+%     \onslide<+->{\begin{bmatrix} -11&-4&0&0\\-4&1&0&0 \\ 0&0&-11&-4 \\ 0&0&-4&1 \end{bmatrix} \\}
+%     \onslide<+->{&= f(X,Y) \oplus f(X,Y).}
+%   \end{align*}
+%   \note{
+%     \begin{itemize}
+%       \item Mention that directional derivatives still work
+%       \item nc polynomials also do the unitary thing --- that is worth mentioning
+%     \end{itemize}
+%   }
+% \end{frame}
 
 \subsection{Matrix Universe}
 
 \begin{frame}
   \begin{center}
-    \textcolor{goodgood}{\huge{Objects and Maps}} \\
+    \textcolor{goodgood}{\huge{Part I.5: Objects and Maps}} \\
     \textcolor{goodgood2}{\large{A Second Attempt}} \\
   \end{center}
   \note[item]{Second attempt takes polynomials as an example object instead of
@@ -398,10 +399,12 @@
   We say \(D \subset \MM^g\) is a \textbf{free set} if it is closed with respect
   to direct sums and unitary conjugation. That is,}
   \begin{enumerate}
-    \item<+-> \(X,Y \in D \) means \(X\oplus Y \in D\).
+    \item<+-> \(X,Y \in D \) means
+          \(X\oplus Y = (X_1\oplus Y_1, \dots, X_g\oplus Y_g)\in D\).
     \item<+-> For \(X,U\) like-size matrices with \(U\) unitary and \(X \in D\),
           then \(U X U^* = \left( UX_1U^*, \dots , UX_g U^*  \right) \in D \).
   \end{enumerate}
+  \onslide<+->{For \(D\) a free set, define \(D_n = D \cap (M_n(\CC))^g \)}.
   \end{Definition}
   \note{
     \begin{itemize}
@@ -410,6 +413,592 @@
     \end{itemize}
   }
 \end{frame}
+
+\begin{frame}
+  \onslide<+->{
+  \begin{Definition}[Fiber]
+    Given \(X \in \MM^{g} \), a tuple of \(n \times n\) matrices, the
+    \textbf{fiber} of \(X\) is the set
+    \[
+      \{X^{\oplus k} \mid  k \in \NN \}.
+    \]
+  \end{Definition}}
+  \onslide<+->{
+  \begin{Definition}[Envelope]
+    Given \(X \in \MM^{g} \), a tuple of \(n \times n\) matrices, the
+    \textbf{envelope} of \(X\) is the set
+    \[
+      \{ U^* X^{\oplus k} U \mid k \in \NN, U \text{ Unitary} \}.
+    \]
+  \end{Definition}}
+\end{frame}
+
+\begin{frame}
+  \onslide<+->{What does it mean for \(D \subset \MM^{g} \) to be open?}
+  \begin{itemize}
+    \item<+-> There is not a canonical topology
+    \item<+-> For us, we will say that \(D\) is open if each \(D_n\) is open.
+    \item<+-> Simply connected, connected, bounded, etc.\ are defined similarly.
+  \end{itemize}
+  \note{
+    \begin{itemize}
+      \item remark that these are the basic sets?
+    \end{itemize}
+  }
+\end{frame}
+
+\begin{frame}{What the natural functions on \(\MM^{g} \)?}
+  \onslide<+->{
+  \begin{Definition}
+  A function \(f: D\to \MM^{\hat{g}}\) is called \textbf{free} if
+  \begin{enumerate}
+    \item \(f(X\oplus Y)= f(X) \oplus f(Y)\)
+    \item \(f(U X U^*) = f(U)f(X)f(U^*)\) where \(X\) and \(U\) are like-size
+          and \(U\) is unitary.
+  \end{enumerate}
+  \end{Definition}}
+  \onslide<+->{
+  \begin{Definition}
+  A function \(f: D \to \CC \) is a \textbf{tracial function} if
+  \begin{enumerate}
+    \item \(f(X\oplus Y) = f(X)+f(Y)\)
+    \item \(f(U X U^*) = f(X)\) where \(X\) and \(U\) are like-size
+          and \(U\) is unitary.
+  \end{enumerate}
+  \end{Definition}}
+\end{frame}
+
+\subsection{Uniqueness of the Gradient}
+
+\begin{frame}
+  \begin{Definition}[Free Gradient]
+    Given a tracial free function \(f\), the free gradient, \(\nabla f\), is the
+    unique free function satisfying
+    \[
+      \tr \left( H \cdot \nabla f(X) \right) = Df(X)[H],
+    \]
+    where, if \(A= (A_1, \dots, A_g)\) and \(B=(B_1, \dots, B_g)\) are tuples of
+    like-size matrices then \(A \cdot B = \sum_{i=1}^g A_i B_i \).
+  \end{Definition}
+\end{frame}
+
+\begin{frame}{Why should \(\nabla f\) be unique?}
+  \onslide<+->{
+  \begin{theorem}[Trace Duality]
+  Let \(f,g\) be free functions \(\MM^{g} \to \MM^{\tilde{g}} \). If
+  \(\tr (H \cdot f) = \tr (H \cdot g)\) for all tuples \(H\), then \(f=g\).
+  \end{theorem}}
+  \note{
+    \begin{itemize}
+      \item {\color{blue} probably just give the idea of this proof---use the
+            fact that tr( * ) is like an inner product and choose cooridinate matrices}
+    \end{itemize}
+  }
+\end{frame}
+
+%\begin{frame}
+  %\emph{Proof.}
+  %%\onslide<+->{Let \(E_{ij}\) be a matrix of all \(0\)'s with a \(1\) in the
+    %\(i,j\) slot. }
+%
+  %\onslide<+->{Let \(H = (E_{ji}, 0, \dots, 0)\). }
+%
+  %There isn't time for this proof.
+%\end{frame}
+
+\section{Part II: Monodromy}
+
+\begin{frame}
+  \begin{center}
+    \textcolor{goodgood}{\huge{Part II: Analytic Continuation and Monodromy}} \\
+  \end{center}
+\end{frame}
+
+\subsection{Analytic Continuation}
+
+\begin{frame}{Analytic Continuation}
+  The pictures!
+\end{frame}
+
+\subsection{Monodromy}
+
+\begin{frame}{When are two analytic continuations equal?}
+  \onslide<+->{
+  \begin{theorem}[Monodromy I]%
+    Let \(\gamma_1, \gamma_2\) be two paths from \(\alpha\) to \(\beta\) and
+    \(\Gamma_s\) be a fixed-endpoint homotopy between them. If \(f\) can be
+    continued along \(\Gamma_s\) for all \(s \in [0,1]\), then the continuations
+    along \(\gamma_1\) and \(\gamma_2\) agree at \(\beta\).
+  \end{theorem}}
+  \onslide<+->{
+  \begin{theorem}[Monodromy II]%
+    Let \(U \subset \CC \) be a disk in \(\CC \) centered at \(z_0\) and
+    \(f: U \to \CC \) an analytic function. If \(W\) is
+    an open, simply connected set containing \(U\) and \(f\) continues along any
+    path \(\gamma \subset W\) starting at \(z_0\), then \(f\) has a unique
+    extension to all of \(W\).
+  \end{theorem}}
+\end{frame}
+
+\subsection{Free Monodromy}
+
+\begin{frame}
+  Go through the needed constructions -- direct sums of paths, analytic
+  continuation of free functions, etc
+\end{frame}
+
+\begin{frame}
+  \onslide<+->{\textbf{Q:} What about the nc case? Can we say anything similar?}
+  \vspace{\stretch{1}}
+  \onslide<+->{
+  \begin{theorem}[Free Universal Monodromy, Pascoe 2020]%
+    Let \(f\) be an analytic free function defined on some ball \(B \subset D\),
+    for \(D\) an open, connected free set.
+    Then \(f\) analytically continues along every path in \(D\) if and only if
+    \(f\) has a unique analytic continuation to all of \(D\).
+  \end{theorem}}
+  \vspace{\stretch{1}}
+\end{frame}
+
+\begin{frame}{Consequences of Free Monodromy}
+  \onslide<+->{}
+          \vspace{\stretch{2}}
+  \begin{enumerate}
+    \item<+-> Free functions can't detect holes!
+          \vspace{\stretch{1}}
+    \item<+-> If we want a fundamental group governed by analytic continuation,
+      we need to look elsewhere.
+          \vspace{\stretch{2}}
+  \end{enumerate}
+\end{frame}
+
+\section{Part III: Homotopy}
+
+\begin{frame}
+  \begin{center}
+    \textcolor{goodgood}{\huge{Part III: Homotopy}} \\
+  \end{center}
+\end{frame}
+
+\subsection{A First Fundamental Group}
+
+\begin{frame}
+  \onslide<+->{
+  \begin{definition}
+    A continuous function \(\gamma:[0,1]\to D\) \textbf{essentially takes} \(X\) to \(Y\) if
+    \begin{align*}
+      \gamma(0) = X^{\oplus \ell},& \;\text{ for some \(\ell \in \NN \)}\\
+      \gamma(1) = Y^{\oplus k},& \;\text{ for some \(k \in \NN \)}.
+    \end{align*}
+  \end{definition}}
+  \onslide<+->{
+  \begin{figure}[h!]
+  \centering
+    \def\svgwidth{0.7\columnwidth}
+    \import{./img/}{essentialpath_talk.pdf_tex}
+  \end{figure}}
+\end{frame}
+
+\begin{frame}
+  \onslide<+->{
+  Given \(\gamma\) essentially taking \(X\) to \(Y\) and \(\beta\) taking \(Z\)
+  to \(W\), define
+  \[
+    \gamma\oplus\beta(t) := \begin{bmatrix} \gamma(t)&0\\0&\beta(t) \end{bmatrix}.
+  \]}
+  \onslide<+->{
+  \begin{definition}%
+    Let \(\gamma\) and \(\beta\) be paths taking \(X\) to \(Y\) and \(Y\) to \(Z\)
+    respectively. We define their product to be the path essentially taking \(X\)
+    to \(Z\) given by
+    \[
+      \beta\gamma(t) :=
+      \begin{cases}
+        \gamma^{\oplus k}(2t) & t \in [0,0.5) \\
+        \beta^{\oplus\ell} (2t-1)& t \in [0.5,1]
+      \end{cases}
+    \]
+    where \(k\) and \(\ell\) are positive integers chosen to make
+    \(\gamma^{\oplus k}\) and \(\beta^{\oplus \ell}\) like size matrices for each
+      \(t \in [0,1]\).
+  \end{definition}}
+\end{frame}
+
+\begin{frame}{The Full Fundamental Group}
+  For \(D \subset \MM^{g}\) a connected free set, the
+  \textbf{full fundamenal group}, \(\pi_1(D)\), is the group of paths essentially taking \(X\)
+  to \(X\) up to homotopy equivalence and the relation
+  \(\gamma = \gamma^{\oplus k}\).
+  \note{
+    \begin{itemize}
+      \item remark about how this misses the link to analytic continuation of
+            functions, but free functions won't do.
+    \end{itemize}
+  }
+\end{frame}
+
+\subsection{A Second Fundamental Group}
+
+\begin{frame}
+  \onslide<+->{
+  Let \(D \subset \MM^{g} \) be a connected, open, free set. If there exists a
+  nonempty, simply-connected, open, free \(B \subset D\), then we say that \(D\)
+  is \textbf{anchored}.}
+
+  \vspace{\stretch{1}}
+  \onslide<+->{
+  For \(D\) an anchored set, and \(B \subset D\) its anchor, we call a tracial
+  function \(f:B\to \CC \) a \textbf{global germ} if it analytically continues
+  along every path in \(D\) which starts in \(B\).}
+
+  \vspace{\stretch{1}}
+  \onslide<+->{
+  For our purposes, we view \(\gamma\) as coupled with its endpoint. Thus, if
+  \(\gamma\) essentially takes \(X\) to \(Y\), then
+  \[
+    f(\gamma) = \frac{1}{k} f(Y^{\oplus k}).
+  \]}
+\end{frame}
+
+\begin{frame}{Trace Equivalence}
+  \onslide<+->{
+  \begin{definition}
+    Let \(B \subset D\) be an anchor and fix \(X \in B\). If \(\gamma\) and
+    \(\beta\) both essentially take \(X\) to \(Y\), we say they are
+    \textbf{trace equivalent} if, for every global germ \(f\) and every path
+    \(\delta\) taking \(Y\) to \(Z\), \[f(\delta\gamma)=f(\delta\beta).\]}
+
+    \onslide<+->{
+    That is, trace equivalent paths are those which cannot be told apart via
+    analytic continuation of global germ.
+  \end{definition}}
+\end{frame}
+
+\begin{frame}{The Tracial Fundamental Group}
+  \onslide<+->{}
+  \onslide<+->{
+  Let \(D \subset \MM^{g}\) be an anchored space with \(B\) is anchor.
+  For \(X \in B\) define
+  \(\pi_1^{\textrm{tr}}(D)\) to be the group of trace equivalent paths
+  essentially taking \(X\) to \(X\).}
+  \vspace{\stretch{1}}
+  \onslide<+->{Computationally, we are still stuck.}
+  \note{
+    \begin{itemize}
+      \item  remark that the choice of base point is irrelevant. and that it is
+            a quotient of the full fundamental group
+    \end{itemize}
+  }
+\end{frame}
+
+\section{Part IV: Cohomology}%
+
+\begin{frame}
+  \begin{center}
+    \textcolor{goodgood}{\huge{Part IV: Cohomology}} \\
+  \end{center}
+\end{frame}
+
+\subsection{A Short Review of Cohomology}
+
+\begin{frame}
+  \onslide<+->{}
+  \onslide<+->{Traditional homology considers a complex of the form
+  \[
+    \cdots
+    \xleftarrow{\partial_{n-1}}
+    C_{n-1}
+    \xleftarrow{\partial_{n}}
+    C_{n}
+    \xleftarrow{\partial_{n+1}}
+    C_{n+1}
+    \xleftarrow{\partial_{n+2}}
+    \cdots
+  \]}
+  \onslide<+->{
+  While cohomology considers a dual complex
+  \[
+    \cdots
+    \xrightarrow{d_{n-2}}
+    C^{n-1}
+    \xrightarrow{d_{n-1}}
+    C^{n}
+    \xrightarrow{d_{n}}
+    C^{n+1}
+    \xrightarrow{d_{n+1}}
+    \cdots
+  \]}
+
+  \vspace{\stretch{1}}
+
+  \onslide<+->{In general, \(C^k\) is a group of functions into some abelian
+    group.}
+
+  \vspace{\stretch{1}}
+
+  \onslide<+->{The \(k\)-th cohomology group is
+  \[
+    H^k= \frac{\textrm{ker}\, d_i}{\textrm{Im}\, d_{i-1}}
+  \]}
+  \vspace{\stretch{1}}
+\end{frame}
+
+\subsection{Tracial Cohomology}
+
+\begin{frame}
+  \onslide<+->{
+  Let \(D\) be an anchored set. Denote the set of
+  (globally defined)
+  tracial functions on \(D\) by \(\mathcal{T}(D)\) and the set of free functions by
+  \(\mathcal{F}(D)\).}
+  \onslide<+->{
+  For \( f \in \mathcal{F}(D)\), \(\nabla f \in \mathcal{T}(D)\)---so we have the
+  beginnings of a chain complex!
+  \[
+    0 \rightarrow \mathcal{T}(D) \xrightarrow{\nabla} \mathcal{F}(D) \rightarrow \cdots.
+  \]}
+\end{frame}
+
+\begin{frame}
+  \onslide<+->{
+  \[
+    0 \rightarrow \mathcal{T}(D) \xrightarrow{\nabla} \mathcal{F}(D) \rightarrow \cdots.
+  \]}
+
+  \onslide<+->{
+  A free function \(g: D \to \MM^{g} \) is \textbf{exact} if there exists a
+  tracial function \(f: D \to \CC \)
+  such that \(\nabla f = g\).}
+
+  \vspace{\stretch{1}}
+  \onslide<+->{
+  A free function \(g: D \to \MM^{g} \) is \textbf{closed} if
+  \[
+    \tr \left( K \cdot Dg(X)[H] \right) = \tr \left( H \cdot Dg(X)[K] \right)
+  \]
+  for all directions \(H,K\).
+  }
+
+  \vspace{\stretch{1}}
+  \onslide<+->{
+  \begin{definition}
+    The \textbf{first tracial cohomology group} is the vector space of closed free
+    functions moduluo the exact free function. We write \(H^1_{\textrm{tr}}(D) \).
+  \end{definition}
+  }
+  \note{
+    \begin{itemize}
+      \item remark about global germs.
+    \end{itemize}
+  }
+\end{frame}
+
+\subsection{Injecting into \(\CC \)}
+
+\begin{frame}
+  \vspace{\stretch{1}}
+  \onslide<+->{
+  \textbf{Goal:} Show that \(\pi_1^{\tr}(D)\) injects into \(\CC \).}
+
+  \vspace{\stretch{1}}
+  \onslide<+->{
+  \begin{lemma}%
+    Let \(D\) be an anchored nc domain. For any \(\alpha,\beta \in \pi_1^{\tr}(D)\) and
+    global germ \(f\),
+    \[
+      f(\alpha\beta) - f(\alpha) = f(\beta) - f(\tau)
+    \]
+    where \(\tau\) is the constant path.
+  \end{lemma}}
+  \vspace{\stretch{1}}
+\end{frame}
+
+\begin{frame}
+  \onslide<+->{
+  For \(D\) an anchored set, \(X \in B_1\) the base point, \(f\) a global germ,
+  and \(\gamma \in \pi_1^{\tr}(D)\), define
+  \[
+    c^f(\gamma) = f(\gamma)-f(\tau)
+  \]}
+
+  \onslide<+->{\textbf{Remark:} \(c^f\) only depends on the class of
+    \(\nabla f\) in \(H^1_{\tr}(D)\)}
+  \begin{align*}
+    \onslide<+->{c^f(\gamma_1\gamma_2) &= f(\gamma_1\gamma_2) - f(\tau) \\}
+               \onslide<+->{&= f(\gamma_1\gamma_2) - f(\gamma_1) + f(\gamma_1) -f(\tau) \\}
+               \onslide<+->{&= f(\gamma_2) - f(\tau) + f(\gamma_1) -f(\tau) \\}
+               \onslide<+->{&= c^f(\gamma_2) + c^f(\gamma_1).}
+  \end{align*}
+\end{frame}
+
+\begin{frame}
+  \vspace{\stretch{1}}
+
+  \onslide<+->{
+  \begin{lemma}
+    The map
+    \begin{align*}
+	    \Phi: \prod_{\substack{\nabla f \in H^1_{\tr}(D) \\ f \textrm{ a global germ}}} \pi_1^{\tr}(D)
+      &\longrightarrow \prod_{\substack{\nabla f \in H^1_{\tr}(D) \\ f \textrm{ a global germ}}}\CC  \\
+      \prod \gamma &\longmapsto \prod c^f(\gamma)
+    \end{align*}
+    is an injective homomophism.
+  \end{lemma}}
+
+  \vspace{\stretch{1}}
+  \onslide<+->{So \(\pi_1^{\tr}(D)\) is commutative and torsion free!}
+
+  \vspace{\stretch{1}}
+\end{frame}
+
+\subsection{Characterizing \(\pi_1^{\tr}(D)\)}
+
+\begin{frame}{\(\pi_1^{\tr}(D)\) is divisible}
+  \onslide<+->{}
+  \onslide<+->{
+  For any \(\gamma \in \pi_1^{\tr}(D)\),
+  \[
+    \gamma\oplus\tau = \tau\oplus\gamma.
+  \]}
+
+  \vspace{\stretch{1}}
+  \onslide<+->{
+  Why?
+  \[
+    H(t,\theta)  = \begin{bmatrix} \cos \theta & \sin \theta \\ -\sin \theta& \cos \theta \end{bmatrix}
+    \left( \gamma \oplus \gamma_X \right)
+   \begin{bmatrix} \cos \theta & \sin \theta \\ -\sin \theta& \cos \theta \end{bmatrix}^*
+  \]
+  is a homotopy between the paths.}
+  \vspace{\stretch{1}}
+\end{frame}
+
+\begin{frame}
+\begin{align*}
+  \small
+\onslide<+->{  \gamma &= \underbrace{\begin{bsmallmatrix} \gamma &&&\\ &\gamma&\\&&\ddots\\&&&\gamma\end{bsmallmatrix}}_{k+1\textrm{-times}}\\}
+    \onslide<+->{&=\begin{bsmallmatrix} \gamma &&&\\ &\tau&\\&&\ddots\\&&&\tau\end{bsmallmatrix}
+      \begin{bsmallmatrix} \tau &&&\\ &\gamma&\\&&\ddots\\&&&\tau\end{bsmallmatrix}\cdots
+      \begin{bsmallmatrix} \tau &&&\\ &\tau&\\&&\ddots\\&&&\gamma\end{bsmallmatrix}\\}
+    \onslide<+->{&=\begin{bsmallmatrix} \gamma &&&\\ &\tau&\\&&\ddots\\&&&\gamma_X\end{bsmallmatrix}
+      \begin{bsmallmatrix} \gamma &&&\\ &\tau&\\&&\ddots\\&&&\tau\end{bsmallmatrix}\cdots
+      \begin{bsmallmatrix} \gamma &&&\\ &\tau&\\&&\ddots\\&&&\tau\end{bsmallmatrix}\\}
+    \onslide<+->{&=\begin{bsmallmatrix} \gamma &&&\\ &\tau&\\&&\ddots\\&&&\tau\end{bsmallmatrix}^k}
+\end{align*}
+\end{frame}
+
+\begin{frame}
+  \begin{theorem}
+    For \(D\) an anchored free set, \(\pi_1^{\tr}(D)\) is a torsion free,
+    abelian, divisible group. That is,
+    \[
+      \pi_1^{\tr}(D) \simeq \bigoplus_{i \in I} \QQ = \QQ ^I
+    \]
+    for some set \(I\).
+  \end{theorem}
+\end{frame}
+
+\section{Computing \(\pi_1^{\tr}(D)\)}
+
+\begin{frame}
+  \begin{center}
+    \textcolor{goodgood}{\huge{Part V: Computing \(\pi_1^{\tr}(D)\)}} \\
+  \end{center}
+  \note{
+    \begin{itemize}
+      \item hard bc no VC or MV
+    \end{itemize}
+  }
+\end{frame}
+
+\begin{frame}
+  \onslide<+->{
+  Let \(D\) be an anchored, free, path connected set such that each \(D_n\) is
+  nonempty and choose an anchor \(B \subset D\) such that each \(B_n\) is also
+  nonempty. \\}
+
+
+  \vspace{\stretch{1}}
+  \onslide<+->{Let \(\pi_1^{\tr}(D)_n\) is the subgroup of paths in \(D_n\).
+    Note that \(\pi_1^{\tr}(D)_1\) is a quotient of \(\pi_1(D_n)\).\\}
+
+
+  \vspace{\stretch{1}}
+  \onslide<+->{There is a natural inclusion
+  \begin{align*}
+      \pi_1^{\tr}(D)_n&\lhook\joinrel\longrightarrow  \pi_1^{\tr}(D)_{kn}\\
+                  \gamma&\longmapsto \gamma^{\oplus k}
+  \end{align*}
+  for all \(k\).}
+  \vspace{\stretch{1}}
+\end{frame}
+
+\begin{frame}
+  \vspace{\stretch{2}}
+  \onslide<+->{
+  Now consider the chain of inclusions:
+  \[
+    \pi_1^{\tr}(D)_1 \hookrightarrow
+    \pi_1^{\tr}(D)_2 \hookrightarrow
+    \pi_1^{\tr}(D)_6 \hookrightarrow \cdots \hookrightarrow
+    \pi_1^{\tr}(D)_{n!} \hookrightarrow \cdots
+  \]}
+
+  \vspace{\stretch{1}}
+  \onslide<+->{The limit of this sequence isomorphic to \(\pi_1^{\tr}(D)\)!}
+
+  \vspace{\stretch{2}}
+\end{frame}
+
+\subsection{An Example}
+
+\begin{frame}{Example: \(\pi_1^{\tr}(GL)\)}
+  \vspace{\stretch{1}}
+  \onslide<+->{Let \(GL = \bigcup_{n \in \NN }GL_n(\CC)\).}
+
+  \vspace{\stretch{1}}
+  \onslide<+->{ \(GL_1(\CC) = \CC \setminus \{0\} \), so
+    \(\pi_1^{\tr}(D)_1 \simeq \ZZ \)}
+
+  \vspace{\stretch{1}}
+  \onslide<+->{Inclusion into \(\pi_1^{\tr}(D)_2\) picks up square roots. If
+  \(\gamma \in \pi_1^{\tr}(GL)_1\), then
+  \[
+    \begin{bmatrix} \gamma&\\&\tau \end{bmatrix} \in \pi_1^{\tr}(GL)_2.
+  \]
+  }
+
+  \onslide<+->{Thus, \(\pi_1^{\tr}(GL)_2 \simeq \ZZ \left[\frac{1}{2}\right].\)}
+  \vspace{\stretch{1}}
+\end{frame}
+
+\begin{frame}
+  \vspace{\stretch{1}}
+  \onslide<+->{Similarly, inclusion into \(\pi_1^{\tr}(D)_3\) picks up cube
+    roots:
+  \[
+    \pi_1^{\tr}(GL)_6 \simeq \ZZ \left[\frac{1}{2}, \frac{1}{3}\right]
+  \]
+  }
+
+  \vspace{\stretch{1}}
+  \onslide<+->{In the \(n\)-th inclusion, we pick up \(n\)-th roots and so we adjoin \(\frac{1}{n}\) to the
+    preceding group. Therefore,
+  \[
+    \pi_1^{\tr}(GL) \simeq \ZZ \left[\frac{1}{2},\frac{1}{3},\frac{1}{4}, \dots\right]}
+    \onslide<+->{\simeq \QQ.}
+  \]
+
+
+
+
+
+  \vspace{\stretch{1}}
+\end{frame}
+
+
+
+
 
 \end{document}
 %%% Local Variables:

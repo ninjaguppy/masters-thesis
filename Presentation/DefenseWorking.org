@@ -8,6 +8,8 @@ topology
 types of functions
     explicitly talk about how we can view tracial functions as a functional calculus?
 
+define the product when defining gradient
+
 * Part II: Free Monodromy
 Cover analytic continuation hard
  - show the example of continuing log. From 1 ~ -1 both ways and then what
@@ -50,3 +52,23 @@ how much to cover topology?
  - do I mention the other topologies? I don't think so
 
  Probably cover trace duality
+
+
+* Abstract
+Free analysis studies functions on sets of matrices that are closed under direct
+sums and unitary conjugation. Despite the fact that these functions are
+naturally noncommutative, many classical results from the study of complex
+variables and real algebraic geometry have direct analogues in this new setting.
+In this thesis, we explore how the analytic continuation of different classes of
+functions can be used to detect the topology of free sets. In doing so, we will
+develop analogues of the fundamental group and the first cohomology group.
+
+
+** Abstract from Thesis
+A newcomer the greater story of mathematics, free analysis seeks to understand
+functions that accept matrices of arbitrary sizes as inputs. Despite the fact
+that these functions are naturally noncommutative, many classical results from
+the study of complex variables and real algebraic geometry have direct analogues
+in this new setting. Unfortunately, the topological underpinnings are still in
+flux. In this thesis we cover recent efforts to address these issues---including
+the first developments of a theory of algebraic topology of matrix domains.
