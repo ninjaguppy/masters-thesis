@@ -585,6 +585,8 @@
             0's and a single 1.
       \item You prove this identically---but with coordinate matrices instead of
             coordinate vectors.
+      \item Before we look at the algebraic topology, we need to take a brief
+            trip to complex variable land
     \end{itemize}
   }
 \end{frame}
@@ -605,6 +607,12 @@
   \begin{center}
     \textcolor{goodgood}{\huge{Part II: Analytic Continuation and Monodromy}} \\
   \end{center}
+  \note{
+    \begin{itemize}
+      \item analytic continuation and monodromy is the link between complex
+            analysis and topology.
+    \end{itemize}
+  }
 \end{frame}
 
 \subsection{Analytic Continuation}
@@ -615,6 +623,15 @@
     \def\svgwidth{0.7\columnwidth}
     \import{./img/mono/one/}{monodromycurve_one_talk.pdf_tex}
   \end{figure}
+  \note{
+    \begin{itemize}
+      \item Lets say we have some analytic function defined on \(\Omega\) and a
+            curve \(\gamma\) taking \(\alpha\) to \(\beta\).
+      \item We can expand a power series about \(\alpha\) with some radius of
+            convergence. But since \(f\) is analytic, we can expand about some
+            any point on \(\gamma\) that is still in the red disk
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}{Analytic Continuation}
@@ -623,6 +640,13 @@
     \def\svgwidth{0.7\columnwidth}
     \import{./img/mono/two/}{monodromycurve_two_talk.pdf_tex}
   \end{figure}
+  \note{
+    \begin{itemize}
+      \item But now we have a new radius of convergence! Importantly this will
+            agree with the original function on that initial overlap
+      \item We can keep doing this!
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}{Analytic Continuation}
@@ -631,6 +655,14 @@
     \def\svgwidth{0.7\columnwidth}
     \import{./img/mono/three/}{monodromycurve_three_talk.pdf_tex}
   \end{figure}
+  \note{
+    \begin{itemize}
+      \item Now we have a third power series representation for \(f\)---once
+            again, it will agree with our last expasions where those two disks overlap.
+      \item As long as \(\gamma\) stays away from any potential poles, we can
+            keep doing this all the way to \(\beta\)
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}{Analytic Continuation}
@@ -639,6 +671,14 @@
     \def\svgwidth{0.7\columnwidth}
     \import{./img/mono/Final/}{monodromycurve_final_talk.pdf_tex}
   \end{figure}
+  \note{
+    \begin{itemize}
+      \item After repeatedly expanding, we finally have an analytic function at
+            \(\beta\)!
+      \item As we said, we need \(\gamma\) to avoid poles, but what can we say
+            about the uniqueness of the analytic function at \(\beta\)?
+    \end{itemize}
+  }
 \end{frame}
 
 
@@ -648,6 +688,14 @@
     \def\svgwidth{0.7\columnwidth}
     \import{./img/log/one/}{monodromylog_one_talk.pdf_tex}
   \end{figure}
+  \note{
+    \begin{itemize}
+      \item Now we have another example: consider the principle branch of the
+            complex logarithm.
+      \item if we analytically continue along \(\gamma_1\), then we can
+            evaluate \(\Log (-1)\).
+    \end{itemize}
+  }
 \end{frame}
 
 
@@ -657,6 +705,13 @@
     \def\svgwidth{0.7\columnwidth}
     \import{./img/log/two/}{monodromylog_two_talk.pdf_tex}
   \end{figure}
+  \note{
+    \begin{itemize}
+      \item when we do this, we see that the \(\Log(-1)=-\pi i\).
+      \item But what about the other way? What if we continued along a path that
+            went through the UHP?
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}{Example: Analytically continuing \(\Log z\)}
@@ -665,6 +720,13 @@
     \def\svgwidth{0.7\columnwidth}
     \import{./img/log/three/}{monodromylog_three_talk.pdf_tex}
   \end{figure}
+  \note{
+    \begin{itemize}
+      \item when we do this, we get \(\Log (-1)=\pi i\)! They disagree!
+      \item what's even stranger is what happens when we keep going on a circle
+            around the origin.
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}{Example: Analytically continuing \(\Log z\)}
@@ -673,6 +735,13 @@
     \def\svgwidth{0.7\columnwidth}
     \import{./img/log/four/}{monodromylog_four_talk.pdf_tex}
   \end{figure}
+  \note{
+    \begin{itemize}
+      \item amazingly, when you continue all the way around and compute
+            \(f(1)\), you get \(2\pi i\)---not 1.
+            \item What is going on here? when are two analytic continuations equal?
+    \end{itemize}
+  }
 \end{frame}
 
 
@@ -694,6 +763,18 @@
     \def\svgwidth{0.5\columnwidth}
     \import{./img/homo/}{homotopycurve_talk.pdf_tex}
   \end{figure}}
+  \note{
+    \begin{itemize}
+      \item It is in answering this question that we see the deep link between
+            analytic continuation and topology.
+      \item Monodromy 1: the paths are homotopic and the function analytically
+            continues along all of the intermediate paths, then you are golden!
+      \item Note that this tells us that analytic contiuation searches for holes
+      \item a picture for those who like that!
+      \item when seek to lift this idea to a nc case, it will serve much better
+            to consider an alternate characterization
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}{When are two analytic continuations equal?}
@@ -705,6 +786,16 @@
     path \(\gamma \subset W\) starting at \(z_0\), then \(f\) has a unique
     extension to all of \(W\).
   \end{theorem}}
+  \note{
+    \begin{itemize}
+      \item We require simply connected in the big set! Thus, holes get in the
+            way of a unique extension.
+      \item Obviously we don't have the time to go into explicit detail about
+            why, but it turn out that you can realize the fundamental group of
+            some open, connected, subset of \(\CC \) simply by looking at the
+            analytic continuation of functions!
+    \end{itemize}
+  }
 \end{frame}
 
 \subsection{Free Monodromy}
@@ -726,7 +817,15 @@
   \end{theorem}}
   \note{
     \begin{itemize}
-      \item be sure to comment on the theorem---it is powerful!
+      \item Now that we have this (very power) theorem from classical complex
+            analysis, if we want an nc analogue---what is an ``analytic'' free function.
+      \item As with our other characterizations, a free function is analytic if
+            it is analytic as a function on each \(D_n\).
+      \item Even more surprisingly, we have a *wild* characterization due to
+            Agler and McCarthy
+      \item This is incredibly powerful---I will let you draw your own
+            conclusion as to what is says about the underlying point set topology.
+      \item With our question answered, we  can present the free analogue.
     \end{itemize}
   }
 \end{frame}
@@ -736,9 +835,17 @@
   \begin{theorem}[Free Universal Monodromy, Pascoe 2020]%
     Let \(f\) be an analytic free function defined on some ball \(B \subset D\),
     for \(D\) an open, connected free set.
-    Then \(f\) analytically continues along every path in \(D\) if and only if
+    If \(f\) analytically continues along every path in \(D\), then
     \(f\) has a unique analytic continuation to all of \(D\).
   \end{theorem}}
+  \note{
+    \begin{itemize}
+      \item all you need to have a unique extension is to continue along every
+            path!
+      \item The larger set doesn't have to be simply connected! This is huge!
+      \item While this theorem is amazing, it is the bearer of bad news
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}{Consequences of Free Monodromy}
@@ -751,6 +858,14 @@
       we need to look elsewhere.
           \vspace{\stretch{2}}
   \end{enumerate}
+  \note{
+    \begin{itemize}
+      \item There are two major (and related) consequences to free monodromy
+      \item First, free functions cannot detect holes via analytic continuation
+      \item Therefore, if we want a fundamental group that is governed by
+            analytic continuation, we need to look elsewhere
+    \end{itemize}
+  }
 \end{frame}
 
 \section{Part III: Homotopy}
@@ -759,7 +874,16 @@
   \begin{center}
     \textcolor{goodgood}{\huge{Part III: Homotopy}} \\
   \end{center}
+  \note{
+    \begin{itemize}
+      \item In part III we look at two types of fundamental group.
+      \item Since free monodromy says that free functions won't give us a
+            \(\pi_1\) we start by looking at a fundamental group that is
+            divorced from analytic continuation
+    \end{itemize}
+  }
 \end{frame}
+
 
 \subsection{A First Fundamental Group}
 
@@ -778,6 +902,16 @@
     \def\svgwidth{0.7\columnwidth}
     \import{./img/}{essentialpath_talk.pdf_tex}
   \end{figure}}
+  \note{
+    \begin{itemize}
+      \item recall that the fiber of a point in \(\MM^{g} \) is all direct sum
+            copies of that point---and futher that we consider everything in the
+            fiber somehow ``the same''
+      \item An essential path it a traditon path between the fibers!
+      \item In order for us to create a group out of these paths, we a
+            concatination product.
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}
@@ -785,7 +919,7 @@
   Given \(\gamma\) essentially taking \(X\) to \(Y\) and \(\beta\) taking \(Z\)
   to \(W\), define
   \[
-    \gamma\oplus\beta(t) := \begin{bmatrix} \gamma(t)&0\\0&\beta(t) \end{bmatrix}.
+    \gamma\oplus\beta(t) = \begin{bmatrix} \gamma(t)&0\\0&\beta(t) \end{bmatrix}.
   \]}
   \onslide<+->{
   \begin{definition}%
@@ -793,7 +927,7 @@
     respectively. We define their product to be the path essentially taking \(X\)
     to \(Z\) given by
     \[
-      \beta\gamma(t) :=
+      \beta\gamma(t) =
       \begin{cases}
         \gamma^{\oplus k}(2t) & t \in [0,0.5) \\
         \beta^{\oplus\ell} (2t-1)& t \in [0.5,1]
@@ -803,6 +937,15 @@
     \(\gamma^{\oplus k}\) and \(\beta^{\oplus \ell}\) like size matrices for each
       \(t \in [0,1]\).
   \end{definition}}
+  \note{
+    \begin{itemize}
+      \item First, we can take the direct sum of paths the exact way that you
+            would expect.
+      \item To concatenate the paths, the definition is almost identical---first
+            you do one path twice as fast, then you do the other
+      \item Except you direct sum ``enough'' times to make  it continuous
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}{The Full Fundamental Group}
@@ -812,8 +955,12 @@
   \(\gamma = \gamma^{\oplus k}\).
   \note{
     \begin{itemize}
-      \item remark about how this misses the link to analytic continuation of
-            functions, but free functions won't do.
+      \item That was all we needed to create the ``full'' fundamental group.
+      \item group of paths up to homotopy equivalence and direct sum of paths
+      \item You can show that this is abelian and divisible---but computationally
+            we are totally stuck---we don't have any tools to compute \(\pi\; full\)
+      \item Instead, we can look at analytic continuation of \emph{tracial}
+            functions and see if that can get us anything.
     \end{itemize}
   }
 \end{frame}
@@ -839,6 +986,16 @@
   \[
     f(\gamma) = \frac{1}{k} f(Y^{\oplus k}).
   \]}
+  \note{
+    \begin{itemize}
+      \item Since we are going to look at analytic continuation, we need a place
+            to start the functions---this is the anchor
+      \item the functions in question are the ``global germs'', which are
+            defined on the anchor but analytically along any path in the free set.
+      \item to make sense of \(f(\gamma)\)---analytically continue along
+            \(\gamma\), compute \(f\) of the endpoint, then normalize
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}{Trace Equivalence}
@@ -853,10 +1010,19 @@
     That is, trace equivalent paths are those which cannot be told apart via
     analytic continuation of global germ.
   \end{definition}}
+  \note{
+    \begin{itemize}
+      \item For two paths essentially taking \(X\) to \(Y\), we say they are
+            tr eq if for all global germs \(f(\delta\gamma)=f(\delta\beta)\).
+      \item Both of these are computing \(f(Z)\), but with different analytic
+            contuations.
+      \item Note that (from classical monodromy) this captures endpoint homotopy
+            and the direct sum identity.
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}{The Tracial Fundamental Group}
-  \onslide<+->{}
   \onslide<+->{
   Let \(D \subset \MM^{g}\) be an anchored space with \(B\) is anchor.
   For \(X \in B\) define
@@ -866,8 +1032,12 @@
   \onslide<+->{Computationally, we are still stuck.}
   \note{
     \begin{itemize}
-      \item  remark that the choice of base point is irrelevant. and that it is
-            a quotient of the full fundamental group
+      \item This is our second fundamental group---entirely goverened by the
+            analytic continuation of global germs.
+      \item Since tr eq captures fixed end pt homotopy and the direct sum
+            idenity, \(\pi_1^{\tr}\) is a quotient of \(\pi_1\)
+      \item There is still a big downside to this definition---it gets us no
+            closer to computation.
     \end{itemize}
   }
 \end{frame}
@@ -878,6 +1048,16 @@
   \begin{center}
     \textcolor{goodgood}{\huge{Part IV: Cohomology}} \\
   \end{center}
+  \note{
+    \begin{itemize}
+      \item Cohomology is going to help us a lot when it comes to
+            characterizing---and eventually computing \(\pi_1^{\tr}\).
+      \item Just a note, this is by far the most technical section---so bear
+            with me.
+      \item before we jump into the particular cohomological theory we are going
+            to be using, lets speedrun a review of cohomology.
+    \end{itemize}
+  }
 \end{frame}
 
 \subsection{A Short Review of Cohomology}
@@ -922,6 +1102,20 @@
     H^k= \frac{\textrm{ker}\, d_i}{\textrm{Im}\, d_{i-1}}
   \]}
   \vspace{\stretch{1}}
+  \note{
+    \begin{itemize}
+      \item In traditional homology, the boundarmy homomorphisms
+            \emph{decrease the index}.
+      \item For cohomology, the boundary morphism go the other way---the index
+            \emph{increases}
+      \item Generally, we consider the chain groups to be groups of functions
+            into some abelian group, but that isn't always the case
+      \item once you have this co-chain complex, you compute the cohomology
+            groups exactly the same way you did before.
+      \item the \textbf{kernel} of one map mod the \textbf{image} of the
+            previous one.
+    \end{itemize}
+  }
 \end{frame}
 
 \subsection{Tracial Cohomology}
@@ -934,10 +1128,20 @@
   \(\mathcal{F}(D)\).}
   \onslide<+->{
   For \( f \in \mathcal{T}(D)\), \(\nabla f \in \mathcal{F}(D)\)---so we have the
-  beginnings of a chain complex!
+  beginnings of a chain complex!}
+  \onslide<+->{
   \[
     0 \rightarrow \mathcal{T}(D) \xrightarrow{\nabla} \mathcal{F}(D) \rightarrow \cdots.
   \]}
+  \note{
+    \begin{itemize}
+      \item Lets build a complex! We start with two sets of functions.
+      \item Since the gradient of a \textbf{tracial} function is a free one, we
+            have the first map!
+      \item Now this isn't particularly impressive, it is (almost) enough if we
+            are careful.
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}
@@ -969,12 +1173,22 @@
   }
   \note{
     \begin{itemize}
-      \item test text
+      \item Since we are looking at \(\pi_1\), we need to create
+            \(H^1\)---which is the homology of *this* part.
+      \item The image of \(\nabla \) is very easy---a free function is exact if
+            it there is some \emph{global} tracial function such that \(\nabla f=g\)
+      \item The kernel is a bit harder---we say closed if it follows this
+            condition.
+      \item if you view tr(*) as the inner product and \(Dg(X)[H]\) as something
+            like the jacobian evaluated on a direction, then this is just the
+            classical condition of a closed!
+      \item Now we define the first \emph{tracial} fundamental group as the
+            closed functions mod the exact ones
     \end{itemize}
   }
 \end{frame}
 
-\begin{frame}{What out global germs?}
+\begin{frame}{What about global germs?}
   \begin{itemize}
     \item<+-> For \(f: B \to \CC \) a global germ, since \(f\) analytically
           continues along every path, so does \(\nabla f\).
@@ -983,6 +1197,17 @@
           is not necessarily exact since \(\mathcal{T}(D)\) is the set of
           tracial functions defined on \emph{all of} \(D\).
   \end{itemize}
+  \note{
+    \begin{itemize}
+      \item Now I want to pause for a second and think about the global germs
+            that govern \(\pi_1^{\tr}\)---where do they fit in with everything?
+      \item Since \(f\) continues along every path, so does \(\nabla f\).
+      \item By free monodromy then, \(\nabla f\) has a unique extension to the
+            whole space---it is a global free function.
+      \item But! \(\nabla f\) is *not* necessarily exact bc \(f\) doesn't
+            necessarily have a global extension.
+    \end{itemize}
+  }
 \end{frame}
 
 \subsection{Injecting into \(\CC \)}
@@ -994,8 +1219,8 @@
 
   \vspace{\stretch{1}}
   \onslide<+->{
-  \begin{lemma}%
-    Let \(D\) be an anchored nc domain. For any \(\alpha,\beta \in \pi_1^{\tr}(D)\) and
+  \begin{lemma}[Kerbs]%
+    Let \(D\) be an anchored set. For any \(\alpha,\beta \in \pi_1^{\tr}(D)\) and
     global germ \(f\),
     \[
       f(\alpha\beta) - f(\alpha) = f(\beta) - f(\tau)
@@ -1003,6 +1228,19 @@
     where \(\tau\) is the constant path.
   \end{lemma}}
   \vspace{\stretch{1}}
+  \note{
+    \begin{itemize}
+      \item Before we continue, I want to give a look at the light at the end of
+            the tunnel. We are going to use the tracial cohomology group to show
+            that \(\pi_1^{\tr}\) injects in \(\CC \) and prove a major structure
+            theorem.
+      \item Like any good theorem, it all depends on some technical lemma---here
+            is ours
+      \item So what is this saying? \(f(\alpha\beta)-f(\alpha)\) measure how
+            analytic continuation changes the value of \(f(\alpha)\). With this
+            in mind, it isn't hard to believe the lemma.
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}
@@ -1020,26 +1258,50 @@
                \onslide<+->{&= f(\gamma_2) - f(\tau) + f(\gamma_1) -f(\tau) \\}
                \onslide<+->{&= c^f(\gamma_2) + c^f(\gamma_1).}
   \end{align*}
+  \note{
+    \begin{itemize}
+      \item Lets define \(c^f(\gamma)\) to be the measure of how analytic
+            continuation along \(\gamma\) changes \(f\).
+      \item What is amazing is that \(c^f(\gamma)\) is a homomorphism into \(\CC \)
+      \item From the definition, we use the ol' ``add, substract'' trick and
+            then our technical lemma
+      \item In fact, \(c^f(\gamma)\) gives us something stronger than a
+            homomorphism into \(\CC \).
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}
   \vspace{\stretch{1}}
 
   \onslide<+->{
-  \begin{lemma}
+  \begin{lemma}{Pascoe, 2020}
     The map
     \begin{align*}
-	    \Phi: \prod_{\substack{\nabla f \in H^1_{\tr}(D) \\ f \textrm{ a global germ}}} \pi_1^{\tr}(D)
+	    \Phi:  \pi_1^{\tr}(D)
       &\longrightarrow \prod_{\substack{\nabla f \in H^1_{\tr}(D) \\ f \textrm{ a global germ}}}\CC  \\
-      \prod \gamma &\longmapsto \prod c^f(\gamma)
+       \gamma &\longmapsto \prod c^f(\gamma)
     \end{align*}
-    is an injective homomophism.
+    is an injective homomorphism.
   \end{lemma}}
 
   \vspace{\stretch{1}}
   \onslide<+->{So \(\pi_1^{\tr}(D)\) is commutative and torsion free!}
 
   \vspace{\stretch{1}}
+  \note{
+    \begin{itemize}
+      \item So this lemma claims to be an injective homomorphism, but what it
+            going on with the map?
+      \item We map \(\pi_1\) into a product of \(\CC \)'s with one for every
+            unique image of a global germ under \(\nabla\).
+      \item To get injectivity, you do need that many products of \(\CC \). You
+            end up using a very similar arguement to what we did before of
+            ``add, subtract'' then using the technical lemma.
+      \item This gives us two really important characterizations of
+            \(\pi_1^{\tr}\)---we are commutative *and* torsion free
+    \end{itemize}
+  }
 \end{frame}
 
 \subsection{Characterizing \(\pi_1^{\tr}(D)\)}
@@ -1057,29 +1319,52 @@
   Why?
   \[
     H(t,\theta)  = \begin{bmatrix} \cos \theta & \sin \theta \\ -\sin \theta& \cos \theta \end{bmatrix}
-    \left( \gamma \oplus \gamma_X \right)
+    \left( \gamma \oplus \tau \right)
    \begin{bmatrix} \cos \theta & \sin \theta \\ -\sin \theta& \cos \theta \end{bmatrix}^*
   \]
   is a homotopy between the paths.}
   \vspace{\stretch{1}}
+  \note{
+    \begin{itemize}
+      \item But we can go further, and show that \(\pi_1^{\tr}\) is divisible.
+            Since we are writing our group multiplicatively, this is equivalent
+            to saying we can take \(n\)-th roots
+      \item The first thing we need is that, in \(\pi_1\) you can direct sum a
+            \(\tau\) on either side. All you need for this is a fixed end pt
+            homotopy of some rotation matrices
+      \item so if we have a path on one side of a direct sum and an identity on
+            the other, we are free to flip the order---this is how we will show divisibility
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}
 \begin{align*}
   \small
-\onslide<+->{  \gamma &= \underbrace{\begin{bsmallmatrix} \gamma &&&\\ &\gamma&\\&&\ddots\\&&&\gamma\end{bsmallmatrix}}_{k+1\textrm{-times}}\\}
+\onslide<+->{  \gamma &= \underbrace{\begin{bsmallmatrix} \gamma &&&\\ &\gamma&\\&&\ddots\\&&&\gamma\end{bsmallmatrix}}_{k\textrm{-times}}\\}
     \onslide<+->{&=\begin{bsmallmatrix} \gamma &&&\\ &\tau&\\&&\ddots\\&&&\tau\end{bsmallmatrix}
       \begin{bsmallmatrix} \tau &&&\\ &\gamma&\\&&\ddots\\&&&\tau\end{bsmallmatrix}\cdots
       \begin{bsmallmatrix} \tau &&&\\ &\tau&\\&&\ddots\\&&&\gamma\end{bsmallmatrix}\\}
-    \onslide<+->{&=\begin{bsmallmatrix} \gamma &&&\\ &\tau&\\&&\ddots\\&&&\gamma_X\end{bsmallmatrix}
+    \onslide<+->{&=\begin{bsmallmatrix} \gamma &&&\\ &\tau&\\&&\ddots\\&&&\tau\end{bsmallmatrix}
       \begin{bsmallmatrix} \gamma &&&\\ &\tau&\\&&\ddots\\&&&\tau\end{bsmallmatrix}\cdots
       \begin{bsmallmatrix} \gamma &&&\\ &\tau&\\&&\ddots\\&&&\tau\end{bsmallmatrix}\\}
     \onslide<+->{&=\begin{bsmallmatrix} \gamma &&&\\ &\tau&\\&&\ddots\\&&&\tau\end{bsmallmatrix}^k}
 \end{align*}
+\note{
+  \begin{itemize}
+    \item Under trace equivalence, we can direct sum as many \(\gamma\)'s we
+          want, so we grab \(k\) of them
+    \item Since diagonal, we can separate this to be a single \(\gamma\) and a
+          whole lot of \(\tau\)'s
+    \item But now we can go through and flip these one by one to put the
+          \(\gamma\) first
+    \item If we collect terms, we get a formula for \(k\)-th roots!
+  \end{itemize}
+}
 \end{frame}
 
 \begin{frame}
-  \begin{theorem}
+  \begin{theorem}{Pascoe 2020}
     For \(D\) an anchored free set, \(\pi_1^{\tr}(D)\) is a torsion free,
     abelian, divisible group. That is,
     \[
@@ -1087,6 +1372,15 @@
     \]
     for some set \(I\).
   \end{theorem}
+  \note{
+    \begin{itemize}
+      \item Putting this all together, we know that \(\pi_1^{\tr}\) is abelian,
+            divisible, and torsion free. Thanks to a ``fundamental structure
+            theorem'' this means that \(\pi_1^{\tr}\) is isomorphic to some
+            number of copies of \(\QQ \)!
+      \item ``But I promised we would be able to compute! This is just a structure theorem!''
+    \end{itemize}
+  }
 \end{frame}
 
 \section{Computing \(\pi_1^{\tr}(D)\)}
@@ -1097,7 +1391,8 @@
   \end{center}
   \note{
     \begin{itemize}
-      \item hard bc no VC or MV
+      \item In classical theory, we have VC and MV---neither of these exist
+            here. But we have something better: universal properties.
     \end{itemize}
   }
 \end{frame}
@@ -1106,14 +1401,14 @@
 
 \begin{frame}
   \onslide<+->{
-  Let \(D\) be an anchored, free, path connected set such that each \(D_n\) is
+  Let \(D\) be an anchored, path connected set such that each \(D_n\) is
   nonempty and choose an anchor \(B \subset D\) such that each \(B_n\) is also
   nonempty. \\}
 
 
   \vspace{\stretch{1}}
   \onslide<+->{Let \(\pi_1^{\tr}(D)_n\) is the subgroup of paths in \(D_n\).
-    Note that \(\pi_1^{\tr}(D)_1\) is a quotient of \(\pi_1(D_n)\).\\}
+    Note that \(\pi_1^{\tr}(D)_n\) is a quotient of \(\pi_1(D_n)\).\\}
 
 
   \vspace{\stretch{1}}
@@ -1124,6 +1419,16 @@
   \end{align*}
   for all \(k\).}
   \vspace{\stretch{1}}
+  \note{
+    \begin{itemize}
+      \item Here are our niceness condition for our computation to work.
+      \item as before, the \(_n\) denotes restricting to the \(n\times n\) level.
+      \item We are a quotient bc these are all paths in \(D_n\) but there might
+            be some paths that are distinct in \(\pi_1(D_n)\) but not in \(\pi_1^{\tr}(D)_n\).
+      \item Via direct sums, we have inclusion into any level with contains
+            \(n\) as a factor
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}
@@ -1141,6 +1446,18 @@
   \onslide<+->{The limit of this sequence isomorphic to \(\pi_1^{\tr}(D)\)!}
 
   \vspace{\stretch{2}}
+  \note{
+    \begin{itemize}
+      \item starting at the scalar level, lets run through all of the natural
+            inclusions, muliplying by the next positive integer each time.
+      \item If you're familiar with direct limits, its not hard to see that
+            \(\pi_1^{\tr}\) is the direct limit of this sequence
+      \item if you have no idea what that means, just think of it as the group
+            that naturally lives at the ``end'' of this sequence.
+      \item for domains that if within our niceness condition, this is exactly
+            how we compute \(\pi_1^{\tr}\).
+    \end{itemize}
+  }
 \end{frame}
 
 \subsection{An Example}
@@ -1152,7 +1469,7 @@
   \vspace{\stretch{1}}
   \onslide<+->{ \(GL_1(\CC) = \CC \setminus \{0\} \). Since
     \(\pi_1(GL_1) \simeq \ZZ \),
-    \(\pi_1^{\tr}(GL)_1 \simeq \ZZ \)} as well.
+    \(\pi_1^{\tr}(GL)_1 \simeq \ZZ \) as well.}
 
   \vspace{\stretch{1}}
   \onslide<+->{Inclusion into \(\pi_1^{\tr}(GL)_2\) picks up square roots. If
@@ -1164,6 +1481,20 @@
 
   \onslide<+->{Thus, \(\pi_1^{\tr}(GL)_2 \simeq \ZZ \left[\frac{1}{2}\right].\)}
   \vspace{\stretch{1}}
+  \note{
+    \begin{itemize}
+      \item Now we can proceed with an actual example! \(GL\) is all invertable
+            matrices of all sizes.
+      \item using the direct limit approach, we want look at the 1x1 slice.
+      \item the determinant a scalar is itself, so our set is
+            \(\CC \setminus \{0\} \), which has fundamental group \(\ZZ \). The
+            only way to be at torsion free subgroup/quotient of \(\ZZ \) is just
+            to be \(\ZZ \).
+      \item When we go the second level, we pick up square roots. It is not too
+            difficult to show that we don't get anything else, so we get
+            \(\ZZ [1 /2]\)
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}
@@ -1184,12 +1515,26 @@
   \]
 
   \vspace{\stretch{1}}
+  \note{
+    \begin{itemize}
+      \item For the same reason, when we include into our next one, we get cube
+            roots and adjoin \(1 / 3\)
+      \item continuing on in the same fashion, we get \(\QQ \)!
+    \end{itemize}
+  }
 \end{frame}
 
 \begin{frame}
   \begin{center}
     \textcolor{goodgood}{\huge{Thank You!}} \\
   \end{center}
+  \note{
+    \begin{itemize}
+      \item That's it! The algebraic topology of free sets is in its
+            infancy but results look promising!
+      \item Thank you!
+    \end{itemize}
+  }
 \end{frame}
 
 
